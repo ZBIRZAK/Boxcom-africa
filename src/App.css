@@ -25,7 +25,7 @@
   :root {
     --page-gutter: 22px;
     --content-width: 1140px;
-    --content-pad-x: 18px;
+    --content-pad-x: 0px;
   }
 }
 
