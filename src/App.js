@@ -1,24 +1,732 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
 
+const menuItems = [
+  { label: 'Home', href: '#/' },
+  { label: 'Services', href: '#/services' },
+  { label: 'Projects', href: '#/projects', active: true },
+  { label: 'Blog', href: '#/blog' },
+  { label: 'About Us', href: '#/about' },
+];
+
+const serviceItems = [
+  {
+    label: 'Media Relations',
+    title: 'Media Relations',
+    description:
+      'Build the right media angle, connect with the right journalists and keep your story relevant across the market.',
+    image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/Media%20Relations%20Image.png`,
+  },
+  {
+    label: 'Media Events',
+    title: 'Media Events',
+    description:
+      'Plan launches, briefings and high-visibility moments that give your announcement the right setting and attention.',
+    image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/Media%20Events%20Image.png`,
+  },
+  {
+    label: 'Media Monitoring',
+    title: 'Media Monitoring',
+    description:
+      'Track coverage, sentiment and message pull-through so decisions stay tied to real audience and press response.',
+    image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/Media%20Monitoring%20Image.png`,
+  },
+  {
+    label: 'Social PR',
+    title: 'Social PR',
+    description:
+      'Translate your PR story into social formats that stay consistent with the wider campaign and audience expectations.',
+    image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/Social%20PR%20Image.png`,
+  },
+  {
+    label: 'Influencer Relations',
+    title: 'Influencer Relations',
+    description:
+      'Develop releases, articles, speeches and media assets that are clear, usable and adapted to the market.',
+    image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/Influencer%20Relations%20Image.png`,
+  },
+];
+
+const clientLogos = [
+  { label: 'Client logo 1', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/1.svg` },
+  { label: 'Client logo 2', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/2.svg` },
+  { label: 'Client logo 3', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/3.svg` },
+  { label: 'Client logo 4', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/4.svg` },
+  { label: 'Client logo 5', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/5.svg` },
+  { label: 'Client logo 6', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/6.svg` },
+  { label: 'Client logo 7', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/7.svg` },
+  { label: 'Client logo 8', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/8.svg` },
+  { label: 'Client logo 9', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/9.svg` },
+  { label: 'Client logo 10', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/10.svg` },
+  { label: 'Client logo 11', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/11.svg` },
+  { label: 'Client logo 12', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/12.svg` },
+  { label: 'Client logo 13', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/13.svg` },
+  { label: 'Client logo 14', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/14.svg` },
+  { label: 'Client logo 15', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/15.svg` },
+];
+
+const projectItems = [
+  {
+    label: 'inDrive',
+    title: 'inDrive',
+    category: 'Media Relations',
+    image: `${process.env.PUBLIC_URL}/assets/CaseStudy_Approved%20Images/InDrive_CaseStudy.png`,
+  },
+  {
+    label: 'Samsung',
+    title: 'Samsung',
+    category: 'Product Launch',
+    image: `${process.env.PUBLIC_URL}/assets/CaseStudy_Approved%20Images/Samsung_Case_Study.png`,
+  },
+  {
+    label: 'GWM',
+    title: 'GWM',
+    category: 'Media Events',
+    image: `${process.env.PUBLIC_URL}/assets/CaseStudy_Approved%20Images/GWM_CaseStudy.png`,
+  },
+  {
+    label: 'Garena',
+    title: 'Garena',
+    category: 'Gaming Community',
+    image: `${process.env.PUBLIC_URL}/assets/CaseStudy_Approved%20Images/Garena_CaseStudy.png`,
+  },
+  {
+    label: 'Mifa',
+    title: 'MIFA',
+    category: 'Exhibition Presence',
+    image: `${process.env.PUBLIC_URL}/assets/CaseStudy_Approved%20Images/Mifa_CaseStudy.png`,
+  },
+];
+
+const mediaItems = [
+  {
+    label: 'Le Matin',
+    logo: `${process.env.PUBLIC_URL}/assets/Our%20Media%20Coverage_Approved%20Images/Le%20Matin%20Logo.png`,
+    image: `${process.env.PUBLIC_URL}/assets/Our%20Media%20Coverage_Approved%20Images/LeMatin_Media%20Coverage.png`,
+  },
+  {
+    label: '2M',
+    logo: `${process.env.PUBLIC_URL}/assets/Our%20Media%20Coverage_Approved%20Images/2M%20Logo.png`,
+    image: `${process.env.PUBLIC_URL}/assets/Our%20Media%20Coverage_Approved%20Images/2M_Media%20Coverage.png`,
+  },
+  {
+    label: 'Hespress',
+    logo: `${process.env.PUBLIC_URL}/assets/Our%20Media%20Coverage_Approved%20Images/Hespress%20Logo.png`,
+    image: `${process.env.PUBLIC_URL}/assets/Our%20Media%20Coverage_Approved%20Images/Hespress_Media%20Coverage.png`,
+  },
+  {
+    label: 'Le Matin',
+    logo: `${process.env.PUBLIC_URL}/assets/Our%20Media%20Coverage_Approved%20Images/Le%20Matin%20Logo.png`,
+    image: `${process.env.PUBLIC_URL}/assets/Our%20Media%20Coverage_Approved%20Images/LeMatin_Media%20Coverage.png`,
+  },
+  {
+    label: '2M',
+    logo: `${process.env.PUBLIC_URL}/assets/Our%20Media%20Coverage_Approved%20Images/2M%20Logo.png`,
+    image: `${process.env.PUBLIC_URL}/assets/Our%20Media%20Coverage_Approved%20Images/2M_Media%20Coverage.png`,
+  },
+];
+
+const testimonialItems = [
+  {
+    brand: 'Xerox',
+    name: 'Amira Mazali',
+    role: 'Head of Marketing.',
+    quote:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec volutpat purus non augue volutpat, porta semper dui consectetur.',
+  },
+  {
+    brand: 'AirFrance',
+    name: 'Amira Mazali',
+    role: 'Head of Marketing.',
+    quote:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec volutpat purus non augue volutpat, porta semper dui consectetur.',
+  },
+  {
+    brand: 'Xerox',
+    name: 'Amira Mazali',
+    role: 'Head of Marketing.',
+    quote:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec volutpat purus non augue volutpat, porta semper dui consectetur.',
+  },
+];
+
+const faqItems = [
+  {
+    question: 'Is BOXCOM Africa a PR agency in Morocco?',
+    answer:
+      'Yes. BOXCOM Africa is a PR agency in Morocco, based in Casablanca and focused on PR, press relations, media relations, crisis management and consultancy, Social PR and influencer relations across Morocco, Africa.',
+  },
+  {
+    question: 'What makes BOXCOM Africa different from a general PR agency?',
+    answer:
+      'We combine local market understanding, media judgment and cross-market execution so strategy and delivery stay aligned from start to finish.',
+  },
+  {
+    question: 'Can BOXCOM Africa support more than one market?',
+    answer:
+      'Yes. We work with trusted partners across Africa to adapt narratives, language and media outreach to each relevant market.',
+  },
+  {
+    question: 'Can BOXCOM Africa help when a story becomes sensitive?',
+    answer:
+      'Yes. Crisis management and consultancy are part of the offer, helping shape, protect and clarify narratives when timing is critical.',
+  },
+];
+
+const socialItems = [
+  { label: 'LinkedIn', src: `${process.env.PUBLIC_URL}/assets/social/linkedin.png`, href: '#/linkedin' },
+  { label: 'Facebook', src: `${process.env.PUBLIC_URL}/assets/social/facebook.png`, href: '#/facebook' },
+  { label: 'Instagram', src: `${process.env.PUBLIC_URL}/assets/social/instagram.png`, href: '#/instagram' },
+];
+
+function wrapIndex(index, length) {
+  return (index + length) % length;
+}
+
 function App() {
+  const [activeService, setActiveService] = useState(serviceItems[4].label);
+  const [activeProject, setActiveProject] = useState(2);
+  const [projectMotion, setProjectMotion] = useState('next');
+  const [activeMediaPage, setActiveMediaPage] = useState(0);
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
+  const [openFaq, setOpenFaq] = useState(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [viewportWidth, setViewportWidth] = useState(() =>
+    typeof window === 'undefined' ? 1280 : window.innerWidth
+  );
+  const heroVideo = `${process.env.PUBLIC_URL}/assets/Videos/Design%20of%20BoxCom%20Africa%20Website.mp4?v=20260710-hero-1`;
+  const logoSrc = `${process.env.PUBLIC_URL}/assets/logo/logo-original.png`;
+  const businessThinkingSrc = `${process.env.PUBLIC_URL}/assets/ABOUTUS_CoWorkers-new.png`;
+  const mediaShapeSrc = `${process.env.PUBLIC_URL}/assets/Our%20Media%20Coverage_Approved%20Images/africa%20logo.png`;
+  const coverageCardsPerPage = viewportWidth <= 640 ? 1 : 3;
+  const mediaPageCount = Math.max(1, mediaItems.length - coverageCardsPerPage + 1);
+  const visibleMediaItems = mediaItems.slice(activeMediaPage, activeMediaPage + coverageCardsPerPage);
+  const isMobileViewport = viewportWidth <= 640;
+  const isMobileClientsCarousel = viewportWidth <= 640;
+  const visibleClientLogos = clientLogos;
+  const visibleTestimonials = testimonialItems;
+
+  useEffect(() => {
+    const handleResize = () => {
+      setViewportWidth(window.innerWidth);
+      if (window.innerWidth > 1200) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    setActiveMediaPage((current) => Math.min(current, Math.max(0, mediaPageCount - 1)));
+  }, [mediaPageCount]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className="app">
+      <div className="hero-frame">
+        <header className="site-header">
+          <div className="site-header__inner">
+            <a
+              className="brand"
+              href="#/"
+              aria-label="Boxcom Africa"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <img className="brand__image" src={logoSrc} alt="" aria-hidden="true" />
+            </a>
+
+            <button
+              type="button"
+              className={`menu-toggle${isMenuOpen ? ' is-open' : ''}`}
+              aria-expanded={isMenuOpen}
+              aria-controls="primary-menu"
+              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+              onClick={() => setIsMenuOpen((current) => !current)}
+            >
+              <span />
+              <span />
+              <span />
+            </button>
+
+            <div id="primary-menu" className={`site-header__menu${isMenuOpen ? ' is-open' : ''}`}>
+              <nav className="main-nav" aria-label="Primary">
+                {menuItems.map((item) => (
+                  <a
+                    key={item.label}
+                    className={`main-nav__link${item.active ? ' is-active' : ''}`}
+                    href={item.href}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </nav>
+
+              <a className="header-cta" href="#/contact" onClick={() => setIsMenuOpen(false)}>
+                Talk to Our PR Team <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+        </header>
+
+        <section className="hero-section" aria-label="Hero">
+          <div className="hero-section__inner">
+            <div className="hero-copy">
+              <h1 className="hero-title">
+                <span className="hero-title__line">PR Agency in</span>
+                <span className="hero-title__line hero-title__line--orange">Morocco</span>
+                <span className="hero-title__line">
+                  <em>for</em> <strong>Africa</strong>
+                </span>
+              </h1>
+              <p className="hero-description">
+                BOXCOM Africa is a Casablanca-based PR agency in Morocco built for brands that need more than
+                distribution.
+              </p>
+            </div>
+
+            <div className="hero-media" aria-hidden="true">
+              <video
+                className="hero-media__video"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+              >
+                <source src={heroVideo} type="video/mp4" />
+              </video>
+              <div className="hero-media__overlay" />
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section className="insight-section">
+        <div className="insight-section__inner">
+          <div className="insight-art" aria-hidden="true">
+            <img className="insight-art__image insight-art__image--full" src={businessThinkingSrc} alt="" />
+          </div>
+
+          <div className="insight-copy">
+            <h2 className="section-title">Business Thinking, Media Relations and Local Context</h2>
+            <p>A strong press story starts with the business objective.</p>
+            <p>
+              We turn it into the right media angle, supported by the right timing, materials and journalist
+              relationships to maximise impact. Through crisis management and consultancy, we help shape,
+              protect and clarify narratives when it matters most.
+            </p>
+            <p>
+              As a PR Agency in Casablanca, we also work with trusted partners across Africa to ensure every
+              story is adapted to the language, culture and media landscape of each market.
+            </p>
+
+            <a className="primary-pink-button" href="#/contact">
+              Start a Project
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="services-section" id="services">
+        <div className="services-section__inner">
+          <div className="services-section__heading">
+            <h2 className="section-title section-title--services">One PR Program, Several Connected Services</h2>
+            <p className="services-intro">
+              Clients do not need several agencies pulling the message in different directions. <br/>
+              BOXCOM Africa brings strategy, media, content, monitoring, social and creators under one accountable team, so
+              every action supports the same narrative. <br/>
+              Senior practitioners stay close to the account, so
+              strategy, media judgment and delivery do not separate after the first meeting.
+            </p>
+          </div>
+
+          <div className="services-accordion" aria-label="Connected services">
+            {serviceItems.map((item) => {
+              const isActive = item.label === activeService;
+              const panelId = `service-panel-${item.label.toLowerCase().replace(/\s+/g, '-')}`;
+              const buttonId = `service-button-${item.label.toLowerCase().replace(/\s+/g, '-')}`;
+
+              return (
+                <section key={item.label} className={`service-item${isActive ? ' is-active' : ''}`}>
+                  <h3 className="service-item__heading">
+                    <button
+                      id={buttonId}
+                      type="button"
+                      className={`service-tab${isActive ? ' is-active' : ''}`}
+                      onClick={() => setActiveService(item.label)}
+                      aria-expanded={isActive}
+                      aria-controls={panelId}
+                    >
+                      <span className="service-tab__label">{item.label}</span>
+                    </button>
+                  </h3>
+
+                  <div
+                    id={panelId}
+                    className={`service-panel${isActive ? ' is-active' : ''}`}
+                    aria-labelledby={buttonId}
+                    aria-hidden={!isActive}
+                  >
+                    <article className="service-card">
+                      <img className="service-card__image" src={item.image} alt={item.title} />
+                      <div className="service-card__overlay" />
+                      <div className="service-card__content">
+                        <h4>{item.title}</h4>
+                        <p>{item.description}</p>
+                      </div>
+                    </article>
+                  </div>
+                </section>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="clients-section">
+        <div className="clients-section__inner">
+          <h2 className="clients-section__title">Our Clients</h2>
+          {isMobileClientsCarousel ? (
+            <div className="clients-ticker" aria-label="Our clients">
+              <div className="clients-ticker__track">
+                {[...clientLogos, ...clientLogos].map((item, index) => (
+                  <div key={`${item.label}-${index}`} className="clients-grid__item clients-grid__item--ticker">
+                    <img src={item.src} alt={index < clientLogos.length ? item.label : ''} aria-hidden={index >= clientLogos.length} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <div className="clients-grid">
+              {visibleClientLogos.map((item) => (
+                <div key={item.label} className="clients-grid__item">
+                  <img src={item.src} alt={item.label} />
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+      <section className="projects-section" id="projects">
+        <div className="projects-section__inner">
+          <h2 className="projects-section__title">Selected Projects</h2>
+
+          <div className="projects-switcher">
+            <button
+              type="button"
+              className="projects-switcher__arrow projects-switcher__arrow--left"
+              aria-label="Previous project"
+              onClick={() => {
+                setProjectMotion('prev');
+                setActiveProject((current) => wrapIndex(current - 1, projectItems.length));
+              }}
+            >
+              ‹
+            </button>
+
+            <div className={`projects-switcher__track is-animating-${projectMotion}`}>
+              {[-2, -1, 0, 1, 2].map((offset) => {
+                const project = projectItems[wrapIndex(activeProject + offset, projectItems.length)];
+                const positionClass =
+                  offset === 0
+                    ? 'is-center'
+                    : Math.abs(offset) === 1
+                      ? 'is-side'
+                      : 'is-edge';
+
+                return (
+                  <article key={`${project.label}-${offset}`} className={`project-card ${positionClass}`}>
+                    <img className="project-card__image" src={project.image} alt={project.title} />
+                    <div className="project-card__overlay" />
+                    {offset === 0 && (
+                      <div className="project-card__content">
+                        <h3>{project.title}</h3>
+                        <p>{project.category}</p>
+                      </div>
+                    )}
+                  </article>
+                );
+              })}
+            </div>
+
+            <button
+              type="button"
+              className="projects-switcher__arrow projects-switcher__arrow--right"
+              aria-label="Next project"
+              onClick={() => {
+                setProjectMotion('next');
+                setActiveProject((current) => wrapIndex(current + 1, projectItems.length));
+              }}
+            >
+              ›
+            </button>
+          </div>
+
+          <a className="primary-pink-button primary-pink-button--projects" href="#/projects">
+            See More
+          </a>
+        </div>
+      </section>
+
+      <section className="coverage-section">
+        <div className="coverage-section__inner">
+          <div className="coverage-section__copy">
+            <h2 className="coverage-section__title">Our Media Coverage</h2>
+            <p>
+              The right story rarely moves because it was sent to the longest list. It moves because the
+              angle is relevant, the timing is right and the journalist receiving it sees a reason to care.
+            </p>
+          </div>
+
+          <img className="coverage-section__shape" src={mediaShapeSrc} alt="" aria-hidden="true" />
+
+          <div className="coverage-slider">
+            <div className="coverage-slider__track">
+              {visibleMediaItems.map((item, index) => (
+                <article key={`${item.label}-${activeMediaPage}-${index}`} className="coverage-card">
+                  <img className="coverage-card__image" src={item.image} alt={item.label} />
+                  <div className="coverage-card__footer">
+                    <img className="coverage-card__logo" src={item.logo} alt={item.label} />
+                    <span className="coverage-card__arrow" aria-hidden="true">
+                      →
+                    </span>
+                  </div>
+                </article>
+              ))}
+            </div>
+
+            <div className="coverage-slider__pagination" aria-label="Media coverage pages">
+              {Array.from({ length: mediaPageCount }).map((_, index) => (
+                <button
+                  key={index}
+                  type="button"
+                  className={`coverage-slider__dot${index === activeMediaPage ? ' is-active' : ''}`}
+                  aria-label={`Go to media page ${index + 1}`}
+                  onClick={() => setActiveMediaPage(index)}
+                />
+              ))}
+            </div>
+
+            <a className="primary-pink-button primary-pink-button--coverage" href="#/coverage">
+              See More
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="testimonials-section">
+        <div className="testimonials-section__inner">
+          <h2 className="testimonials-section__title">What Clients Says</h2>
+          <p className="testimonials-section__intro">
+            Testimonials can strengthen the homepage once approved client quotes are available. The best
+            quotes should speak to responsiveness, media judgment, quality of coverage or senior involvement.
+          </p>
+
+          <div className="testimonials-slider">
+            <button
+              type="button"
+              className="testimonials-slider__arrow testimonials-slider__arrow--left"
+              aria-label="Previous testimonial"
+              onClick={() => setActiveTestimonial((current) => wrapIndex(current - 1, testimonialItems.length))}
+            >
+              ‹
+            </button>
+
+            <div className="testimonials-slider__viewport">
+              <div
+                className={`testimonials-slider__track${isMobileViewport ? ' is-mobile' : ''}`}
+                style={
+                  isMobileViewport
+                    ? {
+                        '--testimonial-count': testimonialItems.length,
+                        width: `${testimonialItems.length * 100}%`,
+                        transform: `translateX(-${activeTestimonial * (100 / testimonialItems.length)}%)`,
+                      }
+                    : undefined
+                }
+              >
+                {visibleTestimonials.map((item, index) => (
+                  <article key={`${item.brand}-${index}`} className="testimonial-card">
+                    <h3>{item.brand}</h3>
+                    <p className="testimonial-card__name">{item.name}</p>
+                    <p className="testimonial-card__role">{item.role}</p>
+                    <blockquote>{item.quote}</blockquote>
+                  </article>
+                ))}
+              </div>
+            </div>
+
+            <button
+              type="button"
+              className="testimonials-slider__arrow testimonials-slider__arrow--right"
+              aria-label="Next testimonial"
+              onClick={() => setActiveTestimonial((current) => wrapIndex(current + 1, testimonialItems.length))}
+            >
+              ›
+            </button>
+          </div>
+
+          <div className="testimonials-slider__pagination" aria-label="Testimonials pagination">
+            {testimonialItems.map((item, index) => (
+              <button
+                key={`${item.brand}-${index}`}
+                type="button"
+                className={`testimonials-slider__dot${index === activeTestimonial ? ' is-active' : ''}`}
+                aria-label={`Go to testimonial ${index + 1}`}
+                onClick={() => setActiveTestimonial(index)}
+              />
+            ))}
+          </div>
+
+          <div className="review-banner">
+            <div className="review-banner__score">
+              <span className="review-banner__value">4.9</span>
+              <span className="review-banner__star">★</span>
+              <span className="review-banner__label">On Google</span>
+            </div>
+            <p className="review-banner__copy">Constently saluted for its strategy, presence and its results</p>
+            <a className="primary-pink-button review-banner__cta" href="#/reviews">
+              Check our Google Reviews
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="faq-section">
+        <div className="faq-section__inner">
+          <h2 className="faq-section__title">Frequently Asked Questions</h2>
+          <div className="faq-list">
+            {faqItems.map((item, index) => {
+              const isOpen = index === openFaq;
+              return (
+                <section key={item.question} className={`faq-item${isOpen ? ' is-open' : ''}`}>
+                  <h3 className="faq-item__heading">
+                    <button
+                      type="button"
+                      className="faq-item__button"
+                      aria-expanded={isOpen}
+                      onClick={() => setOpenFaq(isOpen ? -1 : index)}
+                    >
+                      <span>{item.question}</span>
+                      <span className="faq-item__icon" aria-hidden="true">
+                        {isOpen ? '⌃' : '⌄'}
+                      </span>
+                    </button>
+                  </h3>
+                  {isOpen && <div className="faq-item__panel">{item.answer}</div>}
+                </section>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="contact-section">
+        <div className="contact-section__inner">
+          <h2 className="contact-section__title">Start The Conversation</h2>
+          <p className="contact-section__intro">
+            Tell us the story, the market and the timing. A senior member of the team will help identify the
+            questions worth answering first.
+          </p>
+
+          <div className="contact-section__top">
+            <div className="contact-map">
+              <iframe
+                title="BOXCOM Africa location"
+                src="https://maps.google.com/maps?q=33.58739,-7.636312&z=17&hl=fr&output=embed"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+
+            <form className="contact-form">
+              <div className="contact-form__row">
+                <label>
+                  <span>Your Name</span>
+                  <input type="text" placeholder="Your Full Name" />
+                </label>
+                <label>
+                  <span>Your Company</span>
+                  <input type="text" placeholder="Your Company" />
+                </label>
+              </div>
+              <label>
+                <span>Your Email</span>
+                <input type="email" placeholder="Your Email" />
+              </label>
+              <label>
+                <span>Message</span>
+                <textarea placeholder="Type your message here." rows="5" />
+              </label>
+              <button type="submit" className="primary-pink-button contact-form__submit">
+                Send Message
+              </button>
+            </form>
+          </div>
+
+          <div className="contact-section__bottom">
+            <div className="contact-details">
+              <div>
+                <h3>Phone</h3>
+                <p>123-456-7890</p>
+              </div>
+              <div>
+                <h3>Email</h3>
+                <p>Info@box-com.com</p>
+              </div>
+              <div>
+                <h3>Address</h3>
+                <p>123 Street</p>
+              </div>
+            </div>
+
+            <div className="footer-menu">
+              <h3>Menu</h3>
+              <a href="#/">HOMEPAGE</a>
+              <a href="#/services">SERVICES</a>
+              <a href="#/projects">CASE STUDIES</a>
+              <a href="#/blog">BLOG</a>
+              <a href="#/about">ABOUT US</a>
+            </div>
+
+            <div className="footer-social">
+              <div className="footer-social__icons">
+                {socialItems.map((item) => (
+                  <a key={item.label} href={item.href} aria-label={item.label}>
+                    <img src={item.src} alt="" aria-hidden="true" />
+                  </a>
+                ))}
+              </div>
+              <div className="newsletter">
+                <h3>Newsletter</h3>
+                <p>Receive news and promotions by email !</p>
+                <div className="newsletter__field">
+                  <span>@</span>
+                  <input type="email" placeholder="Your email address" />
+                  <button type="button">→</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="footer-cta">
+            <div className="footer-cta__line" />
+            <a href="#/contact" className="footer-cta__button">
+              Get Started
+            </a>
+          </div>
+
+          <div className="footer-legal">
+            <a href="#/terms">TERMS & CONDITIONS</a>
+            <a href="#/privacy">PRIVACY POLICY</a>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
 
