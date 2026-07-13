@@ -1939,7 +1939,7 @@
 
   .hero-copy {
     justify-content: flex-end;
-    padding: 18px 18px 26px;
+    padding: 18px 0px 26px;
     min-height: 0;
   }
 
