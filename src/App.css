@@ -13,6 +13,54 @@
   --paragraph-size: clamp(1.28rem, 1.24vw, 1.5rem);
 }
 
+@media (min-width: 1800px) {
+  :root {
+    --page-gutter: 72px;
+    --content-width: 1560px;
+    --content-pad-x: 34px;
+    --paragraph-size: 1.5rem;
+  }
+
+  .hero-title {
+    max-width: 860px;
+  }
+
+  .hero-description,
+  .services-intro,
+  .insight-copy p,
+  .coverage-section__copy p,
+  .testimonials-section__intro,
+  .contact-section__intro {
+    max-width: 860px;
+  }
+
+  .projects-switcher__track {
+    min-height: 540px;
+    gap: 18px;
+    padding: 0 96px;
+  }
+
+  .project-card.is-center {
+    width: min(100%, 460px);
+    height: 500px;
+  }
+
+  .project-card.is-side {
+    width: min(100%, 332px);
+    height: 410px;
+  }
+
+  .project-card.is-edge {
+    width: min(100%, 184px);
+    height: 332px;
+  }
+
+  .testimonials-slider__viewport,
+  .review-banner {
+    max-width: 1480px;
+  }
+}
+
 @media (max-width: 1512px) {
   :root {
     --page-gutter: 26px;
@@ -487,6 +535,12 @@
 .service-tab__eyebrow,
 .service-tab__icon {
   display: none;
+}
+
+@media (min-width: 641px) {
+  .service-item.is-active .service-item__heading {
+    display: none;
+  }
 }
 
 .service-panel {
