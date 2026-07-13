@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './App.css';
 
 const menuItems = [
@@ -194,6 +194,8 @@ function App() {
   const [viewportWidth, setViewportWidth] = useState(() =>
     typeof window === 'undefined' ? 1280 : window.innerWidth
   );
+  const projectDragStartX = useRef(null);
+  const projectDragCurrentX = useRef(null);
   const heroVideo = `${process.env.PUBLIC_URL}/assets/Videos/Design%20of%20BoxCom%20Africa%20Website.mp4?v=20260710-hero-1`;
   const logoSrc = `${process.env.PUBLIC_URL}/assets/logo/logo-original.png`;
   const businessThinkingSrc = `${process.env.PUBLIC_URL}/assets/ABOUTUS_CoWorkers-new.png`;
@@ -205,6 +207,75 @@ function App() {
   const isMobileClientsCarousel = viewportWidth <= 640;
   const visibleClientLogos = clientLogos;
   const visibleTestimonials = testimonialItems;
+
+  const showPreviousProject = () => {
+    setProjectMotion('prev');
+    setActiveProject((current) => wrapIndex(current - 1, projectItems.length));
+  };
+
+  const showNextProject = () => {
+    setProjectMotion('next');
+    setActiveProject((current) => wrapIndex(current + 1, projectItems.length));
+  };
+
+  const beginProjectDrag = (clientX) => {
+    projectDragStartX.current = clientX;
+    projectDragCurrentX.current = clientX;
+  };
+
+  const updateProjectDrag = (clientX) => {
+    if (projectDragStartX.current === null) {
+      return;
+    }
+
+    projectDragCurrentX.current = clientX;
+  };
+
+  const endProjectDrag = () => {
+    if (projectDragStartX.current === null || projectDragCurrentX.current === null) {
+      projectDragStartX.current = null;
+      projectDragCurrentX.current = null;
+      return;
+    }
+
+    const swipeDistance = projectDragStartX.current - projectDragCurrentX.current;
+    const swipeThreshold = 46;
+
+    if (swipeDistance > swipeThreshold) {
+      showNextProject();
+    } else if (swipeDistance < -swipeThreshold) {
+      showPreviousProject();
+    }
+
+    projectDragStartX.current = null;
+    projectDragCurrentX.current = null;
+  };
+
+  const handleProjectTouchStart = (event) => {
+    beginProjectDrag(event.touches[0].clientX);
+  };
+
+  const handleProjectTouchMove = (event) => {
+    updateProjectDrag(event.touches[0].clientX);
+  };
+
+  const handleProjectMouseDown = (event) => {
+    beginProjectDrag(event.clientX);
+  };
+
+  const handleProjectMouseMove = (event) => {
+    updateProjectDrag(event.clientX);
+  };
+
+  const handleProjectMouseUp = () => {
+    endProjectDrag();
+  };
+
+  const handleProjectMouseLeave = () => {
+    if (projectDragStartX.current !== null) {
+      endProjectDrag();
+    }
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -420,15 +491,22 @@ function App() {
               type="button"
               className="projects-switcher__arrow projects-switcher__arrow--left"
               aria-label="Previous project"
-              onClick={() => {
-                setProjectMotion('prev');
-                setActiveProject((current) => wrapIndex(current - 1, projectItems.length));
-              }}
+              onClick={showPreviousProject}
             >
               ‹
             </button>
 
-            <div className={`projects-switcher__track is-animating-${projectMotion}`}>
+            <div
+              className={`projects-switcher__track is-animating-${projectMotion}`}
+              onMouseDown={handleProjectMouseDown}
+              onMouseMove={handleProjectMouseMove}
+              onMouseUp={handleProjectMouseUp}
+              onMouseLeave={handleProjectMouseLeave}
+              onTouchStart={handleProjectTouchStart}
+              onTouchMove={handleProjectTouchMove}
+              onTouchEnd={endProjectDrag}
+              onTouchCancel={endProjectDrag}
+            >
               {[-2, -1, 0, 1, 2].map((offset) => {
                 const project = projectItems[wrapIndex(activeProject + offset, projectItems.length)];
                 const positionClass =
@@ -457,10 +535,7 @@ function App() {
               type="button"
               className="projects-switcher__arrow projects-switcher__arrow--right"
               aria-label="Next project"
-              onClick={() => {
-                setProjectMotion('next');
-                setActiveProject((current) => wrapIndex(current + 1, projectItems.length));
-              }}
+              onClick={showNextProject}
             >
               ›
             </button>
