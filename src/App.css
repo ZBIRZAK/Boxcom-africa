@@ -633,7 +633,7 @@
 .services-intro {
   margin: 20px 0 0;
   max-width: 100%;
-  color: #ffffff;
+  color: #000326;
   font-size: var(--paragraph-size);
   line-height: 1.32;
   letter-spacing: -0.02em;
@@ -1308,7 +1308,7 @@ width: 64px;
 .testimonials-section__intro {
   max-width: 1320px;
   margin: 22px auto 0;
-  color: #ffffff;
+  color: #000326;
   text-align: center;
   font-size: var(--paragraph-size);
   line-height: 1.4;
@@ -1383,7 +1383,7 @@ width: 64px;
   padding: 10px 28px 40px 32px;
   border: 2px solid rgba(184, 129, 25, 0.42);
   border-radius: 30px;
-  background: #020433;
+  background: #000326;
   box-shadow: 0 18px 28px rgba(183, 111, 0, 0.2);
   text-align: center;
   display: flex;
@@ -1638,6 +1638,7 @@ width: 64px;
   width: 100%;
   margin-top: 16px;
   border: 0;
+  background: #030625;
 }
 
 .contact-section__bottom {
@@ -1735,7 +1736,7 @@ width: 64px;
   height: 48px;
   border: 0;
   border-radius: 999px;
-  background: #ff7a39;
+  background: #000326;
   color: #ffffff;
   font-size: 2rem;
   cursor: pointer;
@@ -1751,7 +1752,7 @@ width: 64px;
 .footer-cta__line {
   flex: 1 1 auto;
   height: 4px;
-  background: #ff7f36;
+  background: #f7be3e;
 }
 
 .footer-cta__button {
@@ -1760,7 +1761,7 @@ width: 64px;
   min-height: 60px;
   padding: 0 28px;
   border-radius: 999px;
-  background: #ff7a38;
+  background: #f7be3e;
   color: #08103d;
   display: inline-flex;
   align-items: center;
@@ -1779,7 +1780,7 @@ width: 64px;
 }
 
 .footer-legal a {
-  color: #d8b04d;
+  color: #ffffff;
   text-decoration: none;
   font-size: 1rem;
   letter-spacing: 0.02em;
