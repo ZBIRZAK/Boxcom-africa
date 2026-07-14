@@ -202,7 +202,7 @@ function App() {
   );
   const projectDragStartX = useRef(null);
   const projectDragCurrentX = useRef(null);
-  const heroVideo = `${process.env.PUBLIC_URL}/assets/Videos/Design%20of%20BoxCom%20Africa%20Website.mp4?v=20260710-hero-1`;
+  const heroVideo = `${process.env.PUBLIC_URL}/assets/Videos/Design%20of%20BoxCom%20Africa%20Website.webm?v=20260710-hero-1`;
   const logoSrc = `${process.env.PUBLIC_URL}/assets/logo/logo-original.png`;
   const businessThinkingSrc = `${process.env.PUBLIC_URL}/assets/ABOUTUS_CoWorkers-new.png`;
   const contactPagePortraitSrc = `${process.env.PUBLIC_URL}/assets/imgs/width_1600.webp`;
