@@ -717,7 +717,7 @@ width: 64px;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   font-family: 'Garet', sans-serif;
-  font-size: clamp(1.05rem, 1.25vw, 1.55rem);
+  font-size: 1.25vw;
   font-weight: 700;
   letter-spacing: 0.08em;
 }
