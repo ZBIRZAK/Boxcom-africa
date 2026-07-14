@@ -59,6 +59,22 @@
   .review-banner {
     max-width: 1480px;
   }
+
+  .header-cta {
+    font-size: 1.08rem;
+  }
+
+  .primary-pink-button {
+    font-size: 1.7rem;
+  }
+
+  .contact-page-form__button {
+    font-size: 1.5rem;
+  }
+
+  .footer-cta__button {
+    font-size: 1.6rem;
+  }
 }
 
 @media (max-width: 1512px) {
