@@ -16,7 +16,7 @@
 @media (min-width: 1800px) {
   :root {
     --page-gutter: 72px;
-    --content-width: 1560px;
+    --content-width: 1480px;
     --content-pad-x: 34px;
     --paragraph-size: 1.5rem;
   }
