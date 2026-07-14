@@ -39,6 +39,13 @@ const serviceItems = [
     image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/Social%20PR%20Image.png`,
   },
   {
+    label: 'PR Content Creation',
+    title: 'PR Content Creation',
+    description:
+      'Create press-ready stories, releases and supporting materials that keep your narrative clear, useful and aligned across channels.',
+    image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/PR%20Content%20Creation%20Image.png`,
+  },
+  {
     label: 'Influencer Relations',
     title: 'Influencer Relations',
     description:
