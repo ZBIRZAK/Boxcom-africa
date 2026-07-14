@@ -18,7 +18,7 @@
     --page-gutter: 72px;
     --content-width: 1280px;
     --content-pad-x: 34px;
-    --paragraph-size: 1.5rem;
+    --paragraph-size: 1.4rem;
   }
 
   .hero-title {
@@ -188,7 +188,7 @@
 }
 
 .main-nav__link.is-active {
-  color: #ff741d;
+  color: #ff7a38;
   text-decoration: underline;
   text-underline-offset: 4px;
   font-weight: 700;
@@ -834,7 +834,7 @@ width: 94px;
 
 .clients-section__title {
   margin: 0 0 42px;
-  color: #68aabc;
+  color: #60a1ad;
   text-align: center;
   font-family: 'Garet', sans-serif;
   font-size: 3rem;
@@ -1467,25 +1467,21 @@ width: 94px;
 }
 
 .faq-section__title {
-  color: #68aabc;
+  color: #60a1ad;
 }
 
 .faq-list {
   max-width: 1340px;
   margin: 62px auto 0;
+  padding: 0 46px;
+  border-radius: 34px;
+  background: #ffffff;
+  box-shadow: 0 22px 54px rgba(14, 28, 72, 0.08);
 }
 
 .faq-item {
-  border: 1px solid #e0b377;
-  background: #fff9ea;
-}
-
-.faq-item + .faq-item {
-  border-top: 0;
-}
-
-.faq-item.is-open {
-  background: #fff7de;
+  border-bottom: 1px solid #edf0f4;
+  background: transparent;
 }
 
 .faq-item__heading {
@@ -1494,36 +1490,35 @@ width: 94px;
 
 .faq-item__button {
   width: 100%;
-  padding: 24px 34px;
+  padding: 34px 0;
   border: 0;
   background: transparent;
-  color: #08103d;
+  color: #0c1020;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
   font-family: 'Garet', sans-serif;
-  font-size: clamp(1.36rem, 1.58vw, 1.9rem);
+  font-size: clamp(1.42rem, 1.5vw, 2rem);
   font-weight: 700;
   text-align: left;
   cursor: pointer;
 }
 
-.faq-item.is-open .faq-item__button {
-  background: #f6c04e;
-}
-
 .faq-item__icon {
-  color: #8a4a21;
-  font-size: 2rem;
+  color: #0c1020;
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 1;
   flex: 0 0 auto;
 }
 
 .faq-item__panel {
-  padding: 24px 34px 28px;
-  color: #182257;
-  font-size: var(--paragraph-size);
-  line-height: 1.42;
+  padding: 0 0 30px;
+  color: #3f4656;
+  font-size: clamp(1.04rem, 1.08vw, 1.24rem);
+  line-height: 1.72;
+  max-width: 1000px;
 }
 
 .contact-section {
@@ -2601,12 +2596,24 @@ width: 94px;
 
   .faq-list {
     margin-top: 34px;
+    padding: 0 20px;
+    border-radius: 24px;
   }
 
-  .faq-item__button,
+  .faq-item__button {
+    padding: 22px 0;
+    font-size: 1.12rem;
+    gap: 14px;
+  }
+
+  .faq-item__icon {
+    font-size: 2.2rem;
+  }
+
   .faq-item__panel {
-    padding-left: 18px;
-    padding-right: 18px;
+    padding: 0 0 20px;
+    font-size: 0.98rem;
+    line-height: 1.58;
   }
 
   .faq-item__button {

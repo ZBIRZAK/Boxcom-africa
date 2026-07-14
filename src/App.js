@@ -843,7 +843,7 @@ function App() {
                     >
                       <span>{item.question}</span>
                       <span className="faq-item__icon" aria-hidden="true">
-                        {isOpen ? '⌃' : '⌄'}
+                        {isOpen ? '−' : '+'}
                       </span>
                     </button>
                   </h3>
