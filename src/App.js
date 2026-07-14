@@ -14,35 +14,35 @@ const serviceItems = [
     label: 'Media Relations',
     title: 'Media Relations',
     description:
-      'Build the right media angle, connect with the right journalists and keep your story relevant across the market.',
+      '',
     image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/Media%20Relations%20Image.png`,
   },
   {
     label: 'Media Events',
     title: 'Media Events',
     description:
-      'Plan launches, briefings and high-visibility moments that give your announcement the right setting and attention.',
+      '',
     image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/Media%20Events%20Image.png`,
   },
   {
     label: 'Media Monitoring',
     title: 'Media Monitoring',
     description:
-      'Track coverage, sentiment and message pull-through so decisions stay tied to real audience and press response.',
+      '',
     image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/Media%20Monitoring%20Image.png`,
   },
   {
     label: 'Social PR',
     title: 'Social PR',
     description:
-      'Translate your PR story into social formats that stay consistent with the wider campaign and audience expectations.',
+      '',
     image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/Social%20PR%20Image.png`,
   },
   {
     label: 'PR Content Creation',
     title: 'PR Content Creation',
     description:
-      'Create press-ready stories, releases and supporting materials that keep your narrative clear, useful and aligned across channels.',
+      '',
     image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/PR%20Content%20Creation%20Image.png`,
   },
   {
