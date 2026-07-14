@@ -1075,7 +1075,7 @@ width: 94px;
 .project-card__content h3 {
   margin: 0;
   font-family: 'Garet', sans-serif;
-  font-size: clamp(2.6rem, 3vw, 4rem);
+  font-size: clamp(2.6rem, 2.5vw, 4rem);
   line-height: 0.96;
   text-wrap: balance;
   word-break: normal;
