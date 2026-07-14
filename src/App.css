@@ -1062,8 +1062,10 @@
   font-family: 'Garet', sans-serif;
   font-size: clamp(2.6rem, 3vw, 4rem);
   line-height: 0.96;
-  overflow-wrap: anywhere;
   text-wrap: balance;
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: none;
 }
 
 .project-card__content p {
