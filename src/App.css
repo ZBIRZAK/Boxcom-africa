@@ -1392,64 +1392,36 @@ width: 94px;
 }
 
 .review-banner {
-  margin-top: 28px;
-  box-sizing: border-box;
+    margin-top: 28px;
+    box-sizing: border-box;
+    /* width: 100%; */
+    max-width: 769px;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: minmax(0, 540px) auto;
+    gap: 10px;
+    align-items: center;
+    justify-items: stretch;
+    padding: 20px;
+    border: 0;
+    border-radius: 0;
+    background: #ffffff;
+    box-shadow: none;
+    border-radius: 20px;
+}
+
+.review-banner__image {
+  display: block;
   width: 100%;
-  max-width: 1380px;
-  margin-left: auto;
-  margin-right: auto;
-  display: grid;
-  grid-template-columns: 260px minmax(0, 1fr) minmax(340px, 420px);
-  gap: 22px;
-  align-items: center;
-  padding: 22px 26px;
-  border: 3px solid rgba(225, 176, 54, 0.72);
-  border-radius: 30px;
-  background: #fef9e8;
-  box-shadow: 0 16px 26px rgba(183, 111, 0, 0.18);
-}
-
-.review-banner__score {
-  display: grid;
-  grid-template-columns: auto auto;
-  gap: 6px 10px;
-  align-items: center;
-}
-
-.review-banner__value {
-  color: #0b0f43;
-  font-family: 'Garet', sans-serif;
-  font-size: 5rem;
-  font-weight: 700;
-  line-height: 1;
-}
-
-.review-banner__star {
-  color: #f7c449;
-  font-size: 4.2rem;
-  line-height: 1;
-}
-
-.review-banner__label {
-  grid-column: 1 / -1;
-  color: #11173b;
-  font-size: 1.15rem;
-  font-weight: 600;
-}
-
-.review-banner__copy {
-  margin: 0;
-  color: #0b0f43;
-  font-family: 'Garet', sans-serif;
-  font-size: clamp(1.5rem, 1.5vw, 2rem);
-  font-weight: 700;
-  line-height: 1.2;
+  max-width: 250px;
+  height: auto;
 }
 
 .review-banner__cta {
   box-sizing: border-box;
   min-width: 0;
-  width: 100%;
+  width: fit-content;
   max-width: 100%;
   margin: 0;
   min-height: 64px;
@@ -2554,40 +2526,16 @@ width: 94px;
     width: 100%;
     max-width: 100%;
     grid-template-columns: 1fr;
-    gap: 14px;
-    padding: 16px 14px 14px;
-    border-width: 2px;
-    border-radius: 24px;
-    text-align: center;
+    gap: 12px;
+    justify-items: center;
   }
 
-  .review-banner__score {
-    justify-content: center;
-    gap: 4px 8px;
-  }
-
-  .review-banner__value {
-    font-size: 2.8rem;
-  }
-
-  .review-banner__star {
-    font-size: 2.3rem;
-  }
-
-  .review-banner__label {
-    font-size: 0.95rem;
-  }
-
-  .review-banner__copy {
-    max-width: 16ch;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 1.12rem;
-    line-height: 1.24;
+  .review-banner__image {
+    width: 100%;
   }
 
   .review-banner__cta {
-    width: 100%;
+    width: min(100%, 280px);
     min-height: 46px;
     font-size: 0.98rem;
     padding-left: 14px;

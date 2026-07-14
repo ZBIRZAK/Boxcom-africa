@@ -203,6 +203,7 @@ function App() {
   const logoSrc = `${process.env.PUBLIC_URL}/assets/logo/logo-original.png`;
   const businessThinkingSrc = `${process.env.PUBLIC_URL}/assets/ABOUTUS_CoWorkers-new.png`;
   const contactPagePortraitSrc = `${process.env.PUBLIC_URL}/assets/imgs/width_1600.webp`;
+  const googleReviewsBannerSrc = `${process.env.PUBLIC_URL}/assets/imgs/google%20reviews.webp`;
   const mediaShapeSrc = `${process.env.PUBLIC_URL}/assets/Our%20Media%20Coverage_Approved%20Images/africa%20logo.png`;
   const coverageCardsPerPage = viewportWidth <= 640 ? 1 : 3;
   const mediaPageCount = Math.max(1, mediaItems.length - coverageCardsPerPage + 1);
@@ -813,12 +814,7 @@ function App() {
           </div>
 
           <div className="review-banner">
-            <div className="review-banner__score">
-              <span className="review-banner__value">4.9</span>
-              <span className="review-banner__star">★</span>
-              <span className="review-banner__label">On Google</span>
-            </div>
-            <p className="review-banner__copy">Constently saluted for its strategy, presence and its results</p>
+            <img className="review-banner__image" src={googleReviewsBannerSrc} alt="Google Reviews" />
             <a className="primary-pink-button review-banner__cta" href="#/reviews">
               Check our Google Reviews
             </a>
