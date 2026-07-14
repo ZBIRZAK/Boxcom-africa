@@ -580,6 +580,8 @@ function App() {
                       id={buttonId}
                       type="button"
                       className={`service-tab${isActive ? ' is-active' : ''}`}
+                      onMouseEnter={() => setActiveService(item.label)}
+                      onFocus={() => setActiveService(item.label)}
                       onClick={() => setActiveService(item.label)}
                       aria-expanded={isActive}
                       aria-controls={panelId}

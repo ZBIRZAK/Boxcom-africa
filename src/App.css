@@ -186,8 +186,8 @@
   min-height: 38px;
   padding: 0 22px;
   border-radius: 999px;
-  background: #f6b93f;
-  color: #11173b;
+  background: #ff7a38;
+  color: #ffffff;
   text-decoration: none;
   font-size: clamp(0.9rem, 0.92vw, 1.08rem);
   font-weight: 600;
@@ -456,17 +456,17 @@
 }
 
 .contact-page-form__button--primary {
-  background: #ff6e1f;
+  background: #ff7a38;
   color: #ffffff;
 }
 
 .contact-page-form__button--secondary {
-  background: #f7a326;
+  background: #ff7a38;
   color: #ffffff;
 }
 
 .contact-page-footer {
-  background: #020433;
+  background: #000326;
   padding: 44px 0 58px;
   color: #ffffff;
 }
@@ -552,7 +552,7 @@
   min-height: 58px;
   padding: 0 30px;
   border-radius: 999px;
-  background: #ff0c6f;
+  background: #ff7a38;
   color: #ffffff;
   text-decoration: none;
   font-family: 'Garet', sans-serif;
@@ -657,21 +657,20 @@
 }
 
 .service-tab {
-  width: 94px;
-  border: 2px solid rgba(8, 16, 61, 0.08);
-  border-radius: 24px;
-  background: rgba(255, 255, 255, 0.94);
-  box-shadow: 0 6px 18px rgba(70, 44, 0, 0.12);
-  color: #08103d;
-  cursor: pointer;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding: 18px 10px 24px;
-  transition:
-    background 360ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 360ms cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 360ms cubic-bezier(0.22, 1, 0.36, 1);
+width: 94px;
+    border: 2px solid rgb(255 255 255);
+    border-radius: 24px;
+    background: rgb(3 6 37);
+    box-shadow: 0 6px 18px rgba(70, 44, 0, 0.12);
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 18px 10px 24px;
+    transition: background 360ms cubic-bezier(0.22, 1, 0.36, 1),
+     transform 360ms cubic-bezier(0.22, 1, 0.36, 1),
+     box-shadow 360ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .service-tab.is-active {
@@ -1210,7 +1209,7 @@
 .testimonials-section {
   position: relative;
   overflow: hidden;
-  background: #f7ab32;
+  background: #f69e29;
   padding: 74px 0 58px;
 }
 
@@ -1338,7 +1337,7 @@
   padding: 40px 28px 32px;
   border: 2px solid rgba(184, 129, 25, 0.42);
   border-radius: 30px;
-  background: #f7c34d;
+  background: #020433;
   box-shadow: 0 18px 28px rgba(183, 111, 0, 0.2);
   text-align: center;
   display: flex;
@@ -1358,7 +1357,7 @@
 .testimonial-card__name,
 .testimonial-card__role {
   margin: 14px 0 0;
-  color: #11173b;
+  color: #ffffff;
   font-size: var(--paragraph-size);
   line-height: 1.12;
 }
@@ -1371,7 +1370,7 @@
 .testimonial-card blockquote {
   margin: 36px 0 0;
   max-width: 92%;
-  color: #11173b;
+  color: #ffffff;
   font-size: var(--paragraph-size);
   line-height: 1.42;
 }
@@ -1512,7 +1511,7 @@
 }
 
 .contact-section {
-  background: #020433;
+  background: #000326;
   padding: 92px 0 58px;
   color: #ffffff;
 }
@@ -1629,7 +1628,7 @@
 .contact-details,
 .footer-menu {
   display: grid;
-  gap: 28px;
+  gap: 10px;
 }
 
 .contact-details h3,
@@ -1657,7 +1656,7 @@
 
 .footer-social__icons {
   display: flex;
-  gap: 18px;
+  gap: 14px;
   align-items: center;
 }
 
@@ -1665,8 +1664,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 52px;
-  height: 52px;
+  width: 35px;
+  height: 35px;
   text-decoration: none;
 }
 
@@ -1674,6 +1673,7 @@
   display: block;
   width: 100%;
   height: auto;
+  filter: brightness(0) invert(1);
 }
 
 .newsletter {
@@ -1688,11 +1688,11 @@
   gap: 10px;
   padding: 7px 7px 7px 16px;
   border-radius: 999px;
-  background: #73513e;
+  background: #c9c7d3;
 }
 
 .newsletter__field span {
-  color: #f5b53c;
+  color: #000326;
   font-size: 2rem;
   font-weight: 700;
 }
@@ -1713,7 +1713,7 @@
   height: 48px;
   border: 0;
   border-radius: 999px;
-  background: #68aabc;
+  background: #ff7a39;
   color: #ffffff;
   font-size: 2rem;
   cursor: pointer;
@@ -1723,7 +1723,7 @@
   margin-top: 34px;
   display: flex;
   align-items: center;
-  gap: 18px;
+  /* gap: 18px; */
 }
 
 .footer-cta__line {
@@ -1738,7 +1738,7 @@
   min-height: 60px;
   padding: 0 28px;
   border-radius: 999px;
-  background: #f39b36;
+  background: #ff7a38;
   color: #08103d;
   display: inline-flex;
   align-items: center;
@@ -2182,7 +2182,7 @@
   }
 
   .header-cta {
-    max-width: 320px;
+    max-width: 290px;
     font-size: 1rem;
     text-align: center;
   }
