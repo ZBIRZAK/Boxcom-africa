@@ -15,42 +15,42 @@ const serviceItems = [
     title: 'Media Relations',
     description:
       '',
-    image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/Media%20Relations%20Image.png`,
+    image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/Media%20Relations%20Image.webp`,
   },
   {
     label: 'Media Events',
     title: 'Media Events',
     description:
       '',
-    image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/Media%20Events%20Image.png`,
+    image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/Media%20Events%20Image.webp`,
   },
   {
     label: 'Media Monitoring',
     title: 'Media Monitoring',
     description:
       '',
-    image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/Media%20Monitoring%20Image.png`,
+    image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/Media%20Monitoring%20Image.webp`,
   },
   {
     label: 'Social PR',
     title: 'Social PR',
     description:
       '',
-    image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/Social%20PR%20Image.png`,
+    image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/Social%20PR%20Image.webp`,
   },
   {
     label: 'PR Content Creation',
     title: 'PR Content Creation',
     description:
       '',
-    image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/PR%20Content%20Creation%20Image.png`,
+    image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/PR%20Content%20Creation%20Image.webp`,
   },
   {
     label: 'Influencer Relations',
     title: 'Influencer Relations',
     description:
       'Develop releases, articles, speeches and media assets that are clear, usable and adapted to the market.',
-    image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/Influencer%20Relations%20Image.png`,
+    image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/Influencer%20Relations%20Image.webp`,
   },
 ];
 
@@ -317,6 +317,21 @@ function App() {
   useEffect(() => {
     setActiveMediaPage((current) => Math.min(current, Math.max(0, mediaPageCount - 1)));
   }, [mediaPageCount]);
+
+  useEffect(() => {
+    if (isContactPage) {
+      return undefined;
+    }
+
+    const autoRotate = window.setInterval(() => {
+      setProjectMotion('next');
+      setActiveProject((current) => wrapIndex(current + 1, projectItems.length));
+    }, 3000);
+
+    return () => {
+      window.clearInterval(autoRotate);
+    };
+  }, [isContactPage]);
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
