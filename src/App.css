@@ -678,7 +678,7 @@
 
 .service-tab {
 width: 64px;
-    border: 2px solid rgb(255 255 255);
+    /* border: 2px solid rgb(255 255 255); */
     border-radius: 50px;
     background: rgb(3 6 37);
     box-shadow: 0 6px 18px rgba(70, 44, 0, 0.12);
@@ -725,7 +725,7 @@ width: 64px;
 .service-tab.is-active .service-tab__label {
   writing-mode: initial;
   transform: none;
-  font-size: clamp(1rem, 1.2vw, 1.25rem);
+  font-size: 1.2vw;
   letter-spacing: 0.02em;
 }
 
