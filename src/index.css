@@ -10,6 +10,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+p {
+  color: #000326;
+}
+
 h1,
 h2,
 h3,

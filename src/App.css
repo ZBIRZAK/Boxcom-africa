@@ -543,7 +543,7 @@
 
 .section-title {
   margin: 0;
-  color: #040a38;
+  color: #000326;
   font-family: 'Garet', sans-serif;
   font-size: 3rem;
   font-weight: 700;
@@ -1144,7 +1144,7 @@ width: 94px;
 
 .coverage-section__copy p {
   margin: 24px 0 0;
-  color: #182257;
+  color: #000326;
   font-size: var(--paragraph-size);
   line-height: 1.42;
   letter-spacing: -0.03em;
@@ -1491,7 +1491,7 @@ width: 94px;
   padding: 34px 0;
   border: 0;
   background: transparent;
-  color: #0c1020;
+  color: #000326;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1513,8 +1513,8 @@ width: 94px;
 
 .faq-item__panel {
   padding: 0 0 30px;
-  color: #3f4656;
-  font-size: clamp(1.04rem, 1.08vw, 1.24rem);
+  color: #030625;
+  font-size: var(--paragraph-size);
   line-height: 1.72;
   max-width: 1000px;
 }
