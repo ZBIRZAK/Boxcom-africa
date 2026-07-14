@@ -2655,7 +2655,7 @@ width: 94px;
   .contact-section__bottom {
     margin-top: 44px;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px;
+    gap: 15px;
   }
 
   .contact-details,
