@@ -559,6 +559,10 @@
   letter-spacing: -0.02em;
 }
 
+.insight-copy .primary-pink-button {
+  align-self: flex-end;
+}
+
 .primary-pink-button {
   margin-top: 6px;
   display: inline-flex;
@@ -2064,6 +2068,7 @@ width: 94px;
   }
 
   .insight-copy .primary-pink-button {
+    align-self: flex-start;
     min-width: 220px;
     width: auto;
   }
