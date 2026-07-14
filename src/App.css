@@ -584,7 +584,7 @@
 .services-section {
   position: relative;
   overflow: hidden;
-  background: #f4ac2c;
+  background: #f69e29;
   padding: clamp(38px, 4.2vw, 62px) 0 clamp(42px, 4.4vw, 68px);
 }
 
