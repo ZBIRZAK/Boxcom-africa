@@ -314,6 +314,10 @@ function App() {
     setActiveMediaPage((current) => Math.min(current, Math.max(0, mediaPageCount - 1)));
   }, [mediaPageCount]);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [normalizedHash]);
+
   const renderHeader = () => (
     <header className="site-header">
       <div className="site-header__inner">
