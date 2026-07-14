@@ -129,6 +129,7 @@ const mediaItems = [
 const testimonialItems = [
   {
     brand: 'Xerox',
+    logo: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/4.svg`,
     name: 'Amira Mazali',
     role: 'Head of Marketing.',
     quote:
@@ -136,6 +137,7 @@ const testimonialItems = [
   },
   {
     brand: 'AirFrance',
+    logo: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/3.svg`,
     name: 'Amira Mazali',
     role: 'Head of Marketing.',
     quote:
@@ -143,6 +145,7 @@ const testimonialItems = [
   },
   {
     brand: 'Xerox',
+    logo: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/4.svg`,
     name: 'Amira Mazali',
     role: 'Head of Marketing.',
     quote:
@@ -782,7 +785,9 @@ function App() {
               >
                 {visibleTestimonials.map((item, index) => (
                   <article key={`${item.brand}-${index}`} className="testimonial-card">
-                    <h3>{item.brand}</h3>
+                    <div className="testimonial-card__brand">
+                      <img src={item.logo} alt={item.brand} />
+                    </div>
                     <p className="testimonial-card__name">{item.name}</p>
                     <p className="testimonial-card__role">{item.role}</p>
                     <blockquote>{item.quote}</blockquote>
