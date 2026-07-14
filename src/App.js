@@ -4,7 +4,7 @@ import './App.css';
 const menuItems = [
   { label: 'Home', href: '#/' },
   { label: 'Services', href: '#/services' },
-  { label: 'Projects', href: '#/projects', active: true },
+  { label: 'Projects', href: '#/projects' },
   { label: 'Blog', href: '#/blog' },
   { label: 'About Us', href: '#/about' },
 ];
@@ -194,11 +194,15 @@ function App() {
   const [viewportWidth, setViewportWidth] = useState(() =>
     typeof window === 'undefined' ? 1280 : window.innerWidth
   );
+  const [currentHash, setCurrentHash] = useState(() =>
+    typeof window === 'undefined' ? '#/' : window.location.hash || '#/'
+  );
   const projectDragStartX = useRef(null);
   const projectDragCurrentX = useRef(null);
   const heroVideo = `${process.env.PUBLIC_URL}/assets/Videos/Design%20of%20BoxCom%20Africa%20Website.mp4?v=20260710-hero-1`;
   const logoSrc = `${process.env.PUBLIC_URL}/assets/logo/logo-original.png`;
   const businessThinkingSrc = `${process.env.PUBLIC_URL}/assets/ABOUTUS_CoWorkers-new.png`;
+  const contactPagePortraitSrc = `${process.env.PUBLIC_URL}/assets/imgs/width_1600.webp`;
   const mediaShapeSrc = `${process.env.PUBLIC_URL}/assets/Our%20Media%20Coverage_Approved%20Images/africa%20logo.png`;
   const coverageCardsPerPage = viewportWidth <= 640 ? 1 : 3;
   const mediaPageCount = Math.max(1, mediaItems.length - coverageCardsPerPage + 1);
@@ -207,6 +211,8 @@ function App() {
   const isMobileClientsCarousel = viewportWidth <= 640;
   const visibleClientLogos = clientLogos;
   const visibleTestimonials = testimonialItems;
+  const normalizedHash = currentHash || '#/';
+  const isContactPage = normalizedHash === '#/contact';
 
   const showPreviousProject = () => {
     setProjectMotion('prev');
@@ -285,62 +291,209 @@ function App() {
       }
     };
 
+    const handleHashChange = () => {
+      setCurrentHash(window.location.hash || '#/');
+      setIsMenuOpen(false);
+    };
+
     window.addEventListener('resize', handleResize);
+    window.addEventListener('hashchange', handleHashChange);
     handleResize();
-    return () => window.removeEventListener('resize', handleResize);
+    handleHashChange();
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('hashchange', handleHashChange);
+    };
   }, []);
 
   useEffect(() => {
     setActiveMediaPage((current) => Math.min(current, Math.max(0, mediaPageCount - 1)));
   }, [mediaPageCount]);
 
+  const renderHeader = () => (
+    <header className="site-header">
+      <div className="site-header__inner">
+        <a
+          className="brand"
+          href="#/"
+          aria-label="Boxcom Africa"
+          onClick={() => setIsMenuOpen(false)}
+        >
+          <img className="brand__image" src={logoSrc} alt="" aria-hidden="true" />
+        </a>
+
+        <button
+          type="button"
+          className={`menu-toggle${isMenuOpen ? ' is-open' : ''}`}
+          aria-expanded={isMenuOpen}
+          aria-controls="primary-menu"
+          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+          onClick={() => setIsMenuOpen((current) => !current)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+
+        <div id="primary-menu" className={`site-header__menu${isMenuOpen ? ' is-open' : ''}`}>
+          <nav className="main-nav" aria-label="Primary">
+            {menuItems.map((item) => {
+              const isActive = normalizedHash === item.href;
+              return (
+                <a
+                  key={item.label}
+                  className={`main-nav__link${isActive ? ' is-active' : ''}`}
+                  href={item.href}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.label}
+                </a>
+              );
+            })}
+          </nav>
+
+          <a className="header-cta" href="#/contact" onClick={() => setIsMenuOpen(false)}>
+            Talk to Our PR Team <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </header>
+  );
+
+  const renderSiteFooter = () => (
+    <>
+      <div className="contact-section__bottom">
+        <div className="contact-details">
+          <div>
+            <h3>Phone</h3>
+            <p>123-456-7890</p>
+          </div>
+          <div>
+            <h3>Email</h3>
+            <p>Info@box-com.com</p>
+          </div>
+          <div>
+            <h3>Address</h3>
+            <p>123 Street</p>
+          </div>
+        </div>
+
+        <div className="footer-menu">
+          <h3>Menu</h3>
+          <a href="#/">HOMEPAGE</a>
+          <a href="#/services">SERVICES</a>
+          <a href="#/projects">CASE STUDIES</a>
+          <a href="#/blog">BLOG</a>
+          <a href="#/about">ABOUT US</a>
+        </div>
+
+        <div className="footer-social">
+          <div className="footer-social__icons">
+            {socialItems.map((item) => (
+              <a key={item.label} href={item.href} aria-label={item.label}>
+                <img src={item.src} alt="" aria-hidden="true" />
+              </a>
+            ))}
+          </div>
+          <div className="newsletter">
+            <h3>Newsletter</h3>
+            <p>Receive news and promotions by email !</p>
+            <div className="newsletter__field">
+              <span>@</span>
+              <input type="email" placeholder="Your email address" />
+              <button type="button">→</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="footer-cta">
+        <div className="footer-cta__line" />
+        <a href="#/contact" className="footer-cta__button">
+          Get Started
+        </a>
+      </div>
+
+      <div className="footer-legal">
+        <a href="#/terms">TERMS & CONDITIONS</a>
+        <a href="#/privacy">PRIVACY POLICY</a>
+      </div>
+    </>
+  );
+
+  if (isContactPage) {
+    return (
+      <main className="app app--contact-page">
+        {renderHeader()}
+
+        <section className="contact-page" aria-label="Contact Us">
+          <div className="contact-page__inner">
+            <div className="contact-page__header">
+              <h1 className="contact-page__title">Get In Touch</h1>
+              <p className="contact-page__intro">
+                Tell us what is happening, where it matters and what needs to change. We will come back with
+                the questions and direction needed to shape the right PR response.
+              </p>
+            </div>
+
+            <div className="contact-page__layout">
+              <div className="contact-page__art" aria-hidden="true">
+                <img src={contactPagePortraitSrc} alt="" />
+              </div>
+
+              <div className="contact-page__card">
+                <form className="contact-page-form">
+                  <div className="contact-page-form__row">
+                    <label>
+                      <span>Your Name</span>
+                      <input type="text" placeholder="Your Full Name" />
+                    </label>
+                    <label>
+                      <span>Your Company</span>
+                      <input type="text" placeholder="Your Company" />
+                    </label>
+                  </div>
+
+                  <label>
+                    <span>Your Email</span>
+                    <input type="email" placeholder="Your Email" />
+                  </label>
+
+                  <label>
+                    <span>Subject</span>
+                    <input type="text" placeholder="Subject" />
+                  </label>
+
+                  <label>
+                    <span>Message</span>
+                    <textarea placeholder="Type your message here." rows="5" />
+                  </label>
+
+                  <button type="submit" className="contact-page-form__button contact-page-form__button--primary">
+                    Send Message
+                  </button>
+                  <a href="#/services" className="contact-page-form__button contact-page-form__button--secondary">
+                    Review Services First
+                  </a>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="contact-page-footer">
+          <div className="contact-section__inner">
+            {renderSiteFooter()}
+          </div>
+        </section>
+      </main>
+    );
+  }
+
   return (
     <main className="app">
       <div className="hero-frame">
-        <header className="site-header">
-          <div className="site-header__inner">
-            <a
-              className="brand"
-              href="#/"
-              aria-label="Boxcom Africa"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <img className="brand__image" src={logoSrc} alt="" aria-hidden="true" />
-            </a>
-
-            <button
-              type="button"
-              className={`menu-toggle${isMenuOpen ? ' is-open' : ''}`}
-              aria-expanded={isMenuOpen}
-              aria-controls="primary-menu"
-              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-              onClick={() => setIsMenuOpen((current) => !current)}
-            >
-              <span />
-              <span />
-              <span />
-            </button>
-
-            <div id="primary-menu" className={`site-header__menu${isMenuOpen ? ' is-open' : ''}`}>
-              <nav className="main-nav" aria-label="Primary">
-                {menuItems.map((item) => (
-                  <a
-                    key={item.label}
-                    className={`main-nav__link${item.active ? ' is-active' : ''}`}
-                    href={item.href}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.label}
-                  </a>
-                ))}
-              </nav>
-
-              <a className="header-cta" href="#/contact" onClick={() => setIsMenuOpen(false)}>
-                Talk to Our PR Team <span aria-hidden="true">→</span>
-              </a>
-            </div>
-          </div>
-        </header>
+        {renderHeader()}
 
         <section className="hero-section" aria-label="Hero">
           <div className="hero-section__inner">
@@ -743,62 +896,7 @@ function App() {
             </form>
           </div>
 
-          <div className="contact-section__bottom">
-            <div className="contact-details">
-              <div>
-                <h3>Phone</h3>
-                <p>123-456-7890</p>
-              </div>
-              <div>
-                <h3>Email</h3>
-                <p>Info@box-com.com</p>
-              </div>
-              <div>
-                <h3>Address</h3>
-                <p>123 Street</p>
-              </div>
-            </div>
-
-            <div className="footer-menu">
-              <h3>Menu</h3>
-              <a href="#/">HOMEPAGE</a>
-              <a href="#/services">SERVICES</a>
-              <a href="#/projects">CASE STUDIES</a>
-              <a href="#/blog">BLOG</a>
-              <a href="#/about">ABOUT US</a>
-            </div>
-
-            <div className="footer-social">
-              <div className="footer-social__icons">
-                {socialItems.map((item) => (
-                  <a key={item.label} href={item.href} aria-label={item.label}>
-                    <img src={item.src} alt="" aria-hidden="true" />
-                  </a>
-                ))}
-              </div>
-              <div className="newsletter">
-                <h3>Newsletter</h3>
-                <p>Receive news and promotions by email !</p>
-                <div className="newsletter__field">
-                  <span>@</span>
-                  <input type="email" placeholder="Your email address" />
-                  <button type="button">→</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="footer-cta">
-            <div className="footer-cta__line" />
-            <a href="#/contact" className="footer-cta__button">
-              Get Started
-            </a>
-          </div>
-
-          <div className="footer-legal">
-            <a href="#/terms">TERMS & CONDITIONS</a>
-            <a href="#/privacy">PRIVACY POLICY</a>
-          </div>
+          {renderSiteFooter()}
         </div>
       </section>
     </main>
