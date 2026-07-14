@@ -1060,8 +1060,10 @@
 .project-card__content h3 {
   margin: 0;
   font-family: 'Garet', sans-serif;
-  font-size: clamp(3.4rem, 4vw, 5rem);
-  line-height: 0.92;
+  font-size: clamp(2.6rem, 3vw, 4rem);
+  line-height: 0.96;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
 }
 
 .project-card__content p {
@@ -2385,7 +2387,8 @@
   }
 
   .project-card__content h3 {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    line-height: 0.98;
   }
 
   .primary-pink-button--projects {
