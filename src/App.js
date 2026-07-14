@@ -161,18 +161,15 @@ const faqItems = [
   },
   {
     question: 'What makes BOXCOM Africa different from a general PR agency?',
-    answer:
-      'We combine local market understanding, media judgment and cross-market execution so strategy and delivery stay aligned from start to finish.',
+    answer: '',
   },
   {
     question: 'Can BOXCOM Africa support more than one market?',
-    answer:
-      'Yes. We work with trusted partners across Africa to adapt narratives, language and media outreach to each relevant market.',
+    answer: '',
   },
   {
     question: 'Can BOXCOM Africa help when a story becomes sensitive?',
-    answer:
-      'Yes. Crisis management and consultancy are part of the offer, helping shape, protect and clarify narratives when timing is critical.',
+    answer: '',
   },
 ];
 
@@ -857,7 +854,7 @@ function App() {
                       </span>
                     </button>
                   </h3>
-                  {isOpen && <div className="faq-item__panel">{item.answer}</div>}
+                  {isOpen && item.answer && <div className="faq-item__panel">{item.answer}</div>}
                 </section>
               );
             })}
