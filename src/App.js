@@ -48,21 +48,21 @@ const serviceItems = [
 ];
 
 const clientLogos = [
-  { label: 'Client logo 1', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/1.svg` },
-  { label: 'Client logo 2', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/2.svg` },
-  { label: 'Client logo 3', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/3.svg` },
-  { label: 'Client logo 4', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/4.svg` },
-  { label: 'Client logo 5', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/5.svg` },
-  { label: 'Client logo 6', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/6.svg` },
-  { label: 'Client logo 7', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/7.svg` },
-  { label: 'Client logo 8', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/8.svg` },
-  { label: 'Client logo 9', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/9.svg` },
-  { label: 'Client logo 10', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/10.svg` },
-  { label: 'Client logo 11', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/11.svg` },
-  { label: 'Client logo 12', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/12.svg` },
-  { label: 'Client logo 13', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/13.svg` },
-  { label: 'Client logo 14', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/14.svg` },
-  { label: 'Client logo 15', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/15.svg` },
+  { label: 'Samsung', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/1.svg`, className: 'is-boost-md' },
+  { label: 'Renault', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/2.svg` },
+  { label: 'Air France', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/3.svg`, className: 'is-boost-lg' },
+  { label: 'Xerox', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/4.svg`, className: 'is-boost-sm' },
+  { label: 'Fever', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/5.svg`, className: 'is-boost-sm' },
+  { label: 'inDrive', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/6.svg`, className: 'is-boost-sm' },
+  { label: 'TotalEnergies', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/7.svg` },
+  { label: 'Deloitte', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/8.svg`, className: 'is-boost-sm' },
+  { label: 'Nouvelair', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/9.svg`, className: 'is-boost-lg' },
+  { label: 'DHL', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/10.svg`, className: 'is-boost-lg' },
+  { label: 'NTT Data', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/11.svg`, className: 'is-boost-md' },
+  { label: 'AXA', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/12.svg` },
+  { label: 'Yamaha', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/13.svg`, className: 'is-boost-md' },
+  { label: 'Garena', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/14.svg`, className: 'is-boost-lg' },
+  { label: 'GWM', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/15.svg`, className: 'is-boost-md' },
 ];
 
 const projectItems = [
@@ -624,7 +624,12 @@ function App() {
               <div className="clients-ticker__track">
                 {[...clientLogos, ...clientLogos].map((item, index) => (
                   <div key={`${item.label}-${index}`} className="clients-grid__item clients-grid__item--ticker">
-                    <img src={item.src} alt={index < clientLogos.length ? item.label : ''} aria-hidden={index >= clientLogos.length} />
+                    <img
+                      className={item.className || ''}
+                      src={item.src}
+                      alt={index < clientLogos.length ? item.label : ''}
+                      aria-hidden={index >= clientLogos.length}
+                    />
                   </div>
                 ))}
               </div>
@@ -633,7 +638,7 @@ function App() {
             <div className="clients-grid">
               {visibleClientLogos.map((item) => (
                 <div key={item.label} className="clients-grid__item">
-                  <img src={item.src} alt={item.label} />
+                  <img className={item.className || ''} src={item.src} alt={item.label} />
                 </div>
               ))}
             </div>

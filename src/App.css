@@ -858,21 +858,34 @@ width: 94px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0;
+  padding: 10px 8px;
   overflow: visible;
-  height: 100px;
+  /* height: 148px; */
 }
 
 .clients-grid__item img {
   display: block;
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  max-height: 70px;
+  width: auto;
+  max-width: 96%;
+  height: 86px;
+  max-height: 86px;
   object-fit: contain;
   object-position: center;
-  transform: scale(1.28);
-  transform-origin: center;
+}
+
+.clients-grid__item img.is-boost-sm,
+.clients-grid__item--ticker img.is-boost-sm {
+  transform: scale(1.2);
+}
+
+.clients-grid__item img.is-boost-md,
+.clients-grid__item--ticker img.is-boost-md {
+  transform: scale(1.32);
+}
+
+.clients-grid__item img.is-boost-lg,
+.clients-grid__item--ticker img.is-boost-lg {
+  transform: scale(1.46);
 }
 
 @keyframes clientsTickerScroll {
@@ -1844,15 +1857,14 @@ width: 94px;
 
   .clients-grid__item {
     min-height: 0;
-    padding: 0;
+    padding: 8px 6px;
   }
 
   .clients-grid__item img {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    max-height: 80px;
-    transform: scale(1.2);
+    width: auto;
+    max-width: 94%;
+    height: 76px;
+    max-height: 76px;
   }
 
   .contact-page__layout {
@@ -2236,19 +2248,18 @@ width: 94px;
   }
 
   .clients-grid__item--ticker {
-    width: 146px;
-    min-width: 146px;
-    height: 92px;
+    width: 180px;
+    min-width: 180px;
+    height: 116px;
     margin: 0 10px;
     flex: 0 0 auto;
   }
 
   .clients-grid__item--ticker img {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    max-height: 74px;
-    transform: scale(1.12);
+    width: auto;
+    max-width: 94%;
+    height: 82px;
+    max-height: 82px;
   }
 
   .contact-page {
