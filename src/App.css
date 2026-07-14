@@ -625,7 +625,7 @@
 
 .services-intro {
   margin: 14px 0 0;
-  max-width: 980px;
+  max-width: 100%;
   color: #08103d;
   font-size: var(--paragraph-size);
   line-height: 1.32;
