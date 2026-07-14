@@ -108,27 +108,27 @@ const projectItems = [
 const mediaItems = [
   {
     label: 'Le Matin',
-    logo: `${process.env.PUBLIC_URL}/assets/Our%20Media%20Coverage_Approved%20Images/Le%20Matin%20Logo.png`,
+    logo: `${process.env.PUBLIC_URL}/assets/imgs/logos/width_200.webp`,
     image: `${process.env.PUBLIC_URL}/assets/Our%20Media%20Coverage_Approved%20Images/LeMatin_Media%20Coverage.png`,
   },
   {
     label: '2M',
-    logo: `${process.env.PUBLIC_URL}/assets/Our%20Media%20Coverage_Approved%20Images/2M%20Logo.png`,
+    logo: `${process.env.PUBLIC_URL}/assets/imgs/logos/width_150%20(1).webp`,
     image: `${process.env.PUBLIC_URL}/assets/Our%20Media%20Coverage_Approved%20Images/2M_Media%20Coverage.png`,
   },
   {
     label: 'Hespress',
-    logo: `${process.env.PUBLIC_URL}/assets/Our%20Media%20Coverage_Approved%20Images/Hespress%20Logo.png`,
+    logo: `${process.env.PUBLIC_URL}/assets/imgs/logos/width_150.webp`,
     image: `${process.env.PUBLIC_URL}/assets/Our%20Media%20Coverage_Approved%20Images/Hespress_Media%20Coverage.png`,
   },
   {
     label: 'Le Matin',
-    logo: `${process.env.PUBLIC_URL}/assets/Our%20Media%20Coverage_Approved%20Images/Le%20Matin%20Logo.png`,
+    logo: `${process.env.PUBLIC_URL}/assets/imgs/logos/width_200.webp`,
     image: `${process.env.PUBLIC_URL}/assets/Our%20Media%20Coverage_Approved%20Images/LeMatin_Media%20Coverage.png`,
   },
   {
     label: '2M',
-    logo: `${process.env.PUBLIC_URL}/assets/Our%20Media%20Coverage_Approved%20Images/2M%20Logo.png`,
+    logo: `${process.env.PUBLIC_URL}/assets/imgs/logos/width_150%20(1).webp`,
     image: `${process.env.PUBLIC_URL}/assets/Our%20Media%20Coverage_Approved%20Images/2M_Media%20Coverage.png`,
   },
 ];
