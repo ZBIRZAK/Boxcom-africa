@@ -14,42 +14,42 @@ const serviceItems = [
     label: 'Media Relations',
     title: 'Media Relations',
     description:
-      '',
+      'We find the strongest angle, take it to relevant journalists and editors, and keep the story moving through follow-up, interviews and editorial opportunities. Crisis management and consultancy sits within this work.',
     image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/Media%20Relations%20Image.webp`,
   },
   {
     label: 'Media Events',
     title: 'Media Events',
     description:
-      '',
+      'We turn launches, briefings and announcements into press moments that give journalists something useful to see, ask and report.',
     image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/Media%20Events%20Image.webp`,
   },
   {
     label: 'Media Monitoring',
     title: 'Media Monitoring',
     description:
-      '',
+      'We track coverage, sentiment and emerging issues, then help the client decide when to respond and how quickly to move.',
     image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/Media%20Monitoring%20Image.webp`,
   },
   {
     label: 'Social PR',
     title: 'Social PR',
     description:
-      '',
+      'We carry press stories into social channels without losing the facts, tone or intent behind them.',
     image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/Social%20PR%20Image.webp`,
   },
   {
     label: 'PR Content Creation',
     title: 'PR Content Creation',
     description:
-      '',
+      'We develop releases, articles, speeches, statements and media assets that are clear, usable and adapted to the market.',
     image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/PR%20Content%20Creation%20Image.webp`,
   },
   {
     label: 'Influencer Relations',
     title: 'Influencer Relations',
     description:
-      'Develop releases, articles, speeches and media assets that are clear, usable and adapted to the market.',
+      'We build creator partnerships around relevance, local fit and the role each voice should play in the wider story.',
     image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/Influencer%20Relations%20Image.webp`,
   },
 ];
@@ -164,19 +164,22 @@ const faqItems = [
   {
     question: 'Is BOXCOM Africa a PR agency in Morocco?',
     answer:
-      'Yes. BOXCOM Africa is a PR agency in Morocco, based in Casablanca and focused on PR, press relations, media relations, crisis management and consultancy, Social PR and influencer relations across Morocco, Africa.',
+      'Yes. BOXCOM Africa is a PR agency in Morocco, based in Casablanca and focused on Press Relations, media relations, crisis management and consultancy, Social PR and influencer relations in Morocco and all across Africa.',
   },
   {
     question: 'What makes BOXCOM Africa different from a general PR agency?',
-    answer: '',
+    answer:
+      'We combine media relations with marketing thinking. The team looks at the business objective first, then builds the story, media plan and actions around what the client needs the market to understand or believe.',
   },
   {
     question: 'Can BOXCOM Africa support more than one market?',
-    answer: '',
+    answer:
+      'Yes. Work is directed from Casablanca, and on-the-ground partners join when the brief needs local media access, language adaptation or cultural context in African markets.',
   },
   {
     question: 'Can BOXCOM Africa help when a story becomes sensitive?',
-    answer: '',
+    answer:
+      'Yes. Crisis management and consultancy is part of the media relations practice. We monitor the issue, prepare the response and engage the relevant media to clarify facts or correct context.',
   },
 ];
 
@@ -211,7 +214,7 @@ function App() {
   const businessThinkingSrc = `${process.env.PUBLIC_URL}/assets/ABOUTUS_CoWorkers-new.png`;
   const contactPagePortraitSrc = `${process.env.PUBLIC_URL}/assets/imgs/width_1600.webp`;
   const googleReviewsBannerSrc = `${process.env.PUBLIC_URL}/assets/imgs/google%20reviews.webp`;
-  const mediaShapeSrc = `${process.env.PUBLIC_URL}/assets/Our%20Media%20Coverage_Approved%20Images/africa%20logo.png`;
+  const mediaShapeSrc = `${process.env.PUBLIC_URL}/assets/Our%20Media%20Coverage_Approved%20Images/africa%20logo.svg`;
   const coverageCardsPerPage = viewportWidth <= 640 ? 1 : 3;
   const mediaPageCount = Math.max(1, mediaItems.length - coverageCardsPerPage + 1);
   const visibleMediaItems = mediaItems.slice(activeMediaPage, activeMediaPage + coverageCardsPerPage);
@@ -456,10 +459,10 @@ function App() {
         <section className="contact-page" aria-label="Contact Us">
           <div className="contact-page__inner">
             <div className="contact-page__header">
-              <h1 className="contact-page__title">Get In Touch</h1>
+              <h1 className="contact-page__title">Start the Conversation</h1>
               <p className="contact-page__intro">
-                Tell us what is happening, where it matters and what needs to change. We will come back with
-                the questions and direction needed to shape the right PR response.
+                Tell us the story, the market and the timing. A senior member of the team will help identify
+                the questions worth answering first.
               </p>
             </div>
 
@@ -534,7 +537,9 @@ function App() {
               </h1>
               <p className="hero-description">
                 BOXCOM Africa is a Casablanca-based PR agency in Morocco built for brands that need more than
-                distribution.
+                distribution. We shape the story, connect it to the right journalists and editors, and keep
+                strategy, media relations, content, monitoring, Social PR and influencer relations moving as
+                one program.
               </p>
             </div>
 
@@ -562,6 +567,7 @@ function App() {
           </div>
 
           <div className="insight-copy">
+            <p className="insight-copy__eyebrow">Why BOXCOM Africa</p>
             <h2 className="section-title">Business Thinking, Media Relations and Local Context</h2>
             <p>A strong press story starts with the business objective.</p>
             <p>
@@ -586,10 +592,9 @@ function App() {
           <div className="services-section__heading">
             <h2 className="section-title section-title--services">One PR Program, Several Connected Services</h2>
             <p className="services-intro">
-              Clients do not need several agencies pulling the message in different directions. <br/>
-              BOXCOM Africa brings strategy, media, content, monitoring, social and creators under one accountable team, so
-              every action supports the same narrative. <br/>
-              Senior practitioners stay close to the account, so
+              Clients do not need several agencies pulling the message in different directions. BOXCOM Africa
+              brings strategy, media, content, monitoring, social and creators under one accountable team, so
+              every action supports the same narrative. Senior practitioners stay close to the account, so
               strategy, media judgment and delivery do not separate after the first meeting.
             </p>
           </div>
@@ -782,7 +787,7 @@ function App() {
 
       <section className="testimonials-section">
         <div className="testimonials-section__inner">
-          <h2 className="testimonials-section__title">What Clients Says</h2>
+          <h2 className="testimonials-section__title">What Clients Say</h2>
           <p className="testimonials-section__intro">
             Testimonials can strengthen the homepage once approved client quotes are available. The best
             quotes should speak to responsiveness, media judgment, quality of coverage or senior involvement.
@@ -922,7 +927,7 @@ function App() {
                 <textarea placeholder="Type your message here." rows="5" />
               </label>
               <button type="submit" className="primary-pink-button contact-form__submit">
-                Send Message
+                Share Your Brief
               </button>
             </form>
           </div>
