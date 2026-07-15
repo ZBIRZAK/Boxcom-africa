@@ -984,6 +984,7 @@ width: 64px;
   font-family: 'Garet', sans-serif;
   font-size: 3rem;
   font-weight: 700;
+  line-height: 0.98;
 }
 
 @keyframes projectSlideNext {
@@ -1252,8 +1253,10 @@ width: 64px;
 }
 
 .coverage-card__logo {
-  max-width: 82%;
-  max-height: 100px;
+  display: block;
+  width: 120px;
+  height: 25px;
+  flex: 0 0 148px;
   object-fit: contain;
   margin-right: auto;
   margin-left: auto;
@@ -1263,8 +1266,8 @@ width: 64px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
+  width: 35px;
+  height: 35px;
   border: 2px solid rgba(255, 255, 255, 0.86);
   border-radius: 50%;
   color: #ffffff;
@@ -1991,13 +1994,13 @@ width: 64px;
   }
 
   .coverage-section__shape {
-    position: relative;
-    top: auto;
-    right: auto;
-    align-self: center;
-    width: min(100%, 360px);
-    margin: 22px auto 18px;
-    opacity: 0.42;
+    position: absolute;
+    top: 56px;
+    right: 50%;
+    width: min(58vw, 320px);
+    transform: translateX(66%);
+    margin: 0;
+    opacity: 0.14;
   }
 
   .coverage-slider__track {
@@ -2493,34 +2496,46 @@ width: 64px;
   }
 
   .coverage-section {
-    padding: 76px 0;
+    padding: 68px 0 72px;
+  }
+
+  .coverage-section__inner {
+    display: grid;
+    gap: 28px;
   }
 
   .coverage-section__title {
     font-size: 2.55rem;
+    text-align: center;
   }
 
   .coverage-section__copy p {
-    margin-top: 24px;
+    margin-top: 18px;
     font-size: var(--paragraph-size);
-    line-height: 1.28;
+    line-height: 1.36;
+    text-align: center;
   }
 
   .coverage-section__copy {
     max-width: 100%;
     padding-right: 0;
+    display: grid;
+    justify-items: center;
   }
 
   .coverage-section__shape {
-    width: 220px;
-    top: 24px;
-    right: -86px;
-    opacity: 0.28;
+    width: min(62vw, 240px);
+    top: 38px;
+    right: 50%;
+    transform: translateX(68%);
+    opacity: 0.14;
   }
 
   .coverage-slider {
-    margin-top: 38px;
-    width: 100%;
+    margin-top: 0;
+    width: min(100%, 348px);
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .coverage-slider__track {
@@ -2529,27 +2544,41 @@ width: 64px;
   }
 
   .coverage-card__image {
-    height: 220px;
+    height: 240px;
   }
 
   .coverage-card {
     max-width: 100%;
+    border-radius: 22px;
+    box-shadow: 0 16px 28px rgba(10, 19, 59, 0.16);
   }
 
   .coverage-card__footer {
-    min-height: 84px;
-    padding: 14px 16px;
+    min-height: 78px;
+    max-height: none;
+    padding: 16px 18px;
   }
 
   .coverage-card__logo {
-    max-width: 86%;
-    max-height: 62px;
+    width: 132px;
+    height: 40px;
+    flex-basis: 132px;
   }
 
   .coverage-card__arrow {
     width: 40px;
     height: 40px;
     font-size: 1.4rem;
+  }
+
+  .coverage-slider__pagination {
+    margin-top: 16px;
+  }
+
+  .primary-pink-button--coverage {
+    width: min(100%, 180px);
+    margin-top: 18px;
+    justify-content: center;
   }
 
   .services-section::before,

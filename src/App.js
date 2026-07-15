@@ -108,27 +108,27 @@ const projectItems = [
 const mediaItems = [
   {
     label: 'Le Matin',
-    logo: `${process.env.PUBLIC_URL}/assets/imgs/logos/width_200.webp`,
+    logo: `${process.env.PUBLIC_URL}/assets/imgs/logos/le-matin.png`,
     image: `${process.env.PUBLIC_URL}/assets/Our%20Media%20Coverage_Approved%20Images/LeMatin_Media%20Coverage.png`,
   },
   {
     label: '2M',
-    logo: `${process.env.PUBLIC_URL}/assets/imgs/logos/width_150%20(1).webp`,
+    logo: `${process.env.PUBLIC_URL}/assets/imgs/logos/2M.png`,
     image: `${process.env.PUBLIC_URL}/assets/Our%20Media%20Coverage_Approved%20Images/2M_Media%20Coverage.png`,
   },
   {
     label: 'Hespress',
-    logo: `${process.env.PUBLIC_URL}/assets/imgs/logos/width_150.webp`,
+    logo: `${process.env.PUBLIC_URL}/assets/imgs/logos/HESPRESS.png`,
     image: `${process.env.PUBLIC_URL}/assets/Our%20Media%20Coverage_Approved%20Images/Hespress_Media%20Coverage.png`,
   },
   {
     label: 'Le Matin',
-    logo: `${process.env.PUBLIC_URL}/assets/imgs/logos/width_200.webp`,
+    logo: `${process.env.PUBLIC_URL}/assets/imgs/logos/le-matin.png`,
     image: `${process.env.PUBLIC_URL}/assets/Our%20Media%20Coverage_Approved%20Images/LeMatin_Media%20Coverage.png`,
   },
   {
     label: '2M',
-    logo: `${process.env.PUBLIC_URL}/assets/imgs/logos/width_150%20(1).webp`,
+    logo: `${process.env.PUBLIC_URL}/assets/imgs/logos/2M.png`,
     image: `${process.env.PUBLIC_URL}/assets/Our%20Media%20Coverage_Approved%20Images/2M_Media%20Coverage.png`,
   },
 ];
@@ -209,7 +209,12 @@ function App() {
   );
   const projectDragStartX = useRef(null);
   const projectDragCurrentX = useRef(null);
-  const heroVideo = `${process.env.PUBLIC_URL}/assets/Videos/Design%20of%20BoxCom%20Africa%20Website.webm?v=20260710-hero-1`;
+  const coverageDragStartX = useRef(null);
+  const coverageDragCurrentX = useRef(null);
+  const testimonialDragStartX = useRef(null);
+  const testimonialDragCurrentX = useRef(null);
+  const heroVideoMp4 = `${process.env.PUBLIC_URL}/assets/Videos/Design%20of%20BoxCom%20Africa%20Website.mp4?v=20260715-hero-1`;
+  const heroVideoWebm = `${process.env.PUBLIC_URL}/assets/Videos/Design%20of%20BoxCom%20Africa%20Website.webm?v=20260715-hero-1`;
   const logoSrc = `${process.env.PUBLIC_URL}/assets/logo/logo-original.png`;
   const businessThinkingSrc = `${process.env.PUBLIC_URL}/assets/ABOUTUS_CoWorkers-new.png`;
   const contactPagePortraitSrc = `${process.env.PUBLIC_URL}/assets/imgs/width_1600.webp`;
@@ -292,6 +297,104 @@ function App() {
     if (projectDragStartX.current !== null) {
       endProjectDrag();
     }
+  };
+
+  const showPreviousMedia = () => {
+    setActiveMediaPage((current) => Math.max(0, current - 1));
+  };
+
+  const showNextMedia = () => {
+    setActiveMediaPage((current) => Math.min(mediaPageCount - 1, current + 1));
+  };
+
+  const beginCoverageDrag = (clientX) => {
+    coverageDragStartX.current = clientX;
+    coverageDragCurrentX.current = clientX;
+  };
+
+  const updateCoverageDrag = (clientX) => {
+    if (coverageDragStartX.current === null) {
+      return;
+    }
+
+    coverageDragCurrentX.current = clientX;
+  };
+
+  const endCoverageDrag = () => {
+    if (coverageDragStartX.current === null || coverageDragCurrentX.current === null) {
+      coverageDragStartX.current = null;
+      coverageDragCurrentX.current = null;
+      return;
+    }
+
+    const swipeDistance = coverageDragStartX.current - coverageDragCurrentX.current;
+    const swipeThreshold = 42;
+
+    if (swipeDistance > swipeThreshold) {
+      showNextMedia();
+    } else if (swipeDistance < -swipeThreshold) {
+      showPreviousMedia();
+    }
+
+    coverageDragStartX.current = null;
+    coverageDragCurrentX.current = null;
+  };
+
+  const handleCoverageTouchStart = (event) => {
+    beginCoverageDrag(event.touches[0].clientX);
+  };
+
+  const handleCoverageTouchMove = (event) => {
+    updateCoverageDrag(event.touches[0].clientX);
+  };
+
+  const showPreviousTestimonial = () => {
+    setActiveTestimonial((current) => wrapIndex(current - 1, testimonialItems.length));
+  };
+
+  const showNextTestimonial = () => {
+    setActiveTestimonial((current) => wrapIndex(current + 1, testimonialItems.length));
+  };
+
+  const beginTestimonialDrag = (clientX) => {
+    testimonialDragStartX.current = clientX;
+    testimonialDragCurrentX.current = clientX;
+  };
+
+  const updateTestimonialDrag = (clientX) => {
+    if (testimonialDragStartX.current === null) {
+      return;
+    }
+
+    testimonialDragCurrentX.current = clientX;
+  };
+
+  const endTestimonialDrag = () => {
+    if (testimonialDragStartX.current === null || testimonialDragCurrentX.current === null) {
+      testimonialDragStartX.current = null;
+      testimonialDragCurrentX.current = null;
+      return;
+    }
+
+    const swipeDistance = testimonialDragStartX.current - testimonialDragCurrentX.current;
+    const swipeThreshold = 42;
+
+    if (swipeDistance > swipeThreshold) {
+      showNextTestimonial();
+    } else if (swipeDistance < -swipeThreshold) {
+      showPreviousTestimonial();
+    }
+
+    testimonialDragStartX.current = null;
+    testimonialDragCurrentX.current = null;
+  };
+
+  const handleTestimonialTouchStart = (event) => {
+    beginTestimonialDrag(event.touches[0].clientX);
+  };
+
+  const handleTestimonialTouchMove = (event) => {
+    updateTestimonialDrag(event.touches[0].clientX);
   };
 
   useEffect(() => {
@@ -552,7 +655,8 @@ function App() {
                 playsInline
                 preload="auto"
               >
-                <source src={heroVideo} type="video/mp4" />
+                <source src={heroVideoMp4} type="video/mp4" />
+                <source src={heroVideoWebm} type="video/webm" />
               </video>
               <div className="hero-media__overlay" />
             </div>
@@ -751,7 +855,13 @@ function App() {
 
           <img className="coverage-section__shape" src={mediaShapeSrc} alt="" aria-hidden="true" />
 
-          <div className="coverage-slider">
+          <div
+            className="coverage-slider"
+            onTouchStart={handleCoverageTouchStart}
+            onTouchMove={handleCoverageTouchMove}
+            onTouchEnd={endCoverageDrag}
+            onTouchCancel={endCoverageDrag}
+          >
             <div className="coverage-slider__track">
               {visibleMediaItems.map((item, index) => (
                 <article key={`${item.label}-${activeMediaPage}-${index}`} className="coverage-card">
@@ -798,12 +908,18 @@ function App() {
               type="button"
               className="testimonials-slider__arrow testimonials-slider__arrow--left"
               aria-label="Previous testimonial"
-              onClick={() => setActiveTestimonial((current) => wrapIndex(current - 1, testimonialItems.length))}
+              onClick={showPreviousTestimonial}
             >
               ‹
             </button>
 
-            <div className="testimonials-slider__viewport">
+            <div
+              className="testimonials-slider__viewport"
+              onTouchStart={handleTestimonialTouchStart}
+              onTouchMove={handleTestimonialTouchMove}
+              onTouchEnd={endTestimonialDrag}
+              onTouchCancel={endTestimonialDrag}
+            >
               <div
                 className={`testimonials-slider__track${isMobileViewport ? ' is-mobile' : ''}`}
                 style={
@@ -833,7 +949,7 @@ function App() {
               type="button"
               className="testimonials-slider__arrow testimonials-slider__arrow--right"
               aria-label="Next testimonial"
-              onClick={() => setActiveTestimonial((current) => wrapIndex(current + 1, testimonialItems.length))}
+              onClick={showNextTestimonial}
             >
               ›
             </button>
