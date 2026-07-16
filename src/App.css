@@ -1702,13 +1702,21 @@ width: 64px;
   gap: 10px;
 }
 
+.contact-details > div {
+  display: grid;
+  gap: 6px;
+}
+
 .contact-details h3,
 .footer-menu h3,
 .newsletter h3 {
   margin: 0 0 10px;
   color: #ffffff;
   font-family: 'Garet', sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: 0.01em;
 }
 
 .contact-details p,
@@ -1717,8 +1725,11 @@ width: 64px;
   margin: 0;
   color: #fff;
   text-decoration: none;
-  font-size: clamp(1rem, 1.28vw, 1.2rem);
-  line-height: 1.14;
+  font-family: 'Garet', sans-serif;
+  font-size: clamp(1rem, 1.16vw, 1.12rem);
+  font-weight: 400;
+  line-height: 1.28;
+  letter-spacing: 0.01em;
 }
 
 .footer-menu a {
@@ -2777,12 +2788,12 @@ width: 64px;
   .contact-section__bottom {
     margin-top: 44px;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 15px;
+    gap: 13px;
   }
 
   .contact-details,
   .footer-menu {
-    gap: 16px;
+    gap: 10px;
   }
 
   .footer-social {
