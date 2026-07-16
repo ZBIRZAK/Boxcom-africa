@@ -270,7 +270,7 @@
   max-width: 760px;
   font-family: 'Garet', sans-serif;
   font-size: clamp(4rem, 6.35vw, 6.1rem);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 0.94;
   letter-spacing: -0.06em;
 }
@@ -288,7 +288,7 @@
 
 .hero-title em {
   font-style: italic;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .hero-title strong {
