@@ -314,6 +314,7 @@
   background: #06103f;
 }
 
+.hero-media__poster,
 .hero-media__video,
 .hero-media__overlay {
   position: absolute;
@@ -322,12 +323,22 @@
   height: 100%;
 }
 
+.hero-media__poster,
 .hero-media__video {
   object-fit: cover;
   object-position: center center;
 }
 
+.hero-media__poster {
+  z-index: 0;
+}
+
+.hero-media__video {
+  z-index: 1;
+}
+
 .hero-media__overlay {
+  z-index: 2;
   background:
     linear-gradient(90deg, rgba(7, 16, 58, 0.88) 0%, rgba(7, 16, 58, 0.78) 24%, rgba(7, 16, 58, 0.3) 46%, rgba(7, 16, 58, 0.04) 72%, rgba(7, 16, 58, 0) 100%),
     linear-gradient(180deg, rgba(7, 16, 58, 0.18) 0%, rgba(7, 16, 58, 0.06) 100%);

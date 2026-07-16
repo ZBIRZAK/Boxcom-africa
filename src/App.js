@@ -201,6 +201,7 @@ function App() {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [openFaq, setOpenFaq] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [shouldLoadHeroVideo, setShouldLoadHeroVideo] = useState(false);
   const [viewportWidth, setViewportWidth] = useState(() =>
     typeof window === 'undefined' ? 1280 : window.innerWidth
   );
@@ -213,8 +214,10 @@ function App() {
   const coverageDragCurrentX = useRef(null);
   const testimonialDragStartX = useRef(null);
   const testimonialDragCurrentX = useRef(null);
+  const idleHeroLoadHandle = useRef(null);
   const heroVideoMp4 = `${process.env.PUBLIC_URL}/assets/Videos/Design%20of%20BoxCom%20Africa%20Website.mp4?v=20260715-hero-1`;
   const heroVideoWebm = `${process.env.PUBLIC_URL}/assets/Videos/Design%20of%20BoxCom%20Africa%20Website.webm?v=20260715-hero-1`;
+  const heroPoster = `${process.env.PUBLIC_URL}/assets/Videos/hero-poster.jpg?v=20260716-hero-poster-1`;
   const logoSrc = `${process.env.PUBLIC_URL}/assets/logo/logo-original.png`;
   const businessThinkingSrc = `${process.env.PUBLIC_URL}/assets/ABOUTUS_CoWorkers-new.png`;
   const contactPagePortraitSrc = `${process.env.PUBLIC_URL}/assets/imgs/width_1600.webp`;
@@ -443,6 +446,33 @@ function App() {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [normalizedHash]);
 
+  useEffect(() => {
+    if (isContactPage) {
+      setShouldLoadHeroVideo(false);
+      return undefined;
+    }
+
+    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+      idleHeroLoadHandle.current = window.requestIdleCallback(() => {
+        setShouldLoadHeroVideo(true);
+      }, { timeout: 600 });
+
+      return () => {
+        if (idleHeroLoadHandle.current !== null) {
+          window.cancelIdleCallback(idleHeroLoadHandle.current);
+        }
+      };
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      setShouldLoadHeroVideo(true);
+    }, 200);
+
+    return () => {
+      window.clearTimeout(timeoutId);
+    };
+  }, [isContactPage]);
+
   const renderHeader = () => (
     <header className="site-header">
       <div className="site-header__inner">
@@ -647,17 +677,28 @@ function App() {
             </div>
 
             <div className="hero-media" aria-hidden="true">
-              <video
-                className="hero-media__video"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="auto"
-              >
-                <source src={heroVideoMp4} type="video/mp4" />
-                <source src={heroVideoWebm} type="video/webm" />
-              </video>
+              <img
+                className="hero-media__poster"
+                src={heroPoster}
+                alt=""
+                fetchPriority="high"
+                loading="eager"
+                decoding="async"
+              />
+              {shouldLoadHeroVideo && (
+                <video
+                  className="hero-media__video"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  poster={heroPoster}
+                >
+                  <source src={heroVideoMp4} type="video/mp4" />
+                  <source src={heroVideoWebm} type="video/webm" />
+                </video>
+              )}
               <div className="hero-media__overlay" />
             </div>
           </div>
