@@ -56,12 +56,12 @@ function HomePage({
         {header}
 
         <section className="hero-section" aria-label="Hero">
-          <div className="hero-section__inner">
+          <div className="hero-section-inner">
             <div className="hero-copy">
               <h1 className="hero-title">
-                <span className="hero-title__line">PR Agency in</span>
-                <span className="hero-title__line hero-title__line--orange">Morocco</span>
-                <span className="hero-title__line">
+                <span className="hero-title-line">PR Agency in</span>
+                <span className="hero-title-line hero-title-line--orange">Morocco</span>
+                <span className="hero-title-line">
                   <em>for</em> <strong>Africa</strong>
                 </span>
               </h1>
@@ -75,7 +75,7 @@ function HomePage({
 
             <div className="hero-media" aria-hidden="true">
               <img
-                className="hero-media__poster"
+                className="hero-media-poster"
                 src={heroPoster}
                 alt=""
                 fetchPriority="high"
@@ -84,7 +84,7 @@ function HomePage({
               />
               {shouldLoadHeroVideo && (
                 <video
-                  className="hero-media__video"
+                  className="hero-media-video"
                   autoPlay
                   muted
                   loop
@@ -96,20 +96,20 @@ function HomePage({
                   <source src={heroVideoWebm} type="video/webm" />
                 </video>
               )}
-              <div className="hero-media__overlay" />
+              <div className="hero-media-overlay" />
             </div>
           </div>
         </section>
       </div>
 
       <section className="insight-section">
-        <div className="insight-section__inner">
+        <div className="insight-section-inner">
           <div className="insight-art" aria-hidden="true">
-            <img className="insight-art__image insight-art__image--full" src={businessThinkingSrc} alt="" />
+            <img className="insight-art-image insight-art-image--full" src={businessThinkingSrc} alt="" />
           </div>
 
           <div className="insight-copy">
-            <p className="insight-copy__eyebrow">Why BOXCOM Africa</p>
+            <p className="insight-copy-eyebrow">Why BOXCOM Africa</p>
             <h2 className="section-title">Business Thinking, Media Relations and Local Context</h2>
             <p>A strong press story starts with the business objective.</p>
             <p>
@@ -130,8 +130,8 @@ function HomePage({
       </section>
 
       <section className="services-section" id="services">
-        <div className="services-section__inner">
-          <div className="services-section__heading">
+        <div className="services-section-inner">
+          <div className="services-section-heading">
             <h2 className="section-title section-title--services">One PR Program, Several Connected Services</h2>
             <p className="services-intro">
               Clients do not need several agencies pulling the message in different directions. BOXCOM Africa
@@ -149,7 +149,7 @@ function HomePage({
 
               return (
                 <section key={item.label} className={`service-item${isActive ? ' is-active' : ''}`}>
-                  <h3 className="service-item__heading">
+                  <h3 className="service-item-heading">
                     <button
                       id={buttonId}
                       type="button"
@@ -160,7 +160,7 @@ function HomePage({
                       aria-expanded={isActive}
                       aria-controls={panelId}
                     >
-                      <span className="service-tab__label">{item.label}</span>
+                      <span className="service-tab-label">{item.label}</span>
                     </button>
                   </h3>
 
@@ -171,9 +171,9 @@ function HomePage({
                     aria-hidden={!isActive}
                   >
                     <article className="service-card">
-                      <img className="service-card__image" src={item.image} alt={item.title} />
-                      <div className="service-card__overlay" />
-                      <div className="service-card__content">
+                      <img className="service-card-image" src={item.image} alt={item.title} />
+                      <div className="service-card-overlay" />
+                      <div className="service-card-content">
                         <h4>{item.title}</h4>
                         <p>{item.description}</p>
                       </div>
@@ -187,13 +187,13 @@ function HomePage({
       </section>
 
       <section className="clients-section">
-        <div className="clients-section__inner">
-          <h2 className="clients-section__title">Our Clients</h2>
+        <div className="clients-section-inner">
+          <h2 className="clients-section-title">Our Clients</h2>
           {isMobileClientsCarousel ? (
             <div className="clients-ticker" aria-label="Our clients">
-              <div className="clients-ticker__track">
+              <div className="clients-ticker-track">
                 {[...clientLogos, ...clientLogos].map((item, index) => (
-                  <div key={`${item.label}-${index}`} className="clients-grid__item clients-grid__item--ticker">
+                  <div key={`${item.label}-${index}`} className="clients-grid-item clients-grid-item--ticker">
                     <img
                       className={item.className || ''}
                       src={item.src}
@@ -207,7 +207,7 @@ function HomePage({
           ) : (
             <div className="clients-grid">
               {visibleClientLogos.map((item) => (
-                <div key={item.label} className="clients-grid__item">
+                <div key={item.label} className="clients-grid-item">
                   <img className={item.className || ''} src={item.src} alt={item.label} />
                 </div>
               ))}
@@ -217,13 +217,13 @@ function HomePage({
       </section>
 
       <section className="projects-section" id="projects">
-        <div className="projects-section__inner">
-          <h2 className="projects-section__title">Selected Projects</h2>
+        <div className="projects-section-inner">
+          <h2 className="projects-section-title">Selected Projects</h2>
 
           <div className="projects-switcher">
             <button
               type="button"
-              className="projects-switcher__arrow projects-switcher__arrow--left"
+              className="projects-switcher-arrow projects-switcher-arrow--left"
               aria-label="Previous project"
               onClick={showPreviousProject}
             >
@@ -231,7 +231,7 @@ function HomePage({
             </button>
 
             <div
-              className={`projects-switcher__track is-animating-${projectMotion}`}
+              className={`projects-switcher-track is-animating-${projectMotion}`}
               onMouseDown={handleProjectMouseDown}
               onMouseMove={handleProjectMouseMove}
               onMouseUp={handleProjectMouseUp}
@@ -248,10 +248,10 @@ function HomePage({
 
                 return (
                   <article key={`${project.label}-${offset}`} className={`project-card ${positionClass}`}>
-                    <img className="project-card__image" src={project.image} alt={project.title} />
-                    <div className="project-card__overlay" />
+                    <img className="project-card-image" src={project.image} alt={project.title} />
+                    <div className="project-card-overlay" />
                     {offset === 0 && (
-                      <div className="project-card__content">
+                      <div className="project-card-content">
                         <h3>{project.title}</h3>
                         <p>{project.category}</p>
                       </div>
@@ -263,7 +263,7 @@ function HomePage({
 
             <button
               type="button"
-              className="projects-switcher__arrow projects-switcher__arrow--right"
+              className="projects-switcher-arrow projects-switcher-arrow--right"
               aria-label="Next project"
               onClick={showNextProject}
             >
@@ -278,16 +278,16 @@ function HomePage({
       </section>
 
       <section className="coverage-section">
-        <div className="coverage-section__inner">
-          <div className="coverage-section__copy">
-            <h2 className="coverage-section__title">Our Media Coverage</h2>
+        <div className="coverage-section-inner">
+          <div className="coverage-section-copy">
+            <h2 className="coverage-section-title">Our Media Coverage</h2>
             <p>
               The right story rarely moves because it was sent to the longest list. It moves because the
               angle is relevant, the timing is right and the journalist receiving it sees a reason to care.
             </p>
           </div>
 
-          <img className="coverage-section__shape" src={mediaShapeSrc} alt="" aria-hidden="true" />
+          <img className="coverage-section-shape" src={mediaShapeSrc} alt="" aria-hidden="true" />
 
           <div
             className="coverage-slider"
@@ -296,13 +296,13 @@ function HomePage({
             onTouchEnd={endCoverageDrag}
             onTouchCancel={endCoverageDrag}
           >
-            <div className="coverage-slider__track">
+            <div className="coverage-slider-track">
               {visibleMediaItems.map((item, index) => (
                 <article key={`${item.label}-${activeMediaPage}-${index}`} className="coverage-card">
-                  <img className="coverage-card__image" src={item.image} alt={item.label} />
-                  <div className="coverage-card__footer">
-                    <img className="coverage-card__logo" src={item.logo} alt={item.label} />
-                    <span className="coverage-card__arrow" aria-hidden="true">
+                  <img className="coverage-card-image" src={item.image} alt={item.label} />
+                  <div className="coverage-card-footer">
+                    <img className="coverage-card-logo" src={item.logo} alt={item.label} />
+                    <span className="coverage-card-arrow" aria-hidden="true">
                       →
                     </span>
                   </div>
@@ -310,12 +310,12 @@ function HomePage({
               ))}
             </div>
 
-            <div className="coverage-slider__pagination" aria-label="Media coverage pages">
+            <div className="coverage-slider-pagination" aria-label="Media coverage pages">
               {Array.from({ length: mediaPageCount }).map((_, index) => (
                 <button
                   key={index}
                   type="button"
-                  className={`coverage-slider__dot${index === activeMediaPage ? ' is-active' : ''}`}
+                  className={`coverage-slider-dot${index === activeMediaPage ? ' is-active' : ''}`}
                   aria-label={`Go to media page ${index + 1}`}
                   onClick={() => setActiveMediaPage(index)}
                 />
@@ -330,9 +330,9 @@ function HomePage({
       </section>
 
       <section className="testimonials-section">
-        <div className="testimonials-section__inner">
-          <h2 className="testimonials-section__title">What Clients Say</h2>
-          <p className="testimonials-section__intro">
+        <div className="testimonials-section-inner">
+          <h2 className="testimonials-section-title">What Clients Say</h2>
+          <p className="testimonials-section-intro">
             Testimonials can strengthen the homepage once approved client quotes are available. The best
             quotes should speak to responsiveness, media judgment, quality of coverage or senior involvement.
           </p>
@@ -340,7 +340,7 @@ function HomePage({
           <div className="testimonials-slider">
             <button
               type="button"
-              className="testimonials-slider__arrow testimonials-slider__arrow--left"
+              className="testimonials-slider-arrow testimonials-slider-arrow--left"
               aria-label="Previous testimonial"
               onClick={showPreviousTestimonial}
             >
@@ -348,14 +348,14 @@ function HomePage({
             </button>
 
             <div
-              className="testimonials-slider__viewport"
+              className="testimonials-slider-viewport"
               onTouchStart={handleTestimonialTouchStart}
               onTouchMove={handleTestimonialTouchMove}
               onTouchEnd={endTestimonialDrag}
               onTouchCancel={endTestimonialDrag}
             >
               <div
-                className={`testimonials-slider__track${isMobileViewport ? ' is-mobile' : ''}`}
+                className={`testimonials-slider-track${isMobileViewport ? ' is-mobile' : ''}`}
                 style={
                   isMobileViewport
                     ? {
@@ -368,11 +368,11 @@ function HomePage({
               >
                 {visibleTestimonials.map((item, index) => (
                   <article key={`${item.brand}-${index}`} className="testimonial-card">
-                    <div className="testimonial-card__brand">
+                    <div className="testimonial-card-brand">
                       <img src={item.logo} alt={item.brand} />
                     </div>
-                    <p className="testimonial-card__name">{item.name}</p>
-                    <p className="testimonial-card__role">{item.role}</p>
+                    <p className="testimonial-card-name">{item.name}</p>
+                    <p className="testimonial-card-role">{item.role}</p>
                     <blockquote>{item.quote}</blockquote>
                   </article>
                 ))}
@@ -381,7 +381,7 @@ function HomePage({
 
             <button
               type="button"
-              className="testimonials-slider__arrow testimonials-slider__arrow--right"
+              className="testimonials-slider-arrow testimonials-slider-arrow--right"
               aria-label="Next testimonial"
               onClick={showNextTestimonial}
             >
@@ -389,12 +389,12 @@ function HomePage({
             </button>
           </div>
 
-          <div className="testimonials-slider__pagination" aria-label="Testimonials pagination">
+          <div className="testimonials-slider-pagination" aria-label="Testimonials pagination">
             {testimonialItems.map((item, index) => (
               <button
                 key={`${item.brand}-${index}`}
                 type="button"
-                className={`testimonials-slider__dot${index === activeTestimonial ? ' is-active' : ''}`}
+                className={`testimonials-slider-dot${index === activeTestimonial ? ' is-active' : ''}`}
                 aria-label={`Go to testimonial ${index + 1}`}
                 onClick={() => setActiveTestimonial(index)}
               />
@@ -402,8 +402,8 @@ function HomePage({
           </div>
 
           <div className="review-banner">
-            <img className="review-banner__image" src={googleReviewsBannerSrc} alt="Google Reviews" />
-            <a className="primary-pink-button review-banner__cta" href="#/reviews">
+            <img className="review-banner-image" src={googleReviewsBannerSrc} alt="Google Reviews" />
+            <a className="primary-pink-button review-banner-cta" href="#/reviews">
               Check our Google Reviews
             </a>
           </div>
@@ -411,27 +411,27 @@ function HomePage({
       </section>
 
       <section className="faq-section">
-        <div className="faq-section__inner">
-          <h2 className="faq-section__title">Frequently Asked Questions</h2>
+        <div className="faq-section-inner">
+          <h2 className="faq-section-title">Frequently Asked Questions</h2>
           <div className="faq-list">
             {faqItems.map((item, index) => {
               const isOpen = index === openFaq;
               return (
                 <section key={item.question} className={`faq-item${isOpen ? ' is-open' : ''}`}>
-                  <h3 className="faq-item__heading">
+                  <h3 className="faq-item-heading">
                     <button
                       type="button"
-                      className="faq-item__button"
+                      className="faq-item-button"
                       aria-expanded={isOpen}
                       onClick={() => setOpenFaq(isOpen ? -1 : index)}
                     >
                       <span>{item.question}</span>
-                      <span className="faq-item__icon" aria-hidden="true">
+                      <span className="faq-item-icon" aria-hidden="true">
                         {isOpen ? '−' : '+'}
                       </span>
                     </button>
                   </h3>
-                  {isOpen && item.answer && <div className="faq-item__panel">{item.answer}</div>}
+                  {isOpen && item.answer && <div className="faq-item-panel">{item.answer}</div>}
                 </section>
               );
             })}
@@ -440,14 +440,14 @@ function HomePage({
       </section>
 
       <section className="contact-section">
-        <div className="contact-section__inner">
-          <h2 className="contact-section__title">Start The Conversation</h2>
-          <p className="contact-section__intro">
+        <div className="contact-section-inner">
+          <h2 className="contact-section-title">Start The Conversation</h2>
+          <p className="contact-section-intro">
             Tell us the story, the market and the timing. A senior member of the team will help identify the
             questions worth answering first.
           </p>
 
-          <div className="contact-section__top">
+          <div className="contact-section-top">
             <div className="contact-map">
               <iframe
                 title="BOXCOM Africa location"
@@ -458,7 +458,7 @@ function HomePage({
             </div>
 
             <form className="contact-form">
-              <div className="contact-form__row">
+              <div className="contact-form-row">
                 <label>
                   <span>Your Name</span>
                   <input type="text" placeholder="Your Full Name" />
@@ -476,7 +476,7 @@ function HomePage({
                 <span>Message</span>
                 <textarea placeholder="Type your message here." rows="5" />
               </label>
-              <button type="submit" className="primary-pink-button contact-form__submit">
+              <button type="submit" className="primary-pink-button contact-form-submit">
                 Share Your Brief
               </button>
             </form>

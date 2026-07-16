@@ -477,14 +477,14 @@ function App() {
 
   const renderHeader = () => (
     <header className="site-header">
-      <div className="site-header__inner">
+      <div className="site-header-inner">
         <a
           className="brand"
           href="#/"
           aria-label="Boxcom Africa"
           onClick={() => setIsMenuOpen(false)}
         >
-          <img className="brand__image" src={logoSrc} alt="" aria-hidden="true" />
+          <img className="brand-image" src={logoSrc} alt="" aria-hidden="true" />
         </a>
 
         <button
@@ -500,14 +500,14 @@ function App() {
           <span />
         </button>
 
-        <div id="primary-menu" className={`site-header__menu${isMenuOpen ? ' is-open' : ''}`}>
+        <div id="primary-menu" className={`site-header-menu${isMenuOpen ? ' is-open' : ''}`}>
           <nav className="main-nav" aria-label="Primary">
             {menuItems.map((item) => {
               const isActive = normalizedHash === item.href;
               return (
                 <a
                   key={item.label}
-                  className={`main-nav__link${isActive ? ' is-active' : ''}`}
+                  className={`main-nav-link${isActive ? ' is-active' : ''}`}
                   href={item.href}
                   onClick={() => setIsMenuOpen(false)}
                 >

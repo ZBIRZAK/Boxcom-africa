@@ -1,4 +1,4 @@
-function Footer({ socialItems }) {
+function SiteFooter({ socialItems }) {
   return (
     <>
       <div className="contact-section-bottom">
@@ -61,4 +61,4 @@ function Footer({ socialItems }) {
   );
 }
 
-export default Footer;
+export default SiteFooter;
