@@ -194,9 +194,10 @@ function wrapIndex(index, length) {
 }
 
 function App() {
-  const [activeService, setActiveService] = useState(serviceItems[4].label);
+  const [activeService, setActiveService] = useState(serviceItems[5].label);
   const [activeProject, setActiveProject] = useState(2);
   const [projectMotion, setProjectMotion] = useState('next');
+  const [isProjectPaused, setIsProjectPaused] = useState(false);
   const [activeMediaPage, setActiveMediaPage] = useState(0);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [openFaq, setOpenFaq] = useState(0);
@@ -215,6 +216,7 @@ function App() {
   const testimonialDragStartX = useRef(null);
   const testimonialDragCurrentX = useRef(null);
   const idleHeroLoadHandle = useRef(null);
+  const heroVideoRef = useRef(null);
   const heroVideoMp4 = `${process.env.PUBLIC_URL}/assets/Videos/Design%20of%20BoxCom%20Africa%20Website.mp4?v=20260715-hero-1`;
   const heroVideoWebm = `${process.env.PUBLIC_URL}/assets/Videos/Design%20of%20BoxCom%20Africa%20Website.webm?v=20260715-hero-1`;
   const heroPoster = `${process.env.PUBLIC_URL}/assets/Videos/hero-poster.jpg?v=20260716-hero-poster-1`;
@@ -235,12 +237,12 @@ function App() {
 
   const showPreviousProject = () => {
     setProjectMotion('prev');
-    setActiveProject((current) => wrapIndex(current - 1, projectItems.length));
+    setActiveProject((current) => current - 1);
   };
 
   const showNextProject = () => {
     setProjectMotion('next');
-    setActiveProject((current) => wrapIndex(current + 1, projectItems.length));
+    setActiveProject((current) => current + 1);
   };
 
   const beginProjectDrag = (clientX) => {
@@ -297,6 +299,8 @@ function App() {
   };
 
   const handleProjectMouseLeave = () => {
+    setIsProjectPaused(false);
+
     if (projectDragStartX.current !== null) {
       endProjectDrag();
     }
@@ -428,19 +432,19 @@ function App() {
   }, [mediaPageCount]);
 
   useEffect(() => {
-    if (isContactPage) {
+    if (isContactPage || isProjectPaused) {
       return undefined;
     }
 
     const autoRotate = window.setInterval(() => {
       setProjectMotion('next');
-      setActiveProject((current) => wrapIndex(current + 1, projectItems.length));
-    }, 3000);
+      setActiveProject((current) => current + 1);
+    }, 5000);
 
     return () => {
       window.clearInterval(autoRotate);
     };
-  }, [isContactPage]);
+  }, [isContactPage, isProjectPaused]);
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
@@ -473,6 +477,43 @@ function App() {
     };
   }, [isContactPage]);
 
+  useEffect(() => {
+    if (!shouldLoadHeroVideo || isContactPage) {
+      return undefined;
+    }
+
+    const video = heroVideoRef.current;
+    if (!video) {
+      return undefined;
+    }
+
+    const keepPlaying = () => {
+      if (video.paused) {
+        video.play().catch(() => {});
+      }
+    };
+
+    const restartLoop = () => {
+      video.currentTime = 0;
+      video.play().catch(() => {});
+    };
+
+    keepPlaying();
+    video.addEventListener('ended', restartLoop);
+    video.addEventListener('stalled', keepPlaying);
+    video.addEventListener('suspend', keepPlaying);
+    video.addEventListener('waiting', keepPlaying);
+    video.addEventListener('pause', keepPlaying);
+
+    return () => {
+      video.removeEventListener('ended', restartLoop);
+      video.removeEventListener('stalled', keepPlaying);
+      video.removeEventListener('suspend', keepPlaying);
+      video.removeEventListener('waiting', keepPlaying);
+      video.removeEventListener('pause', keepPlaying);
+    };
+  }, [isContactPage, shouldLoadHeroVideo]);
+
   const renderHeader = () => (
     <header className="site-header">
       <div className="site-header__inner">
@@ -502,6 +543,38 @@ function App() {
           <nav className="main-nav" aria-label="Primary">
             {menuItems.map((item) => {
               const isActive = normalizedHash === item.href;
+
+              if (item.label === 'Services') {
+                return (
+                  <div key={item.label} className="main-nav__item main-nav__item--has-dropdown">
+                    <a
+                      className={`main-nav__link${isActive ? ' is-active' : ''}`}
+                      href={item.href}
+                      onClick={() => setIsMenuOpen(false)}
+                      aria-haspopup="true"
+                    >
+                      {item.label}
+                    </a>
+
+                    <div className="main-nav__dropdown" aria-label="Services menu">
+                      {serviceItems.map((service) => (
+                        <a
+                          key={service.label}
+                          className="main-nav__dropdown-link"
+                          href="#/services"
+                          onClick={() => {
+                            setActiveService(service.label);
+                            setIsMenuOpen(false);
+                          }}
+                        >
+                          {service.label}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
+
               return (
                 <a
                   key={item.label}
@@ -529,15 +602,19 @@ function App() {
         <div className="contact-details">
           <div>
             <h3>Phone</h3>
-            <p>123-456-7890</p>
+            <p>
+              <a href="tel:+212522219933">+212 5 22 21 99 33</a>
+            </p>
           </div>
           <div>
             <h3>Email</h3>
-            <p>Info@box-com.com</p>
+            <p>
+              <a href="mailto:contact@box-com.com">contact@box-com.com</a>
+            </p>
           </div>
           <div>
             <h3>Address</h3>
-            <p>123 Street</p>
+            <p>3 Rue El Jihani, Quartier Racine, Casablanca, Morocco 20250</p>
           </div>
         </div>
 
@@ -687,13 +764,15 @@ function App() {
               />
               {shouldLoadHeroVideo && (
                 <video
+                  ref={heroVideoRef}
                   className="hero-media__video"
                   autoPlay
                   muted
                   loop
                   playsInline
-                  preload="metadata"
+                  preload="auto"
                   poster={heroPoster}
+                  disablePictureInPicture
                 >
                   <source src={heroVideoMp4} type="video/mp4" />
                   <source src={heroVideoWebm} type="video/webm" />
@@ -712,7 +791,6 @@ function App() {
           </div>
 
           <div className="insight-copy">
-            <p className="insight-copy__eyebrow">Why BOXCOM Africa</p>
             <h2 className="section-title">Business Thinking, Media Relations and Local Context</h2>
             <p>A strong press story starts with the business objective.</p>
             <p>
@@ -834,7 +912,8 @@ function App() {
             </button>
 
             <div
-              className={`projects-switcher__track is-animating-${projectMotion}`}
+              className={`projects-switcher__track is-animating-${projectMotion}${isProjectPaused ? ' is-paused' : ''}`}
+              onMouseEnter={() => setIsProjectPaused(true)}
               onMouseDown={handleProjectMouseDown}
               onMouseMove={handleProjectMouseMove}
               onMouseUp={handleProjectMouseUp}
@@ -844,25 +923,35 @@ function App() {
               onTouchEnd={endProjectDrag}
               onTouchCancel={endProjectDrag}
             >
-              {[-2, -1, 0, 1, 2].map((offset) => {
-                const project = projectItems[wrapIndex(activeProject + offset, projectItems.length)];
-                const positionClass =
-                  offset === 0
-                    ? 'is-center'
-                    : Math.abs(offset) === 1
-                      ? 'is-side'
-                      : 'is-edge';
+              {[-3, -2, -1, 0, 1, 2, 3].map((offset) => {
+                const virtualProjectIndex = activeProject + offset;
+                const project = projectItems[wrapIndex(virtualProjectIndex, projectItems.length)];
+                const positionClass = {
+                  '-3': 'is-offstage is-offstage-left',
+                  '-2': 'is-edge is-edge-left',
+                  '-1': 'is-side is-side-left',
+                  0: 'is-center',
+                  1: 'is-side is-side-right',
+                  2: 'is-edge is-edge-right',
+                  3: 'is-offstage is-offstage-right',
+                }[offset];
+                const wrapEntryClass =
+                  (projectMotion === 'next' && offset === 2)
+                    ? 'is-wrap-entry-right'
+                    : '';
 
                 return (
-                  <article key={`${project.label}-${offset}`} className={`project-card ${positionClass}`}>
+                  <article
+                    key={virtualProjectIndex}
+                    className={`project-card ${positionClass}${wrapEntryClass ? ` ${wrapEntryClass}` : ''}`}
+                    onMouseEnter={() => setIsProjectPaused(true)}
+                  >
                     <img className="project-card__image" src={project.image} alt={project.title} />
                     <div className="project-card__overlay" />
-                    {offset === 0 && (
-                      <div className="project-card__content">
-                        <h3>{project.title}</h3>
-                        <p>{project.category}</p>
-                      </div>
-                    )}
+                    <div className="project-card__content">
+                      <h3 className={project.title.length > 5 ? 'is-long-title' : ''}>{project.title}</h3>
+                      <p>{project.category}</p>
+                    </div>
                   </article>
                 );
               })}
@@ -1009,7 +1098,12 @@ function App() {
           </div>
 
           <div className="review-banner">
-            <img className="review-banner__image" src={googleReviewsBannerSrc} alt="Google Reviews" />
+            <div className="review-banner__rating">
+              <img className="review-banner__image" src={googleReviewsBannerSrc} alt="Google Reviews" />
+            </div>
+            <p className="review-banner__message">
+              Constantly saluted for its strategy, presence and its results
+            </p>
             <a className="primary-pink-button review-banner__cta" href="#/reviews">
               Check our Google Reviews
             </a>
