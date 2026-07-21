@@ -804,7 +804,10 @@
 }
 
 .services-accordion {
-  --service-open-duration: 950ms;
+  --service-open-duration: 1400ms;
+  --service-fade-duration: 1100ms;
+  --service-content-duration: 1000ms;
+  --service-content-delay: 300ms;
   --service-open-ease: cubic-bezier(0.16, 1, 0.3, 1);
   max-width: none;
   margin: 32px auto 0;
@@ -913,7 +916,7 @@
   transition:
     max-width var(--service-open-duration) var(--service-open-ease),
     margin-left var(--service-open-duration) var(--service-open-ease),
-    opacity 720ms ease;
+    opacity var(--service-fade-duration) ease;
 }
 
 .service-panel.is-active {
@@ -935,7 +938,7 @@
   opacity: 0.75;
   transition:
     transform var(--service-open-duration) var(--service-open-ease),
-    opacity 720ms ease;
+    opacity var(--service-fade-duration) ease;
 }
 
 .service-panel.is-active .service-card {
@@ -969,7 +972,7 @@
 }
 
 .service-item.is-active .service-card__content {
-  animation: serviceContentReveal 720ms var(--service-open-ease) 180ms both;
+  animation: serviceContentReveal var(--service-content-duration) var(--service-open-ease) var(--service-content-delay) both;
 }
 
 .service-card__content h4 {
@@ -3425,7 +3428,7 @@
     transition:
       max-height var(--service-open-duration) var(--service-open-ease),
       margin-top var(--service-open-duration) var(--service-open-ease),
-      opacity 720ms ease;
+      opacity var(--service-fade-duration) ease;
   }
 
   .service-panel.is-active {
