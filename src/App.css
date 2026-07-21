@@ -3758,3 +3758,14 @@
     line-height: 1.2;
   }
 }
+
+/* Keep the longer insight CTA visually balanced instead of forcing the shared fixed width. */
+.insight-copy .primary-pink-button {
+  box-sizing: border-box;
+  width: auto;
+  min-width: 0;
+  max-width: none;
+  padding-left: 28px;
+  padding-right: 28px;
+  white-space: nowrap;
+}
