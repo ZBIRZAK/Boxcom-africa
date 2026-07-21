@@ -202,6 +202,7 @@ function App() {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [openFaq, setOpenFaq] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [openNavSubmenu, setOpenNavSubmenu] = useState(null);
   const [shouldLoadHeroVideo, setShouldLoadHeroVideo] = useState(false);
   const [viewportWidth, setViewportWidth] = useState(() =>
     typeof window === 'undefined' ? 1280 : window.innerWidth
@@ -409,12 +410,14 @@ function App() {
       setViewportWidth(window.innerWidth);
       if (window.innerWidth > 1200) {
         setIsMenuOpen(false);
+        setOpenNavSubmenu(null);
       }
     };
 
     const handleHashChange = () => {
       setCurrentHash(window.location.hash || '#/');
       setIsMenuOpen(false);
+      setOpenNavSubmenu(null);
     };
 
     window.addEventListener('resize', handleResize);
@@ -521,7 +524,10 @@ function App() {
           className="brand"
           href="#/"
           aria-label="Boxcom Africa"
-          onClick={() => setIsMenuOpen(false)}
+          onClick={() => {
+            setIsMenuOpen(false);
+            setOpenNavSubmenu(null);
+          }}
         >
           <img className="brand__image" src={logoSrc} alt="" aria-hidden="true" />
         </a>
@@ -532,7 +538,14 @@ function App() {
           aria-expanded={isMenuOpen}
           aria-controls="primary-menu"
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-          onClick={() => setIsMenuOpen((current) => !current)}
+          onClick={() => {
+            setIsMenuOpen((current) => {
+              if (current) {
+                setOpenNavSubmenu(null);
+              }
+              return !current;
+            });
+          }}
         >
           <span />
           <span />
@@ -544,30 +557,64 @@ function App() {
             {menuItems.map((item) => {
               const isActive = normalizedHash === item.href;
 
-              if (item.label === 'Services') {
-                return (
-                  <div key={item.label} className="main-nav__item main-nav__item--has-dropdown">
-                    <a
-                      className={`main-nav__link${isActive ? ' is-active' : ''}`}
-                      href={item.href}
-                      onClick={() => setIsMenuOpen(false)}
-                      aria-haspopup="true"
-                    >
-                      {item.label}
-                    </a>
+              if (item.label === 'Services' || item.label === 'Projects') {
+                const isServicesMenu = item.label === 'Services';
+                const submenuItems = isServicesMenu ? serviceItems : projectItems;
+                const isSubmenuOpen = openNavSubmenu === item.label;
+                const submenuId = `main-nav-${item.label.toLowerCase()}-submenu`;
 
-                    <div className="main-nav__dropdown" aria-label="Services menu">
-                      {serviceItems.map((service) => (
+                return (
+                  <div
+                    key={item.label}
+                    className={`main-nav__item main-nav__item--has-dropdown${isSubmenuOpen ? ' is-submenu-open' : ''}`}
+                  >
+                    <div className="main-nav__item-label">
+                      <a
+                        className={`main-nav__link${isActive ? ' is-active' : ''}`}
+                        href={item.href}
+                        onClick={() => {
+                          setIsMenuOpen(false);
+                          setOpenNavSubmenu(null);
+                        }}
+                      >
+                        {item.label}
+                      </a>
+                      <button
+                        type="button"
+                        className="main-nav__dropdown-toggle"
+                        aria-label={`${isSubmenuOpen ? 'Close' : 'Open'} ${item.label} submenu`}
+                        aria-haspopup="true"
+                        aria-expanded={isSubmenuOpen}
+                        aria-controls={submenuId}
+                        onClick={(event) => {
+                          if (isSubmenuOpen) {
+                            event.currentTarget.blur();
+                          }
+                          setOpenNavSubmenu(isSubmenuOpen ? null : item.label);
+                        }}
+                      >
+                        <span aria-hidden="true">⌄</span>
+                      </button>
+                    </div>
+
+                    <div id={submenuId} className="main-nav__dropdown" aria-label={`${item.label} menu`}>
+                      {submenuItems.map((submenuItem, submenuIndex) => (
                         <a
-                          key={service.label}
+                          key={submenuItem.label}
                           className="main-nav__dropdown-link"
-                          href="#/services"
+                          href={item.href}
                           onClick={() => {
-                            setActiveService(service.label);
+                            if (isServicesMenu) {
+                              setActiveService(submenuItem.label);
+                            } else {
+                              setProjectMotion('next');
+                              setActiveProject(submenuIndex);
+                            }
                             setIsMenuOpen(false);
+                            setOpenNavSubmenu(null);
                           }}
                         >
-                          {service.label}
+                          {submenuItem.title}
                         </a>
                       ))}
                     </div>
@@ -580,7 +627,10 @@ function App() {
                   key={item.label}
                   className={`main-nav__link${isActive ? ' is-active' : ''}`}
                   href={item.href}
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    setOpenNavSubmenu(null);
+                  }}
                 >
                   {item.label}
                 </a>
@@ -588,7 +638,14 @@ function App() {
             })}
           </nav>
 
-          <a className="header-cta" href="#/contact" onClick={() => setIsMenuOpen(false)}>
+          <a
+            className="header-cta"
+            href="#/contact"
+            onClick={() => {
+              setIsMenuOpen(false);
+              setOpenNavSubmenu(null);
+            }}
+          >
             Talk to Our PR Team <span aria-hidden="true">→</span>
           </a>
         </div>
