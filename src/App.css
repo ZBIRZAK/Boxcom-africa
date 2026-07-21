@@ -1782,7 +1782,9 @@
 }
 
 .faq-list {
-  max-width: 1340px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
   margin: 62px auto 0;
   padding: 0 46px;
   border-radius: 34px;
@@ -1825,11 +1827,13 @@
 }
 
 .faq-item__panel {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
   padding: 0 0 30px;
   color: #030625;
   font-size: var(--paragraph-size);
   line-height: 1.72;
-  max-width: 1000px;
 }
 
 .contact-section {
@@ -1845,11 +1849,25 @@
 }
 
 .contact-section__intro {
-  max-width: 1180px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
   margin: 20px 0 0;
   color: #ffffff;
   font-size: var(--paragraph-size);
   line-height: 1.18;
+}
+
+/* Section-level copy should use the complete width offered by its layout column. */
+.services-intro,
+.insight-copy p,
+.coverage-section__copy p,
+.testimonials-section__intro,
+.contact-section__intro,
+.faq-item__panel {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
 }
 
 .contact-section__top {
@@ -1999,8 +2017,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
+  width: 35px;
+  height: 35px;
   text-decoration: none;
 }
 
