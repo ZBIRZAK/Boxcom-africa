@@ -593,7 +593,7 @@ function App() {
                           setOpenNavSubmenu(isSubmenuOpen ? null : item.label);
                         }}
                       >
-                        <span aria-hidden="true">⌄</span>
+                        <span aria-hidden="true" />
                       </button>
                     </div>
 

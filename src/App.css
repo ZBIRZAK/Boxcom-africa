@@ -213,7 +213,7 @@
 .main-nav__item-label {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 7px;
 }
 
 .main-nav__link {
@@ -233,39 +233,45 @@
 
 .main-nav__dropdown-toggle {
   display: inline-flex;
-  width: 24px;
-  height: 24px;
+  flex: 0 0 26px;
+  width: 26px;
+  height: 26px;
   padding: 0;
   border: 0;
-  background: transparent;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
   color: #ffffff;
   align-items: center;
   justify-content: center;
-  font: inherit;
-  font-size: 1.15rem;
-  line-height: 1;
   cursor: pointer;
+  transition: background 160ms ease, color 160ms ease;
 }
 
 .main-nav__dropdown-toggle span {
   display: block;
-  transform: translateY(-2px);
-  transition: transform 220ms ease, color 160ms ease;
+  box-sizing: border-box;
+  width: 7px;
+  height: 7px;
+  border-right: 1.8px solid currentColor;
+  border-bottom: 1.8px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform 220ms ease;
 }
 
 .main-nav__item--has-dropdown:hover .main-nav__dropdown-toggle,
 .main-nav__item--has-dropdown:focus-within .main-nav__dropdown-toggle,
 .main-nav__item--has-dropdown.is-submenu-open .main-nav__dropdown-toggle {
+  background: rgba(255, 122, 56, 0.14);
   color: #ff7a38;
 }
 
 .main-nav__item--has-dropdown.is-submenu-open .main-nav__dropdown-toggle span {
-  transform: translateY(2px) rotate(180deg);
+  transform: translateY(2px) rotate(225deg);
 }
 
 .main-nav__dropdown {
   position: absolute;
-  top: calc(100% + 18px);
+  top: calc(100% + 14px);
   left: 50%;
   min-width: 250px;
   padding: 14px;
@@ -287,8 +293,8 @@
   position: absolute;
   left: 0;
   right: 0;
-  top: -18px;
-  height: 18px;
+  top: -14px;
+  height: 14px;
 }
 
 .main-nav__dropdown-link {
@@ -2213,7 +2219,7 @@
 
   .main-nav__item-label {
     width: 100%;
-    gap: 4px;
+    gap: 8px;
   }
 
   .main-nav__link {
@@ -2227,8 +2233,15 @@
     flex: 0 0 46px;
     width: 46px;
     height: 46px;
+    margin-left: auto;
     border-radius: 13px;
     background: rgba(255, 255, 255, 0.06);
+  }
+
+  .main-nav__dropdown-toggle span {
+    width: 9px;
+    height: 9px;
+    border-width: 2px;
   }
 
   .main-nav__link.is-active {
