@@ -897,23 +897,41 @@ function App() {
                 <form className="contact-page-form" onSubmit={(event) => event.preventDefault()}>
                   <div className="contact-page-form__row">
                     <label>
-                      <span>Your Name</span>
-                      <input type="text" placeholder="Your Full Name" />
+                      <span>Your Name *</span>
+                      <input
+                        type="text"
+                        name="name"
+                        placeholder="Your Full Name"
+                        autoComplete="name"
+                        required
+                      />
                     </label>
                     <label>
-                      <span>Your Company</span>
-                      <input type="text" placeholder="Your Company" />
+                      <span>Your Company *</span>
+                      <input
+                        type="text"
+                        name="company"
+                        placeholder="Your Company"
+                        autoComplete="organization"
+                        required
+                      />
                     </label>
                   </div>
 
                   <label>
-                    <span>Your Email</span>
-                    <input type="email" placeholder="Your Email" />
+                    <span>Your Email *</span>
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Your Email"
+                      autoComplete="email"
+                      required
+                    />
                   </label>
 
                   <label>
                     <span>Message</span>
-                    <textarea placeholder="Type your message here." rows="5" />
+                    <textarea name="message" placeholder="Type your message here." rows="5" />
                   </label>
 
                   <button type="submit" className="contact-page-form__button contact-page-form__button--primary">
