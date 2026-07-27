@@ -133,10 +133,12 @@ function HomePage({
           <div className="services-section-heading">
             <h2 className="section-title section-title--services">One PR Program, Several Connected Services</h2>
             <p className="services-intro">
-              Clients do not need several agencies pulling the message in different directions. BOXCOM Africa
-              brings strategy, media, content, monitoring, social and creators under one accountable team, so
-              every action supports the same narrative. Senior practitioners stay close to the account, so
-              strategy, media judgment and delivery do not separate after the first meeting.
+              Clients don't need several agencies pulling the message in different directions.
+              <br />
+              BOXCOM Africa brings strategy, media, content, monitoring, social and creators under one accountable
+              team, so every action supports the same narrative.
+              <br /><br />
+              Senior practitioners stay close to the account, so strategy and delivery never separate.
             </p>
           </div>
 

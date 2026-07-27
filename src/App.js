@@ -1,5 +1,16 @@
 import { useEffect, useRef, useState } from 'react';
 import './App.css';
+import InfluencerRelationsPage from './pages/InfluencerRelationsPage';
+import MediaEventsPage from './pages/MediaEventsPage';
+import MediaMonitoringPage from './pages/MediaMonitoringPage';
+import MediaRelationsPage from './pages/MediaRelationsPage';
+import PRContentCreationPage from './pages/PRContentCreationPage';
+import SocialPRPage from './pages/SocialPRPage';
+import ServicesOverviewPage from './pages/ServicesOverviewPage';
+import AboutUsPage from './pages/AboutUsPage';
+import ProjectsPage from './pages/ProjectsPage';
+import CaseStudyPage from './pages/CaseStudyPage';
+import './InternalFaq.css';
 
 const menuItems = [
   { label: 'Home', href: '#/' },
@@ -16,6 +27,7 @@ const serviceItems = [
     description:
       'We find the strongest angle, take it to relevant journalists and editors, and keep the story moving through follow-up, interviews and editorial opportunities. Crisis management and consultancy sits within this work.',
     image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/Media%20Relations%20Image.webp`,
+    href: '#/services/media-relations',
   },
   {
     label: 'Media Events',
@@ -23,6 +35,7 @@ const serviceItems = [
     description:
       'We turn launches, briefings and announcements into press moments that give journalists something useful to see, ask and report.',
     image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/Media%20Events%20Image.webp`,
+    href: '#/services/media-events',
   },
   {
     label: 'Media Monitoring',
@@ -30,6 +43,7 @@ const serviceItems = [
     description:
       'We track coverage, sentiment and emerging issues, then help the client decide when to respond and how quickly to move.',
     image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/Media%20Monitoring%20Image.webp`,
+    href: '#/services/media-monitoring',
   },
   {
     label: 'Social PR',
@@ -37,6 +51,7 @@ const serviceItems = [
     description:
       'We carry press stories into social channels without losing the facts, tone or intent behind them.',
     image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/Social%20PR%20Image.webp`,
+    href: '#/services/social-pr',
   },
   {
     label: 'PR Content Creation',
@@ -44,6 +59,7 @@ const serviceItems = [
     description:
       'We develop releases, articles, speeches, statements and media assets that are clear, usable and adapted to the market.',
     image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/PR%20Content%20Creation%20Image.webp`,
+    href: '#/services/pr-content-creation',
   },
   {
     label: 'Influencer Relations',
@@ -51,6 +67,7 @@ const serviceItems = [
     description:
       'We build creator partnerships around relevance, local fit and the role each voice should play in the wider story.',
     image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/Influencer%20Relations%20Image.webp`,
+    href: '#/services/influencer-relations',
   },
 ];
 
@@ -102,6 +119,13 @@ const projectItems = [
     title: 'MIFA',
     category: 'Exhibition Presence',
     image: `${process.env.PUBLIC_URL}/assets/CaseStudy_Approved%20Images/Mifa_CaseStudy.png`,
+  },
+  {
+    label: 'DeFacto',
+    title: 'DeFacto',
+    category: 'Celebrity PR',
+    image: `${process.env.PUBLIC_URL}/assets/CaseStudy_Approved%20Images/Defacto_Case%20Study.png`,
+    href: '#/projects/defacto',
   },
 ];
 
@@ -183,6 +207,29 @@ const faqItems = [
   },
 ];
 
+const contactFaqItems = [
+  {
+    question: 'Who reviews the brief?',
+    answer:
+      'A senior member of the team reviews the brief and identifies the questions, service or response route that should come next.',
+  },
+  {
+    question: 'What should I include for a live issue?',
+    answer:
+      'State what happened, where it appeared, what is inaccurate or harmful, who is affected and how urgent the situation is.',
+  },
+  {
+    question: 'What if I am not sure which service I need?',
+    answer:
+      'Send the brief anyway. Describing the situation in plain terms is enough; the team will identify whether it calls for media relations, content, an event, monitoring, Social PR, creators or crisis support, and explain why.',
+  },
+  {
+    question: 'What happens after I send the brief?',
+    answer:
+      'The team reviews the situation and comes back with the most relevant next step. If you flag the situation as urgent in the first line, it is prioritized.',
+  },
+];
+
 const socialItems = [
   { label: 'LinkedIn', src: `${process.env.PUBLIC_URL}/assets/social/linkedin.png`, href: '#/linkedin' },
   { label: 'Facebook', src: `${process.env.PUBLIC_URL}/assets/social/facebook.png`, href: '#/facebook' },
@@ -235,6 +282,28 @@ function App() {
   const visibleTestimonials = testimonialItems;
   const normalizedHash = currentHash || '#/';
   const isContactPage = normalizedHash === '#/contact';
+  const isAboutUsPage = normalizedHash === '#/about';
+  const isProjectsPage = normalizedHash === '#/projects';
+  const isCaseStudyPage = normalizedHash === '#/projects/defacto';
+  const isServicesOverviewPage = normalizedHash === '#/services';
+  const isInfluencerRelationsPage = normalizedHash === '#/services/influencer-relations';
+  const isMediaEventsPage = normalizedHash === '#/services/media-events';
+  const isMediaMonitoringPage = normalizedHash === '#/services/media-monitoring';
+  const isMediaRelationsPage = normalizedHash === '#/services/media-relations';
+  const isPRContentCreationPage = normalizedHash === '#/services/pr-content-creation';
+  const isSocialPRPage = normalizedHash === '#/services/social-pr';
+  const isStandalonePage =
+    isContactPage ||
+    isAboutUsPage ||
+    isCaseStudyPage ||
+    isProjectsPage ||
+    isServicesOverviewPage ||
+    isInfluencerRelationsPage ||
+    isMediaEventsPage ||
+    isMediaMonitoringPage ||
+    isMediaRelationsPage ||
+    isPRContentCreationPage ||
+    isSocialPRPage;
 
   const showPreviousProject = () => {
     setProjectMotion('prev');
@@ -435,7 +504,7 @@ function App() {
   }, [mediaPageCount]);
 
   useEffect(() => {
-    if (isContactPage || isProjectPaused) {
+    if (isStandalonePage || isProjectPaused) {
       return undefined;
     }
 
@@ -447,14 +516,14 @@ function App() {
     return () => {
       window.clearInterval(autoRotate);
     };
-  }, [isContactPage, isProjectPaused]);
+  }, [isProjectPaused, isStandalonePage]);
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [normalizedHash]);
 
   useEffect(() => {
-    if (isContactPage) {
+    if (isStandalonePage) {
       setShouldLoadHeroVideo(false);
       return undefined;
     }
@@ -478,10 +547,10 @@ function App() {
     return () => {
       window.clearTimeout(timeoutId);
     };
-  }, [isContactPage]);
+  }, [isStandalonePage]);
 
   useEffect(() => {
-    if (!shouldLoadHeroVideo || isContactPage) {
+    if (!shouldLoadHeroVideo || isStandalonePage) {
       return undefined;
     }
 
@@ -515,7 +584,7 @@ function App() {
       video.removeEventListener('waiting', keepPlaying);
       video.removeEventListener('pause', keepPlaying);
     };
-  }, [isContactPage, shouldLoadHeroVideo]);
+  }, [isStandalonePage, shouldLoadHeroVideo]);
 
   const renderHeader = () => (
     <header className="site-header">
@@ -555,7 +624,7 @@ function App() {
         <div id="primary-menu" className={`site-header__menu${isMenuOpen ? ' is-open' : ''}`}>
           <nav className="main-nav" aria-label="Primary">
             {menuItems.map((item) => {
-              const isActive = normalizedHash === item.href;
+              const isActive = normalizedHash === item.href || normalizedHash.startsWith(`${item.href}/`);
 
               if (item.label === 'Services' || item.label === 'Projects') {
                 const isServicesMenu = item.label === 'Services';
@@ -602,7 +671,7 @@ function App() {
                         <a
                           key={submenuItem.label}
                           className="main-nav__dropdown-link"
-                          href={item.href}
+                          href={submenuItem.href || item.href}
                           onClick={() => {
                             if (isServicesMenu) {
                               setActiveService(submenuItem.label);
@@ -718,6 +787,96 @@ function App() {
     </>
   );
 
+  if (isInfluencerRelationsPage) {
+    return (
+      <InfluencerRelationsPage
+        header={renderHeader()}
+        footer={renderSiteFooter()}
+      />
+    );
+  }
+
+  if (isMediaEventsPage) {
+    return (
+      <MediaEventsPage
+        header={renderHeader()}
+        footer={renderSiteFooter()}
+      />
+    );
+  }
+
+  if (isMediaMonitoringPage) {
+    return (
+      <MediaMonitoringPage
+        header={renderHeader()}
+        footer={renderSiteFooter()}
+      />
+    );
+  }
+
+  if (isAboutUsPage) {
+    return (
+      <AboutUsPage
+        header={renderHeader()}
+        footer={renderSiteFooter()}
+      />
+    );
+  }
+
+  if (isProjectsPage) {
+    return (
+      <ProjectsPage
+        header={renderHeader()}
+        footer={renderSiteFooter()}
+      />
+    );
+  }
+
+  if (isCaseStudyPage) {
+    return (
+      <CaseStudyPage
+        header={renderHeader()}
+        footer={renderSiteFooter()}
+      />
+    );
+  }
+
+  if (isServicesOverviewPage) {
+    return (
+      <ServicesOverviewPage
+        header={renderHeader()}
+        footer={renderSiteFooter()}
+      />
+    );
+  }
+
+  if (isMediaRelationsPage) {
+    return (
+      <MediaRelationsPage
+        header={renderHeader()}
+        footer={renderSiteFooter()}
+      />
+    );
+  }
+
+  if (isPRContentCreationPage) {
+    return (
+      <PRContentCreationPage
+        header={renderHeader()}
+        footer={renderSiteFooter()}
+      />
+    );
+  }
+
+  if (isSocialPRPage) {
+    return (
+      <SocialPRPage
+        header={renderHeader()}
+        footer={renderSiteFooter()}
+      />
+    );
+  }
+
   if (isContactPage) {
     return (
       <main className="app app--contact-page">
@@ -726,11 +885,7 @@ function App() {
         <section className="contact-page" aria-label="Contact Us">
           <div className="contact-page__inner">
             <div className="contact-page__header">
-              <h1 className="contact-page__title">Start the Conversation</h1>
-              <p className="contact-page__intro">
-                Tell us the story, the market and the timing. A senior member of the team will help identify
-                the questions worth answering first.
-              </p>
+              <h1 className="contact-page__title">Get In Touch!</h1>
             </div>
 
             <div className="contact-page__layout">
@@ -739,7 +894,7 @@ function App() {
               </div>
 
               <div className="contact-page__card">
-                <form className="contact-page-form">
+                <form className="contact-page-form" onSubmit={(event) => event.preventDefault()}>
                   <div className="contact-page-form__row">
                     <label>
                       <span>Your Name</span>
@@ -754,11 +909,6 @@ function App() {
                   <label>
                     <span>Your Email</span>
                     <input type="email" placeholder="Your Email" />
-                  </label>
-
-                  <label>
-                    <span>Subject</span>
-                    <input type="text" placeholder="Subject" />
                   </label>
 
                   <label>
@@ -778,8 +928,78 @@ function App() {
           </div>
         </section>
 
-        <section className="contact-page-footer">
+        <section className="contact-page-faq internal-faq" aria-labelledby="contact-faq-title">
+          <div className="contact-page-faq__inner">
+            <h2 className="internal-faq__title" id="contact-faq-title">Frequently Asked<br />Questions</h2>
+            <div className="contact-page-faq__list internal-faq__list">
+              {contactFaqItems.map((item, index) => {
+                const isOpen = openFaq === index;
+                return (
+                  <article className={`contact-page-faq__item internal-faq__item${isOpen ? ' is-open' : ''}`} key={item.question}>
+                    <h3>
+                      <button
+                        className="internal-faq__button"
+                        type="button"
+                        aria-expanded={isOpen}
+                        onClick={() => setOpenFaq(isOpen ? -1 : index)}
+                      >
+                        <span>{item.question}</span>
+                        <span className="contact-page-faq__icon internal-faq__icon" aria-hidden="true" />
+                      </button>
+                    </h3>
+                    <div className="contact-page-faq__answer internal-faq__answer" hidden={!isOpen}>
+                      <p>{item.answer}</p>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        <section className="contact-section contact-page-brief">
           <div className="contact-section__inner">
+            <h2 className="contact-section__title">Talk Through the Brief</h2>
+            <p className="contact-section__intro">
+              Tell us the story, the market and the timing. A senior member of the team will help identify the
+              questions worth answering first.
+            </p>
+
+            <div className="contact-section__top">
+              <div className="contact-map">
+                <iframe
+                  title="BOXCOM Africa location"
+                  src="https://maps.google.com/maps?q=33.58739,-7.636312&z=17&hl=fr&output=embed"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+
+              <form className="contact-form" onSubmit={(event) => event.preventDefault()}>
+                <div className="contact-form__row">
+                  <label>
+                    <span>Your Name</span>
+                    <input type="text" placeholder="Your Full Name" />
+                  </label>
+                  <label>
+                    <span>Your Company</span>
+                    <input type="text" placeholder="Your Company" />
+                  </label>
+                </div>
+                <label>
+                  <span>Your Email</span>
+                  <input type="email" placeholder="Your Email" />
+                </label>
+                <label>
+                  <span>Message</span>
+                  <textarea placeholder="Type your message here." rows="5" />
+                </label>
+                <button type="submit" className="primary-pink-button contact-form__submit">
+                  Send Message
+                </button>
+              </form>
+            </div>
+
             {renderSiteFooter()}
           </div>
         </section>
@@ -872,10 +1092,12 @@ function App() {
           <div className="services-section__heading">
             <h2 className="section-title section-title--services">One PR Program, Several Connected Services</h2>
             <p className="services-intro">
-              Clients do not need several agencies pulling the message in different directions. BOXCOM Africa
-              brings strategy, media, content, monitoring, social and creators under one accountable team, so
-              every action supports the same narrative. Senior practitioners stay close to the account, so
-              strategy, media judgment and delivery do not separate after the first meeting.
+              Clients don't need several agencies pulling the message in different directions.
+              <br />
+              BOXCOM Africa brings strategy, media, content, monitoring, social and creators under one accountable
+              team, so every action supports the same narrative.
+              <br /><br />
+              Senior practitioners stay close to the account, so strategy and delivery never separate.
             </p>
           </div>
 

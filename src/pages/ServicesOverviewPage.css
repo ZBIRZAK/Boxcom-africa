@@ -1,0 +1,301 @@
+.services-overview-page {
+  color: #000326;
+  background: #ffffff;
+}
+
+.services-overview__frame,
+.services-overview-hero__content {
+  box-sizing: border-box;
+  width: var(--content-frame-width);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.services-overview-hero {
+  position: relative;
+  min-height: clamp(320px, 34vw, 460px);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background: #000326;
+}
+
+.services-overview-hero > img,
+.services-overview-hero__overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.services-overview-hero > img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.services-overview-hero__overlay {
+  background: rgba(0, 3, 38, 0.34);
+}
+
+.services-overview-hero__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.services-overview-hero h1,
+.services-catalog h2,
+.services-overview-faq h2 {
+  margin: 0;
+  font-family: 'Garet', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.045em;
+}
+
+.services-overview-hero h1 {
+  color: #ffffff;
+  font-size: clamp(3.2rem, 5.4vw, 6rem);
+  line-height: 0.98;
+}
+
+.services-overview-hero h1 span {
+  color: #ff9a16;
+  font-style: italic;
+}
+
+.services-catalog {
+  padding: var(--section-space-y) 0;
+  background: #ffffff;
+}
+
+.services-catalog__header {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.services-catalog h2 {
+  color: #000326;
+  font-size: clamp(3rem, 4.4vw, 4.8rem);
+  line-height: 0.96;
+}
+
+.services-catalog__header p {
+  margin: 24px auto 0;
+  color: #3f4656;
+  font-size: var(--paragraph-size);
+  line-height: 1.4;
+}
+
+.services-catalog__list {
+  width: min(100%, 980px);
+  margin: clamp(54px, 6vw, 88px) auto 0;
+  display: grid;
+  gap: clamp(34px, 4vw, 56px);
+}
+
+.services-catalog__item {
+  display: grid;
+  grid-template-columns: minmax(280px, 400px) minmax(0, 1fr);
+  gap: clamp(32px, 4vw, 58px);
+  align-items: center;
+}
+
+.services-catalog__item > img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 40 / 27;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.services-catalog__copy h3 {
+  margin: 0;
+  color: #000326;
+  font-family: 'Garet', sans-serif;
+  font-size: clamp(1.75rem, 2.2vw, 2.35rem);
+  font-weight: 700;
+  line-height: 1.05;
+}
+
+.services-catalog__copy p {
+  margin: 15px 0 0;
+  color: #3f4656;
+  font-size: clamp(1.05rem, 1.22vw, 1.28rem);
+  line-height: 1.42;
+}
+
+.services-catalog__copy a {
+  min-height: 42px;
+  margin-top: 18px;
+  padding: 0 22px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ff7a38;
+  color: #ffffff;
+  font-family: 'Garet', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.services-overview-faq {
+  position: relative;
+  overflow: hidden;
+  padding: var(--section-space-y) 0;
+  background: #f79e1b;
+}
+
+.services-overview-faq::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../assets/bg/motif-blanc.svg') center / cover no-repeat;
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+.services-overview-faq .services-overview__frame {
+  position: relative;
+  z-index: 1;
+}
+
+.services-overview-faq h2 {
+  color: #ffffff;
+  text-align: center;
+  font-size: clamp(3rem, 4.5vw, 4.8rem);
+  line-height: 0.96;
+}
+
+.services-overview-faq__list {
+  width: 100%;
+  margin: 52px auto 0;
+  border: 1px solid rgba(0, 3, 38, 0.14);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.services-overview-faq__item {
+  border-bottom: 1px solid #dedfe5;
+}
+
+.services-overview-faq__item:last-child {
+  border-bottom: 0;
+}
+
+.services-overview-faq__item h3 {
+  margin: 0;
+}
+
+.services-overview-faq__item button {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 64px;
+  padding: 14px 22px;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: #ffffff;
+  color: #000326;
+  font-family: 'Garet', sans-serif;
+  font-size: 1.08rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+.services-overview-faq__item.is-open button {
+  background: #f7b73c;
+}
+
+.services-overview-faq__icon {
+  flex: 0 0 11px;
+  width: 11px;
+  height: 11px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-3px) rotate(45deg);
+  transition: transform 220ms ease;
+}
+
+.services-overview-faq__item.is-open .services-overview-faq__icon {
+  transform: translateY(3px) rotate(225deg);
+}
+
+.services-overview-faq__answer {
+  background: #ffffff;
+}
+
+.services-overview-faq__answer p {
+  margin: 0;
+  padding: 22px;
+  color: #3f4656;
+  font-size: var(--paragraph-size);
+  line-height: 1.45;
+}
+
+.services-overview-contact .contact-section__title {
+  color: #f7be3e;
+}
+
+@media (max-width: 760px) {
+  .services-overview-hero {
+    min-height: 300px;
+  }
+
+  .services-overview-hero > img {
+    object-position: 58% center;
+  }
+
+  .services-overview-hero h1 {
+    font-size: 3rem;
+  }
+
+  .services-catalog h2,
+  .services-overview-faq h2 {
+    font-size: 2.7rem;
+  }
+
+  .services-catalog__header p {
+    margin-top: 18px;
+  }
+
+  .services-catalog__list {
+    margin-top: 42px;
+    gap: 46px;
+  }
+
+  .services-catalog__item {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .services-catalog__copy h3 {
+    font-size: 1.8rem;
+  }
+
+  .services-catalog__copy a {
+    margin-top: 15px;
+  }
+
+  .services-overview-faq__list {
+    margin-top: 34px;
+  }
+
+  .services-overview-faq__item button {
+    min-height: 58px;
+    padding: 13px 15px;
+    font-size: 0.95rem;
+  }
+
+  .services-overview-faq__answer p {
+    padding: 18px 15px;
+  }
+}
