@@ -17,12 +17,12 @@ const values = [
   {
     title: 'Context',
     description:
-      'Morocco and Africa are not one audience. Language, timing, references and media expectations change by market, so context is part of the work, not a final translation layer.',
+      'Morocco, Africa are not one audience. Language, timing, references and media expectations change by market, so context is part of the work, not a final translation layer.',
   },
   {
     title: 'Accountability',
     description:
-      'We prefer clear responsibility. One team should understand the strategy, the response, the outreach, the monitoring and the next move, so the client does not carry the coordination cost.',
+      'We prefer clear responsibility. One team should understand the strategy, the message, the outreach, the monitoring and the next move, so the client does not carry the coordination cost.',
   },
 ];
 
@@ -30,22 +30,22 @@ const faqItems = [
   {
     question: 'What is BOXCOM Africa?',
     answer:
-      'BOXCOM Africa is a Press Relations agency in Morocco and the PR arm of BOXCOM, based in Casablanca and focused on media relations, crisis management and consultancy, PR content, media monitoring, Social PR and influencer relations across Africa.',
+      'BOXCOM Africa is a Press Relations agency in Morocco and the PR arm of BOXCOM, based in Casablanca and focused on media relations, crisis management and consultancy, PR content, media monitoring, Social PR and influencer relations.',
   },
   {
     question: 'How is BOXCOM Africa connected to BOXCOM?',
     answer:
-      "BOXCOM Africa comes from BOXCOM's wider communication culture. It has a dedicated Press Relations focus and team while retaining the broader brand, content, digital and media understanding behind the group.",
+      "BOXCOM Africa is the PR and Press Relations arm of BOXCOM. It draws on the group's communication, marketing and digital background while giving PR and reputation work a focused team.",
   },
   {
     question: 'What does BOXCOM Africa value?',
     answer:
-      'Clarity, credibility, context and accountability guide how the team develops stories, works with media and takes responsibility for delivery.',
+      'The agency values clarity, credibility, context and accountability. Those values shape how we speak to clients, how we work with media and how we adapt stories across markets.',
   },
   {
     question: 'Why does BOXCOM Africa work with in-market partners?',
     answer:
-      'Local partners help each story land in the right language, tone and cultural frame. They add market judgment without separating the work from one central narrative and accountable team.',
+      'Because regional work needs local judgment. Partners help ensure stories are adapted to the language, culture and media expectations of each market.',
   },
 ];
 

@@ -67,11 +67,7 @@ const SocialPRPageConfig = {
     title: 'Where the Story Begins',
     paragraphs: [
       'A story only travels as far as the content built to carry it, and that groundwork happens well before any post goes live.',
-      <>
-        <span className="seo-highlight seo-highlight--primary">Social PR</span> shapes how a message moves and lands
-        across <span className="seo-highlight seo-highlight--secondary">social platforms</span>, adapting pace, tone and
-        format to each audience.
-      </>,
+      'Social PR shapes how a message moves and lands across platforms, adapting pace, tone and format to each audience.',
       'PR Content Creation is where that message first takes shape, the copy, the visuals, the core narrative that everything downstream is built from.',
     ],
     statement: 'Strong content is what makes amplification worth doing in the first place.',
@@ -83,15 +79,8 @@ const SocialPRPageConfig = {
   faqItems: [
     {
       question: 'What is Social PR?',
-      answer: (
-        <>
-          <span className="seo-highlight seo-highlight--primary">Social PR</span> applies PR thinking to{' '}
-          <span className="seo-highlight seo-highlight--secondary">social platforms</span>. In Morocco and regional
-          markets, it adapts press stories for{' '}
-          <span className="seo-highlight seo-highlight--secondary">online conversation</span> while protecting the
-          facts, tone and reputation behind them.
-        </>
-      ),
+      answer:
+        'Social PR applies PR thinking to social platforms. In Morocco and regional markets, it adapts press stories for online conversation while protecting the facts, tone and reputation behind them.',
     },
     {
       question: 'How does Social PR connect with media relations?',

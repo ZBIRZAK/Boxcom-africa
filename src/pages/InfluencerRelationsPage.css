@@ -153,25 +153,13 @@
   font-weight: inherit;
 }
 
-.social-pr-page .influencer-hero p .seo-highlight--primary,
-.social-pr-page .influencer-beyond p .seo-highlight--primary {
+.social-pr-page .influencer-hero p .seo-highlight--primary {
   color: #f7be3e;
   font-weight: 700;
 }
 
-.social-pr-page .influencer-hero p .seo-highlight--secondary,
-.social-pr-page .influencer-beyond p .seo-highlight--secondary {
+.social-pr-page .influencer-hero p .seo-highlight--secondary {
   color: #7bdbe3;
-  font-weight: 700;
-}
-
-.social-pr-page .influencer-faq p .seo-highlight--primary {
-  color: #f79e1b;
-  font-weight: 700;
-}
-
-.social-pr-page .influencer-faq p .seo-highlight--secondary {
-  color: #087b88;
   font-weight: 700;
 }
 
@@ -340,6 +328,11 @@
 .influencer-beyond__statement {
   font-family: 'Garet', sans-serif;
   font-weight: 700;
+}
+
+.influencer-beyond__statement a {
+  color: #f7be3e;
+  text-underline-offset: 4px;
 }
 
 .influencer-page__button {
