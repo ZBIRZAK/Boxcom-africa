@@ -175,14 +175,14 @@ function AboutUsPage({ header, footer }) {
 
             <article className="about-entities__card about-entities__card--pr">
               <h3>The PR Powerhouse</h3>
-              <p>Nous façonnons les récits, construisons la visibilité et renforçons la réputation au Maroc et en Afrique.</p>
-              <h4>Expertises clés :</h4>
+              <p>We shape narratives, build visibility, and strengthen reputation across Morocco and Africa.</p>
+              <h4>Core Expertise:</h4>
               <ul>
-                <li>Relations médias &amp; presse</li>
-                <li>Communication Corporate</li>
-                <li>Gestion de la réputation &amp; des crises</li>
-                <li>Leadership d'opinion</li>
-                <li>Campagnes RP stratégiques</li>
+                <li>Media &amp; Press Relations</li>
+                <li>Corporate Communication</li>
+                <li>Reputation &amp; Crisis Management</li>
+                <li>Thought Leadership</li>
+                <li>Strategic PR Campaigns</li>
               </ul>
             </article>
           </div>
