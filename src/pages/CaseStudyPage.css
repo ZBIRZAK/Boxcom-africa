@@ -16,7 +16,7 @@
 
 .case-study-summary__brand {
   margin: 0;
-  color: #68b3bd;
+  color: #60a1ad;
   font-family: 'Garet', sans-serif;
   font-size: clamp(2.8rem, 5vw, 4.8rem);
   font-weight: 700;
@@ -105,7 +105,7 @@
 }
 
 .case-study-snapshot__work {
-  background: linear-gradient(145deg, rgba(255,255,255,.14), transparent), #68b3bd;
+  background: linear-gradient(145deg, rgba(255,255,255,.14), transparent), #60a1ad;
   color: #ffffff;
 }
 
@@ -172,7 +172,7 @@
 
 .case-study-panel--teal {
   overflow: hidden;
-  background: #68b3bd;
+  background: #60a1ad;
   color: #ffffff;
 }
 

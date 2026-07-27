@@ -455,7 +455,7 @@
 }
 
 .app--contact-page {
-  background: #7bb8c5;
+  background: #60a1ad;
 }
 
 .contact-page {
@@ -465,7 +465,7 @@
   height: calc(100vh - var(--header-height));
   height: calc(100svh - var(--header-height));
   min-height: calc(100vh - var(--header-height));
-  background: #7bb8c5;
+  background: #60a1ad;
   padding: clamp(28px, 5vh, 72px) 0 0;
 }
 
