@@ -350,33 +350,14 @@
   object-fit: contain;
 }
 
+.social-pr-page .influencer-beyond__image {
+  width: 108%;
+  max-width: 610px;
+}
+
 .influencer-faq {
   padding: var(--section-space-y) 0;
   background: #ffffff;
-}
-
-.pr-content-page .influencer-faq {
-  position: relative;
-  overflow: hidden;
-  background: #60a1ad;
-}
-
-.pr-content-page .influencer-faq::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: url('../assets/bg/motif-blanc.svg') center / cover no-repeat;
-  opacity: 0.06;
-  pointer-events: none;
-}
-
-.pr-content-page .influencer-faq .influencer-page__frame {
-  position: relative;
-  z-index: 1;
-}
-
-.pr-content-page .influencer-faq h2 {
-  color: #ffffff;
 }
 
 .influencer-faq h2 {
@@ -490,6 +471,11 @@
 
   .influencer-beyond__image {
     justify-self: center;
+  }
+
+  .social-pr-page .influencer-beyond__image {
+    width: 100%;
+    max-width: 610px;
   }
 }
 

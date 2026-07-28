@@ -8,7 +8,7 @@ const mediaEventsConfig = {
   seoDescription:
     'BOXCOM Africa plans media events in Morocco that give journalists a clear story, useful access and strong reasons to continue the conversation after the event.',
   hero: {
-    title: 'Press Event and Media Event Agency in Morocco',
+    title: 'Media Events',
     image: asset('/assets/Media%20Events_Approved%20Images/Media%20Events_Header.jpg'),
     imageAlt: 'Journalists and guests attending a large media presentation',
     intro: (
@@ -43,15 +43,15 @@ const mediaEventsConfig = {
         title: 'Prepare the Room',
         description:
           'We coordinate the press list, invitations, materials, spokespeople and practical details around the same story, so every element supports one coherent narrative. From confirming attendance to briefing spokespeople and preparing press kits, we handle the logistics so journalists get a smooth, well-organized experience from start to finish.',
-        image: asset('/assets/Media%20Events_Approved%20Images/Media%20Events_Continue%20the%20Conversation.jpg'),
+        image: asset('/assets/Media%20Events_Approved%20Images/Media%20Events_Prepare%20the%20Room.jpg'),
         imageAlt: 'Event credentials and lanyards prepared for attendees',
       },
       {
         title: 'Continue the Conversation',
         description:
-          'We handle post-event requests, interviews and follow-up so the story can continue beyond attendance.',
-        visualLabel: 'FOLLOW UP',
-        imageAlt: 'Follow-up communications after a media event',
+          'We handle post-event requests, interviews and follow-up so the story can continue well beyond attendance on the day. As journalists reach out with questions, request additional access or look to develop the angle further, we stay engaged and responsive, making sure the story keeps moving after the event ends.',
+        image: asset('/assets/Media%20Events_Approved%20Images/Media%20Events_Continue%20the%20Conversation.jpg'),
+        imageAlt: 'Post-event media follow-up and continued journalist engagement',
       },
     ],
   },

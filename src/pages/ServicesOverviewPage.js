@@ -152,7 +152,7 @@ function ServicesOverviewPage({ header, footer }) {
 
       <section className="services-overview-faq internal-faq" aria-labelledby="services-overview-faq-title">
         <div className="services-overview__frame">
-          <h2 className="internal-faq__title" id="services-overview-faq-title">Frequently Asked<br />Questions</h2>
+          <h2 className="internal-faq__title" id="services-overview-faq-title">Frequently Asked Questions</h2>
           <div className="services-overview-faq__list internal-faq__list">
             {faqItems.map((item, index) => {
               const isOpen = openFaq === index;

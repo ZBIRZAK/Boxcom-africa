@@ -8,7 +8,7 @@ const mediaMonitoringConfig = {
   seoDescription:
     'BOXCOM Africa provides media monitoring in Morocco across coverage, context, sentiment, narrative shifts, risk alerts and response recommendations.',
   hero: {
-    title: 'Media Monitoring in Morocco',
+    title: 'Media Monitoring',
     image: asset('/assets/Media%20Monitoring_Approved%20Images/Media%20Monitoring_Header.jpg'),
     imageAlt: 'Media monitoring specialist reviewing live coverage and analytics',
     intro: (

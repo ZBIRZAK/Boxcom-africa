@@ -111,7 +111,7 @@ function ServiceDetailPage({ config, header, footer }) {
 
       <section className="influencer-faq internal-faq" aria-labelledby="service-faq-title">
         <div className="influencer-page__frame">
-          <h2 className="internal-faq__title" id="service-faq-title">Frequently Asked<br />Questions</h2>
+          <h2 className="internal-faq__title" id="service-faq-title">Frequently Asked Questions</h2>
           <div className="influencer-faq__list internal-faq__list">
             {config.faqItems.map((item, index) => {
               const isOpen = openFaq === index;

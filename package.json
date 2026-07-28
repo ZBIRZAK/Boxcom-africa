@@ -20,8 +20,10 @@
     "@types/babel-traverse": "6.25.10"
   },
   "scripts": {
-    "dev": "react-scripts start",
-    "start": "react-scripts start",
+    "generate:posts": "node scripts/generate-blog-posts.js",
+    "dev": "node scripts/start-with-blog-watch.js",
+    "start": "node scripts/start-with-blog-watch.js",
+    "prebuild": "npm run generate:posts",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

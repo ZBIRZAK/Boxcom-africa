@@ -1,9 +1,23 @@
+.app .internal-faq {
+  position: relative;
+  overflow: hidden;
+  padding: 60px 0 80px;
+  background: #e6e5e52e;
+}
+
+.app .contact-page-faq {
+  background: #ffffff;
+}
+
+.app .internal-faq::before {
+  content: none;
+}
+
 .internal-faq .internal-faq__title {
   margin: 0;
+  color: #60a1ad;
   font-family: 'Garet', sans-serif;
-  font-size: clamp(3rem, 4.5vw, 4.8rem);
   font-weight: 700;
-  letter-spacing: -0.045em;
   line-height: 0.96;
   text-align: center;
 }
@@ -11,16 +25,18 @@
 .internal-faq .internal-faq__list {
   box-sizing: border-box;
   width: 100%;
-  margin: 52px auto 0;
-  border: 1px solid #dedfe5;
-  border-radius: 4px;
+  margin: 62px auto 0;
+  padding: 0 46px;
+  border: 0;
+  border-radius: 34px;
   overflow: hidden;
   background: #ffffff;
+  box-shadow: 0 22px 54px rgba(14, 28, 72, 0.08);
 }
 
 .internal-faq .internal-faq__item {
-  border-bottom: 1px solid #dedfe5;
-  background: #ffffff;
+  border-bottom: 1px solid #edf0f4;
+  background: transparent;
 }
 
 .internal-faq .internal-faq__item:last-child {
@@ -34,45 +50,67 @@
 .internal-faq .internal-faq__button {
   box-sizing: border-box;
   width: 100%;
-  min-height: 64px;
-  padding: 14px 22px;
+  min-height: 0;
+  padding: 34px 0;
   border: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  background: #ffffff;
+  background: transparent;
   color: #000326;
   font-family: 'Garet', sans-serif;
-  font-size: 1.08rem;
-  font-weight: 600;
+  font-size: clamp(1.42rem, 1.5vw, 2rem);
+  font-weight: 500;
   line-height: 1.25;
   text-align: left;
   cursor: pointer;
-  transition: background-color 220ms ease;
 }
 
 .internal-faq .internal-faq__item.is-open .internal-faq__button {
-  background: #f7b73c;
+  background: transparent;
 }
 
 .internal-faq .internal-faq__icon {
-  flex: 0 0 11px;
-  width: 11px;
-  height: 11px;
-  border-right: 2px solid currentColor;
-  border-bottom: 2px solid currentColor;
-  transform: translateY(-3px) rotate(45deg);
-  transition: transform 220ms ease;
+  position: relative;
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
+  border: 0;
+  color: #60a1ad;
+  transform: none;
+}
+
+.internal-faq .internal-faq__icon::before,
+.internal-faq .internal-faq__icon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 22px;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+  transform: translate(-50%, -50%);
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.internal-faq .internal-faq__icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
 }
 
 .internal-faq .internal-faq__item.is-open .internal-faq__icon {
-  transform: translateY(3px) rotate(225deg);
+  transform: none;
+}
+
+.internal-faq .internal-faq__item.is-open .internal-faq__icon::after {
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(0);
 }
 
 .internal-faq .internal-faq__answer {
   width: 100%;
-  background: #ffffff;
+  background: transparent;
 }
 
 .internal-faq .internal-faq__answer p {
@@ -80,30 +118,46 @@
   width: 100%;
   max-width: none;
   margin: 0;
-  padding: 22px;
-  color: #3f4656;
+  padding: 0 0 30px;
+  color: #030625;
   font-size: var(--paragraph-size);
   font-weight: 400;
-  line-height: 1.45;
+  line-height: 1.72;
   text-align: left;
 }
 
 @media (max-width: 640px) {
-  .internal-faq .internal-faq__title {
-    font-size: 2.7rem;
+  .app .internal-faq {
+    padding-top: 72px;
   }
 
   .internal-faq .internal-faq__list {
     margin-top: 34px;
+    padding: 0 20px;
+    border-radius: 24px;
   }
 
   .internal-faq .internal-faq__button {
-    min-height: 58px;
-    padding: 13px 15px;
-    font-size: 0.95rem;
+    min-height: 0;
+    padding: 18px 0;
+    gap: 14px;
+    font-size: 1.02rem;
+    line-height: 1.2;
+  }
+
+  .internal-faq .internal-faq__icon {
+    flex-basis: 24px;
+    width: 24px;
+    height: 24px;
+  }
+
+  .internal-faq .internal-faq__icon::before,
+  .internal-faq .internal-faq__icon::after {
+    width: 16px;
   }
 
   .internal-faq .internal-faq__answer p {
-    padding: 18px 15px;
+    padding: 18px 0 20px;
+    line-height: 1.4;
   }
 }

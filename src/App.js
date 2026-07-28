@@ -10,6 +10,7 @@ import ServicesOverviewPage from './pages/ServicesOverviewPage';
 import AboutUsPage from './pages/AboutUsPage';
 import ProjectsPage from './pages/ProjectsPage';
 import CaseStudyPage from './pages/CaseStudyPage';
+import BlogPage from './pages/BlogPage';
 import './InternalFaq.css';
 
 const menuItems = [
@@ -292,6 +293,8 @@ function App() {
   const isMediaRelationsPage = normalizedHash === '#/services/media-relations';
   const isPRContentCreationPage = normalizedHash === '#/services/pr-content-creation';
   const isSocialPRPage = normalizedHash === '#/services/social-pr';
+  const isBlogPage = normalizedHash === '#/blog' || normalizedHash.startsWith('#/blog/');
+  const blogSlug = normalizedHash.startsWith('#/blog/') ? normalizedHash.slice('#/blog/'.length) : '';
   const isStandalonePage =
     isContactPage ||
     isAboutUsPage ||
@@ -303,7 +306,8 @@ function App() {
     isMediaMonitoringPage ||
     isMediaRelationsPage ||
     isPRContentCreationPage ||
-    isSocialPRPage;
+    isSocialPRPage ||
+    isBlogPage;
 
   const showPreviousProject = () => {
     setProjectMotion('prev');
@@ -877,6 +881,16 @@ function App() {
     );
   }
 
+  if (isBlogPage) {
+    return (
+      <BlogPage
+        header={renderHeader()}
+        footer={renderSiteFooter()}
+        slug={blogSlug}
+      />
+    );
+  }
+
   if (isContactPage) {
     return (
       <main className="app app--contact-page">
@@ -948,7 +962,7 @@ function App() {
 
         <section className="contact-page-faq internal-faq" aria-labelledby="contact-faq-title">
           <div className="contact-page-faq__inner">
-            <h2 className="internal-faq__title" id="contact-faq-title">Frequently Asked<br />Questions</h2>
+            <h2 className="internal-faq__title" id="contact-faq-title">Frequently Asked Questions</h2>
             <div className="contact-page-faq__list internal-faq__list">
               {contactFaqItems.map((item, index) => {
                 const isOpen = openFaq === index;

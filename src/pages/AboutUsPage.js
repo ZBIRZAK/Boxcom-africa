@@ -205,7 +205,7 @@ function AboutUsPage({ header, footer }) {
 
       <section className="about-faq internal-faq" aria-labelledby="about-faq-title">
         <div className="about-page__frame">
-          <h2 className="internal-faq__title" id="about-faq-title">Frequently Asked<br />Questions</h2>
+          <h2 className="internal-faq__title" id="about-faq-title">Frequently Asked Questions</h2>
           <div className="about-faq__list internal-faq__list">
             {faqItems.map((item, index) => {
               const isOpen = openFaq === index;

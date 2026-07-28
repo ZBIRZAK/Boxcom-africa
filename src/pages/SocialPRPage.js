@@ -8,15 +8,15 @@ const SocialPRPageConfig = {
   seoDescription:
     'BOXCOM Africa provides Social PR in Morocco, adapting press stories for social platforms while protecting the facts, tone, narrative and online reputation behind them.',
   hero: {
-    title: 'Social PR in Morocco',
+    title: 'Social PR',
     image: asset('/assets/Social%20PR_Approved%20Images/Social%20PR_Header.png'),
     imageAlt: 'A connected online conversation moving across social media posts and audiences',
     intro: (
       <p>
         <span className="seo-highlight seo-highlight--primary">Social PR in Morocco</span> keeps the core message intact
         as it moves into shorter, faster formats, adapting content, timing and amplification for each channel and
-        audience. We also track how the story is being understood, coordinating clarification or response when the{' '}
-        <span className="seo-highlight seo-highlight--secondary">conversation</span> begins to drift from the facts.
+        audience. We also track how the story is being understood, coordinating clarification or response when the
+        conversation begins to drift from the facts.
       </p>
     ),
     tags: ['Engagement Guidance', 'Issue Monitoring', 'Narrative Adaptation'],
