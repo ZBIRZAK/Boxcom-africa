@@ -150,18 +150,20 @@ function HomePage({
 
               return (
                 <section key={item.label} className={`service-item${isActive ? ' is-active' : ''}`}>
-                  <h3 className="service-item__heading">
-                    <button
-                      id={buttonId}
-                      type="button"
-                      className={`service-tab${isActive ? ' is-active' : ''}`}
-                      onClick={() => setActiveService(item.label)}
-                      aria-expanded={isActive}
-                      aria-controls={panelId}
-                    >
-                      <span className="service-tab__label">{item.label}</span>
-                    </button>
-                  </h3>
+                  {!isActive && (
+                    <h3 className="service-item__heading">
+                      <button
+                        id={buttonId}
+                        type="button"
+                        className="service-tab"
+                        onClick={() => setActiveService(item.label)}
+                        aria-expanded="false"
+                        aria-controls={panelId}
+                      >
+                        <span className="service-tab__label">{item.label}</span>
+                      </button>
+                    </h3>
+                  )}
 
                   <div
                     id={panelId}
@@ -169,14 +171,14 @@ function HomePage({
                     aria-labelledby={buttonId}
                     aria-hidden={!isActive}
                   >
-                    <article className="service-card">
+                    <a className="service-card" href={item.href} tabIndex={isActive ? 0 : -1}>
                       <img className="service-card__image" src={item.image} alt={item.title} />
                       <div className="service-card__overlay" />
                       <div className="service-card__content">
                         <h4>{item.title}</h4>
                         <p>{item.description}</p>
                       </div>
-                    </article>
+                    </a>
                   </div>
                 </section>
               );
