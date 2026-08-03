@@ -1010,17 +1010,17 @@ function App() {
               <form className="contact-form" onSubmit={(event) => event.preventDefault()}>
                 <div className="contact-form__row">
                   <label>
-                    <span>Your Name</span>
-                    <input type="text" placeholder="Your Full Name" />
+                    <span>Your Name *</span>
+                    <input type="text" name="name" placeholder="Your Full Name" autoComplete="name" required />
                   </label>
                   <label>
-                    <span>Your Company</span>
-                    <input type="text" placeholder="Your Company" />
+                    <span>Your Company *</span>
+                    <input type="text" name="company" placeholder="Your Company" autoComplete="organization" required />
                   </label>
                 </div>
                 <label>
-                  <span>Your Email</span>
-                  <input type="email" placeholder="Your Email" />
+                  <span>Your Email *</span>
+                  <input type="email" name="email" placeholder="Your Email" autoComplete="email" required />
                 </label>
                 <label>
                   <span>Message</span>
@@ -1218,6 +1218,10 @@ function App() {
               className="projects-switcher__arrow projects-switcher__arrow--left"
               aria-label="Previous project"
               onClick={showPreviousProject}
+              onMouseEnter={() => setIsProjectPaused(true)}
+              onMouseLeave={() => setIsProjectPaused(false)}
+              onFocus={() => setIsProjectPaused(true)}
+              onBlur={() => setIsProjectPaused(false)}
             >
               ‹
             </button>
@@ -1273,6 +1277,10 @@ function App() {
               className="projects-switcher__arrow projects-switcher__arrow--right"
               aria-label="Next project"
               onClick={showNextProject}
+              onMouseEnter={() => setIsProjectPaused(true)}
+              onMouseLeave={() => setIsProjectPaused(false)}
+              onFocus={() => setIsProjectPaused(true)}
+              onBlur={() => setIsProjectPaused(false)}
             >
               ›
             </button>
@@ -1472,17 +1480,17 @@ function App() {
             <form className="contact-form">
               <div className="contact-form__row">
                 <label>
-                  <span>Your Name</span>
-                  <input type="text" placeholder="Your Full Name" />
+                  <span>Your Name *</span>
+                  <input type="text" name="name" placeholder="Your Full Name" autoComplete="name" required />
                 </label>
                 <label>
-                  <span>Your Company</span>
-                  <input type="text" placeholder="Your Company" />
+                  <span>Your Company *</span>
+                  <input type="text" name="company" placeholder="Your Company" autoComplete="organization" required />
                 </label>
               </div>
               <label>
-                <span>Your Email</span>
-                <input type="email" placeholder="Your Email" />
+                <span>Your Email *</span>
+                <input type="email" name="email" placeholder="Your Email" autoComplete="email" required />
               </label>
               <label>
                 <span>Message</span>
