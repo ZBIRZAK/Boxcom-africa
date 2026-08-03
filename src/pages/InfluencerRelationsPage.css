@@ -350,6 +350,13 @@
   object-fit: contain;
 }
 
+.influencer-relations-page .influencer-beyond__image {
+  width: 100%;
+  max-width: 680px;
+  transform: scale(1.2);
+  transform-origin: right center;
+}
+
 .social-pr-page .influencer-beyond__image {
   width: 108%;
   max-width: 610px;
@@ -471,6 +478,13 @@
 
   .influencer-beyond__image {
     justify-self: center;
+  }
+
+  .influencer-relations-page .influencer-beyond__image {
+    width: 100%;
+    max-width: 680px;
+    transform: scale(1.08);
+    transform-origin: center;
   }
 
   .social-pr-page .influencer-beyond__image {
