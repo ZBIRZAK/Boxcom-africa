@@ -85,6 +85,7 @@ const clientLogos = [
   { label: 'DHL', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/10.svg`, className: 'is-boost-lg' },
   { label: 'NTT Data', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/11.svg`, className: 'is-boost-md' },
   { label: 'AXA', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/12.svg` },
+  { label: 'Yamaha', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/13.svg`, className: 'is-boost-md' },
   { label: 'Garena', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/14.svg`, className: 'is-boost-lg' },
   { label: 'GWM', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/15.svg`, className: 'is-boost-md' },
   { label: 'AVEVA', src: `${process.env.PUBLIC_URL}/assets/clients/aveva.svg` },
