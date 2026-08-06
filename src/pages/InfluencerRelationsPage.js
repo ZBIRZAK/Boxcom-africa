@@ -4,6 +4,8 @@ const asset = (path) => `${process.env.PUBLIC_URL}${path}`;
 
 const influencerRelationsConfig = {
   pageClassName: 'influencer-relations-page',
+  includedCtaLabel: 'Discuss Influencer Relations',
+  processCtaLabel: 'Find the Right Creators',
   seoTitle: 'Influencer Relations Agency in Morocco | BOXCOM Africa',
   seoDescription:
     'BOXCOM Africa is an influencer relations agency in Morocco helping brands build credible creator partnerships around audience fit, local context and clear objectives.',

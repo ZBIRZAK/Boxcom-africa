@@ -11,6 +11,8 @@ import AboutUsPage from './pages/AboutUsPage';
 import ProjectsPage from './pages/ProjectsPage';
 import CaseStudyPage from './pages/CaseStudyPage';
 import BlogPage from './pages/BlogPage';
+import { installContactFormHandler } from './utils/contactForms';
+import { installNewsletterFormHandler } from './utils/newsletterForms';
 import './InternalFaq.css';
 
 const menuItems = [
@@ -74,9 +76,7 @@ const serviceItems = [
 
 const clientLogos = [
   { label: 'Samsung', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/1.svg`, className: 'is-boost-md' },
-  { label: 'Renault', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/2.svg` },
   { label: 'Air France', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/3.svg`, className: 'is-boost-lg' },
-  { label: 'Xerox', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/4.svg`, className: 'is-boost-sm' },
   { label: 'Fever', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/5.svg`, className: 'is-boost-sm' },
   { label: 'inDrive', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/6.svg`, className: 'is-boost-sm' },
   { label: 'TotalEnergies', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/7.svg` },
@@ -85,9 +85,13 @@ const clientLogos = [
   { label: 'DHL', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/10.svg`, className: 'is-boost-lg' },
   { label: 'NTT Data', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/11.svg`, className: 'is-boost-md' },
   { label: 'AXA', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/12.svg` },
-  { label: 'Yamaha', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/13.svg`, className: 'is-boost-md' },
   { label: 'Garena', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/14.svg`, className: 'is-boost-lg' },
   { label: 'GWM', src: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/15.svg`, className: 'is-boost-md' },
+  { label: 'AVEVA', src: `${process.env.PUBLIC_URL}/assets/clients/aveva.svg` },
+  { label: 'DeFacto', src: `${process.env.PUBLIC_URL}/assets/clients/defacto.svg` },
+  { label: 'Elm', src: `${process.env.PUBLIC_URL}/assets/clients/elm.svg` },
+  { label: 'GIZ', src: `${process.env.PUBLIC_URL}/assets/clients/giz.svg` },
+  { label: 'MIFA', src: `${process.env.PUBLIC_URL}/assets/clients/mifa.svg` },
 ];
 
 const projectItems = [
@@ -266,8 +270,10 @@ function App() {
   const testimonialDragCurrentX = useRef(null);
   const idleHeroLoadHandle = useRef(null);
   const heroVideoRef = useRef(null);
-  const heroVideoMp4 = `${process.env.PUBLIC_URL}/assets/Videos/Design%20of%20BoxCom%20Africa%20Website.mp4?v=20260715-hero-1`;
-  const heroVideoWebm = `${process.env.PUBLIC_URL}/assets/Videos/Design%20of%20BoxCom%20Africa%20Website.webm?v=20260715-hero-1`;
+
+  useEffect(() => installContactFormHandler(), []);
+  useEffect(() => installNewsletterFormHandler(), []);
+  const heroVideoMp4 = `${process.env.PUBLIC_URL}/assets/Videos/hero-video.mp4?v=20260806-hero-2`;
   const heroPoster = `${process.env.PUBLIC_URL}/assets/Videos/hero-poster.jpg?v=20260716-hero-poster-1`;
   const logoSrc = `${process.env.PUBLIC_URL}/assets/logo/logo-original.png`;
   const businessThinkingSrc = `${process.env.PUBLIC_URL}/assets/ABOUTUS_CoWorkers-new.png`;
@@ -768,11 +774,19 @@ function App() {
           <div className="newsletter">
             <h3>Newsletter</h3>
             <p>Receive news and promotions by email !</p>
-            <div className="newsletter__field">
+            <form className="newsletter__field newsletter-form">
               <span>@</span>
-              <input type="email" placeholder="Your email address" />
-              <button type="button">→</button>
-            </div>
+              <input
+                type="email"
+                name="newsletterEmail"
+                placeholder="Your email address"
+                aria-label="Your email address"
+                autoComplete="email"
+                required
+              />
+              <button type="submit" aria-label="Subscribe to the newsletter">→</button>
+            </form>
+            <p className="newsletter-status" role="status" aria-live="polite" />
           </div>
         </div>
       </div>
@@ -1084,7 +1098,6 @@ function App() {
                   disablePictureInPicture
                 >
                   <source src={heroVideoMp4} type="video/mp4" />
-                  <source src={heroVideoWebm} type="video/webm" />
                 </video>
               )}
               <div className="hero-media__overlay" />

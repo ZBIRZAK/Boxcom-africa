@@ -6,6 +6,7 @@ const root = path.resolve(__dirname, '..');
 const generator = path.join(__dirname, 'generate-blog-posts.js');
 const postsDirectory = path.join(root, 'posts');
 const reactScripts = require.resolve('react-scripts/bin/react-scripts.js');
+const mailServerScript = path.join(root, 'server', 'index.js');
 
 const generate = () => {
   const result = spawnSync(process.execPath, [generator], {
@@ -32,8 +33,14 @@ const developmentServer = spawn(process.execPath, [reactScripts, 'start'], {
   stdio: 'inherit',
 });
 
+const mailServer = spawn(process.execPath, [mailServerScript], {
+  cwd: root,
+  stdio: 'inherit',
+});
+
 const stop = (signal) => {
   developmentServer.kill(signal);
+  mailServer.kill(signal);
 };
 
 process.on('SIGINT', () => stop('SIGINT'));

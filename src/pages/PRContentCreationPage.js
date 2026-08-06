@@ -4,6 +4,8 @@ const asset = (path) => `${process.env.PUBLIC_URL}${path}`;
 
 const prContentCreationConfig = {
   pageClassName: 'pr-content-page',
+  includedCtaLabel: 'Discuss PR Content',
+  processCtaLabel: 'Start Your Content Brief',
   seoTitle: 'PR Content Creation in Morocco | BOXCOM Africa',
   seoDescription:
     'BOXCOM Africa provides PR content creation in Morocco, including press releases, media kits, speeches, articles and Arabic, French and English market adaptations.',

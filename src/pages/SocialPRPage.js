@@ -4,6 +4,8 @@ const asset = (path) => `${process.env.PUBLIC_URL}${path}`;
 
 const SocialPRPageConfig = {
   pageClassName: 'social-pr-page',
+  includedCtaLabel: 'Discuss Social PR',
+  processCtaLabel: 'Carry Your Story Further',
   seoTitle: 'Social PR in Morocco | BOXCOM Africa',
   seoDescription:
     'BOXCOM Africa provides Social PR in Morocco, adapting press stories for social platforms while protecting the facts, tone, narrative and online reputation behind them.',

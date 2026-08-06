@@ -4,6 +4,8 @@ const asset = (path) => `${process.env.PUBLIC_URL}${path}`;
 
 const mediaEventsConfig = {
   pageClassName: 'media-events-page',
+  includedCtaLabel: 'Plan a Media Event',
+  processCtaLabel: 'Talk Through Your Event',
   seoTitle: 'Press Event and Media Event Agency in Morocco | BOXCOM Africa',
   seoDescription:
     'BOXCOM Africa plans media events in Morocco that give journalists a clear story, useful access and strong reasons to continue the conversation after the event.',

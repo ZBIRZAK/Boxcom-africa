@@ -4,6 +4,8 @@ const asset = (path) => `${process.env.PUBLIC_URL}${path}`;
 
 const mediaMonitoringConfig = {
   pageClassName: 'media-monitoring-page',
+  includedCtaLabel: 'Discuss Media Monitoring',
+  processCtaLabel: 'Set Up Your Watchlist',
   seoTitle: 'Media Monitoring in Morocco | BOXCOM Africa',
   seoDescription:
     'BOXCOM Africa provides media monitoring in Morocco across coverage, context, sentiment, narrative shifts, risk alerts and response recommendations.',

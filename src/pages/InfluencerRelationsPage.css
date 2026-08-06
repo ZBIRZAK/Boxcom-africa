@@ -341,6 +341,34 @@
   text-decoration: none;
 }
 
+.influencer-section-cta {
+  gap: 10px;
+  border: 2px solid transparent;
+  box-shadow: 0 10px 22px rgba(0, 3, 38, 0.14);
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.influencer-section-cta:hover,
+.influencer-section-cta:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(0, 3, 38, 0.2);
+}
+
+.influencer-section-cta:focus-visible {
+  outline: 3px solid #f7be3e;
+  outline-offset: 3px;
+}
+
+.influencer-section-cta-row {
+  margin-top: clamp(34px, 4vw, 52px);
+  display: flex;
+  justify-content: center;
+}
+
+.influencer-section-cta-row .influencer-section-cta {
+  margin-top: 0;
+}
+
 .influencer-beyond__image {
   display: block;
   width: 100%;

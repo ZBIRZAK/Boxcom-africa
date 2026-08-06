@@ -4,6 +4,8 @@ const asset = (path) => `${process.env.PUBLIC_URL}${path}`;
 
 const mediaRelationsConfig = {
   pageClassName: 'media-relations-page',
+  includedCtaLabel: 'Discuss Media Relations',
+  processCtaLabel: 'Start a Media Relations Brief',
   seoTitle: 'Media Relations Agency in Morocco | BOXCOM Africa',
   seoDescription:
     'BOXCOM Africa is a media relations agency in Morocco connecting relevant stories with journalists and editors through strong angles, timing and local context.',

@@ -3,6 +3,8 @@ import './InfluencerRelationsPage.css';
 
 function ServiceDetailPage({ config, header, footer }) {
   const [openFaq, setOpenFaq] = useState(0);
+  const includedCtaLabel = config.includedCtaLabel || `Discuss ${config.hero.title}`;
+  const processCtaLabel = config.processCtaLabel || config.contact.buttonLabel || `Start a ${config.hero.title} Brief`;
 
   useEffect(() => {
     const previousTitle = document.title;
@@ -57,6 +59,9 @@ function ServiceDetailPage({ config, header, footer }) {
             <ul>
               {config.included.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
             </ul>
+            <a className="influencer-page__button influencer-section-cta" href="#/contact">
+              {includedCtaLabel} <span aria-hidden="true">→</span>
+            </a>
           </div>
         </div>
       </section>
@@ -80,6 +85,11 @@ function ServiceDetailPage({ config, header, footer }) {
                 </div>
               </article>
             ))}
+          </div>
+          <div className="influencer-section-cta-row">
+            <a className="influencer-page__button influencer-section-cta" href="#/contact">
+              {processCtaLabel} <span aria-hidden="true">→</span>
+            </a>
           </div>
         </div>
       </section>
