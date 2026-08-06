@@ -90,7 +90,7 @@ const clientLogos = [
   { label: 'AVEVA', src: `${process.env.PUBLIC_URL}/assets/clients/aveva.svg` },
   { label: 'DeFacto', src: `${process.env.PUBLIC_URL}/assets/clients/defacto.svg` },
   { label: 'Elm', src: `${process.env.PUBLIC_URL}/assets/clients/elm.svg` },
-  { label: 'GIZ', src: `${process.env.PUBLIC_URL}/assets/clients/giz.svg` },
+  { label: 'GIZ', src: `${process.env.PUBLIC_URL}/assets/clients/giz.svg`, className: 'is-boost-md' },
   { label: 'MIFA', src: `${process.env.PUBLIC_URL}/assets/clients/mifa.svg` },
 ];
 
