@@ -274,7 +274,7 @@ function App() {
 
   useEffect(() => installContactFormHandler(), []);
   useEffect(() => installNewsletterFormHandler(), []);
-  const heroVideoMp4 = `${process.env.PUBLIC_URL}/assets/Videos/hero-video.mp4?v=20260806-hero-2`;
+  const heroVideoMp4 = `${process.env.PUBLIC_URL}/assets/Videos/hero-video.mp4?v=20260807-hero-3`;
   const heroPoster = `${process.env.PUBLIC_URL}/assets/Videos/hero-poster.jpg?v=20260716-hero-poster-1`;
   const logoSrc = `${process.env.PUBLIC_URL}/assets/logo/logo-original.png`;
   const businessThinkingSrc = `${process.env.PUBLIC_URL}/assets/ABOUTUS_CoWorkers-new.png`;
