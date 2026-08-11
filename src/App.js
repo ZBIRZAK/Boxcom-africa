@@ -253,7 +253,7 @@ function wrapIndex(index, length) {
 }
 
 function App() {
-  const [activeService, setActiveService] = useState(serviceItems[5].label);
+  const [activeService, setActiveService] = useState(serviceItems[0].label);
   const [activeProject, setActiveProject] = useState(2);
   const [projectMotion, setProjectMotion] = useState('next');
   const [isProjectPaused, setIsProjectPaused] = useState(false);
