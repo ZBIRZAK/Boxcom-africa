@@ -1234,7 +1234,7 @@
 
 .clients-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 14px 14px;
   align-items: center;
 }
@@ -1257,6 +1257,18 @@
   max-height: 86px;
   object-fit: contain;
   object-position: center;
+}
+
+.clients-grid__item img.is-monochrome,
+.clients-grid__item--ticker img.is-monochrome {
+  filter: grayscale(1) brightness(0);
+}
+
+.clients-grid__item img.is-agriedge,
+.clients-grid__item--ticker img.is-agriedge {
+  width: 70%;
+  max-width: 70%;
+  height: auto;
 }
 
 .clients-grid__item img.is-boost-sm,
