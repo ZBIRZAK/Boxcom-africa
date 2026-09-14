@@ -163,6 +163,71 @@
   font-weight: 700;
 }
 
+.social-pr-page .influencer-included p .seo-highlight--secondary {
+  color: #087b88;
+  font-weight: 700;
+}
+
+.media-events-page .influencer-hero p .seo-highlight--primary {
+  color: #f7be3e;
+  font-weight: 700;
+}
+
+.media-events-page .influencer-hero p .seo-highlight--secondary {
+  color: #7bdbe3;
+  font-weight: 700;
+}
+
+.media-events-page .influencer-included p .seo-highlight--secondary {
+  color: #087b88;
+  font-weight: 700;
+}
+
+.media-monitoring-page .influencer-hero p .seo-highlight--primary {
+  color: #f7be3e;
+  font-weight: 700;
+}
+
+.media-monitoring-page .influencer-hero p .seo-highlight--secondary {
+  color: #7bdbe3;
+  font-weight: 700;
+}
+
+.media-monitoring-page .influencer-included p .seo-highlight--secondary {
+  color: #087b88;
+  font-weight: 700;
+}
+
+.pr-content-page .influencer-hero p .seo-highlight--primary {
+  color: #f7be3e;
+  font-weight: 700;
+}
+
+.pr-content-page .influencer-hero p .seo-highlight--secondary {
+  color: #7bdbe3;
+  font-weight: 700;
+}
+
+.pr-content-page .influencer-included p .seo-highlight--secondary {
+  color: #087b88;
+  font-weight: 700;
+}
+
+.influencer-relations-page .influencer-hero p .seo-highlight--primary {
+  color: #f7be3e;
+  font-weight: 700;
+}
+
+.influencer-relations-page .influencer-hero p .seo-highlight--secondary {
+  color: #7bdbe3;
+  font-weight: 700;
+}
+
+.influencer-relations-page .influencer-included p .seo-highlight--secondary {
+  color: #087b88;
+  font-weight: 700;
+}
+
 .influencer-included__copy ul {
   margin: 24px 0 0;
   padding: 0;
@@ -285,6 +350,28 @@
   color: #000326;
   font-size: var(--paragraph-size);
   line-height: 1.35;
+}
+
+.influencer-process__item .service-inline-link {
+  color: #087b88;
+  text-decoration-color: currentColor;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.influencer-process__item .service-inline-link:hover,
+.influencer-process__item .service-inline-link:focus-visible {
+  color: #ff6714;
+}
+
+.influencer-beyond__copy .service-inline-link {
+  color: #f7be3e;
+  text-underline-offset: 3px;
+}
+
+.internal-faq .service-inline-link {
+  color: #087b88;
+  text-underline-offset: 3px;
 }
 
 .influencer-beyond {

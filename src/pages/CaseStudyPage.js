@@ -23,7 +23,7 @@ const strategyPoints = [
   'Managed media schedule ensuring all invited outlets received quality access and exclusive angles',
 ];
 
-function BriefContact({ footer }) {
+export function BriefContact({ footer }) {
   return (
     <section className="contact-section case-study-contact">
       <div className="contact-section__inner">
@@ -124,18 +124,18 @@ function CaseStudyPage({ header, footer }) {
           <div className="case-study-snapshot">
             <article className="case-study-snapshot__challenge">
               <span>The Challenge</span>
-              <h2>Unpredictable campaigns. High costs. Low quality.</h2>
+              <h2>Turning a Celebrity Appointment Into a Media Event</h2>
               <p>
-                The launch needed to create a credible media moment around a celebrity appointment while reaching
-                several editorial audiences and extending the story into social and video channels.
+                DeFacto needed more than a press release: the announcement required live media access, targeted
+                fashion and entertainment outreach, and Social PR capable of turning coverage into genuine buzz.
               </p>
             </article>
             <article className="case-study-snapshot__work">
               <span>What We Did</span>
-              <h2>A scientific approach to performance marketing.</h2>
+              <h2>Celebrity Event PR, Targeted Media and Social Amplification</h2>
               <p>
-                We designed an integrated press event, targeted outreach and content program that gave journalists
-                direct access while creating strong material for digital audiences.
+                We built an integrated strategy around a Casablanca press conference, exclusive access to Alp Navruz,
+                targeted outreach and a setup designed for photography, video and social content.
               </p>
             </article>
           </div>

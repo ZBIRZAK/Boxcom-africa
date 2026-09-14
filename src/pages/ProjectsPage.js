@@ -5,6 +5,32 @@ const asset = (path) => `${process.env.PUBLIC_URL}${path}`;
 
 const projects = [
   {
+    name: 'Modanisa',
+    industry: 'Fashion',
+    service: 'Media Relations',
+    useCase: 'E-Commerce Brand Launch',
+    href: '#/projects/modanisa',
+    description:
+      'A three-phase Moroccan launch that built awareness, brand authority and consumer engagement for a global modest fashion platform.',
+    results: [
+      { value: '26', label: 'Media outlets covered' },
+      { value: '358K', label: 'Estimated article views' },
+    ],
+  },
+  {
+    name: 'NTT DATA',
+    industry: 'Technology',
+    service: 'Media Relations',
+    useCase: 'Investment Announcement',
+    href: '#/projects/ntt-data',
+    description:
+      'A multi-market media relations campaign that turned a major investment announcement into credible institutional coverage across four languages.',
+    results: [
+      { value: '25+', label: 'Media articles published' },
+      { value: '183K', label: 'Advertising value (MAD)' },
+    ],
+  },
+  {
     name: 'DeFacto',
     industry: 'Fashion',
     service: 'Event Management',
@@ -22,20 +48,98 @@ const projects = [
     service: 'Media Events',
     useCase: 'Product Launch',
     href: '#/projects/gwm',
+    description:
+      'A press-conference-led market entry campaign that built immediate credibility for Great Wall Motor across Morocco’s automotive media ecosystem.',
+    results: [
+      { value: '44', label: 'Articles published' },
+      { value: '11', label: 'Executive interviews' },
+    ],
   },
   {
     name: 'Mifa',
     industry: 'Distribution',
-    service: 'Media Events',
-    useCase: 'Exhibition',
+    service: 'Media Relations',
+    useCase: 'Trade Event PR',
     href: '#/projects/mifa',
+    description:
+      'An exhibition-led campaign connecting MIFA Group’s aquaculture strategy to Morocco’s national blue economy priorities.',
+    results: [
+      { value: '22', label: 'Media outlets covered' },
+      { value: '174K', label: 'Advertising value (MAD)' },
+    ],
+  },
+  {
+    name: 'ELM',
+    industry: 'Technology',
+    service: 'Media Events',
+    useCase: 'International Expansion',
+    href: '#/projects/elm',
+    description:
+      'A trilingual, multi-country GITEX Africa campaign that established institutional credibility for a Saudi digital solutions leader.',
+    results: [
+      { value: '39', label: 'Media outlets covered' },
+      { value: '3.5M', label: 'Total campaign reach' },
+    ],
+  },
+  {
+    name: 'AgriEdge',
+    industry: 'Agriculture',
+    service: 'Media Relations',
+    useCase: 'Platform Launch',
+    href: '#/projects/agriedge',
+    description: 'A context-led campaign that made precision agriculture relevant across Morocco’s business, technology, agriculture and sustainability media.',
+    results: [
+      { value: '27+', label: 'Articles published' },
+      { value: '4.9M', label: 'Estimated reader reach' },
+    ],
+  },
+  {
+    name: 'DiliTrust',
+    industry: 'Technology',
+    service: 'Media Relations',
+    useCase: 'M&A Announcement',
+    href: '#/projects/dilitrust',
+    description: 'A precision B2B campaign positioning a LegalTech acquisition within the wider governance digitalization story across Morocco and Africa.',
+    results: [
+      { value: '13', label: 'Media outlets covered' },
+      { value: '2', label: 'Languages distributed' },
+    ],
+  },
+  {
+    name: 'EQDOM',
+    industry: 'Financial Services',
+    service: 'Media Relations',
+    useCase: 'Digital Finance',
+    href: '#/projects/eqdom',
+    description: 'A bilingual, multi-sector media strategy connecting automotive financing, digital transformation and national brand visibility.',
+    results: [
+      { value: '33', label: 'Articles published' },
+      { value: '1.7M', label: 'Estimated reader reach' },
+    ],
+  },
+  {
+    name: 'Everis',
+    industry: 'Technology',
+    service: 'Media Relations',
+    useCase: 'Employer Branding',
+    href: '#/projects/everis',
+    description: 'An integrated PR and employer-branding campaign designed to attract competitive technology talent to Everis in Tétouan.',
+    results: [
+      { value: '70+', label: 'Media articles' },
+      { value: '700K', label: 'Advertising value (MAD)' },
+    ],
   },
   {
     name: 'Samsung',
     industry: 'Technology',
-    service: 'Media Relations',
+    service: 'Media Events',
     useCase: 'Product Launch',
     href: '#/projects/samsung',
+    description: 'An immersive, Ramadan-aware Moroccan launch that synchronized with Galaxy Unpacked and generated strong national, broadcast and influencer coverage.',
+    results: [
+      { value: '27.8M', label: 'Estimated reach' },
+      { value: '149', label: 'Tier 1 placements' },
+    ],
   },
   {
     name: 'Garena',
@@ -45,11 +149,16 @@ const projects = [
     href: '#/projects/garena',
   },
   {
-    name: 'InDrive',
+    name: 'inDrive Algeria',
     industry: 'Transportation',
     service: 'Media Relations',
-    useCase: 'Positioning',
+    useCase: 'Market Entry',
     href: '#/projects/indrive',
+    description: 'A culturally timed driver campaign and spokesperson program that established credibility for a new mobility entrant in Algeria.',
+    results: [
+      { value: '11', label: 'Articles published' },
+      { value: '€7.9K', label: 'Advertising value' },
+    ],
   },
 ];
 

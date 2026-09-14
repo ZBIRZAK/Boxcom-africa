@@ -50,6 +50,27 @@
   text-align: center;
 }
 
+.about-intro__lead {
+  position: relative;
+  z-index: 2;
+  max-width: 980px;
+  margin: -18px auto 42px;
+  color: #3f4656;
+  font-size: clamp(1.22rem, 1.5vw, 1.5rem);
+  line-height: 1.45;
+  text-align: center;
+}
+
+.about-page .seo-highlight--primary {
+  color: #e5a51f;
+  font-weight: 700;
+}
+
+.about-page .seo-highlight--secondary {
+  color: #087b88;
+  font-weight: 700;
+}
+
 .about-intro article + article {
   margin-top: 25px;
 }
@@ -420,6 +441,12 @@
   .about-intro h1 {
     margin-bottom: 30px;
     font-size: 3rem;
+  }
+
+  .about-intro__lead {
+    margin-top: -8px;
+    margin-bottom: 32px;
+    font-size: 1.08rem;
   }
 
   .about-intro article h2 {

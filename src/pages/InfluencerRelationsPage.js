@@ -3,104 +3,147 @@ import ServiceDetailPage from './ServiceDetailPage';
 const asset = (path) => `${process.env.PUBLIC_URL}${path}`;
 
 const influencerRelationsConfig = {
+  locale: 'fr',
   pageClassName: 'influencer-relations-page',
-  includedCtaLabel: 'Discuss Influencer Relations',
-  processCtaLabel: 'Find the Right Creators',
-  seoTitle: 'Influencer Relations Agency in Morocco | BOXCOM Africa',
+  includedCtaLabel: 'Discuter des relations influenceurs',
+  processCtaLabel: 'Trouver les bons créateurs',
+  includedHeading: <>Ce qui est<br />inclus</>,
+  faqHeading: 'Questions fréquentes',
+  seoTitle: 'Agence de relations influenceurs au Maroc | BOXCOM Africa',
   seoDescription:
-    'BOXCOM Africa is an influencer relations agency in Morocco helping brands build credible creator partnerships around audience fit, local context and clear objectives.',
+    'BOXCOM Africa est une agence de relations influenceurs au Maroc qui construit des partenariats crédibles selon l’audience, le contexte local et les objectifs.',
   hero: {
-    title: 'Influencer Relations',
+    title: 'Relations influenceurs',
     image: asset('/assets/Influencer%20Relations_Approved%20Images/influencer-relations-header.jpg'),
-    imageAlt: 'Creator using a smartphone',
+    imageAlt: 'Créatrice utilisant un smartphone',
+    capabilitiesLabel: 'Expertises en relations influenceurs',
     intro: (
       <p>
-        As an <span className="seo-highlight seo-highlight--primary">influencer relations agency in Morocco</span>,
-        BOXCOM Africa helps brands find <span className="seo-highlight seo-highlight--secondary">creators</span> whose
-        audience, voice and <span className="seo-highlight seo-highlight--secondary">context</span> make the story feel
-        credible, not just visible.
+        En tant qu&apos;<span className="seo-highlight seo-highlight--primary">agence de relations influenceurs au Maroc</span>,
+        BOXCOM Africa aide les marques à trouver des <span className="seo-highlight seo-highlight--secondary">créateurs</span>{' '}
+        dont l&apos;<span className="seo-highlight seo-highlight--secondary">audience</span>, la voix et le{' '}
+        <span className="seo-highlight seo-highlight--secondary">contexte</span> rendent l&apos;histoire crédible, pas seulement visible.
       </p>
     ),
-    tags: ['Reputation Review', 'Briefing and Coordination', 'Delivery Review'],
+    tags: ['Revue de réputation', 'Briefing et coordination', 'Revue de livraison'],
   },
   included: {
     description: (
       <>
-        Influencer relations can include <span className="seo-highlight seo-highlight--secondary">creator role</span>{' '}
-        definition, <span className="seo-highlight seo-highlight--secondary">local profile mapping</span>, shortlisting,
-        outreach, briefing, content coordination, delivery review and reporting.
+        Les relations influenceurs peuvent inclure la définition du{' '}
+        <span className="seo-highlight seo-highlight--secondary">rôle du créateur</span>, le repérage de{' '}
+        <span className="seo-highlight seo-highlight--secondary">profils locaux</span>, la présélection, la prospection,
+        le briefing, la coordination de contenu, la revue de livraison et le reporting.
       </>
     ),
     bullets: [
-      'Creator role and local profile mapping',
-      'In-market fit and reputation review',
-      'Briefing, outreach and coordination',
-      'Objective-based delivery review',
+      'Rôle du créateur et repérage de profils locaux',
+      'Adéquation au marché et revue de réputation',
+      'Briefing, prospection et coordination',
+      'Revue de livraison basée sur les objectifs',
     ],
   },
   process: {
-    title: 'From Creator Role to Credible Content',
+    title: 'Du rôle du créateur au contenu crédible',
     items: [
       {
-        title: 'Define the Role',
-        description:
-          'We decide what creators should help explain, demonstrate or add to the wider story, based on where their voice genuinely strengthens the message rather than simply extends its reach. Not every part of a story needs an influencer; we identify the moments where that added credibility actually matters.',
+        title: 'Définir le rôle',
+        description: (
+          <>
+            Nous déterminons quels créateurs peuvent aider à expliquer, démontrer ou enrichir le récit global, en
+            fonction des cas où leur voix renforce véritablement le message plutôt que d&apos;en étendre simplement la
+            portée. Pour <a className="service-inline-link" href="#/projects/modanisa"><strong><em>Modanisa</em></strong></a>,
+            la voix de Halima Aden comptait : elle a généré{' '}
+            <a className="service-inline-link" href="#/projects/modanisa"><strong><em>156 mentions de son nom</em></strong></a>,
+            à égalité avec la marque elle-même, car cette crédibilité avait un réel impact.
+          </>
+        ),
         image: asset('/assets/Influencer%20Relations_Approved%20Images/influencer-relations-define-role.jpg'),
       },
       {
-        title: 'Find the Right Fit',
-        description:
-          "We assess audience, voice, content quality, reputation and market context before making contact, so every creator we approach is a genuine fit rather than a convenient one. This groundwork protects the brand's credibility and ensures the partnership makes sense to the audience it's meant to reach.",
+        title: 'Trouver la bonne adéquation',
+        description: (
+          <>
+            Nous évaluons l&apos;audience, le profil, les motivations, la pertinence du contenu et le contexte du marché
+            avant toute prise de contact, afin que chaque audience ciblée corresponde à un choix pertinent plutôt qu&apos;à
+            une simple opportunité. Pour <a className="service-inline-link" href="#/projects"><strong>Samsung</strong></a>,
+            cela s&apos;est traduit par la sélection de journalistes et d&apos;influenceurs disposant d&apos;audiences fortes dans
+            la tech et le lifestyle, contribuant à générer{' '}
+            <a className="service-inline-link" href="#/projects"><strong>149 placements Tier 1 sur 246 articles</strong></a>.
+            Cela protège la crédibilité de la marque et garantit que la campagne trouve un véritable écho auprès de
+            l&apos;audience qu&apos;elle vise.
+          </>
+        ),
         image: asset('/assets/Influencer%20Relations_Approved%20Images/influencer-relations-right-fit.jpg'),
       },
       {
-        title: 'Brief and Follow Through',
-        description:
-          'We manage the brief, timing and delivery from start to finish, keeping the creator aligned with the story without losing their authentic voice. Once the content is live, we review how well it played its intended role, whether it landed with the audience and what that means for the next collaboration.',
+        title: 'Briefer et assurer le suivi',
+        description: (
+          <>
+            Nous gérons le brief, le timing et la livraison de bout en bout, en maintenant le créateur aligné avec le
+            récit sans perdre sa voix authentique. Pour{' '}
+            <a className="service-inline-link" href="#/projects/defacto"><strong><em>DeFacto</em></strong></a>, cela
+            s&apos;est traduit par l&apos;organisation d&apos;une{' '}
+            <a className="service-inline-link" href="#/projects/defacto"><strong><em>conférence de presse avec Alp Navruz</em></strong></a>,
+            générant une <a className="service-inline-link" href="#/projects/defacto"><strong><em>couverture dans 22 médias marocains</em></strong></a>.
+            Une fois le contenu publié, nous évaluons la manière dont il remplit son rôle, avec notamment plus de{' '}
+            <a className="service-inline-link" href="#/projects/defacto"><strong><em>47 000 vues sur une seule vidéo Facebook</em></strong></a>,
+            et les enseignements à en tirer pour la prochaine collaboration.
+          </>
+        ),
         image: asset('/assets/Influencer%20Relations_Approved%20Images/influencer-relations-follow-through.jpg'),
       },
     ],
   },
   feature: {
-    title: 'Beyond the Feed',
+    title: 'Au-delà du fil d’actualité',
     paragraphs: [
-      "A creator's story often finds its clearest moment in a room, not just on a feed, where an audience can see it unfold in real time.",
-      'Influencer Relations builds the voice and the following: we identify the right creators and shape how they engage with the brand.',
-      <><strong>Media Events</strong> then give that voice a stage, whether it's a launch, a briefing or an experience built for coverage, extending an event's reach well past the people who attended it.</>,
+      "L'histoire d'un créateur trouve souvent son moment le plus fort dans une salle, pas seulement sur un fil d'actualité, là où une audience peut la voir se dérouler en temps réel.",
+      "Les relations influenceurs construisent la voix et l'audience : nous identifions les bons créateurs et façonnons la manière dont ils interagissent avec la marque.",
+      <>Les <a className="service-inline-link" href="#/fr/services/media-events"><strong>événements médias</strong></a> donnent ensuite une scène à cette voix, qu&apos;il s&apos;agisse d&apos;un lancement, d&apos;un briefing ou d&apos;une expérience conçue pour la couverture médiatique, prolongeant la portée d&apos;un événement bien au-delà des personnes présentes.</>,
     ],
-    statement: 'A trusted voice in the room is what turns attendance into a story worth sharing.',
-    buttonLabel: 'Discover Media Events',
-    buttonHref: '#/services/media-events',
+    statement: 'Une voix de confiance dans la salle est ce qui transforme la présence en une histoire qui mérite d’être partagée.',
+    buttonLabel: 'Découvrir les événements médias',
+    buttonHref: '#/fr/services/media-events',
     image: asset('/assets/Influencer%20Relations_Approved%20Images/influencer-relations-beyond-feed.png'),
-    imageAlt: 'Creator speaking with an attendee at a media event',
+    imageAlt: 'Créatrice échangeant avec une participante lors d’un événement média',
   },
   faqItems: [
     {
-      question: 'How are creators selected?',
+      question: 'Comment les créateurs sont-ils sélectionnés ?',
       answer:
-        'Selection for influencer relations in Morocco starts with the role the creator needs to play, then considers audience fit, content style, reputation, language and local context.',
+        'La sélection pour les relations influenceurs au Maroc commence par le rôle que le créateur doit jouer, puis prend en compte l’adéquation avec l’audience, le style de contenu, la réputation, la langue et le contexte local.',
     },
     {
-      question: 'How does influencer relations connect with the wider PR program?',
+      question: 'Comment les relations influenceurs s’intègrent-elles au programme RP global ?',
       answer:
-        "The creator brief is built from the same story as the press and social activity, while leaving room for the creator's own voice and format.",
+        'Le brief du créateur s’appuie sur la même histoire que la presse et les activités sociales, tout en laissant de la place à la voix et au format propres du créateur.',
     },
     {
-      question: 'Can creators support media events?',
+      question: 'Les créateurs peuvent-ils soutenir les événements médias ?',
       answer:
-        'Yes. Creators can add useful audience access or local perspective to launches, visits and experiences when their role is clear.',
+        'Oui. Les créateurs peuvent apporter un accès utile à l’audience ou une perspective locale aux lancements, visites et expériences lorsque leur rôle est clair.',
     },
     {
-      question: 'How are creator results reviewed?',
+      question: 'Comment les résultats des créateurs sont-ils évalués ?',
       answer:
-        'The review looks at agreed deliverables, audience response, message quality and how well the creator fulfilled the intended role.',
+        'L’évaluation porte sur les livrables convenus, la réaction de l’audience, la qualité du message et la mesure dans laquelle le créateur a rempli le rôle prévu.',
     },
   ],
   contact: {
-    title: 'Talk Through the Brief',
-    intro:
-      'Tell us the story, the market and the timing. A senior member of the team will help identify the questions worth answering first.',
-    buttonLabel: 'Send Message',
+    title: 'Discuter du brief',
+    intro: 'Racontez-nous l’histoire, le marché et le timing. Un membre senior de l’équipe vous aidera à identifier les questions à traiter en priorité.',
+    buttonLabel: 'Discuter des relations influenceurs',
+  },
+  form: {
+    name: 'Votre nom *',
+    namePlaceholder: 'Votre nom complet',
+    company: 'Votre entreprise *',
+    companyPlaceholder: 'Votre entreprise',
+    email: 'Votre e-mail *',
+    emailPlaceholder: 'Votre e-mail',
+    message: 'Message',
+    messagePlaceholder: 'Écrivez votre message ici.',
   },
 };
 

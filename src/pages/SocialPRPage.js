@@ -17,15 +17,20 @@ const SocialPRPageConfig = {
       <p>
         <span className="seo-highlight seo-highlight--primary">Social PR in Morocco</span> keeps the core message intact
         as it moves into shorter, faster formats, adapting content, timing and amplification for each channel and
-        audience. We also track how the story is being understood, coordinating clarification or response when the
-        conversation begins to drift from the facts.
+        audience. We also track how the story is being understood, coordinating clarification or response when the{' '}
+        <span className="seo-highlight seo-highlight--secondary">online conversation</span> begins to drift from the
+        facts.
       </p>
     ),
-    tags: ['Engagement Guidance', 'Issue Monitoring', 'Narrative Adaptation'],
+    tags: ['Engagement Guidance', 'Issue Monitoring', 'Narrative Adaptive'],
   },
   included: {
-    description:
-      'Social PR can include story adaptation, social-first angles, coverage amplification, engagement guidance, conversation monitoring and response planning.',
+    description: (
+      <>
+        Social PR can include story adaptation, social-first angles, coverage amplification, engagement guidance,{' '}
+        <span className="seo-highlight seo-highlight--secondary">conversation monitoring</span> and response planning.
+      </>
+    ),
     bullets: [
       'Press-to-social narrative adaptation',
       'Amplification and engagement guidance',
@@ -38,8 +43,19 @@ const SocialPRPageConfig = {
     items: [
       {
         title: 'Keep the Meaning Intact',
-        description:
-          'We define what must remain consistent as the story moves into shorter, faster formats, so the core message survives the shift even as the details compress. This groundwork protects the meaning behind the story, ensuring speed and brevity never come at the cost of accuracy or intent.',
+        description: (
+          <>
+            We define what must remain consistent as the story moves across channels, so the core message holds as
+            coverage develops. For{' '}
+            <a className="service-inline-link" href="#/projects"><strong>Samsung Galaxy S26</strong></a>, that meant
+            monitoring{' '}
+            <a className="service-inline-link" href="#/projects">
+              <strong>246 articles across 131 outlets, including 149 Tier 1 placements</strong>
+            </a>. This tracking protects
+            the meaning behind the story, showing how the narrative travels while ensuring reach and speed never come
+            at the cost of accuracy or intent.
+          </>
+        ),
         image: asset(
           '/assets/Social%20PR_Approved%20Images/Social%20PR_Keep%20the%20meaning%20intact.jpg'
         ),
@@ -47,8 +63,17 @@ const SocialPRPageConfig = {
       },
       {
         title: 'Adapt for the Channel',
-        description:
-          "We shape the content, timing and level of amplification for the platform and audience it's reaching, since what works on one channel rarely translates directly to another. Each version is calibrated to fit the pace, tone and expectations of where it will actually be seen.",
+        description: (
+          <>
+            We track the content, reach and level of amplification across each platform and market, since performance
+            on one channel rarely reflects how a story travels elsewhere. For{' '}
+            <a className="service-inline-link" href="#/projects/elm"><strong>ELM</strong></a>, that meant monitoring{' '}
+            <a className="service-inline-link" href="#/projects/elm">
+              <strong>43 media placements across four countries and three languages, including 7 social media placements</strong>
+            </a>. Each result was assessed across channels to understand where the story gained traction
+            and how effectively it reached the audiences it was designed for.
+          </>
+        ),
         image: asset(
           '/assets/Social%20PR_Approved%20Images/Social%20PR_Adapt%20for%20the%20Channel.jpg'
         ),
@@ -56,8 +81,18 @@ const SocialPRPageConfig = {
       },
       {
         title: 'Follow the Conversation',
-        description:
-          'We watch how the story is being understood as it spreads, staying alert to where the meaning starts to shift from what was intended. When the conversation begins to drift from the facts, we coordinate clarification or a direct response, keeping the narrative aligned with the truth.',
+        description: (
+          <>
+            We watch how the story is being understood as it spreads, staying alert to where the meaning starts to
+            shift from what was intended. For{' '}
+            <a className="service-inline-link" href="#/projects/everis"><strong><em>Everis</em></strong></a>, that meant{' '}
+            <a className="service-inline-link" href="#/projects/everis">
+              <strong><em>tracking coverage that reached 150,500+ estimated readers</em></strong>
+            </a>. When the conversation
+            begins to drift from the facts, we coordinate clarification or a direct response, keeping the narrative
+            aligned with the truth.
+          </>
+        ),
         image: asset(
           '/assets/Social%20PR_Approved%20Images/Social%20PR_Follow%20The%20Conversation.jpg'
         ),
@@ -70,7 +105,10 @@ const SocialPRPageConfig = {
     paragraphs: [
       'A story only travels as far as the content built to carry it, and that groundwork happens well before any post goes live.',
       'Social PR shapes how a message moves and lands across platforms, adapting pace, tone and format to each audience.',
-      'PR Content Creation is where that message first takes shape, the copy, the visuals, the core narrative that everything downstream is built from.',
+      <>
+        <a className="service-inline-link" href="#/services/pr-content-creation">PR Content Creation</a> is where that
+        message first takes shape, the copy, the visuals, the core narrative that everything downstream is built from.
+      </>,
     ],
     statement: 'Strong content is what makes amplification worth doing in the first place.',
     buttonLabel: 'Discover PR Content Creation',
@@ -89,7 +127,8 @@ const SocialPRPageConfig = {
       answer: (
         <>
           The press angle, social content, monitoring and response are planned around the same story, so changes in
-          one channel can inform the others.
+          one channel can inform the others.{' '}
+          <a className="service-inline-link" href="#/services/media-relations">Explore Media Relations.</a>
         </>
       ),
     },

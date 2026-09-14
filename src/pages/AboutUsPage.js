@@ -49,16 +49,31 @@ const faqItems = [
   },
 ];
 
-function AboutUsPage({ header, footer }) {
+function AboutUsPage({ header, footer, content }) {
   const [openFaq, setOpenFaq] = useState(0);
+  const locale = content?.locale || 'en';
+  const pageValues = content?.values || values;
+  const pageFaqItems = content?.faqItems || faqItems;
+  const form = {
+    name: content?.form?.name || 'Your Name *',
+    namePlaceholder: content?.form?.namePlaceholder || 'Your Full Name',
+    company: content?.form?.company || 'Your Company *',
+    companyPlaceholder: content?.form?.companyPlaceholder || 'Your Company',
+    email: content?.form?.email || 'Your Email *',
+    emailPlaceholder: content?.form?.emailPlaceholder || 'Your Email',
+    message: content?.form?.message || 'Message',
+    messagePlaceholder: content?.form?.messagePlaceholder || 'Type your message here.',
+  };
 
   useEffect(() => {
     const previousTitle = document.title;
+    const previousLanguage = document.documentElement.lang;
     let metaDescription = document.querySelector('meta[name="description"]');
     const createdMetaDescription = !metaDescription;
     const previousDescription = metaDescription?.getAttribute('content') || '';
 
-    document.title = 'About BOXCOM Africa | Press Relations Agency in Morocco';
+    document.title = content?.seoTitle || 'About BOXCOM Africa | Press Relations Agency in Morocco';
+    document.documentElement.lang = locale;
     if (!metaDescription) {
       metaDescription = document.createElement('meta');
       metaDescription.setAttribute('name', 'description');
@@ -66,18 +81,19 @@ function AboutUsPage({ header, footer }) {
     }
     metaDescription.setAttribute(
       'content',
-      'Meet BOXCOM Africa, a senior-led Press Relations agency in Morocco combining regional reach, local context, media judgment and accountable delivery.'
+      content?.seoDescription || 'Meet BOXCOM Africa, a senior-led Press Relations agency in Morocco combining regional reach, local context, media judgment and accountable delivery.'
     );
 
     return () => {
       document.title = previousTitle;
+      document.documentElement.lang = previousLanguage;
       if (createdMetaDescription) {
         metaDescription.remove();
       } else {
         metaDescription.setAttribute('content', previousDescription);
       }
     };
-  }, []);
+  }, [content?.seoDescription, content?.seoTitle, locale]);
 
   return (
     <main className="app about-page">
@@ -85,25 +101,18 @@ function AboutUsPage({ header, footer }) {
 
       <section className="about-intro" aria-labelledby="about-title">
         <div className="about-page__frame about-intro__inner">
-          <h1 id="about-title">Who We Are</h1>
+          <h1 id="about-title">{content?.pageTitle || 'Who We Are'}</h1>
+          {content?.lead && <p className="about-intro__lead">{content.lead}</p>}
 
           <div className="about-intro__copy">
             <article>
-              <h2>A Press Relations Agency in Morocco with a Regional View</h2>
-              <p>
-                BOXCOM Africa is based in Casablanca, Morocco, with a view toward the markets where our clients
-                need to be understood. As a PR agency in Casablanca with African reach, we know that a story can
-                lose force when it is translated without context or sent to a market without local judgment.
-              </p>
+              <h2>{content?.intro?.regionalTitle || 'A Press Relations Agency in Morocco with a Regional View'}</h2>
+              <p>{content?.intro?.regionalText || 'BOXCOM Africa is based in Casablanca, Morocco, with a view toward the markets where our clients need to be understood. As a PR agency in Casablanca with African reach, we know that a story can lose force when it is translated without context or sent to a market without local judgment.'}</p>
             </article>
 
             <article>
-              <h2>Senior-Led by Design</h2>
-              <p>
-                Senior practitioners stay involved in the account because advice, media judgment and delivery
-                should not be separated. The person shaping the recommendation should understand how the story
-                will be received once it reaches journalists, editors, partners and audiences.
-              </p>
+              <h2>{content?.intro?.seniorTitle || 'Senior-Led by Design'}</h2>
+              <p>{content?.intro?.seniorText || 'Senior practitioners stay involved in the account because advice, media judgment and delivery should not be separated. The person shaping the recommendation should understand how the story will be received once it reaches journalists, editors, partners and audiences.'}</p>
             </article>
           </div>
 
@@ -111,16 +120,12 @@ function AboutUsPage({ header, footer }) {
             <img
               className="about-intro__globe"
               src={asset('/assets/AboutUs_Approved_Images/who-we-are-globe.png')}
-              alt="Connected communication routes extending from Morocco across Africa"
+              alt={content?.intro?.globeAlt || 'Connected communication routes extending from Morocco across Africa'}
               fetchPriority="high"
             />
             <article className="about-intro__local-copy">
-              <h2>Connected to Local Partners</h2>
-              <p>
-                When work crosses borders, we work with capable partners in their own markets. That helps a story
-                land in the right language, tone and cultural frame, instead of being pushed from Casablanca as
-                one message for every place.
-              </p>
+              <h2>{content?.intro?.localTitle || 'Connected to Local Partners'}</h2>
+              <p>{content?.intro?.localText || 'When work crosses borders, we work with capable partners in their own markets. That helps a story land in the right language, tone and cultural frame, instead of being pushed from Casablanca as one message for every place.'}</p>
             </article>
           </div>
         </div>
@@ -128,61 +133,40 @@ function AboutUsPage({ header, footer }) {
 
       <section className="about-origin" aria-labelledby="about-origin-title">
         <div className="about-page__frame">
-          <h2 id="about-origin-title">Where We Come From</h2>
+          <h2 id="about-origin-title">{content?.origin?.sectionTitle || 'Where We Come From'}</h2>
           <article className="about-origin__card">
-            <h3>Born from BOXCOM's Communication Culture</h3>
-            <p>
-              BOXCOM Africa did not start as a detached PR label. It comes from BOXCOM's wider communication
-              background, where brand, content, digital and media work sit close to business questions. That origin
-              still shapes how we think: every story needs a reason, a context and a clear role in the client's
-              wider direction.
-            </p>
-            <p>
-              Our focus today is sharper: PR, Press Relations and reputation-led work. The agency gives that
-              discipline its own team, while keeping the broader communication instinct that helps us understand
-              what a brief is really trying to achieve.
-            </p>
-            <p className="about-origin__quote">
-              “We come from communication work, but we are built for Press Relations: close to the client, close to
-              the media and close to the context around the story.”
-            </p>
+            <h3>{content?.origin?.title || "Born from BOXCOM's Communication Culture"}</h3>
+            {(content?.origin?.paragraphs || ["BOXCOM Africa did not start as a detached PR label. It comes from BOXCOM's wider communication background, where brand, content, digital and media work sit close to business questions. That origin still shapes how we think: every story needs a reason, a context and a clear role in the client's wider direction.", 'Our focus today is sharper: PR, Press Relations and reputation-led work. The agency gives that discipline its own team, while keeping the broader communication instinct that helps us understand what a brief is really trying to achieve.']).map((paragraph, index) => <p key={index}>{paragraph}</p>)}
+            <p className="about-origin__quote">{content?.origin?.quote || '“We come from communication work, but we are built for Press Relations: close to the client, close to the media and close to the context around the story.”'}</p>
           </article>
         </div>
       </section>
 
       <section className="about-entities" aria-labelledby="about-entities-title">
         <div className="about-page__frame">
-          <h2 id="about-entities-title">Two Entities One Mission</h2>
+          <h2 id="about-entities-title">{content?.entities?.sectionTitle || 'Two Entities One Mission'}</h2>
           <div className="about-entities__scene">
             <img
               src={asset('/assets/AboutUs_Approved_Images/two-entities-one-mission.png')}
-              alt="BOXCOM digital expertise and BOXCOM Africa press relations expertise working toward one mission"
+              alt={content?.entities?.imageAlt || 'BOXCOM digital expertise and BOXCOM Africa press relations expertise working toward one mission'}
               loading="lazy"
             />
 
             <article className="about-entities__card about-entities__card--digital">
-              <h3>The Digital Expert</h3>
-              <p>We build brands through strategy, content, digital experiences, and performance-driven marketing.</p>
-              <h4>Core Expertise:</h4>
+              <h3>{content?.entities?.digital?.title || 'The Digital Expert'}</h3>
+              <p>{content?.entities?.digital?.description || 'We build brands through strategy, content, digital experiences, and performance-driven marketing.'}</p>
+              <h4>{content?.entities?.expertiseLabel || 'Core Expertise:'}</h4>
               <ul>
-                <li>Digital Strategy</li>
-                <li>Web Development</li>
-                <li>Content &amp; Video Production</li>
-                <li>Social Media Campaigns</li>
-                <li>Lead Generation</li>
+                {(content?.entities?.digital?.items || ['Digital Strategy', 'Web Development', 'Content & Video Production', 'Social Media Campaigns', 'Lead Generation']).map((item) => <li key={item}>{item}</li>)}
               </ul>
             </article>
 
             <article className="about-entities__card about-entities__card--pr">
-              <h3>The PR Powerhouse</h3>
-              <p>We shape narratives, build visibility, and strengthen reputation across Morocco and Africa.</p>
-              <h4>Core Expertise:</h4>
+              <h3>{content?.entities?.pr?.title || 'The PR Powerhouse'}</h3>
+              <p>{content?.entities?.pr?.description || 'We shape narratives, build visibility, and strengthen reputation across Morocco and Africa.'}</p>
+              <h4>{content?.entities?.expertiseLabel || 'Core Expertise:'}</h4>
               <ul>
-                <li>Media &amp; Press Relations</li>
-                <li>Corporate Communication</li>
-                <li>Reputation &amp; Crisis Management</li>
-                <li>Thought Leadership</li>
-                <li>Strategic PR Campaigns</li>
+                {(content?.entities?.pr?.items || ['Media & Press Relations', 'Corporate Communication', 'Reputation & Crisis Management', 'Thought Leadership', 'Strategic PR Campaigns']).map((item) => <li key={item}>{item}</li>)}
               </ul>
             </article>
           </div>
@@ -191,9 +175,9 @@ function AboutUsPage({ header, footer }) {
 
       <section className="about-values" aria-labelledby="about-values-title">
         <div className="about-page__frame">
-          <h2 id="about-values-title">Our Values</h2>
+          <h2 id="about-values-title">{content?.valuesTitle || 'Our Values'}</h2>
           <div className="about-values__list">
-            {values.map((value) => (
+            {pageValues.map((value) => (
               <article key={value.title}>
                 <h3>{value.title}</h3>
                 <p>{value.description}</p>
@@ -205,9 +189,9 @@ function AboutUsPage({ header, footer }) {
 
       <section className="about-faq internal-faq" aria-labelledby="about-faq-title">
         <div className="about-page__frame">
-          <h2 className="internal-faq__title" id="about-faq-title">Frequently Asked Questions</h2>
+          <h2 className="internal-faq__title" id="about-faq-title">{content?.faqTitle || 'Frequently Asked Questions'}</h2>
           <div className="about-faq__list internal-faq__list">
-            {faqItems.map((item, index) => {
+            {pageFaqItems.map((item, index) => {
               const isOpen = openFaq === index;
               return (
                 <article className={`about-faq__item internal-faq__item${isOpen ? ' is-open' : ''}`} key={item.question}>
@@ -234,16 +218,13 @@ function AboutUsPage({ header, footer }) {
 
       <section className="contact-section about-contact">
         <div className="contact-section__inner">
-          <h2 className="contact-section__title">Talk Through the Brief</h2>
-          <p className="contact-section__intro">
-            Tell us the story, the market and the timing. A senior member of the team will help identify the
-            questions worth answering first.
-          </p>
+          <h2 className="contact-section__title">{content?.contact?.title || 'Talk Through the Brief'}</h2>
+          <p className="contact-section__intro">{content?.contact?.intro || 'Tell us the story, the market and the timing. A senior member of the team will help identify the questions worth answering first.'}</p>
 
           <div className="contact-section__top">
             <div className="contact-map">
               <iframe
-                title="BOXCOM Africa location"
+                title={locale === 'fr' ? 'Localisation de BOXCOM Africa' : 'BOXCOM Africa location'}
                 src="https://maps.google.com/maps?q=33.58739,-7.636312&z=17&hl=fr&output=embed"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
@@ -253,24 +234,24 @@ function AboutUsPage({ header, footer }) {
             <form className="contact-form" onSubmit={(event) => event.preventDefault()}>
               <div className="contact-form__row">
                 <label>
-                  <span>Your Name *</span>
-                  <input type="text" name="name" placeholder="Your Full Name" autoComplete="name" required />
+                  <span>{form.name}</span>
+                  <input type="text" name="name" placeholder={form.namePlaceholder} autoComplete="name" required />
                 </label>
                 <label>
-                  <span>Your Company *</span>
-                  <input type="text" name="company" placeholder="Your Company" autoComplete="organization" required />
+                  <span>{form.company}</span>
+                  <input type="text" name="company" placeholder={form.companyPlaceholder} autoComplete="organization" required />
                 </label>
               </div>
               <label>
-                <span>Your Email *</span>
-                <input type="email" name="email" placeholder="Your Email" autoComplete="email" required />
+                <span>{form.email}</span>
+                <input type="email" name="email" placeholder={form.emailPlaceholder} autoComplete="email" required />
               </label>
               <label>
-                <span>Message</span>
-                <textarea placeholder="Type your message here." rows="5" />
+                <span>{form.message}</span>
+                <textarea placeholder={form.messagePlaceholder} rows="5" />
               </label>
               <button type="submit" className="primary-pink-button contact-form__submit">
-                Send Message
+                {content?.contact?.buttonLabel || 'Send Message'}
               </button>
             </form>
           </div>

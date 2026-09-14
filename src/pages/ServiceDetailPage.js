@@ -3,16 +3,31 @@ import './InfluencerRelationsPage.css';
 
 function ServiceDetailPage({ config, header, footer }) {
   const [openFaq, setOpenFaq] = useState(0);
+  const locale = config.locale || 'en';
+  const contactHref = config.contactHref || (locale === 'fr' ? '#/fr/contact' : '#/contact');
+  const form = {
+    name: config.form?.name || 'Your Name *',
+    namePlaceholder: config.form?.namePlaceholder || 'Your Full Name',
+    company: config.form?.company || 'Your Company *',
+    companyPlaceholder: config.form?.companyPlaceholder || 'Your Company',
+    email: config.form?.email || 'Your Email *',
+    emailPlaceholder: config.form?.emailPlaceholder || 'Your Email',
+    message: config.form?.message || 'Message',
+    messagePlaceholder: config.form?.messagePlaceholder || 'Type your message here.',
+  };
   const includedCtaLabel = config.includedCtaLabel || `Discuss ${config.hero.title}`;
   const processCtaLabel = config.processCtaLabel || config.contact.buttonLabel || `Start a ${config.hero.title} Brief`;
+  const processCtaHref = config.processCtaHref || contactHref;
 
   useEffect(() => {
     const previousTitle = document.title;
+    const previousLanguage = document.documentElement.lang;
     let metaDescription = document.querySelector('meta[name="description"]');
     const createdMetaDescription = !metaDescription;
     const previousDescription = metaDescription?.getAttribute('content') || '';
 
     document.title = config.seoTitle;
+    document.documentElement.lang = locale;
     if (!metaDescription) {
       metaDescription = document.createElement('meta');
       metaDescription.setAttribute('name', 'description');
@@ -22,13 +37,14 @@ function ServiceDetailPage({ config, header, footer }) {
 
     return () => {
       document.title = previousTitle;
+      document.documentElement.lang = previousLanguage;
       if (createdMetaDescription) {
         metaDescription.remove();
       } else {
         metaDescription.setAttribute('content', previousDescription);
       }
     };
-  }, [config.seoDescription, config.seoTitle]);
+  }, [config.seoDescription, config.seoTitle, locale]);
 
   return (
     <main className={`app influencer-page ${config.pageClassName || ''}`.trim()}>
@@ -45,7 +61,7 @@ function ServiceDetailPage({ config, header, footer }) {
         <div className="influencer-hero__content">
           <h1 id="service-page-title">{config.hero.title}</h1>
           <div className="influencer-hero__intro">{config.hero.intro}</div>
-          <div className="influencer-hero__tags" aria-label={`${config.hero.title} capabilities`}>
+          <div className="influencer-hero__tags" aria-label={config.hero.capabilitiesLabel || `${config.hero.title} capabilities`}>
             {config.hero.tags.map((tag) => <span key={tag}>{tag}</span>)}
           </div>
         </div>
@@ -53,13 +69,13 @@ function ServiceDetailPage({ config, header, footer }) {
 
       <section className="influencer-included" aria-labelledby="service-included-title">
         <div className="influencer-page__frame influencer-included__grid">
-          <h2 id="service-included-title">What Is<br />Included?</h2>
+          <h2 id="service-included-title">{config.includedHeading || <>What Is<br />Included?</>}</h2>
           <div className="influencer-included__copy">
             <p>{config.included.description}</p>
             <ul>
               {config.included.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
             </ul>
-            <a className="influencer-page__button influencer-section-cta" href="#/contact">
+            <a className="influencer-page__button influencer-section-cta" href={contactHref}>
               {includedCtaLabel} <span aria-hidden="true">→</span>
             </a>
           </div>
@@ -87,7 +103,7 @@ function ServiceDetailPage({ config, header, footer }) {
             ))}
           </div>
           <div className="influencer-section-cta-row">
-            <a className="influencer-page__button influencer-section-cta" href="#/contact">
+            <a className="influencer-page__button influencer-section-cta" href={processCtaHref}>
               {processCtaLabel} <span aria-hidden="true">→</span>
             </a>
           </div>
@@ -121,7 +137,9 @@ function ServiceDetailPage({ config, header, footer }) {
 
       <section className="influencer-faq internal-faq" aria-labelledby="service-faq-title">
         <div className="influencer-page__frame">
-          <h2 className="internal-faq__title" id="service-faq-title">Frequently Asked Questions</h2>
+          <h2 className="internal-faq__title" id="service-faq-title">
+            {config.faqHeading || 'Frequently Asked Questions'}
+          </h2>
           <div className="influencer-faq__list internal-faq__list">
             {config.faqItems.map((item, index) => {
               const isOpen = openFaq === index;
@@ -156,7 +174,7 @@ function ServiceDetailPage({ config, header, footer }) {
           <div className="contact-section__top">
             <div className="contact-map">
               <iframe
-                title="BOXCOM Africa location"
+                title={locale === 'fr' ? 'Localisation de BOXCOM Africa' : 'BOXCOM Africa location'}
                 src="https://maps.google.com/maps?q=33.58739,-7.636312&z=17&hl=fr&output=embed"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
@@ -166,21 +184,21 @@ function ServiceDetailPage({ config, header, footer }) {
             <form className="contact-form" onSubmit={(event) => event.preventDefault()}>
               <div className="contact-form__row">
                 <label>
-                  <span>Your Name *</span>
-                  <input type="text" name="name" placeholder="Your Full Name" autoComplete="name" required />
+                  <span>{form.name}</span>
+                  <input type="text" name="name" placeholder={form.namePlaceholder} autoComplete="name" required />
                 </label>
                 <label>
-                  <span>Your Company *</span>
-                  <input type="text" name="company" placeholder="Your Company" autoComplete="organization" required />
+                  <span>{form.company}</span>
+                  <input type="text" name="company" placeholder={form.companyPlaceholder} autoComplete="organization" required />
                 </label>
               </div>
               <label>
-                <span>Your Email *</span>
-                <input type="email" name="email" placeholder="Your Email" autoComplete="email" required />
+                <span>{form.email}</span>
+                <input type="email" name="email" placeholder={form.emailPlaceholder} autoComplete="email" required />
               </label>
               <label>
-                <span>Message</span>
-                <textarea placeholder="Type your message here." rows="5" />
+                <span>{form.message}</span>
+                <textarea placeholder={form.messagePlaceholder} rows="5" />
               </label>
               <button type="submit" className="primary-pink-button contact-form__submit">
                 {config.contact.buttonLabel}

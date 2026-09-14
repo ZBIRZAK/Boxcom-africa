@@ -15,16 +15,24 @@ const mediaMonitoringConfig = {
     imageAlt: 'Media monitoring specialist reviewing live coverage and analytics',
     intro: (
       <p>
-        BOXCOM Africa provides media monitoring in Morocco for teams that need to know what requires attention, not
-        simply what was published. We track coverage, context and the direction of the conversation so teams can act
-        with a clearer view.
+        BOXCOM Africa provides{' '}
+        <span className="seo-highlight seo-highlight--primary">media monitoring in Morocco</span> for teams that need
+        to know what requires attention, not simply what was published. We track{' '}
+        <span className="seo-highlight seo-highlight--secondary">coverage</span>, context and the direction of the
+        conversation so teams can act with a clearer view.
       </p>
     ),
     tags: ['Brand Monitoring', 'Risk Alerts', 'Crisis Management'],
   },
   included: {
-    description:
-      'Monitoring can cover brands, executives, competitors, priority topics, target outlets, sentiment, narrative shifts, risk alerts and response recommendations.',
+    description: (
+      <>
+        Monitoring can cover brands, executives, competitors, priority topics, target outlets,{' '}
+        <span className="seo-highlight seo-highlight--secondary">sentiment</span>,{' '}
+        <span className="seo-highlight seo-highlight--secondary">narrative shifts</span>,{' '}
+        <span className="seo-highlight seo-highlight--secondary">risk alerts</span> and response recommendations.
+      </>
+    ),
     bullets: [
       'Brand, executive and topic monitoring',
       'Coverage quality, sentiment and narrative shifts',
@@ -37,8 +45,17 @@ const mediaMonitoringConfig = {
     items: [
       {
         title: 'Set the Watchlist',
-        description:
-          'We define the brands, people, competitors, outlets, topics and markets that need attention, then build a monitoring approach around what actually matters to the business. This focus filters out noise and surfaces the signals worth acting on, so nothing relevant gets missed and nothing irrelevant demands attention.',
+        description: (
+          <>
+            We define the brands, people, competitors, outlets, topics and markets that need attention, then build a
+            monitoring approach around what matters to the business. For{' '}
+            <a className="service-inline-link" href="#/projects/indrive"><strong>inDrive Algeria</strong></a>, that meant{' '}
+            <a className="service-inline-link" href="#/projects/indrive">
+              <strong>tracking 11 outlets across two languages</strong>
+            </a>. This focus filters out noise and surfaces the
+            signals worth acting on, so nothing relevant gets missed and nothing irrelevant demands attention.
+          </>
+        ),
         image: asset(
           '/assets/Media%20Monitoring_Approved%20Images/Media%20Monitoring_Set%20the%20Watchlist.png'
         ),
@@ -46,8 +63,18 @@ const mediaMonitoringConfig = {
       },
       {
         title: 'Read What Changed',
-        description:
-          "We review the source, context, reach and direction of the coverage before deciding what it actually means for the brand. Not every mention carries the same weight, so we look closely at who is saying it, where it's appearing and how it's likely to travel before drawing any conclusions.",
+        description: (
+          <>
+            We review the source, context, reach and direction of the coverage before deciding what it actually means
+            for the brand. For{' '}
+            <a className="service-inline-link" href="#/projects/mifa"><strong>MIFA Group</strong></a>, that meant confirming{' '}
+            <a className="service-inline-link" href="#/projects/mifa">
+              <strong>18 of 22 articles ran with photographs in full-page placements</strong>
+            </a>. Not every mention carries
+            the same weight, so we look closely at who is saying it, where it&apos;s appearing and how it&apos;s likely to
+            travel before drawing conclusions.
+          </>
+        ),
         image: asset(
           '/assets/Media%20Monitoring_Approved%20Images/Media%20Monitoring_Read%20What%20Changed.jpg'
         ),
@@ -55,8 +82,18 @@ const mediaMonitoringConfig = {
       },
       {
         title: 'Act While It Matters',
-        description:
-          'When action is needed, we prepare the message and engage the relevant media while the conversation is still moving, not after it has already settled. Speed and accuracy matter here: the right response, delivered to the right outlet at the right moment, can shape how a story develops before it hardens into a fixed narrative.',
+        description: (
+          <>
+            When action is needed, we prepare the message and engage the relevant media while the conversation is
+            still moving, not after it has already settled. For{' '}
+            <a className="service-inline-link" href="#/projects"><strong>Samsung</strong></a>, that meant seeding
+            pre-launch coverage that{' '}
+            <a className="service-inline-link" href="#/projects">
+              <strong>generated 84 momentum articles ahead of the event</strong>
+            </a>. Speed and accuracy matter here: the right response, delivered to the right outlet at the right moment, can
+            shape how a story develops before it hardens into a fixed narrative.
+          </>
+        ),
         image: asset(
           '/assets/Media%20Monitoring_Approved%20Images/Media%20Monitoring_Act%20While%20It%20Matter.jpg'
         ),
@@ -96,7 +133,7 @@ const mediaMonitoringConfig = {
         <>
           Monitoring shows where the issue is moving. The team then assesses the risk, prepares the response and
           recommends whether clarification, direct engagement or wider action is needed.{' '}
-          <a href="#/services/media-relations">Learn more about crisis support in Media Relations.</a>
+          <a href="#/services/media-relations">Learn more about crisis management and consultancy on the Media Relations page.</a>
         </>
       ),
     },

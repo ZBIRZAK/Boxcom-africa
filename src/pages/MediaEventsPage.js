@@ -10,20 +10,28 @@ const mediaEventsConfig = {
   seoDescription:
     'BOXCOM Africa plans media events in Morocco that give journalists a clear story, useful access and strong reasons to continue the conversation after the event.',
   hero: {
-    title: 'Media Events',
+    title: 'Media Event',
     image: asset('/assets/Media%20Events_Approved%20Images/Media%20Events_Header.jpg'),
     imageAlt: 'Journalists and guests attending a large media presentation',
     intro: (
       <p>
-        As a press event agency in Morocco, BOXCOM Africa plans media events that give journalists more than an
-        invitation: a clear story, useful access and a reason to keep the conversation going after the event.
+        As a <span className="seo-highlight seo-highlight--primary">press event agency in Morocco</span>, BOXCOM
+        Africa plans <span className="seo-highlight seo-highlight--secondary">media events</span> that give
+        journalists more than an invitation: a clear story, useful access and a reason to keep the conversation
+        going after the event.
       </p>
     ),
     tags: ['Event Strategy', 'Media Invitation', 'Spokesperson Preparation', 'Post Event Coverage'],
   },
   included: {
-    description:
-      'Media event support can include format and flow, press invitations, spokesperson preparation, media materials, on-site press handling, interviews and post-event follow-up.',
+    description: (
+      <>
+        <span className="seo-highlight seo-highlight--secondary">Media event</span> support can include format and
+        flow, press invitations, <span className="seo-highlight seo-highlight--secondary">spokesperson preparation</span>,
+        {' '}media materials, on-site press handling, interviews and{' '}
+        <span className="seo-highlight seo-highlight--secondary">post-event follow-up</span>.
+      </>
+    ),
     bullets: [
       'Event strategy and media role',
       'Media invitation and local partner coordination',
@@ -36,40 +44,55 @@ const mediaEventsConfig = {
     items: [
       {
         title: 'Shape the Press Moment',
-        description:
-          'We decide what the event needs to reveal, explain or make possible for the media. We plan the format around what journalists need to understand, see or ask. The announcement, speakers, press materials and media list are developed together rather than as separate event tasks.',
+        description: (
+          <>
+            We decide what the event needs to reveal, explain or make possible for the media. We plan the format
+            around what journalists need to understand, see or ask. For{' '}
+            <a className="service-inline-link" href="#/projects/gwm"><strong>GWM</strong></a>, that meant{' '}
+            <a className="service-inline-link" href="#/projects/gwm">
+              <strong><em>curating 44 journalists across five sectors</em></strong>
+            </a>. The announcement, speakers, press
+            materials and media list are developed together rather than as separate event tasks.
+          </>
+        ),
         image: asset('/assets/Media%20Events_Approved%20Images/Media%20Events_Shape%20the%20Press%20Moment.jpg'),
         imageAlt: 'A spokesperson being interviewed by a journalist',
       },
       {
         title: 'Prepare the Room',
-        description:
-          'We coordinate the press list, invitations, materials, spokespeople and practical details around the same story, so every element supports one coherent narrative. From confirming attendance to briefing spokespeople and preparing press kits, we handle the logistics so journalists get a smooth, well-organized experience from start to finish.',
+        description: (
+          <>
+            We coordinate the press list, invitations, materials, spokespeople and practical details around the same
+            story, so every element supports one coherent narrative. For{' '}
+            <a className="service-inline-link" href="#/projects"><strong><em>Samsung</em></strong></a>, that meant
+            tracking sentiment across{' '}
+            <a className="service-inline-link" href="#/projects"><strong>246 articles and 131 outlets</strong></a>.
+            {' '}From confirming attendance to
+            briefing spokespeople and preparing press kits, we handle the logistics so journalists get a smooth,
+            well-organized experience from start to finish.
+          </>
+        ),
         image: asset('/assets/Media%20Events_Approved%20Images/Media%20Events_Prepare%20the%20Room.jpg'),
         imageAlt: 'Event credentials and lanyards prepared for attendees',
       },
       {
         title: 'Continue the Conversation',
-        description:
-          'We handle post-event requests, interviews and follow-up so the story can continue well beyond attendance on the day. As journalists reach out with questions, request additional access or look to develop the angle further, we stay engaged and responsive, making sure the story keeps moving after the event ends.',
+        description: (
+          <>
+            We handle post-event requests, interviews and follow-up so the story can continue well beyond attendance
+            on the day. For{' '}
+            <a className="service-inline-link" href="#/projects/agriedge">
+              <strong>AgriEdge&apos;s AquaEdge launch</strong>
+            </a>, that follow-through helped drive a{' '}
+            <a className="service-inline-link" href="#/projects/agriedge"><strong>26,500 € AVE</strong></a>. As
+            {' '}journalists reach out with questions, request additional access or
+            develop the angle further, we stay engaged, keeping the story moving after the event ends.
+          </>
+        ),
         image: asset('/assets/Media%20Events_Approved%20Images/Media%20Events_Continue%20the%20Conversation.jpg'),
         imageAlt: 'Post-event media follow-up and continued journalist engagement',
       },
     ],
-  },
-  feature: {
-    title: 'The Relationship Outlasts the Room',
-    paragraphs: [
-      "A well-run event opens the door, but it's the relationships with journalists and editors that keep it open long after.",
-      'Media Events at BOXCOM Africa put the story in front of the right people at the right moment, but Media Relations is what carries that momentum forward, through the pitches, interviews and follow-up coverage that turn one good moment into sustained visibility.',
-    ],
-    statement: "The event ends. The relationship doesn't.",
-    buttonLabel: 'Discover Media Relations',
-    buttonHref: '#/services/media-relations',
-    image: asset(
-      '/assets/Media%20Events_Approved%20Images/Media%20Events_The%20Relationship%20Outlasts%20the%20Room.png'
-    ),
-    imageAlt: 'Two people shaking hands to represent a lasting media relationship',
   },
   faqItems: [
     {
