@@ -1,13 +1,24 @@
 import { useEffect, useState } from 'react';
 import './ProjectsPage.css';
+import { mediaCoverageItems } from '../data/mediaCoverage';
 
 const asset = (path) => `${process.env.PUBLIC_URL}${path}`;
+
+const serviceOptions = [
+  'Media Relations',
+  'Media Events',
+  'Media Monitoring',
+  'Social PR',
+  'PR Content Creation',
+  'Influencer Relations',
+];
 
 const projects = [
   {
     name: 'Modanisa',
     industry: 'Fashion',
     service: 'Media Relations',
+    services: ['Media Relations', 'Media Monitoring', 'Influencer Relations'],
     useCase: 'E-Commerce Brand Launch',
     href: '#/projects/modanisa',
     description:
@@ -21,6 +32,7 @@ const projects = [
     name: 'NTT DATA',
     industry: 'Technology',
     service: 'Media Relations',
+    services: ['Media Relations'],
     useCase: 'Investment Announcement',
     href: '#/projects/ntt-data',
     description:
@@ -34,6 +46,7 @@ const projects = [
     name: 'DeFacto',
     industry: 'Fashion',
     service: 'Event Management',
+    services: ['Media Events', 'Influencer Relations'],
     useCase: 'Brand Ambassador Launch',
     href: '#/projects/defacto',
     description: 'A nationwide celebrity launch built around targeted media access, event storytelling and social reach.',
@@ -46,6 +59,7 @@ const projects = [
     name: 'GWM',
     industry: 'Automobile',
     service: 'Media Events',
+    services: ['Media Relations', 'Media Events'],
     useCase: 'Product Launch',
     href: '#/projects/gwm',
     description:
@@ -59,6 +73,7 @@ const projects = [
     name: 'Mifa',
     industry: 'Distribution',
     service: 'Media Relations',
+    services: ['Media Relations', 'Media Monitoring'],
     useCase: 'Trade Event PR',
     href: '#/projects/mifa',
     description:
@@ -72,6 +87,7 @@ const projects = [
     name: 'ELM',
     industry: 'Technology',
     service: 'Media Events',
+    services: ['Media Events', 'Media Monitoring', 'Social PR'],
     useCase: 'International Expansion',
     href: '#/projects/elm',
     description:
@@ -85,6 +101,7 @@ const projects = [
     name: 'AgriEdge',
     industry: 'Agriculture',
     service: 'Media Relations',
+    services: ['Media Relations', 'Media Events', 'PR Content Creation'],
     useCase: 'Platform Launch',
     href: '#/projects/agriedge',
     description: 'A context-led campaign that made precision agriculture relevant across Morocco’s business, technology, agriculture and sustainability media.',
@@ -97,6 +114,7 @@ const projects = [
     name: 'DiliTrust',
     industry: 'Technology',
     service: 'Media Relations',
+    services: ['Media Relations', 'PR Content Creation'],
     useCase: 'M&A Announcement',
     href: '#/projects/dilitrust',
     description: 'A precision B2B campaign positioning a LegalTech acquisition within the wider governance digitalization story across Morocco and Africa.',
@@ -109,6 +127,7 @@ const projects = [
     name: 'EQDOM',
     industry: 'Financial Services',
     service: 'Media Relations',
+    services: ['Media Relations'],
     useCase: 'Digital Finance',
     href: '#/projects/eqdom',
     description: 'A bilingual, multi-sector media strategy connecting automotive financing, digital transformation and national brand visibility.',
@@ -121,6 +140,7 @@ const projects = [
     name: 'Everis',
     industry: 'Technology',
     service: 'Media Relations',
+    services: ['Media Relations', 'Social PR', 'PR Content Creation', 'Influencer Relations'],
     useCase: 'Employer Branding',
     href: '#/projects/everis',
     description: 'An integrated PR and employer-branding campaign designed to attract competitive technology talent to Everis in Tétouan.',
@@ -133,6 +153,7 @@ const projects = [
     name: 'Samsung',
     industry: 'Technology',
     service: 'Media Events',
+    services: ['Media Events', 'Media Monitoring', 'Social PR'],
     useCase: 'Product Launch',
     href: '#/projects/samsung',
     description: 'An immersive, Ramadan-aware Moroccan launch that synchronized with Galaxy Unpacked and generated strong national, broadcast and influencer coverage.',
@@ -145,6 +166,7 @@ const projects = [
     name: 'Garena',
     industry: 'Video Games',
     service: 'Social PR',
+    services: ['Social PR'],
     useCase: 'Community',
     href: '#/projects/garena',
   },
@@ -152,6 +174,7 @@ const projects = [
     name: 'inDrive Algeria',
     industry: 'Transportation',
     service: 'Media Relations',
+    services: ['Media Relations', 'Media Monitoring'],
     useCase: 'Market Entry',
     href: '#/projects/indrive',
     description: 'A culturally timed driver campaign and spokesperson program that established credibility for a new mobility entrant in Algeria.',
@@ -162,9 +185,11 @@ const projects = [
   },
 ];
 
-const filterOptions = (key) => [...new Set(projects.map((project) => project[key]))];
+const filterOptions = (items, key) => [...new Set(items.map((project) => project[key]))];
+const serviceFilterOptions = (items) =>
+  serviceOptions.filter((option) => items.some((project) => project.services.includes(option)));
 
-function ProjectsPage({ header, footer }) {
+function ProjectsPage({ header, footer, selectedMediaSlug = '', mediaProjectMap = {} }) {
   const [industry, setIndustry] = useState('');
   const [service, setService] = useState('');
   const [useCase, setUseCase] = useState('');
@@ -196,18 +221,25 @@ function ProjectsPage({ header, footer }) {
     };
   }, []);
 
-  const visibleProjects = projects.filter(
+  const selectedMedia = mediaCoverageItems.find((item) => item.slug === selectedMediaSlug);
+  const mediaProjectSlugs = selectedMedia ? mediaProjectMap[selectedMedia.slug] || [] : null;
+  const mediaFilteredProjects = projects.filter((project) => {
+    const projectSlug = project.href.split('/').pop();
+    return !mediaProjectSlugs || mediaProjectSlugs.includes(projectSlug);
+  });
+  const visibleProjects = mediaFilteredProjects.filter(
     (project) =>
       (!industry || project.industry === industry) &&
-      (!service || project.service === service) &&
+      (!service || project.services.includes(service)) &&
       (!useCase || project.useCase === useCase)
   );
-  const hasActiveFilters = Boolean(industry || service || useCase);
+  const hasActiveFilters = Boolean(industry || service || useCase || selectedMedia);
 
   const resetFilters = () => {
     setIndustry('');
     setService('');
     setUseCase('');
+    if (selectedMedia && typeof window !== 'undefined') window.location.hash = '#/projects';
   };
 
   return (
@@ -243,7 +275,7 @@ function ProjectsPage({ header, footer }) {
               <span className="sr-only">Filter by industry</span>
               <select value={industry} onChange={(event) => setIndustry(event.target.value)}>
                 <option value="">Industry</option>
-                {filterOptions('industry').map((option) => <option key={option}>{option}</option>)}
+                {filterOptions(mediaFilteredProjects, 'industry').map((option) => <option key={option}>{option}</option>)}
               </select>
             </label>
 
@@ -251,7 +283,7 @@ function ProjectsPage({ header, footer }) {
               <span className="sr-only">Filter by service</span>
               <select value={service} onChange={(event) => setService(event.target.value)}>
                 <option value="">Service</option>
-                {filterOptions('service').map((option) => <option key={option}>{option}</option>)}
+                {serviceFilterOptions(mediaFilteredProjects).map((option) => <option key={option}>{option}</option>)}
               </select>
             </label>
 
@@ -259,14 +291,17 @@ function ProjectsPage({ header, footer }) {
               <span className="sr-only">Filter by use case</span>
               <select value={useCase} onChange={(event) => setUseCase(event.target.value)}>
                 <option value="">Use Case</option>
-                {filterOptions('useCase').map((option) => <option key={option}>{option}</option>)}
+                {filterOptions(mediaFilteredProjects, 'useCase').map((option) => <option key={option}>{option}</option>)}
               </select>
             </label>
           </div>
 
           <div className="projects-grid" aria-live="polite">
             {visibleProjects.map((project) => (
-              <article className="projects-grid__card" key={project.name}>
+              <article
+                className={`projects-grid__card${selectedMedia ? ' projects-grid__card--media-filtered' : ''}`}
+                key={project.name}
+              >
                 <p className="projects-grid__industry">{project.industry}</p>
                 <h2>{project.name}</h2>
                 <p className="projects-grid__description">
@@ -284,6 +319,15 @@ function ProjectsPage({ header, footer }) {
                   ))}
                 </div>
                 <a href={project.href}>Read Case Study</a>
+                {selectedMedia && (
+                  <div className="projects-grid__media-logo">
+                    <img
+                      src={selectedMedia.logo}
+                      alt={`${selectedMedia.label} logo`}
+                      loading="lazy"
+                    />
+                  </div>
+                )}
               </article>
             ))}
           </div>

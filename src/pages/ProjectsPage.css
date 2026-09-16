@@ -169,6 +169,10 @@
   text-align: center;
 }
 
+.projects-grid__card--media-filtered {
+  padding-bottom: 0;
+}
+
 .projects-grid__industry {
   margin: 0;
   color: #60a1ad;
@@ -240,6 +244,24 @@
   line-height: 1;
   text-decoration: none;
   text-transform: uppercase;
+}
+
+.projects-grid__media-logo {
+  width: 100%;
+  height: 64px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.projects-grid__media-logo img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: min(190px, 70%);
+  max-height: 58px;
+  object-fit: contain;
 }
 
 .projects-grid__empty {

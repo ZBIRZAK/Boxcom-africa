@@ -35,6 +35,11 @@ import BlogPage from './pages/BlogPage';
 import FrenchContactPage from './pages/FrenchContactPage';
 import { installContactFormHandler } from './utils/contactForms';
 import { installNewsletterFormHandler } from './utils/newsletterForms';
+import {
+  fallbackMediaProjectMap,
+  fetchMediaProjectMap,
+  mediaCoverageItems,
+} from './data/mediaCoverage';
 import './InternalFaq.css';
 
 const menuItems = [
@@ -172,72 +177,32 @@ const fallbackProjectItems = [
   },
 ];
 
-const caseStudyMenuItems = [
-  { label: 'Modanisa', title: 'Modanisa', href: '#/projects/modanisa' },
-  { label: 'NTT DATA', title: 'NTT DATA', href: '#/projects/ntt-data' },
-  { label: 'DeFacto', title: 'DeFacto', href: '#/projects/defacto' },
-  { label: 'GWM', title: 'GWM', href: '#/projects/gwm' },
-  { label: 'Mifa', title: 'Mifa', href: '#/projects/mifa' },
-  { label: 'ELM', title: 'ELM', href: '#/projects/elm' },
-  { label: 'AgriEdge', title: 'AgriEdge', href: '#/projects/agriedge' },
-  { label: 'DiliTrust', title: 'DiliTrust', href: '#/projects/dilitrust' },
-  { label: 'EQDOM', title: 'EQDOM', href: '#/projects/eqdom' },
-  { label: 'Everis', title: 'Everis', href: '#/projects/everis' },
-  { label: 'Samsung', title: 'Samsung', href: '#/projects/samsung' },
-  { label: 'inDrive Algeria', title: 'inDrive Algeria', href: '#/projects/indrive' },
-];
-
-const fallbackMediaItems = [
-  { label: 'Le Matin', logo: `${process.env.PUBLIC_URL}/assets/media/le-matin.webp` },
-  {
-    label: '2M',
-    logo: `${process.env.PUBLIC_URL}/assets/media/2m.webp`,
-    className: 'coverage-logo--2m',
-  },
-  {
-    label: 'Hespress',
-    logo: `${process.env.PUBLIC_URL}/assets/media/hespress.webp`,
-    className: 'coverage-logo--hespress',
-  },
-  { label: 'L’Économiste', logo: `${process.env.PUBLIC_URL}/assets/media/leconomiste.webp` },
-  { label: 'Les Inspirations ÉCO', logo: `${process.env.PUBLIC_URL}/assets/media/les-eco.webp` },
-  { label: 'Industrie du Maroc', logo: `${process.env.PUBLIC_URL}/assets/media/industrie-du-maroc.webp` },
-  { label: 'TelQuel', logo: `${process.env.PUBLIC_URL}/assets/media/telquel.webp` },
-  {
-    label: 'Al Aoula',
-    logo: `${process.env.PUBLIC_URL}/assets/media/al-aoula.webp`,
-    className: 'coverage-logo--tall',
-  },
-  { label: 'Nabd', logo: `${process.env.PUBLIC_URL}/assets/media/nabd.webp` },
-  { label: 'AllAfrica', logo: `${process.env.PUBLIC_URL}/assets/media/allafrica.webp` },
-  { label: 'H24info', logo: `${process.env.PUBLIC_URL}/assets/media/h24info.webp` },
-  { label: 'Africa24', logo: `${process.env.PUBLIC_URL}/assets/media/africa24.webp` },
-];
+const fallbackMediaItems = mediaCoverageItems;
 
 const fallbackTestimonialItems = [
   {
-    brand: 'Xerox',
-    logo: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/4.svg`,
-    name: 'Amira Mazali',
-    role: 'Head of Marketing.',
+    brand: 'inDrive',
+    logo: `${process.env.PUBLIC_URL}/assets/clients-pr/indrive.svg`,
+    name: 'Sergey Arzhevskiy',
+    role: 'SR PR Manager EMEA – inDrive',
     quote:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec volutpat purus non augue volutpat, porta semper dui consectetur.',
+      '“Boxcom est un partenaire clé d’inDrive au Maroc, nous aidant à naviguer dans un environnement très complexe. Leur équipe assure une veille étroite des médias, des dynamiques du marché et des tensions entre les parties prenantes, et nous fournit des recommandations rapides sur la manière de réagir aux situations sensibles. Ils apportent des solutions claires, fondées sur une connaissance approfondie du marché VTC, de la législation et de la perception publique, ce qui s’est révélé essentiel pour guider notre communication.”',
   },
   {
-    brand: 'AirFrance',
-    logo: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/3.svg`,
-    name: 'Amira Mazali',
-    role: 'Head of Marketing.',
+    brand: 'Fever',
+    logo: `${process.env.PUBLIC_URL}/assets/clients-pr/fever.svg`,
+    name: 'Santiago Santamaría Soler',
+    role: 'VP of Global Communications & PR – Fever',
     quote:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec volutpat purus non augue volutpat, porta semper dui consectetur.',
+      '“Depuis le début de notre collaboration, BOXCOM a démontré une solide compréhension de nos objectifs de communication. L’agence a fait preuve d’un grand professionnalisme, d’une excellente réactivité et d’un engagement constant dans la livraison de résultats.”',
   },
   {
-    brand: 'Xerox',
-    logo: `${process.env.PUBLIC_URL}/assets/Our%20Clients%20Logos/4.svg`,
-    name: 'Amira Mazali',
-    role: 'Head of Marketing.',
+    brand: 'NTT DATA',
+    logo: `${process.env.PUBLIC_URL}/assets/clients-pr/ntt%20data.svg`,
+    name: 'Fred Sabbah',
+    role: 'CEO NTT DATA MOROCCO',
     quote:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec volutpat purus non augue volutpat, porta semper dui consectetur.',
+      '“Nous avons fait appel à BOXCOM pour relever l’un de nos plus grands défis : le recrutement. Grâce à leur stratégie de marque employeur déployée sur les médias et les réseaux sociaux, ils nous ont aidés à faire évoluer les perceptions, à atteindre les bons talents et à atteindre nos KPI de recrutement en quelques mois. Ils n’ont pas seulement été créatifs. Ils ont livré des résultats.”',
   },
 ];
 
@@ -359,6 +324,7 @@ function App() {
   const [currentHash, setCurrentHash] = useState(() =>
     typeof window === 'undefined' ? '#/' : window.location.hash || '#/'
   );
+  const [mediaProjectMap, setMediaProjectMap] = useState(fallbackMediaProjectMap);
   const projectDragStartX = useRef(null);
   const projectDragCurrentX = useRef(null);
   const testimonialDragStartX = useRef(null);
@@ -368,6 +334,19 @@ function App() {
 
   useEffect(() => installContactFormHandler(), []);
   useEffect(() => installNewsletterFormHandler(), []);
+  useEffect(() => {
+    const controller = new AbortController();
+
+    fetchMediaProjectMap(controller.signal)
+      .then(setMediaProjectMap)
+      .catch((error) => {
+        if (error.name !== 'AbortError') {
+          console.warn('Using the saved media coverage mapping because the Google Sheet could not be loaded.', error);
+        }
+      });
+
+    return () => controller.abort();
+  }, []);
 
   const heroVideoMp4 = `${process.env.PUBLIC_URL}/assets/Videos/hero-video.mp4?v=20260807-hero-3`;
   const heroPoster = `${process.env.PUBLIC_URL}/assets/Videos/hero-poster.jpg?v=20260716-hero-poster-1`;
@@ -380,6 +359,10 @@ function App() {
   const isMobileClientsCarousel = viewportWidth <= 640;
   const visibleClientLogos = clientLogos;
   const normalizedHash = currentHash || '#/';
+  const projectsQuery = normalizedHash.startsWith('#/projects?')
+    ? new URLSearchParams(normalizedHash.slice(normalizedHash.indexOf('?') + 1))
+    : null;
+  const selectedMediaSlug = projectsQuery?.get('media') || '';
   const isFrenchHomePage = normalizedHash === '#/fr' || normalizedHash === '#/fr/';
   const displayedHomeContent = isFrenchHomePage ? frenchHomeContent : homeContent;
   const displayedHomeServices = isFrenchHomePage ? frenchHomeServices : serviceItems;
@@ -407,7 +390,7 @@ function App() {
   const isFrenchContactPage = normalizedHash === '#/fr/contact';
   const isAboutUsPage = normalizedHash === '#/about';
   const isFrenchAboutUsPage = normalizedHash === '#/fr/about';
-  const isProjectsPage = normalizedHash === '#/projects';
+  const isProjectsPage = normalizedHash === '#/projects' || normalizedHash.startsWith('#/projects?');
   const isCaseStudyPage = normalizedHash === '#/projects/defacto';
   const isNTTDataCaseStudyPage = normalizedHash === '#/projects/ntt-data';
   const isModanisaCaseStudyPage = normalizedHash === '#/projects/modanisa';
@@ -776,11 +759,13 @@ function App() {
         <div id="primary-menu" className={`site-header__menu${isMenuOpen ? ' is-open' : ''}`}>
           <nav className="main-nav" aria-label="Primary">
             {localizedMenuItems.map((item) => {
-              const isActive = normalizedHash === item.href || normalizedHash.startsWith(`${item.href}/`);
+              const isActive =
+                normalizedHash === item.href ||
+                normalizedHash.startsWith(`${item.href}/`) ||
+                normalizedHash.startsWith(`${item.href}?`);
 
-              if (item.href === '#/services' || item.href === '#/fr/services' || item.href === '#/projects') {
-                const isServicesMenu = item.href === '#/services' || item.href === '#/fr/services';
-                const submenuItems = isServicesMenu ? localizedServiceItems : caseStudyMenuItems;
+              if (item.href === '#/services' || item.href === '#/fr/services') {
+                const submenuItems = localizedServiceItems;
                 const isSubmenuOpen = openNavSubmenu === item.label;
                 const submenuId = `main-nav-${item.label.toLowerCase()}-submenu`;
 
@@ -827,22 +812,15 @@ function App() {
                           setOpenNavSubmenu(null);
                         }}
                       >
-                        {isServicesMenu
-                          ? (isFrench ? 'Tous les services' : 'All Services')
-                          : (isFrench ? 'Toutes les études de cas' : 'All Projects')}
+                        {isFrench ? 'Tous les services' : 'All Services'}
                       </a>
-                      {submenuItems.map((submenuItem, submenuIndex) => (
+                      {submenuItems.map((submenuItem) => (
                         <a
                           key={submenuItem.label}
                           className="main-nav__dropdown-link"
                           href={submenuItem.href || item.href}
                           onClick={() => {
-                            if (isServicesMenu) {
-                              setActiveService(submenuItem.label);
-                            } else {
-                              setProjectMotion('next');
-                              setActiveProject(submenuIndex);
-                            }
+                            setActiveService(submenuItem.label);
                             setIsMenuOpen(false);
                             setOpenNavSubmenu(null);
                           }}
@@ -1051,6 +1029,8 @@ function App() {
       <ProjectsPage
         header={renderHeader()}
         footer={renderSiteFooter()}
+        selectedMediaSlug={selectedMediaSlug}
+        mediaProjectMap={mediaProjectMap}
       />
     );
   }
@@ -1628,9 +1608,15 @@ function App() {
           <div className="coverage-showcase">
             <div className="coverage-logo-grid" aria-label={isFrenchHomePage ? 'Médias ayant couvert les projets de BOXCOM Africa' : 'Media outlets covering BOXCOM Africa work'}>
               {mediaItems.map((item) => (
-                <div className="coverage-logo-grid__item" key={item.label}>
+                <a
+                  className="coverage-logo-grid__item"
+                  href={`#/projects?media=${encodeURIComponent(item.slug)}`}
+                  key={item.slug}
+                  aria-label={`${isFrenchHomePage ? 'Voir les projets couverts par' : 'View projects covered by'} ${item.label}`}
+                  title={item.label}
+                >
                   <img className={item.className || ''} src={item.logo} alt={item.label} loading="lazy" />
-                </div>
+                </a>
               ))}
             </div>
             <img className="coverage-section__shape" src={mediaShapeSrc} alt="" aria-hidden="true" />

@@ -501,17 +501,16 @@ async function syncCoverage() {
 }
 
 async function syncTestimonials() {
-  const quote = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec volutpat purus non augue volutpat, porta semper dui consectetur.';
   const testimonials = [
-    ['Amira Mazali', 'xerox-testimonial-1', 'Xerox', 'public/assets/clients/xerox.webp'],
-    ['Amira Mazali', 'air-france-testimonial', 'AirFrance', 'public/assets/clients/air-france.webp'],
-    ['Amira Mazali', 'xerox-testimonial-2', 'Xerox', 'public/assets/clients/xerox.webp'],
+    ['Sergey Arzhevskiy', 'sergey-arzhevskiy-indrive', 'inDrive', 'public/assets/clients/indrive.svg', 'SR PR Manager EMEA – inDrive', '“Boxcom est un partenaire clé d’inDrive au Maroc, nous aidant à naviguer dans un environnement très complexe. Leur équipe assure une veille étroite des médias, des dynamiques du marché et des tensions entre les parties prenantes, et nous fournit des recommandations rapides sur la manière de réagir aux situations sensibles. Ils apportent des solutions claires, fondées sur une connaissance approfondie du marché VTC, de la législation et de la perception publique, ce qui s’est révélé essentiel pour guider notre communication.”'],
+    ['Santiago Santamaría Soler', 'santiago-santamaria-soler-fever', 'Fever', 'public/assets/clients-pr/fever.svg', 'VP of Global Communications & PR – Fever', '“Depuis le début de notre collaboration, BOXCOM a démontré une solide compréhension de nos objectifs de communication. L’agence a fait preuve d’un grand professionnalisme, d’une excellente réactivité et d’un engagement constant dans la livraison de résultats.”'],
+    ['Fred Sabbah', 'fred-sabbah-ntt-data', 'NTT DATA', 'public/assets/clients/ntt-data.svg', 'CEO NTT DATA MOROCCO', '“Nous avons fait appel à BOXCOM pour relever l’un de nos plus grands défis : le recrutement. Grâce à leur stratégie de marque employeur déployée sur les médias et les réseaux sociaux, ils nous ont aidés à faire évoluer les perceptions, à atteindre les bons talents et à atteindre nos KPI de recrutement en quelques mois. Ils n’ont pas seulement été créatifs. Ils ont livré des résultats.”'],
   ];
-  for (const [index, [name, slug, company, logo]] of testimonials.entries()) {
+  for (const [index, [name, slug, company, logo, role, quote]] of testimonials.entries()) {
     const logoId = await uploadMedia(logo, `testimonial-${slugify(company)}-logo`);
     await upsertPost('testimonials', 'testimonials', {
       title: name, slug, order: index + 1,
-      fields: { company, company_logo: logoId, person_role: 'Head of Marketing.', quote, show_on_homepage: true },
+      fields: { company, company_logo: logoId, person_role: role, quote, show_on_homepage: true },
     });
     process.stdout.write(`Testimonial: ${company} ${index + 1}\n`);
   }
