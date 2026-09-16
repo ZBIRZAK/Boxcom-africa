@@ -3873,7 +3873,7 @@
 /* Media outlet wall */
 .app .coverage-section {
   box-sizing: border-box;
-  min-height: 100svh;
+  min-height: 0;
   padding-top: 48px;
   padding-bottom: 100px;
 }
