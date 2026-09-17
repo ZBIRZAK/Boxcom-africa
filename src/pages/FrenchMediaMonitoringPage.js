@@ -40,7 +40,7 @@ const config = {
       },
       {
         title: 'Agir au bon moment',
-        description: <>Lorsqu’une action est nécessaire, nous préparons le message et engageons les médias concernés pendant que la conversation est encore en mouvement, et non une fois qu’elle est déjà installée. Pour <a className="service-inline-link" href="#/projects"><strong>Samsung</strong></a>, cela s’est traduit par l’amorçage d’une couverture pré-lancement ayant <a className="service-inline-link" href="#/projects"><strong>généré 84 articles de momentum en amont de l’événement</strong></a>. Rapidité et précision sont essentielles : la bonne réponse, adressée au bon média au bon moment, peut influencer l’évolution d’une histoire avant qu’elle ne se transforme en un récit figé.</>,
+        description: <>Lorsqu’une action est nécessaire, nous préparons le message et engageons les médias concernés pendant que la conversation est encore en mouvement, et non une fois qu’elle est déjà installée. Pour <a className="service-inline-link" href="#/projects/samsung"><strong>Samsung</strong></a>, cela s’est traduit par l’amorçage d’une couverture pré-lancement ayant <a className="service-inline-link" href="#/projects/samsung"><strong>généré 84 articles de momentum en amont de l’événement</strong></a>. Rapidité et précision sont essentielles : la bonne réponse, adressée au bon média au bon moment, peut influencer l’évolution d’une histoire avant qu’elle ne se transforme en un récit figé.</>,
         image: asset('/assets/Media%20Monitoring_Approved%20Images/Media%20Monitoring_Act%20While%20It%20Matter.jpg'),
         imageAlt: 'Une équipe organisant un plan de réponse',
       },

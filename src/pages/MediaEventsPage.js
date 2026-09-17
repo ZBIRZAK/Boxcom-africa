@@ -64,9 +64,9 @@ const mediaEventsConfig = {
           <>
             We coordinate the press list, invitations, materials, spokespeople and practical details around the same
             story, so every element supports one coherent narrative. For{' '}
-            <a className="service-inline-link" href="#/projects"><strong><em>Samsung</em></strong></a>, that meant
+            <a className="service-inline-link" href="#/projects/samsung"><strong><em>Samsung</em></strong></a>, that meant
             tracking sentiment across{' '}
-            <a className="service-inline-link" href="#/projects"><strong>246 articles and 131 outlets</strong></a>.
+            <a className="service-inline-link" href="#/projects/samsung"><strong>246 articles and 131 outlets</strong></a>.
             {' '}From confirming attendance to
             briefing spokespeople and preparing press kits, we handle the logistics so journalists get a smooth,
             well-organized experience from start to finish.

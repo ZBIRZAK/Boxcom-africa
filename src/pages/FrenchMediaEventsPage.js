@@ -6,7 +6,7 @@ const config = {
   locale: 'fr',
   pageClassName: 'media-events-page media-events-page--fr',
   includedCtaLabel: 'Discuter des événements médias',
-  processCtaLabel: 'Découvrir les relations médias',
+  processCtaLabel: 'Découvrir Relations médias',
   processCtaHref: '#/fr/services/media-relations',
   includedHeading: <>Ce qui est<br />inclus</>,
   faqHeading: 'Questions fréquentes',
@@ -35,7 +35,7 @@ const config = {
       },
       {
         title: 'Préparer la salle',
-        description: <>Nous coordonnons la liste presse, les invitations, les documents, les porte-paroles et les détails pratiques autour d’une même histoire, afin que chaque élément serve un récit cohérent. Pour <a className="service-inline-link" href="#/projects"><strong>Samsung</strong></a>, cela s’est traduit par le suivi du sentiment sur <a className="service-inline-link" href="#/projects"><strong>246 articles et 131 médias</strong></a>. De la confirmation des présences au briefing des porte-paroles en passant par la préparation des dossiers de presse, nous gérons la logistique pour que les journalistes bénéficient d’une expérience fluide et bien organisée du début à la fin.</>,
+        description: <>Nous coordonnons la liste presse, les invitations, les documents, les porte-paroles et les détails pratiques autour d’une même histoire, afin que chaque élément serve un récit cohérent. Pour <a className="service-inline-link" href="#/projects/samsung"><strong>Samsung</strong></a>, cela s’est traduit par le suivi du sentiment sur <a className="service-inline-link" href="#/projects/samsung"><strong>246 articles et 131 médias</strong></a>. De la confirmation des présences au briefing des porte-paroles en passant par la préparation des dossiers de presse, nous gérons la logistique pour que les journalistes bénéficient d’une expérience fluide et bien organisée du début à la fin.</>,
         image: asset('/assets/Media%20Events_Approved%20Images/Media%20Events_Prepare%20the%20Room.jpg'),
         imageAlt: 'Des badges préparés pour les participants à un événement',
       },

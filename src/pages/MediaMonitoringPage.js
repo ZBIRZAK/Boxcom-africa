@@ -86,9 +86,9 @@ const mediaMonitoringConfig = {
           <>
             When action is needed, we prepare the message and engage the relevant media while the conversation is
             still moving, not after it has already settled. For{' '}
-            <a className="service-inline-link" href="#/projects"><strong>Samsung</strong></a>, that meant seeding
+            <a className="service-inline-link" href="#/projects/samsung"><strong>Samsung</strong></a>, that meant seeding
             pre-launch coverage that{' '}
-            <a className="service-inline-link" href="#/projects">
+            <a className="service-inline-link" href="#/projects/samsung">
               <strong>generated 84 momentum articles ahead of the event</strong>
             </a>. Speed and accuracy matter here: the right response, delivered to the right outlet at the right moment, can
             shape how a story develops before it hardens into a fixed narrative.

@@ -184,25 +184,25 @@ const fallbackTestimonialItems = [
     brand: 'inDrive',
     logo: `${process.env.PUBLIC_URL}/assets/clients-pr/indrive.svg`,
     name: 'Sergey Arzhevskiy',
-    role: 'SR PR Manager EMEA – inDrive',
+    role: 'Sr. PR Manager EMEA – inDrive',
     quote:
-      '“Boxcom est un partenaire clé d’inDrive au Maroc, nous aidant à naviguer dans un environnement très complexe. Leur équipe assure une veille étroite des médias, des dynamiques du marché et des tensions entre les parties prenantes, et nous fournit des recommandations rapides sur la manière de réagir aux situations sensibles. Ils apportent des solutions claires, fondées sur une connaissance approfondie du marché VTC, de la législation et de la perception publique, ce qui s’est révélé essentiel pour guider notre communication.”',
+      '“Boxcom is a key partner for inDrive in Morocco, helping us navigate a highly complex environment. Their team closely monitors media, market dynamics, and tensions between stakeholders, and provides us with fast recommendations on how to respond to sensitive situations. They bring clear solutions grounded in deep knowledge of the ride-hailing market, regulations, and public perception, which has proven essential in guiding our communications.”',
   },
   {
-    brand: 'Fever',
-    logo: `${process.env.PUBLIC_URL}/assets/clients-pr/fever.svg`,
-    name: 'Santiago Santamaría Soler',
-    role: 'VP of Global Communications & PR – Fever',
+    brand: 'Modanisa',
+    logo: `${process.env.PUBLIC_URL}/assets/clients-pr/modanisa.svg`,
+    name: 'Ahmed Abuelela',
+    role: 'Prev. Mkt Expansion Sr. Mgr, MODANISA / Now Director of E-Commerce MENA – DeFacto',
     quote:
-      '“Depuis le début de notre collaboration, BOXCOM a démontré une solide compréhension de nos objectifs de communication. L’agence a fait preuve d’un grand professionnalisme, d’une excellente réactivité et d’un engagement constant dans la livraison de résultats.”',
+      '“Launching a modest fashion brand in a new market like Morocco was a real challenge, and Boxcom rose to meet it. Their team quickly took ownership of our brand and brought both creativity and cultural understanding to the launch. What impressed us most was their constant availability, along with the direct involvement of leadership, which gave us confidence at every step. Thanks to their commitment, Modanisa successfully entered the Moroccan market with a strong and authentic presence.”',
   },
   {
     brand: 'NTT DATA',
     logo: `${process.env.PUBLIC_URL}/assets/clients-pr/ntt%20data.svg`,
     name: 'Fred Sabbah',
-    role: 'CEO NTT DATA MOROCCO',
+    role: 'CEO, NTT DATA Morocco',
     quote:
-      '“Nous avons fait appel à BOXCOM pour relever l’un de nos plus grands défis : le recrutement. Grâce à leur stratégie de marque employeur déployée sur les médias et les réseaux sociaux, ils nous ont aidés à faire évoluer les perceptions, à atteindre les bons talents et à atteindre nos KPI de recrutement en quelques mois. Ils n’ont pas seulement été créatifs. Ils ont livré des résultats.”',
+      '“We turned to BOXCOM to tackle one of our biggest challenges: recruitment. Through their employer branding strategy across media and social platforms, they helped us shift perceptions, reach the right talent, and hit our recruitment KPIs within a few months. They weren’t just creative. They delivered results.”',
   },
 ];
 
@@ -257,7 +257,7 @@ const fallbackHomeContent = {
   coverage_button_link: '#/coverage',
   testimonials_heading: 'What Clients Say',
   testimonials_introduction:
-    'Testimonials can strengthen the homepage once approved client quotes are available. The best quotes should speak to responsiveness, media judgment, quality of coverage or senior involvement.',
+    'What our clients say about BOXCOM Africa’s responsiveness, market understanding and ability to deliver results.',
   reviews_message: 'Constantly saluted for its strategy, presence and its results',
   reviews_button_label: 'Check our Google Reviews',
   reviews_url: '#/reviews',
@@ -955,6 +955,7 @@ function App() {
   if (isInfluencerRelationsPage) {
     return (
       <InfluencerRelationsPage
+        locale="en"
         header={renderHeader('en', '#/fr/services/influencer-relations')}
         footer={renderSiteFooter()}
       />
@@ -964,6 +965,7 @@ function App() {
   if (isFrenchInfluencerRelationsPage) {
     return (
       <InfluencerRelationsPage
+        locale="fr"
         header={renderHeader('fr', '#/services/influencer-relations')}
         footer={renderSiteFooter('fr')}
       />

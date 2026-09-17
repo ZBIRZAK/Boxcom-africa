@@ -28,7 +28,7 @@ const config = {
     items: [
       {
         title: 'Préserver le sens',
-        description: <>Nous définissons ce qui doit rester cohérent lorsque l’histoire passe d’un canal à l’autre, afin que le message central reste intact à mesure que la couverture évolue. Pour <a className="service-inline-link" href="#/projects"><strong>Samsung Galaxy S26</strong></a>, cela s’est traduit par le suivi de <a className="service-inline-link" href="#/projects"><strong>246 articles dans 131 médias, dont 149 placements Tier 1</strong></a>. Ce suivi protège le sens de l’histoire, en montrant comment le récit circule tout en veillant à ce que portée et rapidité ne se fassent jamais au détriment de l’exactitude ou de l’intention.</>,
+        description: <>Nous définissons ce qui doit rester cohérent lorsque l’histoire passe d’un canal à l’autre, afin que le message central reste intact à mesure que la couverture évolue. Pour <a className="service-inline-link" href="#/projects/samsung"><strong>Samsung Galaxy S26</strong></a>, cela s’est traduit par le suivi de <a className="service-inline-link" href="#/projects/samsung"><strong>246 articles dans 131 médias, dont 149 placements Tier 1</strong></a>. Ce suivi protège le sens de l’histoire, en montrant comment le récit circule tout en veillant à ce que portée et rapidité ne se fassent jamais au détriment de l’exactitude ou de l’intention.</>,
         image: asset('/assets/Social%20PR_Approved%20Images/Social%20PR_Keep%20the%20meaning%20intact.jpg'),
         imageAlt: 'Une ampoule représentant le sens central d’une histoire',
       },

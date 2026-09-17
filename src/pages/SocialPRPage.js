@@ -47,9 +47,9 @@ const SocialPRPageConfig = {
           <>
             We define what must remain consistent as the story moves across channels, so the core message holds as
             coverage develops. For{' '}
-            <a className="service-inline-link" href="#/projects"><strong>Samsung Galaxy S26</strong></a>, that meant
+            <a className="service-inline-link" href="#/projects/samsung"><strong>Samsung Galaxy S26</strong></a>, that meant
             monitoring{' '}
-            <a className="service-inline-link" href="#/projects">
+            <a className="service-inline-link" href="#/projects/samsung">
               <strong>246 articles across 131 outlets, including 149 Tier 1 placements</strong>
             </a>. This tracking protects
             the meaning behind the story, showing how the narrative travels while ensuring reach and speed never come

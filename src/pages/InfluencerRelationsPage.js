@@ -66,10 +66,10 @@ const influencerRelationsConfig = {
           <>
             Nous évaluons l&apos;audience, le profil, les motivations, la pertinence du contenu et le contexte du marché
             avant toute prise de contact, afin que chaque audience ciblée corresponde à un choix pertinent plutôt qu&apos;à
-            une simple opportunité. Pour <a className="service-inline-link" href="#/projects"><strong>Samsung</strong></a>,
+            une simple opportunité. Pour <a className="service-inline-link" href="#/projects/samsung"><strong>Samsung</strong></a>,
             cela s&apos;est traduit par la sélection de journalistes et d&apos;influenceurs disposant d&apos;audiences fortes dans
             la tech et le lifestyle, contribuant à générer{' '}
-            <a className="service-inline-link" href="#/projects"><strong>149 placements Tier 1 sur 246 articles</strong></a>.
+            <a className="service-inline-link" href="#/projects/samsung"><strong>149 placements Tier 1 sur 246 articles</strong></a>.
             Cela protège la crédibilité de la marque et garantit que la campagne trouve un véritable écho auprès de
             l&apos;audience qu&apos;elle vise.
           </>
@@ -147,8 +147,27 @@ const influencerRelationsConfig = {
   },
 };
 
-function InfluencerRelationsPage(props) {
-  return <ServiceDetailPage {...props} config={influencerRelationsConfig} />;
+function InfluencerRelationsPage({ locale = 'fr', ...props }) {
+  const mediaEventsHref = locale === 'fr' ? '#/fr/services/media-events' : '#/services/media-events';
+  const localizedConfig = {
+    ...influencerRelationsConfig,
+    locale,
+    feature: {
+      ...influencerRelationsConfig.feature,
+      paragraphs: [
+        ...influencerRelationsConfig.feature.paragraphs.slice(0, 2),
+        <>
+          Les <a className="service-inline-link" href={mediaEventsHref}><strong>événements médias</strong></a> donnent
+          ensuite une scène à cette voix, qu&apos;il s&apos;agisse d&apos;un lancement, d&apos;un briefing ou d&apos;une
+          expérience conçue pour la couverture médiatique, prolongeant la portée d&apos;un événement bien au-delà des
+          personnes présentes.
+        </>,
+      ],
+      buttonHref: mediaEventsHref,
+    },
+  };
+
+  return <ServiceDetailPage {...props} config={localizedConfig} />;
 }
 
 export default InfluencerRelationsPage;

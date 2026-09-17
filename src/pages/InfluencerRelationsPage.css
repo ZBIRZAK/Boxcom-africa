@@ -228,6 +228,10 @@
   font-weight: 700;
 }
 
+.influencer-page .influencer-included p .seo-highlight--secondary {
+  color: inherit;
+}
+
 .influencer-included__copy ul {
   margin: 24px 0 0;
   padding: 0;
@@ -354,9 +358,7 @@
 
 .influencer-process__item .service-inline-link {
   color: #087b88;
-  text-decoration-color: currentColor;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
+  text-decoration: none;
 }
 
 .influencer-process__item .service-inline-link:hover,
@@ -366,12 +368,18 @@
 
 .influencer-beyond__copy .service-inline-link {
   color: #f7be3e;
-  text-underline-offset: 3px;
+  text-decoration: none;
 }
 
 .internal-faq .service-inline-link {
   color: #087b88;
-  text-underline-offset: 3px;
+  text-decoration: none;
+}
+
+.influencer-process__item a,
+.influencer-beyond__copy a:not(.influencer-page__button),
+.internal-faq__answer a {
+  text-decoration: none;
 }
 
 .influencer-beyond {
