@@ -13,6 +13,8 @@ excerpt: "Text displayed on the Blog card."
 image: "/assets/path-to-card-image.jpg"
 imageAlt: "Accessible image description"
 author: "BOXCOM Africa Team"
+category: "Media Relations"
+bodyIntro: "Optional opening paragraph displayed above the table of contents."
 featured: false
 ---
 ```

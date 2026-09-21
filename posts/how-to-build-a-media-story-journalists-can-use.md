@@ -5,7 +5,8 @@ displayDate: "28 Jul, 2026"
 excerpt: "A strong press story gives journalists a clear angle, credible evidence and useful access. Here is how those elements come together before outreach begins."
 image: "/assets/Media%20Events_Approved%20Images/Media%20Events_Shape%20the%20Press%20Moment.jpg"
 imageAlt: "A spokesperson speaking with a journalist at a media event"
-featured: true
+category: "Media Relations"
+featured: false
 ---
 
 :::section layout="text"

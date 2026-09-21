@@ -1,6 +1,20 @@
 // Generated from /posts by scripts/generate-blog-posts.js. Do not edit manually.
 const posts = [
   {
+    "slug": "brands-believe-in-africa-most-still-communicate-there-like-tourists",
+    "title": "Brands Believe in Africa. Most Still Communicate There Like Tourists.",
+    "date": "17 Sep, 2026",
+    "sortDate": "2026-09-17",
+    "excerpt": "International brands no longer need to be convinced that African markets matter. The opportunity is clear, and investment is following.",
+    "image": "/assets/blog/brands-believe-africa/hero-samsung-media-event.webp",
+    "imageAlt": "Guests attending a Samsung media event in Morocco",
+    "author": "@Someone",
+    "category": "African Markets",
+    "bodyIntro": "Today we are launching the new BOXCOM Africa website. Rather than start with a list of services, we want to start with the problem we exist to solve.",
+    "featured": true,
+    "markdown": "/generated-posts/brands-believe-in-africa-most-still-communicate-there-like-tourists.md"
+  },
+  {
     "slug": "how-to-build-a-media-story-journalists-can-use",
     "title": "How to Build a Media Story Journalists Can Use",
     "date": "28 Jul, 2026",
@@ -9,7 +23,9 @@ const posts = [
     "image": "/assets/Media%20Events_Approved%20Images/Media%20Events_Shape%20the%20Press%20Moment.jpg",
     "imageAlt": "A spokesperson speaking with a journalist at a media event",
     "author": "BOXCOM Africa Team",
-    "featured": true,
+    "category": "Media Relations",
+    "bodyIntro": "",
+    "featured": false,
     "markdown": "/generated-posts/how-to-build-a-media-story-journalists-can-use.md"
   },
   {
@@ -21,6 +37,8 @@ const posts = [
     "image": "/assets/Media%20Monitoring_Approved%20Images/Media%20Monitoring_Read%20What%20Changed.jpg",
     "imageAlt": "A communications team reviewing media coverage and data",
     "author": "BOXCOM Africa Team",
+    "category": "Media Monitoring",
+    "bodyIntro": "",
     "featured": false,
     "markdown": "/generated-posts/why-media-monitoring-needs-context.md"
   },
@@ -33,6 +51,8 @@ const posts = [
     "image": "/assets/Media%20Monitoring_Approved%20Images/Media%20Monitoring_Act%20While%20It%20Matter.jpg",
     "imageAlt": "A communications team organizing ideas and messages on a wall",
     "author": "Membre de l'équipe",
+    "category": "Crisis Management",
+    "bodyIntro": "",
     "featured": false,
     "markdown": "/generated-posts/lorem-ipsum-dolor-sit-amet-consectetur-adipiscing.md"
   }

@@ -5,6 +5,7 @@ displayDate: "24 Jul, 2026"
 excerpt: "Mention counts show activity. Context shows what changed, why it matters and whether the brand should respond while the conversation is still moving."
 image: "/assets/Media%20Monitoring_Approved%20Images/Media%20Monitoring_Read%20What%20Changed.jpg"
 imageAlt: "A communications team reviewing media coverage and data"
+category: "Media Monitoring"
 featured: false
 ---
 

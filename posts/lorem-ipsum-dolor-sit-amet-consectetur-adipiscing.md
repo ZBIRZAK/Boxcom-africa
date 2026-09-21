@@ -6,6 +6,7 @@ excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam erat 
 image: "/assets/Media%20Monitoring_Approved%20Images/Media%20Monitoring_Act%20While%20It%20Matter.jpg"
 imageAlt: "A communications team organizing ideas and messages on a wall"
 author: "Membre de l'équipe"
+category: "Crisis Management"
 featured: false
 ---
 

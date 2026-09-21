@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import blogPosts from '../content/blogPosts';
 import './BlogPage.css';
 
@@ -123,6 +123,16 @@ function parseSectionAttributes(attributes) {
   return { ...values, layout };
 }
 
+function splitSectionHeading(content) {
+  const match = content.match(/^##\s+([^\n]+)\n*/);
+  if (!match) return { heading: '', body: content };
+
+  return {
+    heading: match[1],
+    body: content.slice(match[0].length).trim(),
+  };
+}
+
 function MarkdownContent({ source }) {
   const sections = [];
   const expression = /:::section\s*([^\n]*)\n([\s\S]*?)\n:::/g;
@@ -153,12 +163,14 @@ function MarkdownContent({ source }) {
   }
 
   return sections.map((section, index) => {
+    const { heading, body } = splitSectionHeading(section.content);
     const hasImage = section.image && section.layout !== 'text';
     const image = hasImage ? (
       <img
-        className="blog-markdown-section__image"
+        className={`blog-markdown-section__image${section.fit === 'contain' ? ' is-contain' : ''}`}
         src={resolvePublicAsset(section.image)}
         alt={section.alt || ''}
+        style={section.position ? { objectPosition: section.position } : undefined}
         loading="lazy"
       />
     ) : null;
@@ -168,15 +180,18 @@ function MarkdownContent({ source }) {
         className={`blog-markdown-section blog-markdown-section--${section.layout}`}
         key={`${section.layout}-${index}`}
       >
-        {section.layout === 'image-left' || section.layout === 'image-above' || section.layout === 'full-image'
-          ? image
-          : null}
-        {section.layout !== 'full-image' && (
-          <div className="blog-markdown-section__text">
-            <MarkdownBlocks source={section.content} />
-          </div>
-        )}
-        {section.layout === 'image-right' || section.layout === 'image-below' ? image : null}
+        {heading && <h2 id={headingId(heading)}>{renderInline(heading)}</h2>}
+        <div className="blog-markdown-section__body">
+          {section.layout === 'image-left' || section.layout === 'image-above' || section.layout === 'full-image'
+            ? image
+            : null}
+          {section.layout !== 'full-image' && body && (
+            <div className="blog-markdown-section__text">
+              <MarkdownBlocks source={body} />
+            </div>
+          )}
+          {section.layout === 'image-right' || section.layout === 'image-below' ? image : null}
+        </div>
       </section>
     );
   });
@@ -300,6 +315,9 @@ function BlogIndex({ header, footer }) {
 function BlogArticle({ header, footer, post }) {
   const [markdown, setMarkdown] = useState('');
   const [error, setError] = useState(false);
+  const [isNewsletterOpen, setIsNewsletterOpen] = useState(false);
+  const newsletterTriggered = useRef(false);
+  const newsletterStorageKey = `boxcom-newsletter-popup-shown:${post.slug}`;
 
   useEffect(() => {
     let active = true;
@@ -323,6 +341,63 @@ function BlogArticle({ header, footer, post }) {
     };
   }, [post]);
 
+  useEffect(() => {
+    newsletterTriggered.current = false;
+    setIsNewsletterOpen(false);
+
+    try {
+      if (window.sessionStorage.getItem(newsletterStorageKey) === 'true') return undefined;
+    } catch {
+      // The popup can still work when session storage is unavailable.
+    }
+
+    const handleScroll = () => {
+      const scrollableDistance = document.documentElement.scrollHeight - window.innerHeight;
+      if (scrollableDistance <= 0 || newsletterTriggered.current) return;
+
+      if (window.scrollY / scrollableDistance >= 0.5) {
+        newsletterTriggered.current = true;
+        try {
+          window.sessionStorage.setItem(newsletterStorageKey, 'true');
+        } catch {
+          // Showing the popup should not depend on storage access.
+        }
+        setIsNewsletterOpen(true);
+        window.removeEventListener('scroll', handleScroll);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [newsletterStorageKey]);
+
+  useEffect(() => {
+    if (!isNewsletterOpen) return undefined;
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setIsNewsletterOpen(false);
+        try {
+          window.sessionStorage.setItem(newsletterStorageKey, 'true');
+        } catch {
+          // Closing the popup should not depend on storage access.
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isNewsletterOpen, newsletterStorageKey]);
+
+  const closeNewsletter = () => {
+    setIsNewsletterOpen(false);
+    try {
+      window.sessionStorage.setItem(newsletterStorageKey, 'true');
+    } catch {
+      // Closing the popup should not depend on storage access.
+    }
+  };
+
   const tableOfContents = [...markdown.matchAll(/^##\s+(.+)$/gm)].map((match) => ({
     title: match[1].replace(/\*\*/g, '').replace(/\*/g, ''),
     id: headingId(match[1]),
@@ -335,20 +410,23 @@ function BlogArticle({ header, footer, post }) {
       <header className="blog-post-hero">
         <div className="blog-post-hero__inner">
           <div className="blog-post-hero__copy">
-            <a className="blog-article__back" href="#/blog">← Back to the blog</a>
+            <p className="blog-post-hero__category">{post.category || 'Insights'}</p>
             <h1>{post.title}</h1>
-            <p>Written by: <strong>{post.author || 'BOXCOM Africa Team'}</strong></p>
+            <p className="blog-post-hero__excerpt">{post.excerpt}</p>
+            <div className="blog-post-hero__meta">
+              <p>Written by: <strong>{post.author || 'BOXCOM Africa Team'}</strong></p>
+              <p>Published: {post.date}</p>
+            </div>
           </div>
           <div className="blog-post-hero__media">
             <img src={post.image} alt={post.imageAlt} />
-            <p>Published: {post.date}</p>
           </div>
         </div>
       </header>
 
       <section className="blog-article-shell">
         <article className="blog-article">
-          <p className="blog-article__lead">{post.excerpt}</p>
+          {post.bodyIntro && <p className="blog-article__lead">{post.bodyIntro}</p>}
           {tableOfContents.length > 0 && (
             <nav className="blog-article__toc" aria-label="Table of contents">
               <p className="blog-article__toc-title">Table of Contents</p>
@@ -400,6 +478,51 @@ function BlogArticle({ header, footer, post }) {
       )}
 
       <BlogFooter footer={footer} />
+
+      {isNewsletterOpen && (
+        <div
+          className="blog-newsletter-modal"
+          role="presentation"
+          onMouseDown={(event) => {
+            if (event.target === event.currentTarget) closeNewsletter();
+          }}
+        >
+          <section
+            className="blog-newsletter-modal__panel newsletter"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="blog-newsletter-title"
+            aria-describedby="blog-newsletter-description"
+          >
+            <button
+              className="blog-newsletter-modal__close"
+              type="button"
+              aria-label="Close newsletter signup"
+              onClick={closeNewsletter}
+            >
+              ×
+            </button>
+            <h2 id="blog-newsletter-title">Stay Informed On Everything PR!</h2>
+            <p id="blog-newsletter-description">
+              Join our newsletter and receive articles, studies and PR tips.<br />
+              We promise to keep your email safe!
+            </p>
+            <form className="blog-newsletter-modal__form newsletter-form">
+              <span aria-hidden="true">@</span>
+              <input
+                type="email"
+                name="newsletterEmail"
+                placeholder="Your email address"
+                aria-label="Your email address"
+                autoComplete="email"
+                required
+              />
+              <button type="submit" aria-label="Subscribe to the newsletter">→</button>
+            </form>
+            <p className="newsletter-status" role="status" aria-live="polite" />
+          </section>
+        </div>
+      )}
     </main>
   );
 }

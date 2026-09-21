@@ -54,6 +54,8 @@ const parsePost = (filename) => {
     image: metadata.image,
     imageAlt: metadata.imageAlt || metadata.title,
     author: metadata.author || 'BOXCOM Africa Team',
+    category: metadata.category || 'Insights',
+    bodyIntro: metadata.bodyIntro || '',
     featured: metadata.featured === true,
     markdown: `/generated-posts/${slug}.md`,
   };
