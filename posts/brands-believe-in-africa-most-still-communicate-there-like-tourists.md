@@ -11,7 +11,7 @@ bodyIntro: "Today we are launching the new BOXCOM Africa website. Rather than st
 featured: true
 ---
 
-:::section layout="image-right" image="/assets/blog/brands-believe-africa/indrive-localization-morocco.webp" alt="An inDrive community activation adapted to the Moroccan market" position="center 42%"
+:::section layout="text"
 ## The Problem Isn't Belief. It's Execution.
 
 What often falls short is the way brands communicate once they arrive. Too many still communicate like tourists: a campaign designed at headquarters, translated, and dropped into markets that read it very differently. A press release sent to a generic media list. The same visuals and the same channels everywhere.
@@ -19,7 +19,7 @@ What often falls short is the way brands communicate once they arrive. Too many 
 The result is a brand that is visible but not relevant.
 :::
 
-:::section layout="image-left" image="/assets/blog/brands-believe-africa/samsung-local-product-experience.webp" alt="A guest experiencing a Samsung product at a locally designed event" position="center 40%"
+:::section layout="text"
 ## What We Have Learned Since 2012
 
 Since 2012, BOXCOM has helped brands understand how their messages, tone of voice, creative approach, and communication channels need to adapt from one African market to another.
@@ -29,7 +29,7 @@ That experience shaped a simple conviction: localization cannot be the last step
 Our role is to bridge global brand strategies with local cultural, linguistic, and media realities, so that a brand's positioning can be expressed effectively in each market while its identity stays consistent.
 :::
 
-:::section layout="image-right" image="/assets/blog/brands-believe-africa/mifa-market-activation.webp" alt="MIFA Group presenting its work during a local market activation" position="center 28%"
+:::section layout="text"
 ## What This Looks Like in Practice
 
 Depending on the market and the campaign, our work can include:
