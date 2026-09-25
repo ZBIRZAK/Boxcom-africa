@@ -29,7 +29,7 @@ function SiteFooter({ socialItems }) {
         <div className="footer-social">
           <div className="footer-social-icons">
             {socialItems.map((item) => (
-              <a key={item.label} href={item.href} aria-label={item.label}>
+              <a key={item.label} href={item.href} target="_blank" rel="noreferrer" aria-label={item.label}>
                 <img src={item.src} alt="" aria-hidden="true" />
               </a>
             ))}

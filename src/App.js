@@ -298,9 +298,21 @@ const contactFaqItems = [
 ];
 
 const socialItems = [
-  { label: 'LinkedIn', src: `${process.env.PUBLIC_URL}/assets/social/linkedin.png`, href: '#/linkedin' },
-  { label: 'Facebook', src: `${process.env.PUBLIC_URL}/assets/social/facebook.png`, href: '#/facebook' },
-  { label: 'Instagram', src: `${process.env.PUBLIC_URL}/assets/social/instagram.png`, href: '#/instagram' },
+  {
+    label: 'LinkedIn',
+    src: `${process.env.PUBLIC_URL}/assets/social/linkedin.png`,
+    href: 'https://www.linkedin.com/company/box-com/',
+  },
+  {
+    label: 'Facebook',
+    src: `${process.env.PUBLIC_URL}/assets/social/facebook.png`,
+    href: 'https://web.facebook.com/boxcomagency',
+  },
+  {
+    label: 'Instagram',
+    src: `${process.env.PUBLIC_URL}/assets/social/instagram.png`,
+    href: 'https://www.instagram.com/boxcomagency/',
+  },
 ];
 
 function wrapIndex(index, length) {
@@ -925,7 +937,7 @@ function App() {
         <div className="footer-social">
           <div className="footer-social__icons">
             {socialItems.map((item) => (
-              <a key={item.label} href={item.href} aria-label={item.label}>
+              <a key={item.label} href={item.href} target="_blank" rel="noreferrer" aria-label={item.label}>
                 <img src={item.src} alt="" aria-hidden="true" />
               </a>
             ))}
