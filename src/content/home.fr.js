@@ -24,7 +24,7 @@ export const frenchHomeContent = {
   testimonials_introduction: 'Ce que nos clients disent de la réactivité de BOXCOM Africa, de sa compréhension des marchés et de sa capacité à obtenir des résultats.',
   reviews_message: 'Constamment saluée pour sa stratégie, sa présence et ses résultats',
   reviews_button_label: 'Voir nos avis Google',
-  reviews_url: '#/reviews',
+  reviews_url: 'https://g.page/r/CXao2Qwv_jJdEBM/review',
   faq_heading: 'Questions fréquentes',
   contact_heading: 'Discuter du brief',
   contact_introduction: 'Racontez-nous l’histoire, le marché et le timing. Un membre senior de l’équipe vous aidera à identifier les questions à traiter en priorité.',

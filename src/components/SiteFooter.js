@@ -54,7 +54,6 @@ function SiteFooter({ socialItems }) {
       </div>
 
       <div className="footer-legal">
-        <a href="#/terms">TERMS & CONDITIONS</a>
         <a href="#/privacy">PRIVACY POLICY</a>
       </div>
     </>

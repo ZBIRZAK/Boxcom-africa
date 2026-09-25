@@ -67,6 +67,10 @@ function isRateLimited(ip, bucket = 'contact', limit = RATE_LIMIT) {
   return recent.length > limit;
 }
 
+function isLocalAddress(ip) {
+  return ip === '127.0.0.1' || ip === '::1' || ip === '::ffff:127.0.0.1';
+}
+
 function respondJson(response, status, payload) {
   response.writeHead(status, {
     'Content-Type': 'application/json; charset=utf-8',
@@ -288,7 +292,7 @@ async function handleNewsletter(request, response) {
 
 async function handleContact(request, response) {
   const ip = request.headers['x-forwarded-for']?.split(',')[0].trim() || request.socket.remoteAddress || 'unknown';
-  if (isRateLimited(ip)) {
+  if (!isLocalAddress(ip) && isRateLimited(ip)) {
     respondJson(response, 429, { message: 'Too many messages. Please try again in 15 minutes.' });
     return;
   }
@@ -338,7 +342,7 @@ async function handleContact(request, response) {
 
     try {
       await transporter.sendMail({
-        from: `BOXCOM Africa Website <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
+        from: `BOXCOM Africa Website <${process.env.SMTP_USER}>`,
         to: process.env.SMTP_TO,
         replyTo: email,
         subject: `Website enquiry from ${subjectName}`,

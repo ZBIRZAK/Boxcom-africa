@@ -404,7 +404,7 @@ function HomePage({
 
           <div className="review-banner">
             <img className="review-banner__image" src={googleReviewsBannerSrc} alt="Google Reviews" />
-            <a className="primary-pink-button review-banner__cta" href="#/reviews">
+            <a className="primary-pink-button review-banner__cta" href="https://g.page/r/CXao2Qwv_jJdEBM/review">
               Check our Google Reviews
             </a>
           </div>

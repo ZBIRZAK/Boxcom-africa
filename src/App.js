@@ -33,6 +33,7 @@ import {
 } from './pages/AdditionalCaseStudyPages';
 import BlogPage from './pages/BlogPage';
 import FrenchContactPage from './pages/FrenchContactPage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import { installContactFormHandler } from './utils/contactForms';
 import { installNewsletterFormHandler } from './utils/newsletterForms';
 import {
@@ -143,30 +144,35 @@ const fallbackProjectItems = [
     title: 'inDrive',
     category: 'Media Relations',
     image: `${process.env.PUBLIC_URL}/assets/CaseStudy_Approved%20Images/InDrive_CaseStudy.png`,
+    href: '#/projects/indrive',
   },
   {
     label: 'Samsung',
     title: 'Samsung',
     category: 'Product Launch',
     image: `${process.env.PUBLIC_URL}/assets/CaseStudy_Approved%20Images/Samsung_Case_Study.png`,
+    href: '#/projects/samsung',
   },
   {
     label: 'GWM',
     title: 'GWM',
     category: 'Media Events',
     image: `${process.env.PUBLIC_URL}/assets/CaseStudy_Approved%20Images/GWM_CaseStudy.png`,
+    href: '#/projects/gwm',
   },
   {
     label: 'Garena',
     title: 'Garena',
     category: 'Gaming Community',
     image: `${process.env.PUBLIC_URL}/assets/CaseStudy_Approved%20Images/Garena_CaseStudy.png`,
+    href: '#/projects',
   },
   {
     label: 'Mifa',
     title: 'MIFA',
     category: 'Exhibition Presence',
     image: `${process.env.PUBLIC_URL}/assets/CaseStudy_Approved%20Images/Mifa_CaseStudy.png`,
+    href: '#/projects/mifa',
   },
   {
     label: 'DeFacto',
@@ -260,7 +266,7 @@ const fallbackHomeContent = {
     'What our clients say about BOXCOM Africa’s responsiveness, market understanding and ability to deliver results.',
   reviews_message: 'Constantly saluted for its strategy, presence and its results',
   reviews_button_label: 'Check our Google Reviews',
-  reviews_url: '#/reviews',
+  reviews_url: 'https://g.page/r/CXao2Qwv_jJdEBM/review',
   faq_heading: 'Frequently Asked Questions',
   contact_heading: 'Start The Conversation',
   contact_introduction:
@@ -388,6 +394,8 @@ function App() {
     : displayedHomeServices[0].label;
   const isContactPage = normalizedHash === '#/contact';
   const isFrenchContactPage = normalizedHash === '#/fr/contact';
+  const isPrivacyPolicyPage = normalizedHash === '#/privacy';
+  const isFrenchPrivacyPolicyPage = normalizedHash === '#/fr/privacy';
   const isAboutUsPage = normalizedHash === '#/about';
   const isFrenchAboutUsPage = normalizedHash === '#/fr/about';
   const isProjectsPage = normalizedHash === '#/projects' || normalizedHash.startsWith('#/projects?');
@@ -422,6 +430,8 @@ function App() {
   const isStandalonePage =
     isContactPage ||
     isFrenchContactPage ||
+    isPrivacyPolicyPage ||
+    isFrenchPrivacyPolicyPage ||
     isAboutUsPage ||
     isFrenchAboutUsPage ||
     isCaseStudyPage ||
@@ -497,6 +507,7 @@ function App() {
   };
 
   const handleProjectTouchStart = (event) => {
+    if (event.target.closest('.project-card.is-center')) return;
     beginProjectDrag(event.touches[0].clientX);
   };
 
@@ -505,6 +516,7 @@ function App() {
   };
 
   const handleProjectMouseDown = (event) => {
+    if (event.target.closest('.project-card.is-center')) return;
     beginProjectDrag(event.clientX);
   };
 
@@ -946,11 +958,30 @@ function App() {
       </div>
 
       <div className="footer-legal">
-        <a href="#/terms">{isFrench ? 'CONDITIONS GÉNÉRALES' : 'TERMS & CONDITIONS'}</a>
-        <a href="#/privacy">{isFrench ? 'POLITIQUE DE CONFIDENTIALITÉ' : 'PRIVACY POLICY'}</a>
+        <a href={isFrench ? '#/fr/privacy' : '#/privacy'}>{isFrench ? 'POLITIQUE DE CONFIDENTIALITÉ' : 'PRIVACY POLICY'}</a>
       </div>
     </>;
   };
+
+  if (isPrivacyPolicyPage) {
+    return (
+      <PrivacyPolicyPage
+        locale="en"
+        header={renderHeader('en', '#/fr/privacy')}
+        footer={renderSiteFooter()}
+      />
+    );
+  }
+
+  if (isFrenchPrivacyPolicyPage) {
+    return (
+      <PrivacyPolicyPage
+        locale="fr"
+        header={renderHeader('fr', '#/privacy')}
+        footer={renderSiteFooter('fr')}
+      />
+    );
+  }
 
   if (isInfluencerRelationsPage) {
     return (
@@ -1559,20 +1590,24 @@ function App() {
                   (projectMotion === 'next' && offset === 2)
                     ? 'is-wrap-entry-right'
                     : '';
+                const isCenterProject = offset === 0;
+                const ProjectCardTag = isCenterProject ? 'a' : 'article';
 
                 return (
-                  <article
+                  <ProjectCardTag
                     key={virtualProjectIndex}
                     className={`project-card ${positionClass}${wrapEntryClass ? ` ${wrapEntryClass}` : ''}`}
+                    href={isCenterProject ? project.href : undefined}
+                    aria-label={isCenterProject ? `${isFrenchHomePage ? 'Voir le projet' : 'View project'} ${project.title}` : undefined}
                     onMouseEnter={() => setIsProjectPaused(true)}
                   >
-                    <img className="project-card__image" src={project.image} alt={project.title} />
+                    <img className="project-card__image" src={project.image} alt={project.title} draggable="false" />
                     <div className="project-card__overlay" />
                     <div className="project-card__content">
                       <h3 className={project.title.length > 5 ? 'is-long-title' : ''}>{project.title}</h3>
                       <p>{project.category}</p>
                     </div>
-                  </article>
+                  </ProjectCardTag>
                 );
               })}
             </div>
