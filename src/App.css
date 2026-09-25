@@ -1327,9 +1327,9 @@
 
 .clients-grid__item img {
   display: block;
-  width: auto;
+  width: 100%;
   max-width: 88%;
-  height: 82px;
+  height: auto;
   max-height: 82px;
   object-fit: contain;
   object-position: center;
@@ -2708,9 +2708,9 @@
   }
 
   .clients-grid__item img {
-    width: auto;
+    width: 100%;
     max-width: 96%;
-    height: 96px;
+    height: auto;
     max-height: 96px;
   }
 
@@ -3146,9 +3146,9 @@
   }
 
   .clients-grid__item--ticker img {
-    width: auto;
+    width: 100%;
     max-width: 96%;
-    height: 104px;
+    height: auto;
     max-height: 104px;
   }
 

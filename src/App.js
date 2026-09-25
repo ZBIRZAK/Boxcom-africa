@@ -131,7 +131,7 @@ const fallbackClientLogos = [
   { label: 'AVEVA', src: `${process.env.PUBLIC_URL}/assets/our-clients-logos/AVEVA%20Logo.webp` },
   { label: 'TVS', src: `${process.env.PUBLIC_URL}/assets/our-clients-logos/TVS%20Logo.webp` },
   { label: 'Modanisa', src: `${process.env.PUBLIC_URL}/assets/our-clients-logos/Modanisa%20Logo.webp` },
-  { label: 'DiliTrust', src: `${process.env.PUBLIC_URL}/assets/our-clients-logos/DiliTrust%20Logo.webp` },
+  { label: 'DiliTrust', src: `${process.env.PUBLIC_URL}/assets/clients-upload/dilitrust.webp` },
   { label: 'EQDOM', src: `${process.env.PUBLIC_URL}/assets/our-clients-logos/EQDOM%20Logo.webp` },
   { label: 'Garden Expo', src: `${process.env.PUBLIC_URL}/assets/our-clients-logos/GARDEN%20EXPO%20Logo.webp` },
   { label: 'ELM', src: `${process.env.PUBLIC_URL}/assets/our-clients-logos/ELM%20Logo.webp` },
