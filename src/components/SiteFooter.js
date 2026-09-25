@@ -21,7 +21,7 @@ function SiteFooter({ socialItems }) {
           <h3>Menu</h3>
           <a href="#/">HOMEPAGE</a>
           <a href="#/services">SERVICES</a>
-          <a href="#/projects">CASE STUDIES</a>
+          <a href="#/projects">PROJECTS</a>
           <a href="#/blog">BLOG</a>
           <a href="#/about">ABOUT US</a>
         </div>

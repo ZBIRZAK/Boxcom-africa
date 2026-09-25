@@ -929,7 +929,7 @@ function App() {
           <h3>Menu</h3>
           <a href={isFrench ? '#/fr' : '#/'}>{isFrench ? 'ACCUEIL' : 'HOMEPAGE'}</a>
           <a href={isFrench ? '#/fr/services' : '#/services'}>SERVICES</a>
-          <a href="#/projects">{isFrench ? 'ÉTUDES DE CAS' : 'CASE STUDIES'}</a>
+          <a href="#/projects">{isFrench ? 'ÉTUDES DE CAS' : 'PROJECTS'}</a>
           <a href="#/blog">BLOG</a>
           <a href={isFrench ? '#/fr/about' : '#/about'}>{isFrench ? 'À PROPOS' : 'ABOUT US'}</a>
         </div>
