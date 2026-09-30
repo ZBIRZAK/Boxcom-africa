@@ -44,19 +44,19 @@ import {
 import './InternalFaq.css';
 
 const menuItems = [
-  { label: 'Home', href: '#/' },
-  { label: 'Services', href: '#/services' },
-  { label: 'Projects', href: '#/projects' },
-  { label: 'Blog', href: '#/blog' },
-  { label: 'About Us', href: '#/about' },
+  { label: 'Home', href: '/' },
+  { label: 'Services', href: '/services' },
+  { label: 'Projects', href: '/projects' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'About Us', href: '/about' },
 ];
 
 const frenchMenuItems = [
-  { label: 'Accueil', href: '#/fr' },
-  { label: 'Services', href: '#/fr/services' },
-  { label: 'Études de cas', href: '#/projects' },
-  { label: 'Blog', href: '#/blog' },
-  { label: 'À propos', href: '#/fr/about' },
+  { label: 'Accueil', href: '/fr' },
+  { label: 'Services', href: '/fr/services' },
+  { label: 'Études de cas', href: '/projects' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'À propos', href: '/fr/about' },
 ];
 
 const fallbackServiceItems = [
@@ -66,7 +66,7 @@ const fallbackServiceItems = [
     description:
       'We find the strongest angle, take it to relevant journalists and editors, and keep the story moving through follow-up, interviews and editorial opportunities. Crisis management and consultancy sits within this work.',
     image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/Media%20Relations%20Image.webp`,
-    href: '#/services/media-relations',
+    href: '/services/media-relations',
   },
   {
     label: 'Media Events',
@@ -74,7 +74,7 @@ const fallbackServiceItems = [
     description:
       'We turn launches, briefings and announcements into press moments that give journalists something useful to see, ask and report.',
     image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/Media%20Events%20Image.webp`,
-    href: '#/services/media-events',
+    href: '/services/media-events',
   },
   {
     label: 'Media Monitoring',
@@ -82,7 +82,7 @@ const fallbackServiceItems = [
     description:
       'We track coverage, sentiment and emerging issues, then help the client decide when to respond and how quickly to move.',
     image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/Media%20Monitoring%20Image.webp`,
-    href: '#/services/media-monitoring',
+    href: '/services/media-monitoring',
   },
   {
     label: 'Social PR',
@@ -90,7 +90,7 @@ const fallbackServiceItems = [
     description:
       'We carry press stories into social channels without losing the facts, tone or intent behind them.',
     image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/Social%20PR%20Image.webp`,
-    href: '#/services/social-pr',
+    href: '/services/social-pr',
   },
   {
     label: 'PR Content Creation',
@@ -98,7 +98,7 @@ const fallbackServiceItems = [
     description:
       'We develop releases, articles, speeches, statements and media assets that are clear, usable and adapted to the market.',
     image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/PR%20Content%20Creation%20Image.webp`,
-    href: '#/services/pr-content-creation',
+    href: '/services/pr-content-creation',
   },
   {
     label: 'Influencer Relations',
@@ -106,7 +106,7 @@ const fallbackServiceItems = [
     description:
       'We build creator partnerships around relevance, local fit and the role each voice should play in the wider story.',
     image: `${process.env.PUBLIC_URL}/assets/Services_Approved%20Images/Influencer%20Relations%20Image.webp`,
-    href: '#/services/influencer-relations',
+    href: '/services/influencer-relations',
   },
 ];
 
@@ -144,42 +144,42 @@ const fallbackProjectItems = [
     title: 'inDrive',
     category: 'Media Relations',
     image: `${process.env.PUBLIC_URL}/assets/CaseStudy_Approved%20Images/InDrive_CaseStudy.png`,
-    href: '#/projects/indrive',
+    href: '/projects/indrive',
   },
   {
     label: 'Samsung',
     title: 'Samsung',
     category: 'Product Launch',
     image: `${process.env.PUBLIC_URL}/assets/CaseStudy_Approved%20Images/Samsung_Case_Study.png`,
-    href: '#/projects/samsung',
+    href: '/projects/samsung',
   },
   {
     label: 'GWM',
     title: 'GWM',
     category: 'Media Events',
     image: `${process.env.PUBLIC_URL}/assets/CaseStudy_Approved%20Images/GWM_CaseStudy.png`,
-    href: '#/projects/gwm',
+    href: '/projects/gwm',
   },
   {
     label: 'Garena',
     title: 'Garena',
     category: 'Gaming Community',
     image: `${process.env.PUBLIC_URL}/assets/CaseStudy_Approved%20Images/Garena_CaseStudy.png`,
-    href: '#/projects',
+    href: '/projects',
   },
   {
     label: 'Mifa',
     title: 'MIFA',
     category: 'Exhibition Presence',
     image: `${process.env.PUBLIC_URL}/assets/CaseStudy_Approved%20Images/Mifa_CaseStudy.png`,
-    href: '#/projects/mifa',
+    href: '/projects/mifa',
   },
   {
     label: 'DeFacto',
     title: 'DeFacto',
     category: 'Celebrity PR',
     image: `${process.env.PUBLIC_URL}/assets/CaseStudy_Approved%20Images/Defacto_Case%20Study.png`,
-    href: '#/projects/defacto',
+    href: '/projects/defacto',
   },
 ];
 
@@ -248,19 +248,19 @@ const fallbackHomeContent = {
   insight_content:
     '<p>A strong press story starts with the business objective.</p><p>We turn it into the right media angle, supported by the right timing, materials and journalist relationships to maximise impact. Through crisis management and consultancy, we help shape, protect and clarify narratives when it matters most.</p><p>As a PR Agency in Casablanca, we also work with trusted partners across Africa to ensure every story is adapted to the language, culture and media landscape of each market.</p>',
   insight_button_label: 'Start a Project',
-  insight_button_link: '#/contact',
+  insight_button_link: '/contact',
   services_heading: 'One PR Program, Several Connected Services',
   services_introduction:
     '<p>Clients don\'t need several agencies pulling the message in different directions.</p><p>BOXCOM Africa brings strategy, media, content, monitoring, social and creators under one accountable team, so every action supports the same narrative.</p><p>Senior practitioners stay close to the account, so strategy and delivery never separate.</p>',
   clients_heading: 'Our Clients',
   projects_heading: 'Selected Projects',
   projects_button_label: 'See More',
-  projects_button_link: '#/projects',
+  projects_button_link: '/projects',
   coverage_heading: 'Our Media Coverage',
   coverage_description:
     'The right story rarely moves because it was sent to the longest list. It moves because the angle is relevant, the timing is right and the journalist receiving it sees a reason to care.',
   coverage_button_label: 'See More',
-  coverage_button_link: '#/coverage',
+  coverage_button_link: '/projects',
   testimonials_heading: 'What Clients Say',
   testimonials_introduction:
     'What our clients say about BOXCOM Africa’s responsiveness, market understanding and ability to deliver results.',
@@ -319,6 +319,19 @@ function wrapIndex(index, length) {
   return (index + length) % length;
 }
 
+function getBrowserRoute() {
+  // `globalThis` lets the build-time renderer select a route without a browser.
+  // eslint-disable-next-line no-undef
+  if (typeof globalThis.__BOXCOM_PRERENDER_ROUTE__ === 'string') {
+    // eslint-disable-next-line no-undef
+    return globalThis.__BOXCOM_PRERENDER_ROUTE__;
+  }
+  if (typeof window === 'undefined') return '/';
+
+  const pathname = window.location.pathname.replace(/\/$/, '') || '/';
+  return `${pathname}${window.location.search}`;
+}
+
 function App() {
   const homeContent = fallbackHomeContent;
   const serviceItems = fallbackServiceItems;
@@ -336,12 +349,8 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openNavSubmenu, setOpenNavSubmenu] = useState(null);
   const [shouldLoadHeroVideo, setShouldLoadHeroVideo] = useState(false);
-  const [viewportWidth, setViewportWidth] = useState(() =>
-    typeof window === 'undefined' ? 1280 : window.innerWidth
-  );
-  const [currentHash, setCurrentHash] = useState(() =>
-    typeof window === 'undefined' ? '#/' : window.location.hash || '#/'
-  );
+  const [viewportWidth, setViewportWidth] = useState(1280);
+  const [currentRoute, setCurrentRoute] = useState(getBrowserRoute);
   const [mediaProjectMap, setMediaProjectMap] = useState(fallbackMediaProjectMap);
   const projectDragStartX = useRef(null);
   const projectDragCurrentX = useRef(null);
@@ -376,12 +385,12 @@ function App() {
   const isMobileViewport = viewportWidth <= 640;
   const isMobileClientsCarousel = viewportWidth <= 640;
   const visibleClientLogos = clientLogos;
-  const normalizedHash = currentHash || '#/';
-  const projectsQuery = normalizedHash.startsWith('#/projects?')
-    ? new URLSearchParams(normalizedHash.slice(normalizedHash.indexOf('?') + 1))
+  const normalizedRoute = currentRoute || '/';
+  const projectsQuery = normalizedRoute.startsWith('/projects?')
+    ? new URLSearchParams(normalizedRoute.slice(normalizedRoute.indexOf('?') + 1))
     : null;
   const selectedMediaSlug = projectsQuery?.get('media') || '';
-  const isFrenchHomePage = normalizedHash === '#/fr' || normalizedHash === '#/fr/';
+  const isFrenchHomePage = normalizedRoute === '/fr' || normalizedRoute === '/fr/';
   const displayedHomeContent = isFrenchHomePage ? frenchHomeContent : homeContent;
   const displayedHomeServices = isFrenchHomePage ? frenchHomeServices : serviceItems;
   const displayedHomeFaqItems = isFrenchHomePage ? frenchHomeFaqItems : faqItems;
@@ -404,41 +413,41 @@ function App() {
   const activeHomeService = displayedHomeServices.some((item) => item.label === activeService)
     ? activeService
     : displayedHomeServices[0].label;
-  const isContactPage = normalizedHash === '#/contact';
-  const isFrenchContactPage = normalizedHash === '#/fr/contact';
-  const isPrivacyPolicyPage = normalizedHash === '#/privacy';
-  const isFrenchPrivacyPolicyPage = normalizedHash === '#/fr/privacy';
-  const isAboutUsPage = normalizedHash === '#/about';
-  const isFrenchAboutUsPage = normalizedHash === '#/fr/about';
-  const isProjectsPage = normalizedHash === '#/projects' || normalizedHash.startsWith('#/projects?');
-  const isCaseStudyPage = normalizedHash === '#/projects/defacto';
-  const isNTTDataCaseStudyPage = normalizedHash === '#/projects/ntt-data';
-  const isModanisaCaseStudyPage = normalizedHash === '#/projects/modanisa';
-  const isGWMCaseStudyPage = normalizedHash === '#/projects/gwm';
-  const isELMCaseStudyPage = normalizedHash === '#/projects/elm';
-  const isMifaCaseStudyPage = normalizedHash === '#/projects/mifa';
-  const isAgriEdgeCaseStudyPage = normalizedHash === '#/projects/agriedge';
-  const isDiliTrustCaseStudyPage = normalizedHash === '#/projects/dilitrust';
-  const isEQDOMCaseStudyPage = normalizedHash === '#/projects/eqdom';
-  const isEverisCaseStudyPage = normalizedHash === '#/projects/everis';
-  const isSamsungCaseStudyPage = normalizedHash === '#/projects/samsung';
-  const isInDriveCaseStudyPage = normalizedHash === '#/projects/indrive';
-  const isServicesOverviewPage = normalizedHash === '#/services';
-  const isFrenchServicesOverviewPage = normalizedHash === '#/fr/services';
-  const isInfluencerRelationsPage = normalizedHash === '#/services/influencer-relations';
-  const isFrenchInfluencerRelationsPage = normalizedHash === '#/fr/services/influencer-relations';
-  const isMediaEventsPage = normalizedHash === '#/services/media-events';
-  const isFrenchMediaEventsPage = normalizedHash === '#/fr/services/media-events';
-  const isMediaMonitoringPage = normalizedHash === '#/services/media-monitoring';
-  const isFrenchMediaMonitoringPage = normalizedHash === '#/fr/services/media-monitoring';
-  const isMediaRelationsPage = normalizedHash === '#/services/media-relations';
-  const isFrenchMediaRelationsPage = normalizedHash === '#/fr/services/media-relations';
-  const isPRContentCreationPage = normalizedHash === '#/services/pr-content-creation';
-  const isFrenchPRContentCreationPage = normalizedHash === '#/fr/services/pr-content-creation';
-  const isSocialPRPage = normalizedHash === '#/services/social-pr';
-  const isFrenchSocialPRPage = normalizedHash === '#/fr/services/social-pr';
-  const isBlogPage = normalizedHash === '#/blog' || normalizedHash.startsWith('#/blog/');
-  const blogSlug = normalizedHash.startsWith('#/blog/') ? normalizedHash.slice('#/blog/'.length) : '';
+  const isContactPage = normalizedRoute === '/contact';
+  const isFrenchContactPage = normalizedRoute === '/fr/contact';
+  const isPrivacyPolicyPage = normalizedRoute === '/privacy';
+  const isFrenchPrivacyPolicyPage = normalizedRoute === '/fr/privacy';
+  const isAboutUsPage = normalizedRoute === '/about';
+  const isFrenchAboutUsPage = normalizedRoute === '/fr/about';
+  const isProjectsPage = normalizedRoute === '/projects' || normalizedRoute.startsWith('/projects?');
+  const isCaseStudyPage = normalizedRoute === '/projects/defacto';
+  const isNTTDataCaseStudyPage = normalizedRoute === '/projects/ntt-data';
+  const isModanisaCaseStudyPage = normalizedRoute === '/projects/modanisa';
+  const isGWMCaseStudyPage = normalizedRoute === '/projects/gwm';
+  const isELMCaseStudyPage = normalizedRoute === '/projects/elm';
+  const isMifaCaseStudyPage = normalizedRoute === '/projects/mifa';
+  const isAgriEdgeCaseStudyPage = normalizedRoute === '/projects/agriedge';
+  const isDiliTrustCaseStudyPage = normalizedRoute === '/projects/dilitrust';
+  const isEQDOMCaseStudyPage = normalizedRoute === '/projects/eqdom';
+  const isEverisCaseStudyPage = normalizedRoute === '/projects/everis';
+  const isSamsungCaseStudyPage = normalizedRoute === '/projects/samsung';
+  const isInDriveCaseStudyPage = normalizedRoute === '/projects/indrive';
+  const isServicesOverviewPage = normalizedRoute === '/services';
+  const isFrenchServicesOverviewPage = normalizedRoute === '/fr/services';
+  const isInfluencerRelationsPage = normalizedRoute === '/services/influencer-relations';
+  const isFrenchInfluencerRelationsPage = normalizedRoute === '/fr/services/influencer-relations';
+  const isMediaEventsPage = normalizedRoute === '/services/media-events';
+  const isFrenchMediaEventsPage = normalizedRoute === '/fr/services/media-events';
+  const isMediaMonitoringPage = normalizedRoute === '/services/media-monitoring';
+  const isFrenchMediaMonitoringPage = normalizedRoute === '/fr/services/media-monitoring';
+  const isMediaRelationsPage = normalizedRoute === '/services/media-relations';
+  const isFrenchMediaRelationsPage = normalizedRoute === '/fr/services/media-relations';
+  const isPRContentCreationPage = normalizedRoute === '/services/pr-content-creation';
+  const isFrenchPRContentCreationPage = normalizedRoute === '/fr/services/pr-content-creation';
+  const isSocialPRPage = normalizedRoute === '/services/social-pr';
+  const isFrenchSocialPRPage = normalizedRoute === '/fr/services/social-pr';
+  const isBlogPage = normalizedRoute === '/blog' || normalizedRoute.startsWith('/blog/');
+  const blogSlug = normalizedRoute.startsWith('/blog/') ? normalizedRoute.slice('/blog/'.length) : '';
   const isStandalonePage =
     isContactPage ||
     isFrenchContactPage ||
@@ -606,19 +615,19 @@ function App() {
       }
     };
 
-    const handleHashChange = () => {
-      setCurrentHash(window.location.hash || '#/');
+    const handleLocationChange = () => {
+      setCurrentRoute(getBrowserRoute());
       setIsMenuOpen(false);
       setOpenNavSubmenu(null);
     };
 
     window.addEventListener('resize', handleResize);
-    window.addEventListener('hashchange', handleHashChange);
+    window.addEventListener('popstate', handleLocationChange);
     handleResize();
-    handleHashChange();
+    handleLocationChange();
     return () => {
       window.removeEventListener('resize', handleResize);
-      window.removeEventListener('hashchange', handleHashChange);
+      window.removeEventListener('popstate', handleLocationChange);
     };
   }, []);
 
@@ -639,10 +648,10 @@ function App() {
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
-  }, [normalizedHash]);
+  }, [normalizedRoute]);
 
   useEffect(() => {
-    const isHomePage = normalizedHash === '#/' || isFrenchHomePage;
+    const isHomePage = normalizedRoute === '/' || isFrenchHomePage;
     if (!isHomePage) {
       return undefined;
     }
@@ -673,7 +682,7 @@ function App() {
         metaDescription.setAttribute('content', previousDescription);
       }
     };
-  }, [displayedHomeContent, isFrenchHomePage, normalizedHash]);
+  }, [displayedHomeContent, isFrenchHomePage, normalizedRoute]);
 
   useEffect(() => {
     if (isStandalonePage) {
@@ -750,7 +759,7 @@ function App() {
         <div className="site-header__inner">
         <a
           className="brand"
-          href={isFrench ? '#/fr' : '#/'}
+          href={isFrench ? '/fr' : '/'}
           aria-label="Boxcom Africa"
           onClick={() => {
             setIsMenuOpen(false);
@@ -784,11 +793,11 @@ function App() {
           <nav className="main-nav" aria-label="Primary">
             {localizedMenuItems.map((item) => {
               const isActive =
-                normalizedHash === item.href ||
-                normalizedHash.startsWith(`${item.href}/`) ||
-                normalizedHash.startsWith(`${item.href}?`);
+                normalizedRoute === item.href ||
+                normalizedRoute.startsWith(`${item.href}/`) ||
+                normalizedRoute.startsWith(`${item.href}?`);
 
-              if (item.href === '#/services' || item.href === '#/fr/services') {
+              if (item.href === '/services' || item.href === '/fr/services') {
                 const submenuItems = localizedServiceItems;
                 const isSubmenuOpen = openNavSubmenu === item.label;
                 const submenuId = `main-nav-${item.label.toLowerCase()}-submenu`;
@@ -876,7 +885,7 @@ function App() {
           <div className="header-actions">
             {showLanguageSwitch && <a
               className="language-switch"
-              href={languageSwitchHref || (isFrench ? '#/services' : '#/fr/services')}
+              href={languageSwitchHref || (isFrench ? '/services' : '/fr/services')}
               lang={isFrench ? 'en' : 'fr'}
               hrefLang={isFrench ? 'en' : 'fr'}
               aria-label={isFrench ? 'View this page in English' : 'Voir cette page en français'}
@@ -885,7 +894,7 @@ function App() {
             </a>}
             <a
               className="header-cta"
-              href={isFrench ? '#/fr/contact' : '#/contact'}
+              href={isFrench ? '/fr/contact' : '/contact'}
               onClick={() => {
                 setIsMenuOpen(false);
                 setOpenNavSubmenu(null);
@@ -927,11 +936,11 @@ function App() {
 
         <div className="footer-menu">
           <h3>Menu</h3>
-          <a href={isFrench ? '#/fr' : '#/'}>{isFrench ? 'ACCUEIL' : 'HOMEPAGE'}</a>
-          <a href={isFrench ? '#/fr/services' : '#/services'}>SERVICES</a>
-          <a href="#/projects">{isFrench ? 'ÉTUDES DE CAS' : 'PROJECTS'}</a>
-          <a href="#/blog">BLOG</a>
-          <a href={isFrench ? '#/fr/about' : '#/about'}>{isFrench ? 'À PROPOS' : 'ABOUT US'}</a>
+          <a href={isFrench ? '/fr' : '/'}>{isFrench ? 'ACCUEIL' : 'HOMEPAGE'}</a>
+          <a href={isFrench ? '/fr/services' : '/services'}>SERVICES</a>
+          <a href="/projects">{isFrench ? 'ÉTUDES DE CAS' : 'PROJECTS'}</a>
+          <a href="/blog">BLOG</a>
+          <a href={isFrench ? '/fr/about' : '/about'}>{isFrench ? 'À PROPOS' : 'ABOUT US'}</a>
         </div>
 
         <div className="footer-social">
@@ -964,13 +973,13 @@ function App() {
 
       <div className="footer-cta">
         <div className="footer-cta__line" />
-        <a href={isFrench ? '#/fr/contact' : '#/contact'} className="footer-cta__button">
+        <a href={isFrench ? '/fr/contact' : '/contact'} className="footer-cta__button">
           {isFrench ? 'Commencer' : 'Get Started'}
         </a>
       </div>
 
       <div className="footer-legal">
-        <a href={isFrench ? '#/fr/privacy' : '#/privacy'}>{isFrench ? 'POLITIQUE DE CONFIDENTIALITÉ' : 'PRIVACY POLICY'}</a>
+        <a href={isFrench ? '/fr/privacy' : '/privacy'}>{isFrench ? 'POLITIQUE DE CONFIDENTIALITÉ' : 'PRIVACY POLICY'}</a>
       </div>
     </>;
   };
@@ -979,7 +988,7 @@ function App() {
     return (
       <PrivacyPolicyPage
         locale="en"
-        header={renderHeader('en', '#/fr/privacy')}
+        header={renderHeader('en', '/fr/privacy')}
         footer={renderSiteFooter()}
       />
     );
@@ -989,7 +998,7 @@ function App() {
     return (
       <PrivacyPolicyPage
         locale="fr"
-        header={renderHeader('fr', '#/privacy')}
+        header={renderHeader('fr', '/privacy')}
         footer={renderSiteFooter('fr')}
       />
     );
@@ -999,7 +1008,7 @@ function App() {
     return (
       <InfluencerRelationsPage
         locale="en"
-        header={renderHeader('en', '#/fr/services/influencer-relations')}
+        header={renderHeader('en', '/fr/services/influencer-relations')}
         footer={renderSiteFooter()}
       />
     );
@@ -1009,7 +1018,7 @@ function App() {
     return (
       <InfluencerRelationsPage
         locale="fr"
-        header={renderHeader('fr', '#/services/influencer-relations')}
+        header={renderHeader('fr', '/services/influencer-relations')}
         footer={renderSiteFooter('fr')}
       />
     );
@@ -1018,7 +1027,7 @@ function App() {
   if (isMediaEventsPage) {
     return (
       <MediaEventsPage
-        header={renderHeader('en', '#/fr/services/media-events')}
+        header={renderHeader('en', '/fr/services/media-events')}
         footer={renderSiteFooter()}
       />
     );
@@ -1027,7 +1036,7 @@ function App() {
   if (isFrenchMediaEventsPage) {
     return (
       <FrenchMediaEventsPage
-        header={renderHeader('fr', '#/services/media-events')}
+        header={renderHeader('fr', '/services/media-events')}
         footer={renderSiteFooter('fr')}
       />
     );
@@ -1036,7 +1045,7 @@ function App() {
   if (isMediaMonitoringPage) {
     return (
       <MediaMonitoringPage
-        header={renderHeader('en', '#/fr/services/media-monitoring')}
+        header={renderHeader('en', '/fr/services/media-monitoring')}
         footer={renderSiteFooter()}
       />
     );
@@ -1045,7 +1054,7 @@ function App() {
   if (isFrenchMediaMonitoringPage) {
     return (
       <FrenchMediaMonitoringPage
-        header={renderHeader('fr', '#/services/media-monitoring')}
+        header={renderHeader('fr', '/services/media-monitoring')}
         footer={renderSiteFooter('fr')}
       />
     );
@@ -1054,7 +1063,7 @@ function App() {
   if (isAboutUsPage) {
     return (
       <AboutUsPage
-        header={renderHeader('en', '#/fr/about')}
+        header={renderHeader('en', '/fr/about')}
         footer={renderSiteFooter()}
       />
     );
@@ -1063,7 +1072,7 @@ function App() {
   if (isFrenchAboutUsPage) {
     return (
       <FrenchAboutUsPage
-        header={renderHeader('fr', '#/about')}
+        header={renderHeader('fr', '/about')}
         footer={renderSiteFooter('fr')}
       />
     );
@@ -1181,7 +1190,7 @@ function App() {
   if (isMediaRelationsPage) {
     return (
       <MediaRelationsPage
-        header={renderHeader('en', '#/fr/services/media-relations')}
+        header={renderHeader('en', '/fr/services/media-relations')}
         footer={renderSiteFooter()}
       />
     );
@@ -1190,7 +1199,7 @@ function App() {
   if (isFrenchMediaRelationsPage) {
     return (
       <FrenchMediaRelationsPage
-        header={renderHeader('fr', '#/services/media-relations')}
+        header={renderHeader('fr', '/services/media-relations')}
         footer={renderSiteFooter('fr')}
       />
     );
@@ -1199,7 +1208,7 @@ function App() {
   if (isPRContentCreationPage) {
     return (
       <PRContentCreationPage
-        header={renderHeader('en', '#/fr/services/pr-content-creation')}
+        header={renderHeader('en', '/fr/services/pr-content-creation')}
         footer={renderSiteFooter()}
       />
     );
@@ -1208,7 +1217,7 @@ function App() {
   if (isFrenchPRContentCreationPage) {
     return (
       <FrenchPRContentCreationPage
-        header={renderHeader('fr', '#/services/pr-content-creation')}
+        header={renderHeader('fr', '/services/pr-content-creation')}
         footer={renderSiteFooter('fr')}
       />
     );
@@ -1217,7 +1226,7 @@ function App() {
   if (isSocialPRPage) {
     return (
       <SocialPRPage
-        header={renderHeader('en', '#/fr/services/social-pr')}
+        header={renderHeader('en', '/fr/services/social-pr')}
         footer={renderSiteFooter()}
       />
     );
@@ -1226,7 +1235,7 @@ function App() {
   if (isFrenchSocialPRPage) {
     return (
       <FrenchSocialPRPage
-        header={renderHeader('fr', '#/services/social-pr')}
+        header={renderHeader('fr', '/services/social-pr')}
         footer={renderSiteFooter('fr')}
       />
     );
@@ -1245,7 +1254,7 @@ function App() {
   if (isContactPage) {
     return (
       <main className="app app--contact-page">
-        {renderHeader('en', '#/fr/contact')}
+        {renderHeader('en', '/fr/contact')}
 
         <section className="contact-page" aria-label="Contact Us">
           <div className="contact-page__inner">
@@ -1255,7 +1264,7 @@ function App() {
 
             <div className="contact-page__layout">
               <div className="contact-page__art" aria-hidden="true">
-                <img src={contactPagePortraitSrc} alt="" />
+                <img src={contactPagePortraitSrc} alt="" aria-hidden="true" />
               </div>
 
               <div className="contact-page__card">
@@ -1302,7 +1311,7 @@ function App() {
                   <button type="submit" className="contact-page-form__button contact-page-form__button--primary">
                     Send Message
                   </button>
-                  <a href="#/services" className="contact-page-form__button contact-page-form__button--secondary">
+                  <a href="/services" className="contact-page-form__button contact-page-form__button--secondary">
                     Review Services First
                   </a>
                 </form>
@@ -1393,7 +1402,7 @@ function App() {
   if (isFrenchContactPage) {
     return (
       <FrenchContactPage
-        header={renderHeader('fr', '#/contact')}
+        header={renderHeader('fr', '/contact')}
         footer={renderSiteFooter('fr')}
         portraitSrc={contactPagePortraitSrc}
       />
@@ -1403,7 +1412,7 @@ function App() {
   return (
     <main className={`app${isFrenchHomePage ? ' app--fr-home' : ''}`}>
       <div className="hero-frame">
-        {renderHeader(isFrenchHomePage ? 'fr' : 'en', isFrenchHomePage ? '#/' : '#/fr')}
+        {renderHeader(isFrenchHomePage ? 'fr' : 'en', isFrenchHomePage ? '/' : '/fr')}
 
         <section className="hero-section" aria-label={isFrenchHomePage ? 'Présentation' : 'Hero'}>
           <div className="hero-section__inner">
@@ -1423,6 +1432,7 @@ function App() {
                 className="hero-media__poster"
                 src={heroPoster}
                 alt=""
+                aria-hidden="true"
                 fetchPriority="high"
                 loading="eager"
                 decoding="async"
@@ -1451,7 +1461,7 @@ function App() {
       <section className="insight-section">
         <div className="insight-section__inner">
           <div className="insight-art" aria-hidden="true">
-            <img className="insight-art__image insight-art__image--full" src={businessThinkingSrc} alt="" />
+            <img className="insight-art__image insight-art__image--full" src={businessThinkingSrc} alt="" aria-hidden="true" />
           </div>
 
           <div className="insight-copy">
@@ -1463,7 +1473,7 @@ function App() {
 
             <a
               className="primary-pink-button"
-              href={displayedHomeContent.insight_button_link || '#/contact'}
+              href={displayedHomeContent.insight_button_link || '/contact'}
             >
               {displayedHomeContent.insight_button_label}
             </a>
@@ -1640,7 +1650,7 @@ function App() {
 
           <a
             className="primary-pink-button primary-pink-button--projects"
-            href={displayedHomeContent.projects_button_link || '#/projects'}
+            href={displayedHomeContent.projects_button_link || '/projects'}
           >
             {displayedHomeContent.projects_button_label}
           </a>
@@ -1659,7 +1669,7 @@ function App() {
               {mediaItems.map((item) => (
                 <a
                   className="coverage-logo-grid__item"
-                  href={`#/projects?media=${encodeURIComponent(item.slug)}`}
+                  href={`/projects?media=${encodeURIComponent(item.slug)}`}
                   key={item.slug}
                   aria-label={`${isFrenchHomePage ? 'Voir les projets couverts par' : 'View projects covered by'} ${item.label}`}
                   title={item.label}
@@ -1749,7 +1759,7 @@ function App() {
             <p className="review-banner__message">
               {displayedHomeContent.reviews_message}
             </p>
-            <a className="primary-pink-button review-banner__cta" href={displayedHomeContent.reviews_url || '#/reviews'}>
+            <a className="primary-pink-button review-banner__cta" href={displayedHomeContent.reviews_url || '/reviews'}>
               {displayedHomeContent.reviews_button_label}
             </a>
           </div>
@@ -1777,7 +1787,7 @@ function App() {
                       </span>
                     </button>
                   </h3>
-                  {isOpen && item.answer && <div className="faq-item__panel">{item.answer}</div>}
+                  {item.answer && <div className="faq-item__panel" hidden={!isOpen}>{item.answer}</div>}
                 </section>
               );
             })}

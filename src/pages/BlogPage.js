@@ -279,9 +279,9 @@ function BlogIndex({ header, footer }) {
                 <PostDate>{featured.date}</PostDate>
                 <h2>{featured.title}</h2>
                 <p>{featured.excerpt}</p>
-                <a className="blog-button" href={`#/blog/${featured.slug}`}>Read More</a>
+                <a className="blog-button" href={`/blog/${featured.slug}`}>Read More</a>
               </div>
-              <a className="blog-featured__image" href={`#/blog/${featured.slug}`} aria-label={`Read ${featured.title}`}>
+              <a className="blog-featured__image" href={`/blog/${featured.slug}`} aria-label={`Read ${featured.title}`}>
                 <img src={featured.image} alt={featured.imageAlt} />
               </a>
             </article>
@@ -291,19 +291,19 @@ function BlogIndex({ header, footer }) {
               <div className="blog-grid">
                 {blogPosts.map((post) => (
                   <article className="blog-card" key={post.slug}>
-                    <a href={`#/blog/${post.slug}`} className="blog-card__image">
+                    <a href={`/blog/${post.slug}`} className="blog-card__image">
                       <img src={post.image} alt={post.imageAlt} loading="lazy" />
                     </a>
-                    <h3><a href={`#/blog/${post.slug}`}>{post.title}</a></h3>
+                    <h3><a href={`/blog/${post.slug}`}>{post.title}</a></h3>
                     <PostDate>{post.date}</PostDate>
                     <p>{post.excerpt}</p>
-                    <a className="blog-card__link" href={`#/blog/${post.slug}`}>Read article →</a>
+                    <a className="blog-card__link" href={`/blog/${post.slug}`}>Read article →</a>
                   </article>
                 ))}
               </div>
             </section>
 
-            <a className="blog-button blog-index__more" href="#/blog">See More</a>
+            <a className="blog-button blog-index__more" href="/blog">See More</a>
           </div>
         </div>
       </section>
@@ -313,7 +313,7 @@ function BlogIndex({ header, footer }) {
 }
 
 function BlogArticle({ header, footer, post }) {
-  const [markdown, setMarkdown] = useState('');
+  const [markdown, setMarkdown] = useState(post.content || '');
   const [error, setError] = useState(false);
   const [isNewsletterOpen, setIsNewsletterOpen] = useState(false);
   const newsletterTriggered = useRef(false);
@@ -321,6 +321,12 @@ function BlogArticle({ header, footer, post }) {
 
   useEffect(() => {
     let active = true;
+    if (post.content) {
+      setMarkdown(post.content);
+      setError(false);
+      return undefined;
+    }
+
     setMarkdown('');
     setError(false);
 
@@ -434,7 +440,7 @@ function BlogArticle({ header, footer, post }) {
                 {tableOfContents.map((item) => (
                   <li key={item.id}>
                     <a
-                      href={`#/blog/${post.slug}`}
+                      href={`/blog/${post.slug}`}
                       onClick={(event) => {
                         event.preventDefault();
                         document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -462,17 +468,17 @@ function BlogArticle({ header, footer, post }) {
             <div className="blog-related__grid">
               {relatedPosts.map((relatedPost) => (
                 <article className="blog-related__card" key={relatedPost.slug}>
-                  <a href={`#/blog/${relatedPost.slug}`}>
+                  <a href={`/blog/${relatedPost.slug}`}>
                     <img src={relatedPost.image} alt={relatedPost.imageAlt} loading="lazy" />
                   </a>
                   <div>
-                    <h3><a href={`#/blog/${relatedPost.slug}`}>{relatedPost.title}</a></h3>
+                    <h3><a href={`/blog/${relatedPost.slug}`}>{relatedPost.title}</a></h3>
                     <PostDate>{relatedPost.date}</PostDate>
                   </div>
                 </article>
               ))}
             </div>
-            <a className="blog-button blog-related__more" href="#/blog">See More</a>
+            <a className="blog-button blog-related__more" href="/blog">See More</a>
           </div>
         </section>
       )}
@@ -545,7 +551,7 @@ function BlogPage({ header, footer, slug }) {
         {header}
         <section className="blog-not-found">
           <h1>Article Not Found</h1>
-          <a className="blog-button" href="#/blog">Return to Our Blog</a>
+          <a className="blog-button" href="/blog">Return to Our Blog</a>
         </section>
         <BlogFooter footer={footer} />
       </main>

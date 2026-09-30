@@ -67,7 +67,7 @@ function FrenchContactPage({ header, footer, portraitSrc }) {
 
           <div className="contact-page__layout">
             <div className="contact-page__art" aria-hidden="true">
-              <img src={portraitSrc} alt="" />
+              <img src={portraitSrc} alt="" aria-hidden="true" />
             </div>
 
             <div className="contact-page__card">
@@ -93,7 +93,7 @@ function FrenchContactPage({ header, footer, portraitSrc }) {
                 <button type="submit" className="contact-page-form__button contact-page-form__button--primary">
                   Envoyer le message
                 </button>
-                <a href="#/fr/services" className="contact-page-form__button contact-page-form__button--secondary">
+                <a href="/fr/services" className="contact-page-form__button contact-page-form__button--secondary">
                   Voir nos services d’abord
                 </a>
               </form>

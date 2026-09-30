@@ -51,8 +51,8 @@ const mediaRelationsConfig = {
         description: (
           <>
             We identify what is genuinely newsworthy, what supports it and which outlets are likely to care. For{' '}
-            <a className="service-inline-link" href="#/projects/dilitrust"><strong>DiliTrust</strong></a>, that meant{' '}
-            <a className="service-inline-link" href="#/projects/dilitrust">
+            <a className="service-inline-link" href="/projects/dilitrust"><strong>DiliTrust</strong></a>, that meant{' '}
+            <a className="service-inline-link" href="/projects/dilitrust">
               <strong>reaching four distinct media categories, from economic to pan-African</strong>
             </a>. We develop and
             place stories, arrange interviews and pursue editorial opportunities, and those relationships give us a
@@ -60,15 +60,16 @@ const mediaRelationsConfig = {
           </>
         ),
         image: asset('/assets/Media%20Relations_Approved%20Images/media-relations-editorial-angle.jpg'),
+        imageAlt: 'Communications professionals identifying the editorial angle for a media story',
       },
       {
         title: 'Open the Right Conversations',
         description: (
           <>
             We approach journalists and editors directly, adapting the pitch, tone and context to each media
-            category. For <a className="service-inline-link" href="#/projects/eqdom"><strong>EQDOM</strong></a>, this
+            category. For <a className="service-inline-link" href="/projects/eqdom"><strong>EQDOM</strong></a>, this
             targeted outreach contributed to{' '}
-            <a className="service-inline-link" href="#/projects/eqdom">
+            <a className="service-inline-link" href="/projects/eqdom">
               <strong>67 articles and over 2.1 million people reached across both campaigns</strong>
             </a>. Every approach was
             tailored to the outlet’s focus, journalist’s beat and audience served, helping build trust and secure
@@ -76,23 +77,25 @@ const mediaRelationsConfig = {
           </>
         ),
         image: asset('/assets/Media%20Relations_Approved%20Images/media-relations-conversations.jpg'),
+        imageAlt: 'A media relations team speaking directly with journalists and editors',
       },
       {
         title: 'Stay With the Story',
         description: (
           <>
             We manage interviews, follow-up and coverage from start to finish, staying close to how a story develops
-            after publication. For <a className="service-inline-link" href="#/projects/ntt-data"><strong>NTT DATA</strong></a>,
+            after publication. For <a className="service-inline-link" href="/projects/ntt-data"><strong>NTT DATA</strong></a>,
             {' '}that meant securing an{' '}
-            <a className="service-inline-link" href="#/projects/ntt-data">
+            <a className="service-inline-link" href="/projects/ntt-data">
               <strong>executive interview in La Vie Eco</strong>
             </a>{' '}alongside{' '}
-            <a className="service-inline-link" href="#/projects/ntt-data"><strong>25+ published articles</strong></a>. If
+            <a className="service-inline-link" href="/projects/ntt-data"><strong>25+ published articles</strong></a>. If
             the facts are lost, misquoted or distorted along the way, we step in and work to bring the right context
             back into the conversation.
           </>
         ),
         image: asset('/assets/Media%20Relations_Approved%20Images/media-relations-stay-story.jpg'),
+        imageAlt: 'Communications professionals following the progress of a media story',
       },
     ],
   },
@@ -103,11 +106,11 @@ const mediaRelationsConfig = {
     ],
     statement: (
       <>
-        <a href="#/services/media-monitoring">Media Monitoring</a> often provides the early warning.
+        <a href="/services/media-monitoring">Media Monitoring</a> often provides the early warning.
       </>
     ),
     buttonLabel: 'Discover Media Monitoring',
-    buttonHref: '#/services/media-monitoring',
+    buttonHref: '/services/media-monitoring',
     image: asset('/assets/Media%20Relations_Approved%20Images/media-relations-coverage-wrong.png'),
     imageAlt: 'A hand stopping falling blocks from reaching a stable row',
   },

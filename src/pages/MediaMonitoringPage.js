@@ -49,8 +49,8 @@ const mediaMonitoringConfig = {
           <>
             We define the brands, people, competitors, outlets, topics and markets that need attention, then build a
             monitoring approach around what matters to the business. For{' '}
-            <a className="service-inline-link" href="#/projects/indrive"><strong>inDrive Algeria</strong></a>, that meant{' '}
-            <a className="service-inline-link" href="#/projects/indrive">
+            <a className="service-inline-link" href="/projects/indrive"><strong>inDrive Algeria</strong></a>, that meant{' '}
+            <a className="service-inline-link" href="/projects/indrive">
               <strong>tracking 11 outlets across two languages</strong>
             </a>. This focus filters out noise and surfaces the
             signals worth acting on, so nothing relevant gets missed and nothing irrelevant demands attention.
@@ -67,8 +67,8 @@ const mediaMonitoringConfig = {
           <>
             We review the source, context, reach and direction of the coverage before deciding what it actually means
             for the brand. For{' '}
-            <a className="service-inline-link" href="#/projects/mifa"><strong>MIFA Group</strong></a>, that meant confirming{' '}
-            <a className="service-inline-link" href="#/projects/mifa">
+            <a className="service-inline-link" href="/projects/mifa"><strong>MIFA Group</strong></a>, that meant confirming{' '}
+            <a className="service-inline-link" href="/projects/mifa">
               <strong>18 of 22 articles ran with photographs in full-page placements</strong>
             </a>. Not every mention carries
             the same weight, so we look closely at who is saying it, where it&apos;s appearing and how it&apos;s likely to
@@ -86,9 +86,9 @@ const mediaMonitoringConfig = {
           <>
             When action is needed, we prepare the message and engage the relevant media while the conversation is
             still moving, not after it has already settled. For{' '}
-            <a className="service-inline-link" href="#/projects/samsung"><strong>Samsung</strong></a>, that meant seeding
+            <a className="service-inline-link" href="/projects/samsung"><strong>Samsung</strong></a>, that meant seeding
             pre-launch coverage that{' '}
-            <a className="service-inline-link" href="#/projects/samsung">
+            <a className="service-inline-link" href="/projects/samsung">
               <strong>generated 84 momentum articles ahead of the event</strong>
             </a>. Speed and accuracy matter here: the right response, delivered to the right outlet at the right moment, can
             shape how a story develops before it hardens into a fixed narrative.
@@ -110,7 +110,7 @@ const mediaMonitoringConfig = {
     ],
     statement: 'A clear view of the coverage is often what makes the right response possible.',
     buttonLabel: 'Discover Social PR',
-    buttonHref: '#/services/social-pr',
+    buttonHref: '/services/social-pr',
     image: asset(
       '/assets/Media%20Monitoring_Approved%20Images/Media%20Monitoring_From%20Data%20to%20Story.png'
     ),
@@ -133,7 +133,7 @@ const mediaMonitoringConfig = {
         <>
           Monitoring shows where the issue is moving. The team then assesses the risk, prepares the response and
           recommends whether clarification, direct engagement or wider action is needed.{' '}
-          <a href="#/services/media-relations">Learn more about crisis management and consultancy on the Media Relations page.</a>
+          <a href="/services/media-relations">Learn more about crisis management and consultancy on the Media Relations page.</a>
         </>
       ),
     },

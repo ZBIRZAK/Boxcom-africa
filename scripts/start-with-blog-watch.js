@@ -35,6 +35,7 @@ const developmentServer = spawn(process.execPath, [reactScripts, 'start'], {
 
 const mailServer = spawn(process.execPath, [mailServerScript], {
   cwd: root,
+  env: { ...process.env, MAIL_SERVER_PORT: process.env.MAIL_SERVER_PORT || '3001' },
   stdio: 'inherit',
 });
 

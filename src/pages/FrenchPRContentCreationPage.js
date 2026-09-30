@@ -28,19 +28,19 @@ const config = {
     items: [
       {
         title: 'Trouver le récit central',
-        description: <>Nous identifions l’angle, les faits essentiels et les preuves dont l’audience a besoin avant même qu’un seul mot ne soit écrit. Pour <a className="service-inline-link" href="#/projects/everis"><strong>Everis</strong></a>, ce travail de fond a façonné tout ce qui a suivi, en garantissant que le message résiste à l’examen, réponde directement aux attentes de l’audience et donne à la campagne <a className="service-inline-link" href="#/projects/everis"><strong>#Maghankhtarchi</strong></a>, avec <a className="service-inline-link" href="#/projects/everis"><strong>plus de 70 articles et 324 mentions</strong></a>, une base solide dès le départ.</>,
+        description: <>Nous identifions l’angle, les faits essentiels et les preuves dont l’audience a besoin avant même qu’un seul mot ne soit écrit. Pour <a className="service-inline-link" href="/projects/everis"><strong>Everis</strong></a>, ce travail de fond a façonné tout ce qui a suivi, en garantissant que le message résiste à l’examen, réponde directement aux attentes de l’audience et donne à la campagne <a className="service-inline-link" href="/projects/everis"><strong>#Maghankhtarchi</strong></a>, avec <a className="service-inline-link" href="/projects/everis"><strong>plus de 70 articles et 324 mentions</strong></a>, une base solide dès le départ.</>,
         image: asset('/assets/PR%20Content%20Creation_Approved%20Images/pr-content-core-story.jpg'),
         imageAlt: 'Une équipe identifiant les faits et connexions d’une histoire',
       },
       {
         title: 'Écrire pour le lecteur',
-        description: <>Le format, le ton et le niveau de détail varient selon l’audience, et nous suivons la performance du contenu après publication. Un communiqué diffère d’un briefing dirigeant ; un sujet spécialisé n’est pas traité comme un article économique. Pour <a className="service-inline-link" href="#/projects/agriedge"><strong>AgriEdge</strong></a>, le suivi a montré que <a className="service-inline-link" href="#/projects/agriedge"><strong>19 articles reprennent plus de 90 % du communiqué original</strong></a>, confirmant la pertinence du message auprès des médias ciblés.</>,
+        description: <>Le format, le ton et le niveau de détail varient selon l’audience, et nous suivons la performance du contenu après publication. Un communiqué diffère d’un briefing dirigeant ; un sujet spécialisé n’est pas traité comme un article économique. Pour <a className="service-inline-link" href="/projects/agriedge"><strong>AgriEdge</strong></a>, le suivi a montré que <a className="service-inline-link" href="/projects/agriedge"><strong>19 articles reprennent plus de 90 % du communiqué original</strong></a>, confirmant la pertinence du message auprès des médias ciblés.</>,
         image: asset('/assets/PR%20Content%20Creation_Approved%20Images/pr-content-reader.jpg'),
         imageAlt: 'Des rédacteurs préparant des contenus pour différents publics',
       },
       {
         title: 'Préparer chaque version',
-        description: <>Nous développons les supports nécessaires tout en suivant la cohérence du récit d’une publication à l’autre. Pour <a className="service-inline-link" href="#/projects/dilitrust"><strong>DiliTrust</strong></a>, cela signifiait suivre la couverture dans <a className="service-inline-link" href="#/projects/dilitrust"><strong>12 médias marocains et 1 média panafricain</strong></a>. Communiqués, briefings et versions adaptées aux marchés reposent sur le même récit central, afin de vérifier que le message reste cohérent malgré les changements de format et d’audience.</>,
+        description: <>Nous développons les supports nécessaires tout en suivant la cohérence du récit d’une publication à l’autre. Pour <a className="service-inline-link" href="/projects/dilitrust"><strong>DiliTrust</strong></a>, cela signifiait suivre la couverture dans <a className="service-inline-link" href="/projects/dilitrust"><strong>12 médias marocains et 1 média panafricain</strong></a>. Communiqués, briefings et versions adaptées aux marchés reposent sur le même récit central, afin de vérifier que le message reste cohérent malgré les changements de format et d’audience.</>,
         image: asset('/assets/PR%20Content%20Creation_Approved%20Images/pr-content-versions.jpg'),
         imageAlt: 'Des versions de contenu préparées pour plusieurs marchés',
       },
@@ -51,11 +51,11 @@ const config = {
     paragraphs: [
       'Une même histoire a souvent besoin de plusieurs voix pour être portée, surtout lorsque le message est défini et doit atteindre une audience réelle.',
       'Notre création de contenu RP façonne le message, les visuels et le récit autour d’une marque : nous définissons l’histoire, construisons les supports et fixons le ton avant toute diffusion.',
-      <>Les <a className="service-inline-link" href="#/fr/services/influencer-relations">relations influenceurs</a> placent ensuite ce message devant des audiences grâce à des voix auxquelles elles font déjà confiance.</>,
+      <>Les <a className="service-inline-link" href="/fr/services/influencer-relations">relations influenceurs</a> placent ensuite ce message devant des audiences grâce à des voix auxquelles elles font déjà confiance.</>,
     ],
     statement: 'Le contenu donne la direction ; les relations influenceurs lui donnent une voix déjà digne de confiance.',
     buttonLabel: 'Découvrir les relations influenceurs',
-    buttonHref: '#/fr/services/influencer-relations',
+    buttonHref: '/fr/services/influencer-relations',
     image: asset('/assets/PR%20Content%20Creation_Approved%20Images/pr-content-message-to-messenger.png'),
     imageAlt: 'Une créatrice portant le message d’une marque à son audience',
   },

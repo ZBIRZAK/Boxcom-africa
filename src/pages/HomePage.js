@@ -78,6 +78,7 @@ function HomePage({
                 className="hero-media__poster"
                 src={heroPoster}
                 alt=""
+                aria-hidden="true"
                 fetchPriority="high"
                 loading="eager"
                 decoding="async"
@@ -105,7 +106,7 @@ function HomePage({
       <section className="insight-section">
         <div className="insight-section__inner">
           <div className="insight-art" aria-hidden="true">
-            <img className="insight-art__image insight-art__image--full" src={businessThinkingSrc} alt="" />
+            <img className="insight-art__image insight-art__image--full" src={businessThinkingSrc} alt="" aria-hidden="true" />
           </div>
 
           <div className="insight-copy">
@@ -121,7 +122,7 @@ function HomePage({
               story is adapted to the language, culture and media landscape of each market.
             </p>
 
-            <a className="primary-pink-button" href="#/contact">
+            <a className="primary-pink-button" href="/contact">
               Start a Project
             </a>
           </div>
@@ -272,7 +273,7 @@ function HomePage({
             </button>
           </div>
 
-          <a className="primary-pink-button primary-pink-button--projects" href="#/projects">
+          <a className="primary-pink-button primary-pink-button--projects" href="/projects">
             See More
           </a>
         </div>
@@ -323,7 +324,7 @@ function HomePage({
               ))}
             </div>
 
-            <a className="primary-pink-button primary-pink-button--coverage" href="#/coverage">
+            <a className="primary-pink-button primary-pink-button--coverage" href="/projects">
               See More
             </a>
           </div>

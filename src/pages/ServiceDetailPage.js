@@ -4,7 +4,7 @@ import './InfluencerRelationsPage.css';
 function ServiceDetailPage({ config, header, footer }) {
   const [openFaq, setOpenFaq] = useState(0);
   const locale = config.locale || 'en';
-  const contactHref = config.contactHref || (locale === 'fr' ? '#/fr/contact' : '#/contact');
+  const contactHref = config.contactHref || (locale === 'fr' ? '/fr/contact' : '/contact');
   const form = {
     name: config.form?.name || 'Your Name *',
     namePlaceholder: config.form?.namePlaceholder || 'Your Full Name',

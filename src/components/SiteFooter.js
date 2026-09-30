@@ -19,11 +19,11 @@ function SiteFooter({ socialItems }) {
 
         <div className="footer-menu">
           <h3>Menu</h3>
-          <a href="#/">HOMEPAGE</a>
-          <a href="#/services">SERVICES</a>
-          <a href="#/projects">PROJECTS</a>
-          <a href="#/blog">BLOG</a>
-          <a href="#/about">ABOUT US</a>
+          <a href="/">HOMEPAGE</a>
+          <a href="/services">SERVICES</a>
+          <a href="/projects">PROJECTS</a>
+          <a href="/blog">BLOG</a>
+          <a href="/about">ABOUT US</a>
         </div>
 
         <div className="footer-social">
@@ -48,13 +48,13 @@ function SiteFooter({ socialItems }) {
 
       <div className="footer-cta">
         <div className="footer-cta-line" />
-        <a href="#/contact" className="footer-cta-button">
+        <a href="/contact" className="footer-cta-button">
           Get Started
         </a>
       </div>
 
       <div className="footer-legal">
-        <a href="#/privacy">PRIVACY POLICY</a>
+        <a href="/privacy">PRIVACY POLICY</a>
       </div>
     </>
   );

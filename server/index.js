@@ -7,6 +7,7 @@ const nodemailer = require('nodemailer');
 
 const root = path.resolve(__dirname, '..');
 const buildDirectory = path.join(root, 'build');
+const publicRoutes = new Set(require(path.join(root, 'config', 'public-routes.json')));
 
 function loadEnvironment(filename) {
   if (!fs.existsSync(filename)) return;
@@ -376,28 +377,53 @@ const mimeTypes = {
   '.md': 'text/markdown; charset=utf-8',
   '.png': 'image/png',
   '.svg': 'image/svg+xml',
+  '.txt': 'text/plain; charset=utf-8',
   '.webp': 'image/webp',
   '.woff2': 'font/woff2',
+  '.xml': 'application/xml; charset=utf-8',
 };
 
 function serveBuild(request, response) {
   const pathname = decodeURIComponent(new URL(request.url, 'http://localhost').pathname);
-  const relativePath = pathname === '/' ? 'index.html' : pathname.replace(/^\/+/, '');
+  const normalizedPathname = pathname !== '/' ? pathname.replace(/\/+$/, '') : pathname;
+  const relativePath = normalizedPathname === '/' ? 'index.html' : normalizedPathname.replace(/^\/+/, '');
   const requestedPath = path.resolve(buildDirectory, relativePath);
-  const safePath = requestedPath.startsWith(`${buildDirectory}${path.sep}`) ? requestedPath : path.join(buildDirectory, 'index.html');
-  const filePath = fs.existsSync(safePath) && fs.statSync(safePath).isFile() ? safePath : path.join(buildDirectory, 'index.html');
+  const isSafePath = requestedPath.startsWith(`${buildDirectory}${path.sep}`);
+  const isStaticFile = isSafePath && fs.existsSync(requestedPath) && fs.statSync(requestedPath).isFile();
+  const prerenderedPath = path.join(requestedPath, 'index.html');
+  const isPrerenderedRoute = isSafePath && fs.existsSync(prerenderedPath) && fs.statSync(prerenderedPath).isFile();
+  const isPublicRoute = publicRoutes.has(normalizedPathname);
+  const filePath = isStaticFile
+    ? requestedPath
+    : isPrerenderedRoute && isPublicRoute
+      ? prerenderedPath
+      : path.join(buildDirectory, isPublicRoute ? 'index.html' : '404.html');
+  const status = isStaticFile || (isPrerenderedRoute && isPublicRoute) || isPublicRoute ? 200 : 404;
 
   if (!fs.existsSync(filePath)) {
     respondJson(response, 404, { message: 'Build not found. Run npm run build first.' });
     return;
   }
 
-  response.writeHead(200, { 'Content-Type': mimeTypes[path.extname(filePath).toLowerCase()] || 'application/octet-stream' });
+  const contentType = path.basename(filePath) === 'rss.xml'
+    ? 'application/rss+xml; charset=utf-8'
+    : mimeTypes[path.extname(filePath).toLowerCase()] || 'application/octet-stream';
+  response.writeHead(status, { 'Content-Type': contentType });
+  if (request.method === 'HEAD') {
+    response.end();
+    return;
+  }
   fs.createReadStream(filePath).pipe(response);
 }
 
 const server = http.createServer((request, response) => {
-  const pathname = new URL(request.url, 'http://localhost').pathname;
+  const requestUrl = new URL(request.url, 'http://localhost');
+  const pathname = requestUrl.pathname;
+  if (pathname !== '/' && pathname.endsWith('/')) {
+    response.writeHead(308, { Location: `${pathname.replace(/\/+$/, '')}${requestUrl.search}` });
+    response.end();
+    return;
+  }
   if (request.method === 'POST' && pathname === '/api/contact') {
     handleContact(request, response);
     return;
@@ -421,7 +447,7 @@ const server = http.createServer((request, response) => {
   respondJson(response, 405, { message: 'Method not allowed.' });
 });
 
-const port = Number(process.env.MAIL_SERVER_PORT || process.env.PORT || 3001);
+const port = Number(process.env.MAIL_SERVER_PORT || process.env.PORT || 3000);
 server.listen(port, () => {
   console.log(`BOXCOM Africa mail server listening on http://localhost:${port}`);
 });

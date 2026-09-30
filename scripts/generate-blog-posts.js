@@ -58,6 +58,7 @@ const parsePost = (filename) => {
     bodyIntro: metadata.bodyIntro || '',
     featured: metadata.featured === true,
     markdown: `/generated-posts/${slug}.md`,
+    content: frontmatter[2].trim(),
   };
 };
 

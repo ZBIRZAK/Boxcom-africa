@@ -7,28 +7,28 @@ export const frenchServices = [
     description: "Pour les annonces, le positionnement d'experts, les interviews, les opportunités éditoriales et les situations où le discours médiatique doit être géré avec soin, y compris la gestion de crise et le conseil.",
     image: asset('/assets/ServicesOverview_Approved_Images/services-media-relations.jpg'),
     imageAlt: 'Des microphones prêts pour une prise de parole médiatique',
-    href: '#/fr/services/media-relations',
+    href: '/fr/services/media-relations',
   },
   {
     title: 'Événements médias',
     description: "Pour les lancements, conférences de presse, briefings, visites de site et moments où les journalistes ont besoin d'accéder à des personnes, des lieux ou des preuves.",
     image: asset('/assets/ServicesOverview_Approved_Images/services-media-events.jpg'),
     imageAlt: 'Des professionnels réunis lors d’un événement média',
-    href: '#/fr/services/media-events',
+    href: '/fr/services/media-events',
   },
   {
     title: 'Création de contenu RP',
     description: "Pour les communiqués de presse, articles, discours, rapports, dossiers de presse et contenus devant s'adapter à plusieurs langues ou marchés.",
     image: asset('/assets/ServicesOverview_Approved_Images/services-content-creation.jpg'),
     imageAlt: 'Création de contenus destinés aux médias',
-    href: '#/fr/services/pr-content-creation',
+    href: '/fr/services/pr-content-creation',
   },
   {
     title: 'Veille médiatique',
     description: "Pour le suivi de la couverture, de la concurrence et des enjeux émergents, avec une analyse qui aide l'équipe à décider des prochaines étapes.",
     image: asset('/assets/ServicesOverview_Approved_Images/services-media-monitoring.jpg'),
     imageAlt: 'Analyse de la couverture médiatique',
-    href: '#/fr/services/media-monitoring',
+    href: '/fr/services/media-monitoring',
   },
   {
     title: 'RP sociale',
@@ -36,7 +36,7 @@ export const frenchServices = [
     description: 'Pour porter les récits de presse vers les réseaux sociaux, suivre les réactions et gérer la conversation autour d’eux.',
     image: asset('/assets/ServicesOverview_Approved_Images/services-social-pr.jpg'),
     imageAlt: 'Gestion d’une conversation sur les réseaux sociaux',
-    href: '#/fr/services/social-pr',
+    href: '/fr/services/social-pr',
   },
   {
     title: 'Relations influenceurs',
@@ -44,7 +44,7 @@ export const frenchServices = [
     description: "Pour les partenariats avec des créateurs où la pertinence de l'audience, le contexte local et un rôle clair dans la campagne globale comptent.",
     image: asset('/assets/ServicesOverview_Approved_Images/services-influencer-relations.jpg'),
     imageAlt: 'Une créatrice présentant du contenu à son audience',
-    href: '#/fr/services/influencer-relations',
+    href: '/fr/services/influencer-relations',
   },
 ];
 

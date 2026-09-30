@@ -86,7 +86,7 @@ Memories are also longer. A journalist remembers the company that was unreachabl
 
 None of this can be bought at the moment it becomes useful. It is either already there or it is not.
 
-[Thinking about your media relations beyond the next announcement? That is the conversation we prefer to have.](#/contact)
+[Thinking about your media relations beyond the next announcement? That is the conversation we prefer to have.](/contact)
 
-This is the third of four articles on how communication actually works across African markets. The others cover [why global campaigns underperform when they are translated rather than localized](#/blog/what-gets-lost-between-translation-and-localization), and [what major brand moments teach about the difference between visibility and relevance](#/blog/what-afcon-2025-taught-brands-in-morocco-about-the-2030-world-cup).
+This is the third of four articles on how communication actually works across African markets. The others cover [why global campaigns underperform when they are translated rather than localized](/blog/what-gets-lost-between-translation-and-localization), and [what major brand moments teach about the difference between visibility and relevance](/blog/what-afcon-2025-taught-brands-in-morocco-about-the-2030-world-cup).
 :::

@@ -72,7 +72,7 @@ Brands do not need to communicate identically everywhere to remain consistent. T
 :::section layout="text"
 ## What's Next on This Blog
 
-In the coming weeks we will publish what we have learned about [the gap between translation and localization](#/blog/what-gets-lost-between-translation-and-localization), [how we select journalists in Moroccan and African markets](#/blog/what-makes-a-journalist-take-your-call), and [what major sponsorships teach us about cultural relevance](#/blog/what-afcon-2025-taught-brands-in-morocco-about-the-2030-world-cup).
+In the coming weeks we will publish what we have learned about [the gap between translation and localization](/blog/what-gets-lost-between-translation-and-localization), [how we select journalists in Moroccan and African markets](/blog/what-makes-a-journalist-take-your-call), and [what major sponsorships teach us about cultural relevance](/blog/what-afcon-2025-taught-brands-in-morocco-about-the-2030-world-cup).
 
-Expanding into or across African markets? [Tell us where you want to go, and we will show you how to get there.](#/contact)
+Expanding into or across African markets? [Tell us where you want to go, and we will show you how to get there.](/contact)
 :::
