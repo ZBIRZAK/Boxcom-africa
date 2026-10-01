@@ -120,6 +120,12 @@ function ServiceDetailPage({ config, header, footer }) {
             <div className="influencer-beyond__copy">
               <h2 id="service-feature-title">{config.feature.title}</h2>
               {config.feature.paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
+              {config.feature.sections?.map((section) => (
+                <section className="influencer-beyond__section" key={section.title}>
+                  <h3>{section.title}</h3>
+                  <p>{section.text}</p>
+                </section>
+              ))}
               {config.feature.statement && (
                 <p className="influencer-beyond__statement">{config.feature.statement}</p>
               )}

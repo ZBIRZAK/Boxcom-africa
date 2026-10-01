@@ -412,6 +412,22 @@
   max-width: 1050px;
 }
 
+.influencer-beyond__section {
+  margin-top: 28px;
+}
+
+.influencer-beyond__section h3 {
+  margin: 0;
+  color: inherit;
+  font-family: 'Garet', sans-serif;
+  font-size: clamp(1.25rem, 1.8vw, 1.65rem);
+  line-height: 1.15;
+}
+
+.influencer-beyond__section p {
+  margin-top: 9px;
+}
+
 .crisis-communication-page .influencer-hero__image,
 .crisis-communication-page .influencer-process__item img {
   object-position: center 25%;

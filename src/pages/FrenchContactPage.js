@@ -58,11 +58,6 @@ function FrenchContactPage({ header, footer, portraitSrc, showCrisisNeed = false
         <div className="contact-page__inner">
           <div className="contact-page__header">
             <h1 className="contact-page__title" id="french-contact-title">Contactez-nous !</h1>
-            <p className="contact-page__intro">
-              Contactez notre <span className="contact-seo-highlight contact-seo-highlight--primary">équipe RP</span>{' '}
-              pour nous parler de votre <span className="contact-seo-highlight contact-seo-highlight--secondary">brief</span>,
-              de votre marché et de votre histoire.
-            </p>
           </div>
 
           <div className="contact-page__layout">

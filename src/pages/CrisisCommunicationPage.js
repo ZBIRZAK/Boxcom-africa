@@ -43,7 +43,7 @@ const frenchConfig = {
   process: {
     title: 'De l’alerte à la réponse',
     items: [
-      { title: 'Repérer tôt', description: 'Notre veille médias fonctionne 24 heures sur 24, 7 jours sur 7. Quand une alerte remonte, nous mettons le sujet sous surveillance et commençons à l’analyser tout de suite. Pour nos clients, la veille démarre dès qu’une alerte remonte, avant toute discussion de stratégie. Nous recommandons ensuite comment répondre.', image: sharedImages.spot, imageAlt: 'Une analyste surveille un tableau de bord médias avec une alerte signalée' },
+      { title: 'Repérer tôt', description: <>Notre <a className="service-inline-link" href="/services/media-monitoring">veille médias</a> fonctionne 24 heures sur 24, 7 jours sur 7. Quand une alerte remonte, nous mettons le sujet sous surveillance et commençons à l’analyser tout de suite. Pour nos clients, la veille démarre dès qu’une alerte remonte, avant toute discussion de stratégie. Nous recommandons ensuite comment répondre.</>, image: sharedImages.spot, imageAlt: 'Une analyste surveille un tableau de bord médias avec une alerte signalée' },
       { title: 'Lire la propagation', description: 'Un sujet dans un petit média n’est pas la même crise qu’un sujet dans un titre national. Nous regardons où il est paru, si de plus grands médias le reprennent et lesquels. Cela nous dit s’il faut contenir le sujet ou y répondre.', image: sharedImages.spread, imageAlt: 'Un analyste compare la couverture d’un même sujet sur plusieurs sites d’actualité' },
       { title: 'Contenir ou répondre', description: 'Si le sujet reste dans de petits supports, surtout digitaux, et que les grands médias ne s’y intéressent pas, nous contactons les supports pour demander une correction ou, lorsque le contenu est inexact, son retrait. S’il prend de l’ampleur dans des médias plus importants, nous activons un plan de contingence : une déclaration de la marque, un plan de suivi et d’autres prises de parole au fur et à mesure des questions et des critiques. Nous appelons aussi nos contacts en rédaction pour répondre directement à leurs questions.', image: sharedImages.contain, imageAlt: 'Une responsable communication appelle un média pendant qu’un collègue rédige une déclaration' },
       { title: 'Préparer la voix', description: 'Quand il est dans l’intérêt de la marque de s’adresser à la presse, nous préparons le porte-parole par un media training. Nous obtenons les questions des journalistes à l’avance, les validons avec la marque et rédigeons les réponses à donner.', image: sharedImages.voice, imageAlt: 'Un porte-parole se prépare à une interview avec une conseillère' },
@@ -53,8 +53,10 @@ const frenchConfig = {
     title: 'Pourquoi les relations décident de l’issue',
     paragraphs: [
       <>Le corps de presse qui couvre un secteur au Maroc, en Tunisie ou au Sénégal est assez restreint pour que les gens se connaissent, et ils se souviennent de qui a décroché sur un sujet difficile. Un journaliste qui nous connaît appelle avant de publier pour vérifier un fait et reprend une déclaration correctement au lieu de la réduire à une phrase. Ces relations ne se construisent pas pendant la crise, c’est pourquoi elles viennent de notre travail quotidien de <a className="service-inline-link" href="/services/media-relations">relations presse</a>. Pour aller plus loin : <a className="service-inline-link" href="/en/blog/what-makes-a-journalist-take-your-call">ce qui pousse un journaliste à décrocher</a>.</>,
-      <><strong>Situations que nous traitons.</strong> Une erreur factuelle dans un article. Une publication ou une plainte virale. Une rumeur sur l’entreprise. Un incident impliquant des clients, des partenaires ou des collaborateurs. Un récit négatif repris par plusieurs médias.</>,
-      <><strong>La discrétion d’abord.</strong> Nous ne publions pas notre travail de crise. Ce que nous avons fait pour nos clients leur appartient, et nous discutons volontiers de notre expérience avec vous directement.</>,
+    ],
+    sections: [
+      { title: 'Situations que nous traitons', text: 'Une erreur factuelle dans un article. Une publication ou une plainte virale. Une rumeur sur l’entreprise. Un incident impliquant des clients, des partenaires ou des collaborateurs. Un récit négatif repris par plusieurs médias.' },
+      { title: 'La discrétion d’abord', text: 'Nous ne publions pas notre travail de crise. Ce que nous avons fait pour nos clients leur appartient, et nous discutons volontiers de notre expérience avec vous directement.' },
     ],
   },
   faqHeading: 'Questions fréquentes',
@@ -91,7 +93,7 @@ const englishConfig = {
   process: {
     title: 'From Alert to Response',
     items: [
-      { title: 'Spot It Early', description: 'Our media monitoring runs 24 hours a day, 7 days a week. When an alert comes in, we put the story under watch and start reading it right away. For our clients, monitoring starts as soon as an alert comes in, before any discussion of strategy. We then recommend how to respond.', image: sharedImages.spot, imageAlt: 'An analyst monitoring a media dashboard with a flagged alert' },
+      { title: 'Spot It Early', description: <>Our <a className="service-inline-link" href="/en/services/media-monitoring">media monitoring</a> runs 24 hours a day, 7 days a week. When an alert comes in, we put the story under watch and start reading it right away. For our clients, monitoring starts as soon as an alert comes in, before any discussion of strategy. We then recommend how to respond.</>, image: sharedImages.spot, imageAlt: 'An analyst monitoring a media dashboard with a flagged alert' },
       { title: 'Read How It Spreads', description: 'A story in a small outlet is not the same crisis as a story in a national title. We look at where it appeared, whether larger media are picking it up, and which ones. That tells us whether this is a story to contain or a story to answer.', image: sharedImages.spread, imageAlt: 'An analyst compares coverage of the same story across several news sites' },
       { title: 'Contain or Respond', description: 'If the story stays in small, mostly digital outlets and larger media show no interest, we contact the outlets to ask for a correction or, where the content is inaccurate, its removal. If it gains momentum in major media, we activate a contingency plan: a statement from the brand, a follow-up plan and further public statements as questions and criticism arrive. We also call our contacts in newsrooms to answer their questions directly.', image: sharedImages.contain, imageAlt: 'A communications manager calling an outlet while a colleague drafts a statement' },
       { title: 'Prepare the Voice', description: 'When it is in the brand’s interest to speak to the press, we prepare the spokesperson through media training. We obtain the journalists’ questions in advance, validate them with the brand and draft the answers that need to be given.', image: sharedImages.voice, imageAlt: 'A spokesperson preparing for an interview with an advisor' },
@@ -101,8 +103,10 @@ const englishConfig = {
     title: 'Why Relationships Decide the Outcome',
     paragraphs: [
       <>The press corps covering a sector in Morocco, Tunisia or Senegal is small enough that people know each other, and they remember who picked up the phone on a difficult story. A journalist who knows us calls before publishing to check a fact and reports a statement accurately instead of cutting it to one sentence. Those relationships cannot be built during the crisis, which is why they come from our day-to-day <a className="service-inline-link" href="/en/services/media-relations">media relations work</a>. Read more in <a className="service-inline-link" href="/en/blog/what-makes-a-journalist-take-your-call">what makes a journalist take your call</a>.</>,
-      <><strong>Situations We Handle.</strong> A factual error in an article. A viral post or complaint. A rumour about the company. An incident involving customers, partners or staff. A negative narrative picked up by several outlets.</>,
-      <><strong>Discretion Comes First.</strong> We do not publish our crisis work. What we have done for clients stays with them, and we are glad to discuss our experience with you directly.</>,
+    ],
+    sections: [
+      { title: 'Situations We Handle', text: 'A factual error in an article. A viral post or complaint. A rumour about the company. An incident involving customers, partners or staff. A negative narrative picked up by several outlets.' },
+      { title: 'Discretion Comes First', text: 'We do not publish our crisis work. What we have done for clients stays with them, and we are glad to discuss our experience with you directly.' },
     ],
   },
   faqItems: [

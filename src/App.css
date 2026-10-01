@@ -588,6 +588,14 @@
   transform: translateY(clamp(8px, 1vh, 14px));
 }
 
+.app--contact-page-fr .contact-page__header {
+  max-width: 900px;
+}
+
+.app--contact-page-fr .contact-page__title {
+  white-space: nowrap;
+}
+
 .contact-page__intro {
   margin: 18px auto 0;
   max-width: 880px;
@@ -4479,6 +4487,10 @@
   .app--contact-page .contact-page__title {
     font-size: clamp(2.35rem, 12vw, 3rem);
     transform: none;
+  }
+
+  .app--contact-page-fr .contact-page__title {
+    font-size: clamp(2rem, 10vw, 2.5rem);
   }
 
   .app--contact-page .contact-page__intro {
