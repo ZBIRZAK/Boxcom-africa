@@ -709,6 +709,11 @@
   min-height: clamp(120px, 17vh, 170px);
 }
 
+.app--crisis-contact .contact-page-form textarea {
+  height: 82px;
+  min-height: 82px;
+}
+
 .contact-page-form input:focus-visible,
 .contact-page-form textarea:focus-visible {
   outline: 3px solid rgba(255, 103, 20, 0.28);
@@ -4395,4 +4400,257 @@
   padding-left: 28px;
   padding-right: 28px;
   white-space: nowrap;
+}
+
+/* Stable, uncluttered homepage layout on narrow screens. */
+@media (max-width: 640px) {
+  .services-accordion,
+  .service-item,
+  .service-panel,
+  .service-card,
+  .service-card__content {
+    transition: none;
+  }
+
+  .service-item.is-active .service-card__content {
+    animation: none;
+  }
+
+  .clients-section__inner {
+    width: var(--content-frame-width);
+  }
+
+  .clients-ticker {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    overflow: hidden;
+  }
+
+  .clients-ticker__track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    animation: clientsTickerScroll 22s linear infinite;
+  }
+
+  .clients-grid__item--ticker {
+    box-sizing: border-box;
+    width: calc(50vw - 16px);
+    min-width: calc(50vw - 16px);
+    height: 92px;
+    margin: 0 8px;
+    padding: 8px;
+    flex: 0 0 calc(50vw - 16px);
+  }
+
+  .clients-grid__item--ticker img {
+    width: auto;
+    max-width: 90%;
+    max-height: 64px;
+  }
+
+  .project-card.is-center {
+    width: min(calc(100% - 24px), 340px);
+  }
+
+  .project-card.is-side,
+  .projects-switcher__track.is-animating-next .project-card.is-edge-left,
+  .projects-switcher__track.is-animating-prev .project-card.is-edge-right {
+    display: none;
+  }
+
+  .contact-section__intro {
+    line-height: 1.4;
+  }
+}
+
+/* Contact page: one compact, readable form followed by FAQ and footer. */
+@media (max-width: 640px) {
+  .app--contact-page .contact-page {
+    padding: 30px 0 0;
+  }
+
+  .app--contact-page .contact-page__inner {
+    width: calc(100% - 24px);
+    padding: 0;
+  }
+
+  .app--contact-page .contact-page__title {
+    font-size: clamp(2.35rem, 12vw, 3rem);
+    transform: none;
+  }
+
+  .app--contact-page .contact-page__intro {
+    font-size: 1rem;
+    line-height: 1.45;
+  }
+
+  .app--contact-page .contact-page__layout {
+    margin-top: 20px;
+    gap: 0;
+  }
+
+  .app--contact-page .contact-page__art {
+    width: 100%;
+    height: 290px;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 18px 18px 0 0;
+  }
+
+  .app--contact-page .contact-page__art img {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: contain;
+    object-position: center bottom;
+  }
+
+  .app--contact-page .contact-page__card {
+    position: relative;
+    z-index: 2;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: none;
+    margin: -18px 0 28px;
+    padding: 22px 16px;
+    border-radius: 18px;
+    overflow: hidden;
+  }
+
+  .app--contact-page .contact-page-form {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .app--contact-page .contact-page-form__row > label + label,
+  .app--contact-page .contact-page-form label + label,
+  .app--contact-page .contact-page-form__row + label {
+    margin-top: 16px;
+  }
+
+  .app--contact-page .contact-page-form span {
+    margin-bottom: 7px;
+  }
+
+  .app--contact-page .contact-page-form input,
+  .app--contact-page .contact-page-form select,
+  .app--contact-page .contact-page-form textarea {
+    width: 100%;
+    max-width: 100%;
+    min-height: 46px;
+    padding: 11px 13px;
+    border-radius: 11px;
+  }
+
+  .app--contact-page .contact-page-form textarea,
+  .app--contact-page.app--crisis-contact .contact-page-form textarea {
+    height: 108px;
+    min-height: 108px;
+  }
+
+  .app--contact-page .contact-page-form__button {
+    box-sizing: border-box;
+    max-width: 100%;
+    min-height: 48px;
+    font-size: 1rem;
+  }
+
+  .app--contact-page .contact-page-form__button--primary {
+    margin-top: 20px;
+  }
+
+  .app--contact-page .contact-page-faq {
+    padding: 50px 0;
+  }
+
+  .app--contact-page .contact-page-faq__inner {
+    width: calc(100% - 24px);
+  }
+
+  .app--contact-page .contact-page-faq h2 {
+    font-size: clamp(2rem, 10vw, 2.5rem) !important;
+    line-height: 1.05;
+  }
+
+  .app--contact-page .contact-page-faq__list {
+    margin-top: 28px;
+    border-radius: 12px;
+  }
+
+  .app--contact-page .contact-page-faq__item button {
+    padding: 13px 14px;
+    font-size: 0.92rem;
+    line-height: 1.3;
+  }
+
+  .contact-page-footer {
+    padding: 42px 0 30px;
+  }
+
+  .contact-page-footer .contact-section__inner {
+    width: calc(100% - 24px);
+  }
+
+  .contact-page-footer .contact-section__bottom {
+    margin-top: 0;
+  }
+}
+
+/* Compact media coverage wall on the homepage at phone widths. */
+@media (max-width: 640px) {
+  .app .coverage-section {
+    padding: 52px 0 56px;
+  }
+
+  .coverage-section .coverage-section__inner {
+    width: calc(100% - 28px);
+  }
+
+  .coverage-section .coverage-section__title {
+    font-size: clamp(2.35rem, 11vw, 2.8rem) !important;
+    line-height: 1.02;
+  }
+
+  .coverage-section__copy p {
+    margin-top: 16px;
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: -0.015em;
+  }
+
+  .coverage-showcase {
+    gap: 20px;
+    margin-top: 28px;
+  }
+
+  .coverage-logo-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px 8px;
+  }
+
+  .coverage-logo-grid__item {
+    height: 52px;
+  }
+
+  .coverage-logo-grid__item img {
+    max-width: 88%;
+    max-height: 39px;
+  }
+
+  .coverage-logo-grid__item img.coverage-logo--2m {
+    max-height: 36px;
+  }
+
+  .coverage-logo-grid__item img.coverage-logo--tall {
+    max-height: 44px;
+  }
+
+  .coverage-showcase .coverage-section__shape {
+    width: min(55vw, 190px);
+    max-height: 230px;
+    margin-top: 4px;
+  }
 }

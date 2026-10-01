@@ -318,6 +318,8 @@ async function handleContact(request, response) {
     const email = clean(payload.email, 254).replace(/[\r\n]/g, '');
     const message = clean(payload.message, 5000);
     const page = clean(payload.page, 300);
+    const attribution = clean(payload.from, 100);
+    const need = clean(payload.need, 160);
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!name || !company || !emailPattern.test(email)) {
@@ -336,6 +338,8 @@ async function handleContact(request, response) {
       `Company: ${company}`,
       `Email: ${email}`,
       `Page: ${page || 'Unknown'}`,
+      `Source: ${attribution || 'Direct'}`,
+      `Need: ${need || 'Not specified'}`,
       '',
       'Message:',
       message || '(No message supplied)',
@@ -354,6 +358,8 @@ async function handleContact(request, response) {
           <p><strong>Company:</strong> ${escapeHtml(company)}</p>
           <p><strong>Email:</strong> ${escapeHtml(email)}</p>
           <p><strong>Page:</strong> ${escapeHtml(page || 'Unknown')}</p>
+          <p><strong>Source:</strong> ${escapeHtml(attribution || 'Direct')}</p>
+          <p><strong>Need:</strong> ${escapeHtml(need || 'Not specified')}</p>
           <h3>Message</h3>
           <p>${escapeHtml(message || '(No message supplied)').replace(/\n/g, '<br>')}</p>
         `,
@@ -419,6 +425,18 @@ function serveBuild(request, response) {
 const server = http.createServer((request, response) => {
   const requestUrl = new URL(request.url, 'http://localhost');
   const pathname = requestUrl.pathname;
+  if (pathname === '/fr/blog' || pathname.startsWith('/fr/blog/')) {
+    const destination = `/en${pathname.slice(3)}`;
+    response.writeHead(308, { Location: `${destination}${requestUrl.search}` });
+    response.end();
+    return;
+  }
+  if (pathname === '/fr' || pathname.startsWith('/fr/')) {
+    const destination = pathname === '/fr' ? '/' : pathname.slice(3);
+    response.writeHead(308, { Location: `${destination}${requestUrl.search}` });
+    response.end();
+    return;
+  }
   if (pathname !== '/' && pathname.endsWith('/')) {
     response.writeHead(308, { Location: `${pathname.replace(/\/+$/, '')}${requestUrl.search}` });
     response.end();

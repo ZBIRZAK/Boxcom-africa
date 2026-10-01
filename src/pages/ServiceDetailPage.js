@@ -4,7 +4,11 @@ import './InfluencerRelationsPage.css';
 function ServiceDetailPage({ config, header, footer }) {
   const [openFaq, setOpenFaq] = useState(0);
   const locale = config.locale || 'en';
-  const contactHref = config.contactHref || (locale === 'fr' ? '/fr/contact' : '/contact');
+  const attributionSource = config.form?.source
+    || config.attributionSource
+    || (config.pageClassName || 'service').split(' ')[0].replace(/-page$/, '');
+  const contactPath = locale === 'fr' ? '/contact' : '/en/contact';
+  const contactHref = config.contactHref || `${contactPath}?from=${encodeURIComponent(attributionSource)}`;
   const form = {
     name: config.form?.name || 'Your Name *',
     namePlaceholder: config.form?.namePlaceholder || 'Your Full Name',
@@ -73,7 +77,7 @@ function ServiceDetailPage({ config, header, footer }) {
           <div className="influencer-included__copy">
             <p>{config.included.description}</p>
             <ul>
-              {config.included.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
+              {config.included.bullets.map((bullet, index) => <li key={index}>{bullet}</li>)}
             </ul>
             <a className="influencer-page__button influencer-section-cta" href={contactHref}>
               {includedCtaLabel} <span aria-hidden="true">→</span>
@@ -102,11 +106,11 @@ function ServiceDetailPage({ config, header, footer }) {
               </article>
             ))}
           </div>
-          <div className="influencer-section-cta-row">
+          {!config.processCtaAtBottom && <div className="influencer-section-cta-row">
             <a className="influencer-page__button influencer-section-cta" href={processCtaHref}>
               {processCtaLabel} <span aria-hidden="true">→</span>
             </a>
-          </div>
+          </div>}
         </div>
       </section>
 
@@ -125,12 +129,12 @@ function ServiceDetailPage({ config, header, footer }) {
                 </a>
               )}
             </div>
-            <img
+            {config.feature.image && <img
               className="influencer-beyond__image"
               src={config.feature.image}
               alt={config.feature.imageAlt}
               loading="lazy"
-            />
+            />}
           </div>
         </section>
       )}
@@ -166,6 +170,16 @@ function ServiceDetailPage({ config, header, footer }) {
         </div>
       </section>
 
+      {config.processCtaAtBottom && (
+        <section className="influencer-bottom-cta" aria-label={processCtaLabel}>
+          <div className="influencer-page__frame influencer-section-cta-row">
+            <a className="influencer-page__button influencer-section-cta" href={processCtaHref}>
+              {processCtaLabel} <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </section>
+      )}
+
       <section className="contact-section influencer-contact">
         <div className="contact-section__inner">
           <h2 className="contact-section__title">{config.contact.title}</h2>
@@ -182,6 +196,7 @@ function ServiceDetailPage({ config, header, footer }) {
             </div>
 
             <form className="contact-form" onSubmit={(event) => event.preventDefault()}>
+              <input type="hidden" name="from" value={attributionSource} readOnly />
               <div className="contact-form__row">
                 <label>
                   <span>{form.name}</span>
@@ -196,9 +211,16 @@ function ServiceDetailPage({ config, header, footer }) {
                 <span>{form.email}</span>
                 <input type="email" name="email" placeholder={form.emailPlaceholder} autoComplete="email" required />
               </label>
+              {config.form?.needs?.length > 0 && <label>
+                <span>{config.form.needLabel}</span>
+                <select name="need" defaultValue="" required>
+                  <option value="" disabled>{config.form.needPlaceholder}</option>
+                  {config.form.needs.map((need) => <option key={need} value={need}>{need}</option>)}
+                </select>
+              </label>}
               <label>
                 <span>{form.message}</span>
-                <textarea placeholder={form.messagePlaceholder} rows="5" />
+                <textarea name="message" placeholder={form.messagePlaceholder} rows="5" />
               </label>
               <button type="submit" className="primary-pink-button contact-form__submit">
                 {config.contact.buttonLabel}

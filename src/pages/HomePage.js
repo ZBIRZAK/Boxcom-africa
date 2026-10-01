@@ -122,7 +122,7 @@ function HomePage({
               story is adapted to the language, culture and media landscape of each market.
             </p>
 
-            <a className="primary-pink-button" href="/contact">
+            <a className="primary-pink-button" href="/en/contact?from=home">
               Start a Project
             </a>
           </div>
@@ -273,7 +273,7 @@ function HomePage({
             </button>
           </div>
 
-          <a className="primary-pink-button primary-pink-button--projects" href="/projects">
+          <a className="primary-pink-button primary-pink-button--projects" href="/en/projects">
             See More
           </a>
         </div>
@@ -324,7 +324,7 @@ function HomePage({
               ))}
             </div>
 
-            <a className="primary-pink-button primary-pink-button--coverage" href="/projects">
+            <a className="primary-pink-button primary-pink-button--coverage" href="/en/projects">
               See More
             </a>
           </div>

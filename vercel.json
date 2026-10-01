@@ -5,6 +5,12 @@
   "outputDirectory": "build",
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/fr/blog", "destination": "/en/blog", "permanent": true },
+    { "source": "/fr/blog/:path*", "destination": "/en/blog/:path*", "permanent": true },
+    { "source": "/fr", "destination": "/", "permanent": true },
+    { "source": "/fr/:path*", "destination": "/:path*", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/sitemap.xml",

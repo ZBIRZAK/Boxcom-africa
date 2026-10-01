@@ -48,10 +48,11 @@ const content = {
   ],
   faqTitle: 'Questions fréquentes',
   faqItems: [
-    { question: 'Qu’est-ce que BOXCOM Africa ?', answer: 'BOXCOM Africa est une agence de relations presse au Maroc. C’est le pôle RP de BOXCOM, basé à Casablanca et spécialisé dans les relations médias, la gestion de crise et le conseil, le contenu RP, la veille médiatique, la RP sociale et les relations influenceurs.' },
+    { question: 'Qu’est-ce que BOXCOM Africa ?', answer: <>BOXCOM Africa est une agence de relations presse au Maroc. C’est le pôle RP de BOXCOM, basé à Casablanca et spécialisé dans les relations médias, la <a className="service-inline-link" href="/services/communication-de-crise">gestion de crise</a> et le conseil, le contenu RP, la veille médiatique, la RP sociale et les relations influenceurs.</> },
     { question: 'Quel est le lien entre BOXCOM Africa et BOXCOM ?', answer: 'BOXCOM Africa est le pôle RP et relations presse de BOXCOM. Elle s’appuie sur l’héritage du groupe en communication, marketing et digital, tout en donnant au travail RP et réputation une équipe dédiée.' },
     { question: 'Que valorise BOXCOM Africa ?', answer: 'L’agence valorise la clarté, la crédibilité, le contexte et la responsabilité. Ces valeurs guident notre façon de parler aux clients, de travailler avec les médias et d’adapter les histoires selon les marchés.' },
     { question: 'Pourquoi BOXCOM Africa travaille-t-elle avec des partenaires locaux ?', answer: 'Parce que le travail régional demande un discernement local. Les partenaires aident à adapter les histoires à la langue, à la culture et aux attentes médiatiques de chaque marché.' },
+    { question: 'Dans quelles langues BOXCOM Africa travaille-t-elle ?', answer: 'BOXCOM Africa travaille en français, arabe, anglais, portugais, tamazight.' },
   ],
   contact: {
     title: 'Discuter du brief',

@@ -81,15 +81,26 @@ function routeMetadata(route, markup) {
   const fallbackDescription = 'BOXCOM Africa is a Casablanca-based PR agency serving brands across Morocco and Africa.';
   const extractedDescription = paragraphs.find((paragraph) => paragraph.length >= 80) || paragraphs[0] || fallbackDescription;
   const description = (extractedDescription || fallbackDescription).slice(0, 160).replace(/\s+\S*$/, '').trim();
-  const isHome = route === '/' || route === '/fr';
+  const isHome = route === '/' || route === '/en';
+
+  const explicitMetadata = {
+    '/services/communication-de-crise': {
+      title: 'Communication de crise au Maroc | BOXCOM Africa',
+      description: 'BOXCOM Africa, agence RP au Maroc, surveille, évalue et répond aux crises médiatiques 24h/24, avec des relations presse construites avant la crise.',
+    },
+    '/en/services/crisis-communication': {
+      title: 'Crisis Communication in Morocco | BOXCOM Africa',
+      description: 'BOXCOM Africa, a PR agency in Morocco, monitors, assesses and responds to media crises 24/7, with press relations built before the crisis.',
+    },
+  }[route];
 
   return {
-    title: isHome
-      ? (route === '/fr' ? 'Agence de relations presse au Maroc | BOXCOM Africa' : 'PR Agency in Morocco for Africa | BOXCOM Africa')
-      : `${heading} | BOXCOM Africa`,
-    description,
-    language: route === '/fr' || route.startsWith('/fr/') ? 'fr' : 'en',
-    type: route.startsWith('/blog/') ? 'article' : 'website',
+    title: explicitMetadata?.title || (isHome
+      ? (route === '/' ? 'Agence de relations presse au Maroc | BOXCOM Africa' : 'PR Agency in Morocco for Africa | BOXCOM Africa')
+      : `${heading} | BOXCOM Africa`),
+    description: explicitMetadata?.description || description,
+    language: route === '/en' || route.startsWith('/en/') ? 'en' : 'fr',
+    type: route.startsWith('/en/blog/') ? 'article' : 'website',
   };
 }
 
@@ -152,7 +163,7 @@ function structuredData(route, metadata, markup) {
     );
   }
 
-  if (/^\/(?:fr\/)?services\//.test(route)) {
+  if (/^(?:\/en)?\/services\//.test(route)) {
     graph.push({
       '@type': 'Service',
       name: metadata.title.replace(/ \| BOXCOM Africa$/, ''),
@@ -163,7 +174,7 @@ function structuredData(route, metadata, markup) {
     });
   }
 
-  if (route.startsWith('/blog/')) {
+  if (route.startsWith('/en/blog/')) {
     graph.push({
       '@type': 'Article',
       headline: metadata.title.replace(/ \| BOXCOM Africa$/, ''),
@@ -213,16 +224,29 @@ function applyMetadata(html, route, markup, metadata) {
   const title = escapeAttribute(metadata.title);
   const description = escapeAttribute(metadata.description);
   const socialImage = `${siteUrl}/logo512.png`;
-  const englishRoute = route === '/fr' ? '/' : route.startsWith('/fr/') ? route.slice(3) : route;
-  const frenchRoute = route === '/fr' || route.startsWith('/fr/')
+  const languagePairs = {
+    '/services/communication-de-crise': '/en/services/crisis-communication',
+    '/en/services/crisis-communication': '/services/communication-de-crise',
+  };
+  const englishRoute = route === '/services/communication-de-crise'
+    ? languagePairs[route]
+    : route === '/en' || route.startsWith('/en/')
     ? route
-    : route === '/' ? '/fr' : `/fr${route}`;
+    : route === '/' ? '/en' : `/en${route}`;
+  const frenchRoute = route === '/en/services/crisis-communication'
+    ? languagePairs[route]
+    : route === '/en'
+    ? '/'
+    : route.startsWith('/en/') ? route.slice(3) : route;
   const hasLanguagePair = routeSet.has(englishRoute) && routeSet.has(frenchRoute);
   const languageAlternates = hasLanguagePair ? [
     `<link rel="alternate" hreflang="en" href="${siteUrl}${englishRoute}" />`,
     `<link rel="alternate" hreflang="fr" href="${siteUrl}${frenchRoute}" />`,
-    `<link rel="alternate" hreflang="x-default" href="${siteUrl}${englishRoute}" />`,
-  ] : [];
+    `<link rel="alternate" hreflang="x-default" href="${siteUrl}${frenchRoute}" />`,
+  ] : [
+    `<link rel="alternate" hreflang="${metadata.language}" href="${canonicalUrl}" />`,
+    `<link rel="alternate" hreflang="x-default" href="${canonicalUrl}" />`,
+  ];
   const tags = [
     `<link rel="canonical" href="${canonicalUrl}" />`,
     `<link rel="alternate" type="application/rss+xml" title="BOXCOM Africa Insights" href="${siteUrl}/rss.xml" />`,
@@ -284,12 +308,12 @@ const rss = [
   '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">',
   '<channel>',
   '  <title>BOXCOM Africa Insights</title>',
-  `  <link>${siteUrl}/blog</link>`,
+  `  <link>${siteUrl}/en/blog</link>`,
   '  <description>PR, media relations and African market insights from BOXCOM Africa.</description>',
   '  <language>en</language>',
   `  <atom:link href="${siteUrl}/rss.xml" rel="self" type="application/rss+xml" />`,
   ...blogPosts.flatMap((post) => {
-    const url = `${siteUrl}/blog/${post.slug}`;
+    const url = `${siteUrl}/en/blog/${post.slug}`;
     return [
       '  <item>',
       `    <title>${escapeXml(post.title)}</title>`,
@@ -316,16 +340,16 @@ const llms = [
   `Sitemap: ${siteUrl}/sitemap.xml`,
   `Blog feed: ${siteUrl}/rss.xml`,
   '',
-  '## Public pages',
-  '',
-  ...renderedRoutes
-    .filter(({ route }) => route !== '/fr' && !route.startsWith('/fr/'))
-    .map(({ route, title, description }) => `- [${title.replace(/ \| BOXCOM Africa$/, '')}](${siteUrl}${route}): ${description}`),
-  '',
   '## French pages',
   '',
   ...renderedRoutes
-    .filter(({ route }) => route === '/fr' || route.startsWith('/fr/'))
+    .filter(({ route }) => route !== '/en' && !route.startsWith('/en/'))
+    .map(({ route, title, description }) => `- [${title.replace(/ \| BOXCOM Africa$/, '')}](${siteUrl}${route}): ${description}`),
+  '',
+  '## English pages',
+  '',
+  ...renderedRoutes
+    .filter(({ route }) => route === '/en' || route.startsWith('/en/'))
     .map(({ route, title, description }) => `- [${title.replace(/ \| BOXCOM Africa$/, '')}](${siteUrl}${route}): ${description}`),
   '',
 ].join('\n');

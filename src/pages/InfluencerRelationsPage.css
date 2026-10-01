@@ -407,6 +407,26 @@
   align-items: center;
 }
 
+.crisis-communication-page .influencer-beyond__grid {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 1050px;
+}
+
+.crisis-communication-page .influencer-hero__image,
+.crisis-communication-page .influencer-process__item img {
+  object-position: center 25%;
+}
+
+.influencer-bottom-cta {
+  padding: 0 0 var(--section-space-y);
+  background: #ffffff;
+}
+
+.crisis-communication-page .contact-form textarea {
+  height: 82px;
+  min-height: 82px;
+}
+
 .influencer-beyond h2 {
   color: #ffffff;
   font-size: clamp(3rem, 4.8vw, 5.2rem);

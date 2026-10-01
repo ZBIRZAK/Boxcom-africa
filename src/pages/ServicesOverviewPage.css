@@ -365,48 +365,121 @@
 }
 
 @media (max-width: 760px) {
+  .services-overview__frame,
+  .services-overview-hero__content {
+    width: calc(100% - 32px);
+  }
+
   .services-overview-hero {
-    min-height: 300px;
+    min-height: 470px;
+    align-items: flex-end;
   }
 
   .services-overview-hero > img {
     object-position: 58% center;
   }
 
+  .services-overview-hero__overlay {
+    background: linear-gradient(180deg, rgba(0, 3, 38, 0.25) 0%, rgba(0, 3, 38, 0.82) 100%);
+  }
+
+  .services-overview-hero__content {
+    padding: 42px 0;
+  }
+
   .services-overview-hero h1 {
-    font-size: 3rem;
+    font-size: clamp(2.55rem, 12vw, 3.25rem);
+    line-height: 1;
+  }
+
+  .services-overview-hero__content > p {
+    margin-top: 20px;
+    font-size: 1rem;
+    line-height: 1.5;
   }
 
   .services-catalog h2,
   .services-work__header h2,
   .services-overview-faq h2 {
-    font-size: 2.7rem;
+    font-size: clamp(2.15rem, 10vw, 2.7rem) !important;
+    line-height: 1.02;
+  }
+
+  .services-catalog {
+    padding: 56px 0;
   }
 
   .services-catalog__header p {
     margin-top: 18px;
+    font-size: 1rem;
+    line-height: 1.5;
   }
 
   .services-catalog__list {
-    margin-top: 42px;
-    gap: 46px;
+    margin-top: 36px;
+    gap: 34px;
   }
 
   .services-catalog__item {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 15px;
+  }
+
+  .services-catalog__item > img {
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
   }
 
   .services-work__steps {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .services-catalog__copy h3 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
+    line-height: 1.1;
+  }
+
+  .services-catalog__copy p {
+    margin-top: 10px;
+    font-size: 1rem;
+    line-height: 1.5;
   }
 
   .services-catalog__copy a {
-    margin-top: 15px;
+    min-height: 40px;
+    margin-top: 14px;
+    padding: 0 20px;
+  }
+
+  .services-work {
+    padding: 52px 0;
+  }
+
+  .services-work__header p {
+    margin-top: 18px;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .services-work__steps {
+    margin-top: 32px;
+  }
+
+  .services-work__step {
+    padding: 24px 18px;
+    border-radius: 16px;
+  }
+
+  .services-work__step h3 {
+    margin-top: 14px;
+    font-size: 1.45rem;
+  }
+
+  .services-work__step p {
+    margin-top: 11px;
+    font-size: 1rem;
+    line-height: 1.5;
   }
 
   .services-overview-faq__list {
@@ -421,5 +494,16 @@
 
   .services-overview-faq__answer p {
     padding: 18px 15px;
+  }
+}
+
+@media (max-width: 380px) {
+  .services-overview__frame,
+  .services-overview-hero__content {
+    width: calc(100% - 24px);
+  }
+
+  .services-overview-hero h1 {
+    font-size: 2.4rem;
   }
 }

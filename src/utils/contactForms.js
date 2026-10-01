@@ -13,6 +13,12 @@ function getStatusElement(form) {
 }
 
 export function installContactFormHandler() {
+  const pageAttribution = new URLSearchParams(window.location.search).get('from') || '';
+  document.querySelectorAll(FORM_SELECTOR).forEach((form) => {
+    const field = form.querySelector('[name="from"]');
+    if (field && !field.value) field.value = pageAttribution;
+  });
+
   const handleSubmit = async (event) => {
     const form = event.target.closest?.(FORM_SELECTOR);
     if (!form) return;
@@ -33,6 +39,9 @@ export function installContactFormHandler() {
     }
 
     const value = (selector) => form.querySelector(selector)?.value?.trim() || '';
+    const attribution = value('[name="from"]') || pageAttribution;
+    const attributionField = form.querySelector('[name="from"]');
+    if (attributionField) attributionField.value = attribution;
 
     try {
       const response = await fetch('/api/contact', {
@@ -42,8 +51,10 @@ export function installContactFormHandler() {
           name: value('[name="name"]'),
           company: value('[name="company"]'),
           email: value('[name="email"]'),
+          need: value('[name="need"]'),
           message: value('[name="message"], textarea'),
           page: window.location.href,
+          from: attribution,
         }),
       });
       const result = await response.json().catch(() => ({}));
@@ -53,6 +64,7 @@ export function installContactFormHandler() {
       form.reset();
       status.className = 'contact-form-status is-success';
       status.textContent = result.message || 'Thank you. Your message has been sent.';
+      window.gtag?.('event', 'generate_lead', { from: attribution || 'direct' });
     } catch (error) {
       status.className = 'contact-form-status is-error';
       status.textContent = error.message || 'We could not send your message. Please email contact@box-com.com.';

@@ -6,7 +6,15 @@ import reportWebVitals from './reportWebVitals';
 
 // Preserve old bookmarks while moving from hash routing to crawlable paths.
 if (window.location.hash.startsWith('#/')) {
-  window.location.replace(`${window.location.hash.slice(1)}${window.location.search}`);
+  const legacyRoute = window.location.hash.slice(1);
+  const destination = legacyRoute === '/fr'
+    ? '/'
+    : legacyRoute.startsWith('/fr/')
+      ? legacyRoute.slice(3)
+      : legacyRoute === '/'
+        ? '/en'
+        : `/en${legacyRoute}`;
+  window.location.replace(`${destination}${window.location.search}`);
 }
 
 const container = document.getElementById('root');

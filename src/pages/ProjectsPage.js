@@ -20,7 +20,7 @@ const projects = [
     service: 'Media Relations',
     services: ['Media Relations', 'Media Monitoring', 'Influencer Relations'],
     useCase: 'E-Commerce Brand Launch',
-    href: '/projects/modanisa',
+    href: '/en/projects/modanisa',
     description:
       'A three-phase Moroccan launch that built awareness, brand authority and consumer engagement for a global modest fashion platform.',
     results: [
@@ -34,7 +34,7 @@ const projects = [
     service: 'Media Relations',
     services: ['Media Relations'],
     useCase: 'Investment Announcement',
-    href: '/projects/ntt-data',
+    href: '/en/projects/ntt-data',
     description:
       'A multi-market media relations campaign that turned a major investment announcement into credible institutional coverage across four languages.',
     results: [
@@ -48,7 +48,7 @@ const projects = [
     service: 'Event Management',
     services: ['Media Events', 'Influencer Relations'],
     useCase: 'Brand Ambassador Launch',
-    href: '/projects/defacto',
+    href: '/en/projects/defacto',
     description: 'A nationwide celebrity launch built around targeted media access, event storytelling and social reach.',
     results: [
       { value: '22', label: 'Media outlets covered' },
@@ -61,7 +61,7 @@ const projects = [
     service: 'Media Events',
     services: ['Media Relations', 'Media Events'],
     useCase: 'Product Launch',
-    href: '/projects/gwm',
+    href: '/en/projects/gwm',
     description:
       'A press-conference-led market entry campaign that built immediate credibility for Great Wall Motor across Morocco’s automotive media ecosystem.',
     results: [
@@ -75,7 +75,7 @@ const projects = [
     service: 'Media Relations',
     services: ['Media Relations', 'Media Monitoring'],
     useCase: 'Trade Event PR',
-    href: '/projects/mifa',
+    href: '/en/projects/mifa',
     description:
       'An exhibition-led campaign connecting MIFA Group’s aquaculture strategy to Morocco’s national blue economy priorities.',
     results: [
@@ -89,7 +89,7 @@ const projects = [
     service: 'Media Events',
     services: ['Media Events', 'Media Monitoring', 'Social PR'],
     useCase: 'International Expansion',
-    href: '/projects/elm',
+    href: '/en/projects/elm',
     description:
       'A trilingual, multi-country GITEX Africa campaign that established institutional credibility for a Saudi digital solutions leader.',
     results: [
@@ -103,7 +103,7 @@ const projects = [
     service: 'Media Relations',
     services: ['Media Relations', 'Media Events', 'PR Content Creation'],
     useCase: 'Platform Launch',
-    href: '/projects/agriedge',
+    href: '/en/projects/agriedge',
     description: 'A context-led campaign that made precision agriculture relevant across Morocco’s business, technology, agriculture and sustainability media.',
     results: [
       { value: '27+', label: 'Articles published' },
@@ -116,7 +116,7 @@ const projects = [
     service: 'Media Relations',
     services: ['Media Relations', 'PR Content Creation'],
     useCase: 'M&A Announcement',
-    href: '/projects/dilitrust',
+    href: '/en/projects/dilitrust',
     description: 'A precision B2B campaign positioning a LegalTech acquisition within the wider governance digitalization story across Morocco and Africa.',
     results: [
       { value: '13', label: 'Media outlets covered' },
@@ -129,7 +129,7 @@ const projects = [
     service: 'Media Relations',
     services: ['Media Relations'],
     useCase: 'Digital Finance',
-    href: '/projects/eqdom',
+    href: '/en/projects/eqdom',
     description: 'A bilingual, multi-sector media strategy connecting automotive financing, digital transformation and national brand visibility.',
     results: [
       { value: '33', label: 'Articles published' },
@@ -142,7 +142,7 @@ const projects = [
     service: 'Media Relations',
     services: ['Media Relations', 'Social PR', 'PR Content Creation', 'Influencer Relations'],
     useCase: 'Employer Branding',
-    href: '/projects/everis',
+    href: '/en/projects/everis',
     description: 'An integrated PR and employer-branding campaign designed to attract competitive technology talent to Everis in Tétouan.',
     results: [
       { value: '70+', label: 'Media articles' },
@@ -155,7 +155,7 @@ const projects = [
     service: 'Media Events',
     services: ['Media Events', 'Media Monitoring', 'Social PR'],
     useCase: 'Product Launch',
-    href: '/projects/samsung',
+    href: '/en/projects/samsung',
     description: 'An immersive, Ramadan-aware Moroccan launch that synchronized with Galaxy Unpacked and generated strong national, broadcast and influencer coverage.',
     results: [
       { value: '27.8M', label: 'Estimated reach' },
@@ -168,7 +168,7 @@ const projects = [
     service: 'Social PR',
     services: ['Social PR'],
     useCase: 'Community',
-    href: '/projects',
+    href: '/en/projects',
   },
   {
     name: 'inDrive Algeria',
@@ -176,7 +176,7 @@ const projects = [
     service: 'Media Relations',
     services: ['Media Relations', 'Media Monitoring'],
     useCase: 'Market Entry',
-    href: '/projects/indrive',
+    href: '/en/projects/indrive',
     description: 'A culturally timed driver campaign and spokesperson program that established credibility for a new mobility entrant in Algeria.',
     results: [
       { value: '11', label: 'Articles published' },
@@ -239,7 +239,7 @@ function ProjectsPage({ header, footer, selectedMediaSlug = '', mediaProjectMap 
     setIndustry('');
     setService('');
     setUseCase('');
-    if (selectedMedia && typeof window !== 'undefined') window.location.assign('/projects');
+    if (selectedMedia && typeof window !== 'undefined') window.location.assign('/en/projects');
   };
 
   return (

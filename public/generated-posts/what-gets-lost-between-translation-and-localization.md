@@ -71,7 +71,7 @@ These questions cost very little to ask in the first week. They cost a great dea
 
 None of this means becoming a different brand in every country. Identity, positioning and values should hold everywhere. What changes is how they are expressed, and a brand that gets that right is not diluting itself. It is being understood.
 
-[Planning a campaign across several African markets? Talk to us before the creative is locked, not after.](/contact)
+[Planning a campaign across several African markets? Talk to us before the creative is locked, not after.](/en/contact?from=blog-localisation)
 
-This is one of four articles on how communication works across African markets. The others cover [what makes a journalist take your call](/blog/what-makes-a-journalist-take-your-call), and [the difference between being visible at a major moment and being relevant to it](/blog/what-afcon-2025-taught-brands-in-morocco-about-the-2030-world-cup).
+This is one of four articles on how communication works across African markets. The others cover [what makes a journalist take your call](/en/blog/what-makes-a-journalist-take-your-call), and [the difference between being visible at a major moment and being relevant to it](/en/blog/what-afcon-2025-taught-brands-in-morocco-about-the-2030-world-cup).
 :::

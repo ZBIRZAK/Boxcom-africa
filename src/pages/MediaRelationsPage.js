@@ -40,7 +40,7 @@ const mediaRelationsConfig = {
       'Narrative and angle development',
       'Journalist and editor outreach',
       'Interview and spokesperson support',
-      'Narrative correction and crisis consultancy',
+      <a className="service-inline-link" href="/en/services/crisis-communication">Narrative correction and crisis consultancy</a>,
     ],
   },
   process: {
@@ -51,8 +51,8 @@ const mediaRelationsConfig = {
         description: (
           <>
             We identify what is genuinely newsworthy, what supports it and which outlets are likely to care. For{' '}
-            <a className="service-inline-link" href="/projects/dilitrust"><strong>DiliTrust</strong></a>, that meant{' '}
-            <a className="service-inline-link" href="/projects/dilitrust">
+            <a className="service-inline-link" href="/en/projects/dilitrust"><strong>DiliTrust</strong></a>, that meant{' '}
+            <a className="service-inline-link" href="/en/projects/dilitrust">
               <strong>reaching four distinct media categories, from economic to pan-African</strong>
             </a>. We develop and
             place stories, arrange interviews and pursue editorial opportunities, and those relationships give us a
@@ -67,9 +67,9 @@ const mediaRelationsConfig = {
         description: (
           <>
             We approach journalists and editors directly, adapting the pitch, tone and context to each media
-            category. For <a className="service-inline-link" href="/projects/eqdom"><strong>EQDOM</strong></a>, this
+            category. For <a className="service-inline-link" href="/en/projects/eqdom"><strong>EQDOM</strong></a>, this
             targeted outreach contributed to{' '}
-            <a className="service-inline-link" href="/projects/eqdom">
+            <a className="service-inline-link" href="/en/projects/eqdom">
               <strong>67 articles and over 2.1 million people reached across both campaigns</strong>
             </a>. Every approach was
             tailored to the outlet’s focus, journalist’s beat and audience served, helping build trust and secure
@@ -84,12 +84,12 @@ const mediaRelationsConfig = {
         description: (
           <>
             We manage interviews, follow-up and coverage from start to finish, staying close to how a story develops
-            after publication. For <a className="service-inline-link" href="/projects/ntt-data"><strong>NTT DATA</strong></a>,
+            after publication. For <a className="service-inline-link" href="/en/projects/ntt-data"><strong>NTT DATA</strong></a>,
             {' '}that meant securing an{' '}
-            <a className="service-inline-link" href="/projects/ntt-data">
+            <a className="service-inline-link" href="/en/projects/ntt-data">
               <strong>executive interview in La Vie Eco</strong>
             </a>{' '}alongside{' '}
-            <a className="service-inline-link" href="/projects/ntt-data"><strong>25+ published articles</strong></a>. If
+            <a className="service-inline-link" href="/en/projects/ntt-data"><strong>25+ published articles</strong></a>. If
             the facts are lost, misquoted or distorted along the way, we step in and work to bring the right context
             back into the conversation.
           </>
@@ -104,13 +104,9 @@ const mediaRelationsConfig = {
     paragraphs: [
       'The same relationships matter most when coverage is incomplete, inaccurate or moving against the facts. Our crisis management and consultancy work brings the facts, the response and direct media engagement together: we assess the issue, prepare the message and the spokespeople, engage the relevant outlets and follow up until the right context is back in the conversation.',
     ],
-    statement: (
-      <>
-        <a href="/services/media-monitoring">Media Monitoring</a> often provides the early warning.
-      </>
-    ),
+    statement: <><a href="/en/services/media-monitoring">Media Monitoring</a> often provides the early warning. When a story goes wrong, the outcome depends on who already knows you. See how we <a href="/en/services/crisis-communication">prepare for and handle a crisis</a>.</>,
     buttonLabel: 'Discover Media Monitoring',
-    buttonHref: '/services/media-monitoring',
+    buttonHref: '/en/services/media-monitoring',
     image: asset('/assets/Media%20Relations_Approved%20Images/media-relations-coverage-wrong.png'),
     imageAlt: 'A hand stopping falling blocks from reaching a stable row',
   },
@@ -134,6 +130,10 @@ const mediaRelationsConfig = {
       question: 'Can you prepare a spokesperson who has never faced the media?',
       answer:
         'Yes. Preparation covers the main message, likely and difficult questions, supporting facts and the format of the interview itself, so the spokesperson walks in knowing what the journalist needs and where the limits are.',
+    },
+    {
+      question: 'Which languages can BOXCOM Africa work in?',
+      answer: 'We work in French, Arabic, English and Portuguese, and in Tamazight where the audience calls for it.',
     },
   ],
   contact: {

@@ -19,7 +19,7 @@ const faqItems = [
   },
 ];
 
-function FrenchContactPage({ header, footer, portraitSrc }) {
+function FrenchContactPage({ header, footer, portraitSrc, showCrisisNeed = false }) {
   const [openFaq, setOpenFaq] = useState(0);
 
   useEffect(() => {
@@ -51,7 +51,7 @@ function FrenchContactPage({ header, footer, portraitSrc }) {
   }, []);
 
   return (
-    <main className="app app--contact-page app--contact-page-fr">
+    <main className={`app app--contact-page app--contact-page-fr${showCrisisNeed ? ' app--crisis-contact' : ''}`}>
       {header}
 
       <section className="contact-page" aria-labelledby="french-contact-title">
@@ -72,6 +72,7 @@ function FrenchContactPage({ header, footer, portraitSrc }) {
 
             <div className="contact-page__card">
               <form className="contact-page-form" onSubmit={(event) => event.preventDefault()}>
+                <input type="hidden" name="from" defaultValue="" />
                 <div className="contact-page-form__row">
                   <label>
                     <span>Votre nom *</span>
@@ -86,6 +87,15 @@ function FrenchContactPage({ header, footer, portraitSrc }) {
                   <span>Votre e-mail *</span>
                   <input type="email" name="email" placeholder="Votre e-mail" autoComplete="email" required />
                 </label>
+                {showCrisisNeed && <label>
+                  <span>Votre besoin *</span>
+                  <select name="need" defaultValue="" required>
+                    <option value="" disabled>Sélectionnez votre besoin</option>
+                    <option value="Préparer un plan de crise">Préparer un plan de crise</option>
+                    <option value="Situation urgente">Situation urgente</option>
+                    <option value="Autre">Autre</option>
+                  </select>
+                </label>}
                 <label>
                   <span>Message</span>
                   <textarea name="message" placeholder="Écrivez votre message ici." rows="5" />
@@ -93,7 +103,7 @@ function FrenchContactPage({ header, footer, portraitSrc }) {
                 <button type="submit" className="contact-page-form__button contact-page-form__button--primary">
                   Envoyer le message
                 </button>
-                <a href="/fr/services" className="contact-page-form__button contact-page-form__button--secondary">
+                <a href="/services" className="contact-page-form__button contact-page-form__button--secondary">
                   Voir nos services d’abord
                 </a>
               </form>
@@ -126,29 +136,11 @@ function FrenchContactPage({ header, footer, portraitSrc }) {
         </div>
       </section>
 
-      <section className="contact-section contact-page-brief">
+      <footer className="contact-page-footer">
         <div className="contact-section__inner">
-          <h2 className="contact-section__title">Discuter du brief</h2>
-          <p className="contact-section__intro">Racontez-nous l’histoire, le marché et le timing. Un membre senior de l’équipe vous aidera à identifier les questions à traiter en priorité.</p>
-
-          <div className="contact-section__top">
-            <div className="contact-map">
-              <iframe title="Localisation de BOXCOM Africa" src="https://maps.google.com/maps?q=33.58739,-7.636312&z=17&hl=fr&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
-            </div>
-            <form className="contact-form" onSubmit={(event) => event.preventDefault()}>
-              <div className="contact-form__row">
-                <label><span>Votre nom *</span><input type="text" name="name" placeholder="Votre nom complet" autoComplete="name" required /></label>
-                <label><span>Votre entreprise *</span><input type="text" name="company" placeholder="Votre entreprise" autoComplete="organization" required /></label>
-              </div>
-              <label><span>Votre e-mail *</span><input type="email" name="email" placeholder="Votre e-mail" autoComplete="email" required /></label>
-              <label><span>Message</span><textarea name="message" placeholder="Écrivez votre message ici." rows="5" /></label>
-              <button type="submit" className="primary-pink-button contact-form__submit">Envoyer le message</button>
-            </form>
-          </div>
-
           {footer}
         </div>
-      </section>
+      </footer>
     </main>
   );
 }

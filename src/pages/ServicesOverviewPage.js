@@ -22,7 +22,14 @@ const fallbackServices = [
       'For announcements, expert positioning, interviews, editorial opportunities and situations where the media narrative needs careful handling, including crisis management and consultancy.',
     image: asset('/assets/ServicesOverview_Approved_Images/services-media-relations.jpg'),
     imageAlt: 'A collection of broadcast microphones ready for a press statement',
-    href: '/services/media-relations',
+    href: '/en/services/media-relations',
+  },
+  {
+    title: 'Crisis Communication',
+    description: 'For emerging media issues that require 24/7 monitoring, a clear holding statement, direct journalist engagement and prepared spokespeople.',
+    image: asset('/assets/Crisis%20Communication_Approved%20Images/crisis-communication-spot-early.jpg'),
+    imageAlt: 'An analyst monitoring a media dashboard with a flagged alert',
+    href: '/en/services/crisis-communication',
   },
   {
     title: 'Media Events',
@@ -30,7 +37,7 @@ const fallbackServices = [
       'For launches, press conferences, briefings, site visits and moments when journalists need access to people, places or proof.',
     image: asset('/assets/ServicesOverview_Approved_Images/services-media-events.jpg'),
     imageAlt: 'Communications professionals meeting at a media event',
-    href: '/services/media-events',
+    href: '/en/services/media-events',
   },
   {
     title: 'PR Content Creation',
@@ -38,7 +45,7 @@ const fallbackServices = [
       'For press releases, articles, speeches, reports, media kits and content that needs to work across languages or markets.',
     image: asset('/assets/ServicesOverview_Approved_Images/services-content-creation.jpg'),
     imageAlt: 'A content creator preparing written communications material',
-    href: '/services/pr-content-creation',
+    href: '/en/services/pr-content-creation',
   },
   {
     title: 'Media Monitoring',
@@ -46,7 +53,7 @@ const fallbackServices = [
       'For tracking coverage, competitors and emerging issues, with analysis that helps the team decide what to do next.',
     image: asset('/assets/ServicesOverview_Approved_Images/services-media-monitoring.jpg'),
     imageAlt: 'A media analyst reviewing performance charts',
-    href: '/services/media-monitoring',
+    href: '/en/services/media-monitoring',
   },
   {
     title: 'Social PR',
@@ -54,7 +61,7 @@ const fallbackServices = [
       'For carrying press stories into social channels, following the response and managing the conversation around them.',
     image: asset('/assets/ServicesOverview_Approved_Images/services-social-pr.jpg'),
     imageAlt: 'A social media professional managing an online conversation',
-    href: '/services/social-pr',
+    href: '/en/services/social-pr',
   },
   {
     title: 'Influencer Relations',
@@ -62,7 +69,7 @@ const fallbackServices = [
       'For creator partnerships where audience relevance, local context and a clear role in the wider campaign matter.',
     image: asset('/assets/ServicesOverview_Approved_Images/services-influencer-relations.jpg'),
     imageAlt: 'A creator presenting live content to an online audience',
-    href: '/services/influencer-relations',
+    href: '/en/services/influencer-relations',
   },
 ];
 

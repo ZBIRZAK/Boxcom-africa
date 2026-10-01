@@ -23,7 +23,7 @@ routes.forEach((route) => {
     fail(`${route} has no Vercel clean-URL HTML file`);
   }
   const html = fs.readFileSync(filename, 'utf8');
-  const expectedLanguage = route === '/fr' || route.startsWith('/fr/') ? 'fr' : 'en';
+  const expectedLanguage = route === '/en' || route.startsWith('/en/') ? 'en' : 'fr';
   const text = html
     .replace(/<script[\s\S]*?<\/script>/gi, ' ')
     .replace(/<style[\s\S]*?<\/style>/gi, ' ')
@@ -36,6 +36,10 @@ routes.forEach((route) => {
   if (text.length < 300) fail(`${route} exposes too little text without JavaScript`);
   if (!html.includes(`<html lang="${expectedLanguage}">`)) fail(`${route} has the wrong document language`);
   if (!html.includes(`rel="canonical" href="${siteUrl}${route}"`)) fail(`${route} has the wrong canonical URL`);
+  if (!html.includes(`hreflang="${expectedLanguage}" href="${siteUrl}${route}"`)) {
+    fail(`${route} has no self-referencing ${expectedLanguage} hreflang`);
+  }
+  if (!html.includes('hreflang="x-default"')) fail(`${route} has no x-default hreflang`);
   if (!html.includes('name="description"')) fail(`${route} has no description`);
   if (!html.includes('property="og:title"') || !html.includes('name="twitter:card"')) fail(`${route} lacks social metadata`);
   if (html.includes('href="#/') || html.includes('undefined/assets/')) fail(`${route} contains an obsolete or invalid URL`);

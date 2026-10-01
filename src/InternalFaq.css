@@ -160,4 +160,37 @@
     padding: 18px 0 20px;
     line-height: 1.4;
   }
+
+  .app.app--contact-page .internal-faq {
+    padding: 50px 0;
+  }
+
+  .app.app--contact-page .internal-faq .internal-faq__list {
+    margin-top: 28px;
+  }
+
+  .app.app--contact-page .internal-faq .internal-faq__item {
+    position: relative;
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+  }
+
+  .app.app--contact-page .internal-faq .internal-faq__answer {
+    position: static;
+    display: block;
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+  }
+
+  .app.app--contact-page .internal-faq .internal-faq__answer[hidden] {
+    display: none;
+  }
+
+  .app.app--contact-page .internal-faq .internal-faq__answer p {
+    padding: 0 0 20px;
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
 }

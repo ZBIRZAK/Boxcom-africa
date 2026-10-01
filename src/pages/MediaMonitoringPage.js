@@ -34,6 +34,7 @@ const mediaMonitoringConfig = {
       </>
     ),
     bullets: [
+      '24/7 media monitoring and crisis alerts',
       'Brand, executive and topic monitoring',
       'Coverage quality, sentiment and narrative shifts',
       'Risk alerts and response recommendations',
@@ -49,8 +50,8 @@ const mediaMonitoringConfig = {
           <>
             We define the brands, people, competitors, outlets, topics and markets that need attention, then build a
             monitoring approach around what matters to the business. For{' '}
-            <a className="service-inline-link" href="/projects/indrive"><strong>inDrive Algeria</strong></a>, that meant{' '}
-            <a className="service-inline-link" href="/projects/indrive">
+            <a className="service-inline-link" href="/en/projects/indrive"><strong>inDrive Algeria</strong></a>, that meant{' '}
+            <a className="service-inline-link" href="/en/projects/indrive">
               <strong>tracking 11 outlets across two languages</strong>
             </a>. This focus filters out noise and surfaces the
             signals worth acting on, so nothing relevant gets missed and nothing irrelevant demands attention.
@@ -67,8 +68,8 @@ const mediaMonitoringConfig = {
           <>
             We review the source, context, reach and direction of the coverage before deciding what it actually means
             for the brand. For{' '}
-            <a className="service-inline-link" href="/projects/mifa"><strong>MIFA Group</strong></a>, that meant confirming{' '}
-            <a className="service-inline-link" href="/projects/mifa">
+            <a className="service-inline-link" href="/en/projects/mifa"><strong>MIFA Group</strong></a>, that meant confirming{' '}
+            <a className="service-inline-link" href="/en/projects/mifa">
               <strong>18 of 22 articles ran with photographs in full-page placements</strong>
             </a>. Not every mention carries
             the same weight, so we look closely at who is saying it, where it&apos;s appearing and how it&apos;s likely to
@@ -86,9 +87,9 @@ const mediaMonitoringConfig = {
           <>
             When action is needed, we prepare the message and engage the relevant media while the conversation is
             still moving, not after it has already settled. For{' '}
-            <a className="service-inline-link" href="/projects/samsung"><strong>Samsung</strong></a>, that meant seeding
+            <a className="service-inline-link" href="/en/projects/samsung"><strong>Samsung</strong></a>, that meant seeding
             pre-launch coverage that{' '}
-            <a className="service-inline-link" href="/projects/samsung">
+            <a className="service-inline-link" href="/en/projects/samsung">
               <strong>generated 84 momentum articles ahead of the event</strong>
             </a>. Speed and accuracy matter here: the right response, delivered to the right outlet at the right moment, can
             shape how a story develops before it hardens into a fixed narrative.
@@ -106,11 +107,11 @@ const mediaMonitoringConfig = {
     paragraphs: [
       'We tell you what actually requires attention, not simply what was published.',
       'Our monitoring work tracks the source, the context and the direction a story is taking, so decisions are based on a clear read of the coverage rather than a raw count of mentions.',
-      'Press and broadcast coverage are followed closely here; how a story moves across social platforms is picked up by Social PR, and the two inform one another.',
+      <>Press and broadcast coverage are followed closely here; how a story moves across social platforms is picked up by Social PR, and the two inform one another. When a risk becomes active, our <a className="service-inline-link" href="/en/services/crisis-communication">crisis alerts and response</a> work connects that signal to action.</>,
     ],
     statement: 'A clear view of the coverage is often what makes the right response possible.',
     buttonLabel: 'Discover Social PR',
-    buttonHref: '/services/social-pr',
+    buttonHref: '/en/services/social-pr',
     image: asset(
       '/assets/Media%20Monitoring_Approved%20Images/Media%20Monitoring_From%20Data%20to%20Story.png'
     ),
@@ -125,7 +126,7 @@ const mediaMonitoringConfig = {
     {
       question: 'How quickly can BOXCOM Africa respond to a live issue?',
       answer:
-        'The team is set up to respond while a conversation is still moving, once the facts, message and media access are in place. Dedicated rapid-response and out-of-hours coverage is available as a priority option within monitoring agreements.',
+        'Our media monitoring runs 24 hours a day, 7 days a week, so a live issue can be spotted as soon as it is published. The team then assesses how it is spreading and recommends whether to contain it or respond while the conversation is still moving.',
     },
     {
       question: 'How does monitoring support crisis management and consultancy?',
@@ -133,7 +134,7 @@ const mediaMonitoringConfig = {
         <>
           Monitoring shows where the issue is moving. The team then assesses the risk, prepares the response and
           recommends whether clarification, direct engagement or wider action is needed.{' '}
-          <a href="/services/media-relations">Learn more about crisis management and consultancy on the Media Relations page.</a>
+          <a href="/en/services/media-relations">Learn more about crisis management and consultancy on the Media Relations page.</a>
         </>
       ),
     },

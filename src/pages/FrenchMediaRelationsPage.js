@@ -44,7 +44,7 @@ const frenchMediaRelationsConfig = {
       'Développement du récit et de l’angle',
       'Prospection auprès des journalistes et rédacteurs',
       'Accompagnement aux interviews et porte-paroles',
-      'Correction du récit et conseil en gestion de crise',
+      <a className="service-inline-link" href="/services/communication-de-crise">Correction du récit et conseil en gestion de crise</a>,
     ],
   },
   process: {
@@ -56,9 +56,9 @@ const frenchMediaRelationsConfig = {
           <>
             Nous identifions ce qui est réellement digne d’intérêt, ce qui l’étaye et quels médias sont susceptibles
             de s’y intéresser. Pour{' '}
-            <a className="service-inline-link" href="/projects/dilitrust"><strong>DiliTrust</strong></a>, cela
+            <a className="service-inline-link" href="/en/projects/dilitrust"><strong>DiliTrust</strong></a>, cela
             s’est traduit par une approche ciblant{' '}
-            <a className="service-inline-link" href="/projects/dilitrust">
+            <a className="service-inline-link" href="/en/projects/dilitrust">
               <strong>quatre catégories de médias distinctes, des médias économiques aux médias panafricains</strong>
             </a>. Nous développons et plaçons des sujets, organisons des interviews et identifions les opportunités
             éditoriales pertinentes. Ces relations nous donnent une lecture concrète des médias auxquels une histoire
@@ -74,9 +74,9 @@ const frenchMediaRelationsConfig = {
           <>
             Nous approchons directement journalistes et rédacteurs, en adaptant l’angle, le ton et le contexte à
             chaque catégorie de médias. Pour{' '}
-            <a className="service-inline-link" href="/projects/eqdom"><strong>EQDOM</strong></a>, cette approche
+            <a className="service-inline-link" href="/en/projects/eqdom"><strong>EQDOM</strong></a>, cette approche
             ciblée a contribué à générer{' '}
-            <a className="service-inline-link" href="/projects/eqdom">
+            <a className="service-inline-link" href="/en/projects/eqdom">
               <strong>67 articles et à toucher plus de 2,1 millions de personnes à travers les deux campagnes</strong>
             </a>. Chaque prise de contact est ajustée au positionnement du média, au domaine couvert par le journaliste
             et à l’audience visée, afin de construire une relation de confiance et d’obtenir une couverture pertinente
@@ -92,12 +92,12 @@ const frenchMediaRelationsConfig = {
           <>
             Nous gérons les interviews, le suivi et la couverture du début à la fin, en restant attentifs à
             l’évolution de l’histoire après sa publication. Pour{' '}
-            <a className="service-inline-link" href="/projects/ntt-data"><strong>NTT DATA</strong></a>, cela s’est
+            <a className="service-inline-link" href="/en/projects/ntt-data"><strong>NTT DATA</strong></a>, cela s’est
             traduit par{' '}
-            <a className="service-inline-link" href="/projects/ntt-data">
+            <a className="service-inline-link" href="/en/projects/ntt-data">
               <strong>une interview d’un dirigeant dans La Vie Eco</strong>
             </a>, accompagnée de{' '}
-            <a className="service-inline-link" href="/projects/ntt-data"><strong>plus de 25 articles publiés</strong></a>.
+            <a className="service-inline-link" href="/en/projects/ntt-data"><strong>plus de 25 articles publiés</strong></a>.
             Si certains faits sont omis, mal cités ou déformés en cours de route, nous intervenons pour rétablir le bon
             contexte dans la conversation médiatique.
           </>
@@ -118,9 +118,9 @@ const frenchMediaRelationsConfig = {
         soit rétabli dans la conversation.
       </>,
     ],
-    statement: <>La veille médiatique fournit souvent l’alerte précoce.</>,
+    statement: <>La veille médiatique fournit souvent l’alerte précoce. Quand une histoire dérape, l’issue dépend de ceux qui vous connaissent déjà. Découvrez comment nous <a href="/services/communication-de-crise">préparons et gérons une crise</a>.</>,
     buttonLabel: 'Découvrir Veille média',
-    buttonHref: '/fr/services/media-monitoring',
+    buttonHref: '/services/media-monitoring',
     image: asset('/assets/Media%20Relations_Approved%20Images/media-relations-coverage-wrong.png'),
     imageAlt: 'Une main empêchant des blocs de tomber sur une rangée stable',
   },
@@ -145,6 +145,10 @@ const frenchMediaRelationsConfig = {
       question: 'Pouvez-vous préparer un porte-parole qui n’a jamais fait face aux médias ?',
       answer:
         'Oui. La préparation couvre le message principal, les questions probables et difficiles, les faits à l’appui et le format même de l’interview, afin que le porte-parole sache ce que le journaliste attend et où se situent les limites.',
+    },
+    {
+      question: 'Dans quelles langues BOXCOM Africa peut-elle travailler ?',
+      answer: 'Nous travaillons en français, arabe, anglais, portugais, tamazight.',
     },
   ],
   contact: {

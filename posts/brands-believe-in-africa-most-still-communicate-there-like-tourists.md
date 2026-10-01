@@ -36,9 +36,9 @@ Our role is to bridge global brand strategies with local cultural, linguistic an
 :::section layout="text"
 ## What We Do
 
-Day to day, that is mostly unglamorous work. Building the contact list for a specific announcement instead of blasting one. Preparing the spokesperson before the interview rather than after it. Writing the release in the language the outlet actually publishes in. Around that sit the things a campaign needs to hold together: the messaging, the press events, the monitoring that tells you whether any of it landed, and the crisis plan nobody wants to use.
+Day to day, that is mostly unglamorous work. Building the contact list for a specific announcement instead of blasting one. Preparing the spokesperson before the interview rather than after it. Writing the release in the language the outlet actually publishes in. Around that sit the things a campaign needs to hold together: the messaging, the press events, the monitoring that tells you whether any of it landed, and [the crisis plan nobody wants to use](/en/services/crisis-communication).
 
-All of it in French, Arabic and English, and in Tamazight where the audience calls for it.
+All of it in French, Arabic, English and Portuguese, and in Tamazight where the audience calls for it.
 :::
 
 :::section layout="text"
@@ -72,7 +72,7 @@ Brands do not need to communicate identically everywhere to remain consistent. T
 :::section layout="text"
 ## What's Next on This Blog
 
-In the coming weeks we will publish what we have learned about [the gap between translation and localization](/blog/what-gets-lost-between-translation-and-localization), [how we select journalists in Moroccan and African markets](/blog/what-makes-a-journalist-take-your-call), and [what major sponsorships teach us about cultural relevance](/blog/what-afcon-2025-taught-brands-in-morocco-about-the-2030-world-cup).
+In the coming weeks we will publish what we have learned about [the gap between translation and localization](/en/blog/what-gets-lost-between-translation-and-localization), [how we select journalists in Moroccan and African markets](/en/blog/what-makes-a-journalist-take-your-call), and [what major sponsorships teach us about cultural relevance](/en/blog/what-afcon-2025-taught-brands-in-morocco-about-the-2030-world-cup).
 
-Expanding into or across African markets? [Tell us where you want to go, and we will show you how to get there.](/contact)
+Expanding into or across African markets? [Tell us where you want to go, and we will show you how to get there.](/en/contact?from=blog-africa)
 :::

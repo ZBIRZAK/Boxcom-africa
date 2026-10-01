@@ -79,7 +79,7 @@ And there is the simple matter of arriving early enough to be believed. A brand 
 
 The rehearsal is over. What is worth asking is not what brands did during AFCON, but what they took from it, and whether they are using the time they still have.
 
-[Thinking about where your brand sits in the next five years of Moroccan sport? That conversation is better had now than in 2029.](/contact)
+[Thinking about where your brand sits in the next five years of Moroccan sport? That conversation is better had now than in 2029.](/en/contact?from=blog-afcon)
 
-This is one of four articles on how communication works across African markets. The others cover [what makes a journalist take your call](/blog/what-makes-a-journalist-take-your-call), and [what gets lost between translating a campaign and localizing it](/blog/what-gets-lost-between-translation-and-localization).
+This is one of four articles on how communication works across African markets. The others cover [what makes a journalist take your call](/en/blog/what-makes-a-journalist-take-your-call), and [what gets lost between translating a campaign and localizing it](/en/blog/what-gets-lost-between-translation-and-localization).
 :::

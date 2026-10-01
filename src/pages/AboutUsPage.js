@@ -29,8 +29,7 @@ const values = [
 const faqItems = [
   {
     question: 'What is BOXCOM Africa?',
-    answer:
-      'BOXCOM Africa is a Press Relations agency in Morocco and the PR arm of BOXCOM, based in Casablanca and focused on media relations, crisis management and consultancy, PR content, media monitoring, Social PR and influencer relations.',
+    answer: <>BOXCOM Africa is a Press Relations agency in Morocco and the PR arm of BOXCOM, based in Casablanca and focused on media relations, <a className="service-inline-link" href="/en/services/crisis-communication">crisis management</a> and consultancy, PR content, media monitoring, Social PR and influencer relations.</>,
   },
   {
     question: 'How is BOXCOM Africa connected to BOXCOM?',
@@ -46,6 +45,10 @@ const faqItems = [
     question: 'Why does BOXCOM Africa work with in-market partners?',
     answer:
       'Because regional work needs local judgment. Partners help ensure stories are adapted to the language, culture and media expectations of each market.',
+  },
+  {
+    question: 'Which languages does BOXCOM Africa work in?',
+    answer: 'BOXCOM Africa works in French, Arabic, English and Portuguese, and in Tamazight where the audience calls for it.',
   },
 ];
 

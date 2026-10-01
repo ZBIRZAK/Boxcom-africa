@@ -47,9 +47,9 @@ const SocialPRPageConfig = {
           <>
             We define what must remain consistent as the story moves across channels, so the core message holds as
             coverage develops. For{' '}
-            <a className="service-inline-link" href="/projects/samsung"><strong>Samsung Galaxy S26</strong></a>, that meant
+            <a className="service-inline-link" href="/en/projects/samsung"><strong>Samsung Galaxy S26</strong></a>, that meant
             monitoring{' '}
-            <a className="service-inline-link" href="/projects/samsung">
+            <a className="service-inline-link" href="/en/projects/samsung">
               <strong>246 articles across 131 outlets, including 149 Tier 1 placements</strong>
             </a>. This tracking protects
             the meaning behind the story, showing how the narrative travels while ensuring reach and speed never come
@@ -67,8 +67,8 @@ const SocialPRPageConfig = {
           <>
             We track the content, reach and level of amplification across each platform and market, since performance
             on one channel rarely reflects how a story travels elsewhere. For{' '}
-            <a className="service-inline-link" href="/projects/elm"><strong>ELM</strong></a>, that meant monitoring{' '}
-            <a className="service-inline-link" href="/projects/elm">
+            <a className="service-inline-link" href="/en/projects/elm"><strong>ELM</strong></a>, that meant monitoring{' '}
+            <a className="service-inline-link" href="/en/projects/elm">
               <strong>43 media placements across four countries and three languages, including 7 social media placements</strong>
             </a>. Each result was assessed across channels to understand where the story gained traction
             and how effectively it reached the audiences it was designed for.
@@ -85,8 +85,8 @@ const SocialPRPageConfig = {
           <>
             We watch how the story is being understood as it spreads, staying alert to where the meaning starts to
             shift from what was intended. For{' '}
-            <a className="service-inline-link" href="/projects/everis"><strong><em>Everis</em></strong></a>, that meant{' '}
-            <a className="service-inline-link" href="/projects/everis">
+            <a className="service-inline-link" href="/en/projects/everis"><strong><em>Everis</em></strong></a>, that meant{' '}
+            <a className="service-inline-link" href="/en/projects/everis">
               <strong><em>tracking coverage that reached 150,500+ estimated readers</em></strong>
             </a>. When the conversation
             begins to drift from the facts, we coordinate clarification or a direct response, keeping the narrative
@@ -106,13 +106,13 @@ const SocialPRPageConfig = {
       'A story only travels as far as the content built to carry it, and that groundwork happens well before any post goes live.',
       'Social PR shapes how a message moves and lands across platforms, adapting pace, tone and format to each audience.',
       <>
-        <a className="service-inline-link" href="/services/pr-content-creation">PR Content Creation</a> is where that
+        <a className="service-inline-link" href="/en/services/pr-content-creation">PR Content Creation</a> is where that
         message first takes shape, the copy, the visuals, the core narrative that everything downstream is built from.
       </>,
     ],
     statement: 'Strong content is what makes amplification worth doing in the first place.',
     buttonLabel: 'Discover PR Content Creation',
-    buttonHref: '/services/pr-content-creation',
+    buttonHref: '/en/services/pr-content-creation',
     image: asset('/assets/Social%20PR_Approved%20Images/Social%20PR_Where%20the%20Story%20Begins.png'),
     imageAlt: 'Two podcast hosts creating the content that starts a wider story',
   },
@@ -128,7 +128,7 @@ const SocialPRPageConfig = {
         <>
           The press angle, social content, monitoring and response are planned around the same story, so changes in
           one channel can inform the others.{' '}
-          <a className="service-inline-link" href="/services/media-relations">Explore Media Relations.</a>
+          <a className="service-inline-link" href="/en/services/media-relations">Explore Media Relations.</a>
         </>
       ),
     },

@@ -7,7 +7,7 @@ const config = {
   pageClassName: 'media-events-page media-events-page--fr',
   includedCtaLabel: 'Discuter des événements médias',
   processCtaLabel: 'Découvrir Relations médias',
-  processCtaHref: '/fr/services/media-relations',
+  processCtaHref: '/services/media-relations',
   includedHeading: <>Ce qui est<br />inclus</>,
   faqHeading: 'Questions fréquentes',
   seoTitle: 'Agence d’événements de presse au Maroc | BOXCOM Africa',
@@ -29,19 +29,19 @@ const config = {
     items: [
       {
         title: 'Façonner le moment presse',
-        description: <>Nous déterminons ce que l’événement doit révéler, expliquer ou rendre possible pour les médias. Nous concevons le format en fonction de ce que les journalistes doivent comprendre, voir ou demander. Pour <a className="service-inline-link" href="/projects/gwm"><strong>GWM</strong></a>, cela s’est traduit par la sélection de <a className="service-inline-link" href="/projects/gwm"><strong>44 journalistes issus de cinq secteurs</strong></a>. L’annonce, les intervenants, les dossiers de presse et la liste média sont conçus ensemble, et non comme des tâches événementielles distinctes.</>,
+        description: <>Nous déterminons ce que l’événement doit révéler, expliquer ou rendre possible pour les médias. Nous concevons le format en fonction de ce que les journalistes doivent comprendre, voir ou demander. Pour <a className="service-inline-link" href="/en/projects/gwm"><strong>GWM</strong></a>, cela s’est traduit par la sélection de <a className="service-inline-link" href="/en/projects/gwm"><strong>44 journalistes issus de cinq secteurs</strong></a>. L’annonce, les intervenants, les dossiers de presse et la liste média sont conçus ensemble, et non comme des tâches événementielles distinctes.</>,
         image: asset('/assets/Media%20Events_Approved%20Images/Media%20Events_Shape%20the%20Press%20Moment.jpg'),
         imageAlt: 'Une porte-parole interviewée par une journaliste',
       },
       {
         title: 'Préparer la salle',
-        description: <>Nous coordonnons la liste presse, les invitations, les documents, les porte-paroles et les détails pratiques autour d’une même histoire, afin que chaque élément serve un récit cohérent. Pour <a className="service-inline-link" href="/projects/samsung"><strong>Samsung</strong></a>, cela s’est traduit par le suivi du sentiment sur <a className="service-inline-link" href="/projects/samsung"><strong>246 articles et 131 médias</strong></a>. De la confirmation des présences au briefing des porte-paroles en passant par la préparation des dossiers de presse, nous gérons la logistique pour que les journalistes bénéficient d’une expérience fluide et bien organisée du début à la fin.</>,
+        description: <>Nous coordonnons la liste presse, les invitations, les documents, les porte-paroles et les détails pratiques autour d’une même histoire, afin que chaque élément serve un récit cohérent. Pour <a className="service-inline-link" href="/en/projects/samsung"><strong>Samsung</strong></a>, cela s’est traduit par le suivi du sentiment sur <a className="service-inline-link" href="/en/projects/samsung"><strong>246 articles et 131 médias</strong></a>. De la confirmation des présences au briefing des porte-paroles en passant par la préparation des dossiers de presse, nous gérons la logistique pour que les journalistes bénéficient d’une expérience fluide et bien organisée du début à la fin.</>,
         image: asset('/assets/Media%20Events_Approved%20Images/Media%20Events_Prepare%20the%20Room.jpg'),
         imageAlt: 'Des badges préparés pour les participants à un événement',
       },
       {
         title: 'Poursuivre la conversation',
-        description: <>Nous gérons les demandes post-événement, les interviews et le suivi afin que l’histoire se poursuive bien au-delà de la journée. Pour le lancement d’<a className="service-inline-link" href="/projects/agriedge"><strong>AquaEdge par AgriEdge</strong></a>, ce suivi a contribué à générer <a className="service-inline-link" href="/projects/agriedge"><strong>26 500 € d’AVE</strong></a>. Lorsque les journalistes reviennent avec des questions, demandent un accès supplémentaire ou approfondissent l’angle, nous restons mobilisés pour faire vivre l’histoire après l’événement.</>,
+        description: <>Nous gérons les demandes post-événement, les interviews et le suivi afin que l’histoire se poursuive bien au-delà de la journée. Pour le lancement d’<a className="service-inline-link" href="/en/projects/agriedge"><strong>AquaEdge par AgriEdge</strong></a>, ce suivi a contribué à générer <a className="service-inline-link" href="/en/projects/agriedge"><strong>26 500 € d’AVE</strong></a>. Lorsque les journalistes reviennent avec des questions, demandent un accès supplémentaire ou approfondissent l’angle, nous restons mobilisés pour faire vivre l’histoire après l’événement.</>,
         image: asset('/assets/Media%20Events_Approved%20Images/Media%20Events_Continue%20the%20Conversation.jpg'),
         imageAlt: 'Suivi média après un événement',
       },

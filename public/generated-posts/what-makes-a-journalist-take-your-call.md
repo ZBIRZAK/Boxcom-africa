@@ -49,9 +49,9 @@ The result is a short list instead of a long one. That is the point. Precision i
 :::
 
 :::section layout="text"
-## The Crisis Test
+## [The Crisis Test](/en/services/crisis-communication)
 
-The real argument for all of this is not the coverage. It is what happens on the day something goes wrong.
+The real argument for all of this is not the coverage. It is what happens on the day something goes wrong, when [crisis communication](/en/services/crisis-communication) has to move quickly.
 
 A crisis gives a brand hours, not weeks. A story is being written, a journalist is on deadline, and the company has one chance to be part of it rather than the subject of it. Everything depends on relationships that already exist, because there is no time to build any.
 
@@ -73,7 +73,7 @@ Memories are also longer. A journalist remembers the company that was unreachabl
 
 None of this can be bought at the moment it becomes useful. It is either already there or it is not.
 
-[Thinking about your media relations beyond the next announcement? That is the conversation we prefer to have.](/contact)
+[Thinking about your media relations beyond the next announcement? That is the conversation we prefer to have.](/en/contact?from=blog-journaliste)
 
-This is the third of four articles on how communication actually works across African markets. The others cover [why global campaigns underperform when they are translated rather than localized](/blog/what-gets-lost-between-translation-and-localization), and [what major brand moments teach about the difference between visibility and relevance](/blog/what-afcon-2025-taught-brands-in-morocco-about-the-2030-world-cup).
+This is the third of four articles on how communication actually works across African markets. The others cover [why global campaigns underperform when they are translated rather than localized](/en/blog/what-gets-lost-between-translation-and-localization), and [what major brand moments teach about the difference between visibility and relevance](/en/blog/what-afcon-2025-taught-brands-in-morocco-about-the-2030-world-cup).
 :::

@@ -279,9 +279,9 @@ function BlogIndex({ header, footer }) {
                 <PostDate>{featured.date}</PostDate>
                 <h2>{featured.title}</h2>
                 <p>{featured.excerpt}</p>
-                <a className="blog-button" href={`/blog/${featured.slug}`}>Read More</a>
+                <a className="blog-button" href={`/en/blog/${featured.slug}`}>Read More</a>
               </div>
-              <a className="blog-featured__image" href={`/blog/${featured.slug}`} aria-label={`Read ${featured.title}`}>
+              <a className="blog-featured__image" href={`/en/blog/${featured.slug}`} aria-label={`Read ${featured.title}`}>
                 <img src={featured.image} alt={featured.imageAlt} />
               </a>
             </article>
@@ -291,19 +291,19 @@ function BlogIndex({ header, footer }) {
               <div className="blog-grid">
                 {blogPosts.map((post) => (
                   <article className="blog-card" key={post.slug}>
-                    <a href={`/blog/${post.slug}`} className="blog-card__image">
+                    <a href={`/en/blog/${post.slug}`} className="blog-card__image">
                       <img src={post.image} alt={post.imageAlt} loading="lazy" />
                     </a>
-                    <h3><a href={`/blog/${post.slug}`}>{post.title}</a></h3>
+                    <h3><a href={`/en/blog/${post.slug}`}>{post.title}</a></h3>
                     <PostDate>{post.date}</PostDate>
                     <p>{post.excerpt}</p>
-                    <a className="blog-card__link" href={`/blog/${post.slug}`}>Read article →</a>
+                    <a className="blog-card__link" href={`/en/blog/${post.slug}`}>Read article →</a>
                   </article>
                 ))}
               </div>
             </section>
 
-            <a className="blog-button blog-index__more" href="/blog">See More</a>
+            <a className="blog-button blog-index__more" href="/en/blog">See More</a>
           </div>
         </div>
       </section>
@@ -440,7 +440,7 @@ function BlogArticle({ header, footer, post }) {
                 {tableOfContents.map((item) => (
                   <li key={item.id}>
                     <a
-                      href={`/blog/${post.slug}`}
+                      href={`/en/blog/${post.slug}`}
                       onClick={(event) => {
                         event.preventDefault();
                         document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -468,17 +468,17 @@ function BlogArticle({ header, footer, post }) {
             <div className="blog-related__grid">
               {relatedPosts.map((relatedPost) => (
                 <article className="blog-related__card" key={relatedPost.slug}>
-                  <a href={`/blog/${relatedPost.slug}`}>
+                  <a href={`/en/blog/${relatedPost.slug}`}>
                     <img src={relatedPost.image} alt={relatedPost.imageAlt} loading="lazy" />
                   </a>
                   <div>
-                    <h3><a href={`/blog/${relatedPost.slug}`}>{relatedPost.title}</a></h3>
+                    <h3><a href={`/en/blog/${relatedPost.slug}`}>{relatedPost.title}</a></h3>
                     <PostDate>{relatedPost.date}</PostDate>
                   </div>
                 </article>
               ))}
             </div>
-            <a className="blog-button blog-related__more" href="/blog">See More</a>
+            <a className="blog-button blog-related__more" href="/en/blog">See More</a>
           </div>
         </section>
       )}
@@ -538,10 +538,36 @@ function BlogPage({ header, footer, slug }) {
 
   useEffect(() => {
     const previousTitle = document.title;
+    const canonicalPath = post ? `/en/blog/${post.slug}` : '/en/blog';
+    const canonicalUrl = `https://www.boxcomafrica.com${canonicalPath}`;
+    const alternateDefinitions = [
+      { language: 'en', href: canonicalUrl },
+      { language: 'x-default', href: canonicalUrl },
+    ];
+    const alternateLinks = alternateDefinitions.map(({ language, href }) => {
+      let link = document.head.querySelector(`link[rel="alternate"][hreflang="${language}"]`);
+      const created = !link;
+      const previousHref = link?.getAttribute('href') || '';
+
+      if (!link) {
+        link = document.createElement('link');
+        link.setAttribute('rel', 'alternate');
+        link.setAttribute('hreflang', language);
+        document.head.appendChild(link);
+      }
+
+      link.setAttribute('href', href);
+      return { link, created, previousHref };
+    });
+
     document.title = post ? `${post.title} | BOXCOM Africa` : 'PR Insights and News | BOXCOM Africa';
     document.documentElement.scrollTop = 0;
     return () => {
       document.title = previousTitle;
+      alternateLinks.forEach(({ link, created, previousHref }) => {
+        if (created) link.remove();
+        else link.setAttribute('href', previousHref);
+      });
     };
   }, [post]);
 
@@ -551,7 +577,7 @@ function BlogPage({ header, footer, slug }) {
         {header}
         <section className="blog-not-found">
           <h1>Article Not Found</h1>
-          <a className="blog-button" href="/blog">Return to Our Blog</a>
+          <a className="blog-button" href="/en/blog">Return to Our Blog</a>
         </section>
         <BlogFooter footer={footer} />
       </main>

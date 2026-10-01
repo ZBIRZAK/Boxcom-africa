@@ -48,8 +48,8 @@ const mediaEventsConfig = {
           <>
             We decide what the event needs to reveal, explain or make possible for the media. We plan the format
             around what journalists need to understand, see or ask. For{' '}
-            <a className="service-inline-link" href="/projects/gwm"><strong>GWM</strong></a>, that meant{' '}
-            <a className="service-inline-link" href="/projects/gwm">
+            <a className="service-inline-link" href="/en/projects/gwm"><strong>GWM</strong></a>, that meant{' '}
+            <a className="service-inline-link" href="/en/projects/gwm">
               <strong><em>curating 44 journalists across five sectors</em></strong>
             </a>. The announcement, speakers, press
             materials and media list are developed together rather than as separate event tasks.
@@ -64,9 +64,9 @@ const mediaEventsConfig = {
           <>
             We coordinate the press list, invitations, materials, spokespeople and practical details around the same
             story, so every element supports one coherent narrative. For{' '}
-            <a className="service-inline-link" href="/projects/samsung"><strong><em>Samsung</em></strong></a>, that meant
+            <a className="service-inline-link" href="/en/projects/samsung"><strong><em>Samsung</em></strong></a>, that meant
             tracking sentiment across{' '}
-            <a className="service-inline-link" href="/projects/samsung"><strong>246 articles and 131 outlets</strong></a>.
+            <a className="service-inline-link" href="/en/projects/samsung"><strong>246 articles and 131 outlets</strong></a>.
             {' '}From confirming attendance to
             briefing spokespeople and preparing press kits, we handle the logistics so journalists get a smooth,
             well-organized experience from start to finish.
@@ -81,10 +81,10 @@ const mediaEventsConfig = {
           <>
             We handle post-event requests, interviews and follow-up so the story can continue well beyond attendance
             on the day. For{' '}
-            <a className="service-inline-link" href="/projects/agriedge">
+            <a className="service-inline-link" href="/en/projects/agriedge">
               <strong>AgriEdge&apos;s AquaEdge launch</strong>
             </a>, that follow-through helped drive a{' '}
-            <a className="service-inline-link" href="/projects/agriedge"><strong>26,500 € AVE</strong></a>. As
+            <a className="service-inline-link" href="/en/projects/agriedge"><strong>26,500 € AVE</strong></a>. As
             {' '}journalists reach out with questions, request additional access or
             develop the angle further, we stay engaged, keeping the story moving after the event ends.
           </>

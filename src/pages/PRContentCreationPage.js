@@ -50,13 +50,13 @@ const prContentCreationConfig = {
         description: (
           <>
             We identify the angle, essential facts and proof the audience needs before a single word gets written. For{' '}
-            <a className="service-inline-link" href="/projects/everis"><strong>Everis</strong></a>, this groundwork
+            <a className="service-inline-link" href="/en/projects/everis"><strong>Everis</strong></a>, this groundwork
             shaped everything that followed, ensuring the message held up
             under scrutiny, spoke directly to what the audience cared about, and gave the{' '}
-            <a className="service-inline-link" href="/projects/everis">
+            <a className="service-inline-link" href="/en/projects/everis">
               <strong><em>#Maghankhtarchi</em></strong>
             </a>{' '}campaign —{' '}
-            <a className="service-inline-link" href="/projects/everis">
+            <a className="service-inline-link" href="/en/projects/everis">
               <strong><em>70+ articles, 324 mentions</em></strong>
             </a>{' '}—
             its footing from the start.
@@ -72,8 +72,8 @@ const prContentCreationConfig = {
             The format, tone and level of detail all shift depending on who receives the message, and we monitor how
             that content performs once published. A press release reads differently than an executive briefing; a
             story for specialist media carries a different weight than one built for economic press. For{' '}
-            <a className="service-inline-link" href="/projects/agriedge"><strong>AgriEdge</strong></a>, monitoring showed{' '}
-            <a className="service-inline-link" href="/projects/agriedge">
+            <a className="service-inline-link" href="/en/projects/agriedge"><strong>AgriEdge</strong></a>, monitoring showed{' '}
+            <a className="service-inline-link" href="/en/projects/agriedge">
               <strong>19 articles reproduced over 90% of the original release</strong>
             </a>, helping us assess how effectively
             each message landed with its audience.
@@ -88,9 +88,9 @@ const prContentCreationConfig = {
           <>
             We develop the materials needed across the program, whatever form they take, while monitoring how the
             central story carries from one placement to the next. For{' '}
-            <a className="service-inline-link" href="/projects/dilitrust"><strong><em>DiliTrust</em></strong></a>, that meant
+            <a className="service-inline-link" href="/en/projects/dilitrust"><strong><em>DiliTrust</em></strong></a>, that meant
             tracking coverage across{' '}
-            <a className="service-inline-link" href="/projects/dilitrust">
+            <a className="service-inline-link" href="/en/projects/dilitrust">
               <strong><em>12 Moroccan outlets and 1 pan-African publication</em></strong>
             </a>. Press
             releases, briefing documents and market-specific versions all draw from the same core narrative, helping
@@ -108,14 +108,14 @@ const prContentCreationConfig = {
       'The same story often needs more than one voice to carry it, especially once the message is set and needs somewhere real to travel.',
       'Our PR content creation shapes the message, the visuals and the narrative around a brand: we define the story, build the assets and set the tone before anything goes out.',
       <>
-        <a className="service-inline-link" href="/services/influencer-relations">Influencer Relations</a> then puts
+        <a className="service-inline-link" href="/en/services/influencer-relations">Influencer Relations</a> then puts
         that message in front of audiences through voices they already trust, matching creators to the story and the
         market it needs to reach.
       </>,
     ],
     statement: 'Content sets the direction, Influencer Relations gives it a voice people already trust.',
     buttonLabel: 'Discover Influencer Relations',
-    buttonHref: '/services/influencer-relations',
+    buttonHref: '/en/services/influencer-relations',
     image: asset(
       '/assets/PR%20Content%20Creation_Approved%20Images/pr-content-message-to-messenger.png'
     ),

@@ -9,16 +9,19 @@ const port = Number(process.env.HTTP_VALIDATION_PORT || 3107);
 const productionDomain = 'https://www.boxcomafrica.com';
 const userAgents = ['Mozilla/5.0', 'Googlebot', 'GPTBot', 'ChatGPT-User', 'ClaudeBot'];
 const pageExpectations = {
-  '/': { lang: 'en', h1: 'PR Agency in Morocco for Africa' },
-  '/fr': { lang: 'fr', h1: 'Agence RP au Maroc tournée vers l’Afrique' },
-  '/about': { lang: 'en', h1: 'Who We Are' },
-  '/fr/about': { lang: 'fr', h1: 'À propos de BOXCOM Africa' },
-  '/services': { lang: 'en', h1: 'PR Services in Morocco for Africa' },
-  '/services/media-relations': { lang: 'en', h1: 'Media Relations' },
-  '/fr/services/media-relations': { lang: 'fr', h1: 'Relations médias' },
-  '/projects': { lang: 'en', h1: 'Our Projects' },
-  '/blog': { lang: 'en', h1: 'Our Blog' },
-  '/blog/what-makes-a-journalist-take-your-call': { lang: 'en', h1: 'What Makes a Journalist Take Your Call?' },
+  '/': { lang: 'fr', h1: 'Agence RP au Maroc tournée vers l’Afrique' },
+  '/en': { lang: 'en', h1: 'PR Agency in Morocco for Africa' },
+  '/about': { lang: 'fr', h1: 'À propos de BOXCOM Africa' },
+  '/en/about': { lang: 'en', h1: 'Who We Are' },
+  '/services': { lang: 'fr', h1: "Services RP au Maroc, tournés vers l'Afrique" },
+  '/en/services': { lang: 'en', h1: 'PR Services in Morocco for Africa' },
+  '/services/media-relations': { lang: 'fr', h1: 'Relations médias' },
+  '/en/services/media-relations': { lang: 'en', h1: 'Media Relations' },
+  '/services/communication-de-crise': { lang: 'fr', h1: 'Communication de crise' },
+  '/en/services/crisis-communication': { lang: 'en', h1: 'Crisis Communication' },
+  '/en/projects': { lang: 'en', h1: 'Our Projects' },
+  '/en/blog': { lang: 'en', h1: 'Our Blog' },
+  '/en/blog/what-makes-a-journalist-take-your-call': { lang: 'en', h1: 'What Makes a Journalist Take Your Call?' },
 };
 
 const server = spawn(process.execPath, [path.join(root, 'server', 'index.js')], {
@@ -93,7 +96,7 @@ const ready = new Promise((resolve, reject) => {
         const language = response.body.match(/<html lang="([^"]+)"/i)?.[1];
         const coreContent = visibleText(response.body.match(/<div id="root">([\s\S]*?)<\/div><\/body>/i)?.[1] || '');
 
-        if (!title || (title === 'PR Agency in Morocco for Africa | BOXCOM Africa' && pathname !== '/')) {
+        if (!title || (title === 'PR Agency in Morocco for Africa | BOXCOM Africa' && pathname !== '/en')) {
           throw new Error(`${pathname} returned the homepage title to ${userAgent}`);
         }
         if (canonical !== `${productionDomain}${pathname}`) throw new Error(`${pathname} has canonical ${canonical}`);
@@ -126,8 +129,36 @@ const ready = new Promise((resolve, reject) => {
     const redirect = await request('/about/?source=test');
     if (redirect.status !== 308 || redirect.headers.location !== '/about?source=test') throw new Error('Trailing-slash redirects are not canonical');
 
-    const head = await request('/services', { method: 'HEAD' });
-    if (head.status !== 200 || head.body) throw new Error('HEAD /services returned an invalid response');
+    const frenchRedirect = await request('/fr/about?source=test');
+    if (frenchRedirect.status !== 308 || frenchRedirect.headers.location !== '/about?source=test') {
+      throw new Error('Legacy French routes do not redirect to the new canonical URL');
+    }
+
+    const legacyFrenchBlog = await request('/fr/blog/what-makes-a-journalist-take-your-call?source=test');
+    if (legacyFrenchBlog.status !== 308 || legacyFrenchBlog.headers.location !== '/en/blog/what-makes-a-journalist-take-your-call?source=test') {
+      throw new Error('Legacy French blog URLs do not redirect to the existing English articles');
+    }
+
+    const attributedContact = await request('/contact?from=crisis');
+    const attributedCanonical = attributedContact.body.match(/<link rel="canonical" href="([^"]+)"/i)?.[1];
+    if (attributedContact.status !== 200 || attributedCanonical !== `${productionDomain}/contact`) {
+      throw new Error('Attributed contact URL does not preserve the parameter-free canonical');
+    }
+
+    const attributedEnglishContact = await request('/en/contact?from=crisis');
+    const attributedEnglishCanonical = attributedEnglishContact.body.match(/<link rel="canonical" href="([^"]+)"/i)?.[1];
+    if (attributedEnglishContact.status !== 200 || attributedEnglishCanonical !== `${productionDomain}/en/contact`) {
+      throw new Error('Attributed English contact URL does not preserve the parameter-free canonical');
+    }
+
+    const crisisPage = await request('/services/communication-de-crise');
+    const crisisCtas = crisisPage.body.match(/href="\/contact\?from=crisis"/g) || [];
+    if (crisisCtas.length !== 2 || !crisisPage.body.includes('name="from" value="crisis"')) {
+      throw new Error('Crisis CTAs or hidden attribution field are not configured correctly');
+    }
+
+    const head = await request('/en/services', { method: 'HEAD' });
+    if (head.status !== 200 || head.body) throw new Error('HEAD /en/services returned an invalid response');
 
     console.log(`HTTP acceptance tests passed on localhost:${port} for ${Object.keys(pageExpectations).length} pages and ${userAgents.length} user agents.`);
   } finally {

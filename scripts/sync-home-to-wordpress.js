@@ -311,7 +311,7 @@ async function syncServicesPage() {
       <img src="${escapeHtml(service.imageUrl)}" alt="${escapeHtml(service.imageAlt)}">
       <h3>${escapeHtml(service.title)}</h3>
       <p>${escapeHtml(service.description)}</p>
-      <a href="/services/${escapeHtml(service.slug)}">Learn More</a>
+      <a href="/en/services/${escapeHtml(service.slug)}">Learn More</a>
     </article>`).join('');
   const faqHtml = page.faqs.map(([question, answer]) => `
     <details>
@@ -347,7 +347,7 @@ async function syncServicesPage() {
 <section data-section="contact">
   <h2>${escapeHtml(page.contact.title)}</h2>
   <p>${escapeHtml(page.contact.introduction)}</p>
-  <a href="/contact">${escapeHtml(page.contact.buttonLabel)}</a>
+  <a href="/en/contact">${escapeHtml(page.contact.buttonLabel)}</a>
 </section>`.trim();
 
   const existing = await request(`/wp/v2/pages?context=edit&slug=${page.slug}&per_page=1`);
@@ -464,7 +464,7 @@ async function syncProjects() {
       fields: {
         category,
         project_image: imageId,
-        case_study_link: slug === 'defacto' ? { url: '/projects/defacto', title: 'View case study', target: '' } : '',
+        case_study_link: slug === 'defacto' ? { url: '/en/projects/defacto', title: 'View case study', target: '' } : '',
         show_on_homepage: true,
       },
     });
