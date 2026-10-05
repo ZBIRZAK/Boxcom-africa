@@ -169,13 +169,6 @@ const fallbackProjectItems = [
     href: '/en/projects/gwm',
   },
   {
-    label: 'Garena',
-    title: 'Garena',
-    category: 'Gaming Community',
-    image: `${process.env.PUBLIC_URL}/assets/CaseStudy_Approved%20Images/Garena_CaseStudy.png`,
-    href: '/en/projects',
-  },
-  {
     label: 'Mifa',
     title: 'MIFA',
     category: 'Exhibition Presence',

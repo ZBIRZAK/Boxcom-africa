@@ -10,6 +10,13 @@
   margin-left: auto;
 }
 
+.about-origin .about-page__frame,
+.about-entities .about-page__frame,
+.about-values .about-page__frame,
+.about-faq .about-page__frame {
+  width: min(var(--content-frame-width), 950px);
+}
+
 .about-intro {
   overflow: hidden;
   background: #ffffff;
@@ -24,7 +31,7 @@
 .about-intro__copy {
   position: relative;
   z-index: 2;
-  /* width: min(100%, 950px); */
+  width: min(100%, 950px);
   margin-right: auto;
   margin-left: auto;
 }
@@ -100,17 +107,18 @@
 }
 
 .about-intro__local-copy {
+  width: min(100%, 430px);
   margin-top: 0 !important;
 }
 
 .about-intro__local-copy h2 {
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .about-intro__local-region {
   position: relative;
   z-index: 2;
-  /* width: min(100%, 1160px); */
+  width: min(100%, 950px);
   margin: 20px auto 0;
 }
 
@@ -126,16 +134,42 @@
   width: min(72vw, 960px);
   max-width: none;
   height: auto;
-  margin: -40px calc(460px - 50vw) -260px 26px;
+  margin: -140px calc(180px - 50vw) -260px 26px;
   shape-outside: circle(48% at 50% 50%);
   shape-margin: 28px;
+}
+
+@media (min-width: 901px) {
+  .about-intro__local-region {
+    display: grid;
+    grid-template-columns: minmax(0, 430px) minmax(0, 1fr);
+    column-gap: 40px;
+    align-items: start;
+  }
+
+  .about-intro__local-copy {
+    position: relative;
+    z-index: 2;
+    grid-column: 1;
+    width: 100%;
+  }
+
+  .about-intro__globe {
+    float: none;
+    grid-column: 2;
+    grid-row: 1;
+    width: min(72vw, 960px);
+    margin: 0 0 -260px;
+    transform: translate(40px, -100px);
+    shape-outside: none;
+  }
 }
 
 .about-origin {
   position: relative;
   z-index: 3;
   overflow: hidden;
-  margin-top: -120px;
+  margin-top: -300px;
   padding: var(--section-space-y) 0;
   background: #60a1ad;
 }

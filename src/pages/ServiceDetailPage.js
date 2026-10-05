@@ -93,7 +93,9 @@ function ServiceDetailPage({ config, header, footer }) {
             {config.process.items.map((item, index) => (
               <article key={item.title} className={`influencer-process__item${index % 2 ? ' is-reversed' : ''}`}>
                 {item.image ? (
-                  <img src={item.image} alt={item.imageAlt || ''} loading="lazy" />
+                  <figure className="influencer-process__matched-image">
+                    <img src={item.image} alt={item.imageAlt || ''} loading="lazy" />
+                  </figure>
                 ) : (
                   <div className="influencer-process__visual" role="img" aria-label={item.imageAlt || item.visualLabel}>
                     <span>{item.visualLabel}</span>

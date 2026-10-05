@@ -453,7 +453,6 @@ async function syncProjects() {
     ['inDrive', 'indrive', 'Media Relations', 'public/assets/CaseStudy_Approved Images/InDrive_CaseStudy.png'],
     ['Samsung', 'samsung', 'Product Launch', 'public/assets/CaseStudy_Approved Images/Samsung_Case_Study.png'],
     ['GWM', 'gwm', 'Media Events', 'public/assets/CaseStudy_Approved Images/GWM_CaseStudy.png'],
-    ['Garena', 'garena', 'Gaming Community', 'public/assets/CaseStudy_Approved Images/Garena_CaseStudy.png'],
     ['MIFA', 'mifa', 'Exhibition Presence', 'public/assets/CaseStudy_Approved Images/Mifa_CaseStudy.png'],
     ['DeFacto', 'defacto', 'Celebrity PR', 'public/assets/CaseStudy_Approved Images/Defacto_Case Study.png'],
   ];

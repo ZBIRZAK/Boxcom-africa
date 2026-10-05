@@ -163,14 +163,6 @@ const projects = [
     ],
   },
   {
-    name: 'Garena',
-    industry: 'Video Games',
-    service: 'Social PR',
-    services: ['Social PR'],
-    useCase: 'Community',
-    href: '/en/projects',
-  },
-  {
     name: 'inDrive Algeria',
     industry: 'Transportation',
     service: 'Media Relations',
