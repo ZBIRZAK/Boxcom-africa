@@ -197,15 +197,32 @@ function MarkdownContent({ source }) {
   });
 }
 
-function BlogFooter({ footer }) {
+const blogCopy = {
+  en: {
+    title: 'Our Blog', latest: 'Latest Posts', readMore: 'Read More', readArticle: 'Read article →', seeMore: 'See More',
+    related: 'Related Articles', contents: 'Table of Contents', writtenBy: 'Written by:', published: 'Published:', insights: 'Insights',
+    notFound: 'Article Not Found', returnToBlog: 'Return to Our Blog', loadError: 'We could not load this article. Please try again.', loading: 'Loading article…',
+    footerTitle: 'Talk Through the Brief', footerIntro: 'Tell us the story, the market and the timing. A senior member of the team will help identify the questions worth answering first.',
+    name: 'Your Name *', fullName: 'Your Full Name', company: 'Your Company *', email: 'Your Email *', message: 'Message', messagePlaceholder: 'Type your message here.', send: 'Send Message',
+    newsletterTitle: 'Stay Informed On Everything PR!', newsletterText: 'Join our newsletter and receive articles, studies and PR tips.', newsletterPromise: 'We promise to keep your email safe!', emailPlaceholder: 'Your email address', close: 'Close newsletter signup', subscribe: 'Subscribe to the newsletter',
+  },
+  fr: {
+    title: 'Notre Blog', latest: 'Derniers articles', readMore: 'Lire la suite', readArticle: 'Lire l’article →', seeMore: 'Voir plus',
+    related: 'Articles associés', contents: 'Sommaire', writtenBy: 'Écrit par :', published: 'Publié le :', insights: 'Analyses',
+    notFound: 'Article introuvable', returnToBlog: 'Retour au blog', loadError: 'Impossible de charger cet article. Veuillez réessayer.', loading: 'Chargement de l’article…',
+    footerTitle: 'Discuter du brief', footerIntro: 'Racontez-nous l’histoire, le marché et le timing. Un membre senior de l’équipe vous aidera à identifier les questions à traiter en priorité.',
+    name: 'Votre nom *', fullName: 'Votre nom complet', company: 'Votre entreprise *', email: 'Votre e-mail *', message: 'Message', messagePlaceholder: 'Écrivez votre message ici.', send: 'Envoyer le message',
+    newsletterTitle: 'Restez au courant de l’actualité RP !', newsletterText: 'Recevez nos articles, études et conseils RP.', newsletterPromise: 'Votre adresse e-mail restera confidentielle.', emailPlaceholder: 'Votre adresse e-mail', close: 'Fermer l’inscription à la newsletter', subscribe: 'S’inscrire à la newsletter',
+  },
+};
+
+function BlogFooter({ footer, language = 'en' }) {
+  const copy = blogCopy[language];
   return (
     <section className="contact-section blog-contact">
       <div className="contact-section__inner">
-        <h2 className="contact-section__title">Talk Through the Brief</h2>
-        <p className="contact-section__intro">
-          Tell us the story, the market and the timing. A senior member of the team will help identify the questions
-          worth answering first.
-        </p>
+        <h2 className="contact-section__title">{copy.footerTitle}</h2>
+        <p className="contact-section__intro">{copy.footerIntro}</p>
 
         <div className="contact-section__top">
           <div className="contact-map">
@@ -220,23 +237,23 @@ function BlogFooter({ footer }) {
           <form className="contact-form" onSubmit={(event) => event.preventDefault()}>
             <div className="contact-form__row">
               <label>
-                <span>Your Name *</span>
-                <input type="text" name="name" placeholder="Your Full Name" autoComplete="name" required />
+                <span>{copy.name}</span>
+                <input type="text" name="name" placeholder={copy.fullName} autoComplete="name" required />
               </label>
               <label>
-                <span>Your Company *</span>
-                <input type="text" name="company" placeholder="Your Company" autoComplete="organization" required />
+                <span>{copy.company}</span>
+                <input type="text" name="company" placeholder={copy.company.replace(' *', '')} autoComplete="organization" required />
               </label>
             </div>
             <label>
-              <span>Your Email *</span>
-              <input type="email" name="email" placeholder="Your Email" autoComplete="email" required />
+              <span>{copy.email}</span>
+              <input type="email" name="email" placeholder={copy.email.replace(' *', '')} autoComplete="email" required />
             </label>
             <label>
-              <span>Message</span>
-              <textarea placeholder="Type your message here." rows="5" />
+              <span>{copy.message}</span>
+              <textarea placeholder={copy.messagePlaceholder} rows="5" />
             </label>
-            <button type="submit" className="primary-pink-button contact-form__submit">Send Message</button>
+            <button type="submit" className="primary-pink-button contact-form__submit">{copy.send}</button>
           </form>
         </div>
 
@@ -250,18 +267,20 @@ function PostDate({ children }) {
   return <p className="blog-date"><span aria-hidden="true" />{children}</p>;
 }
 
-function BlogIndex({ header, footer }) {
-  const featured = blogPosts[0];
+function BlogIndex({ header, footer, language, posts }) {
+  const copy = blogCopy[language];
+  const blogRoot = language === 'fr' ? '/blog' : '/en/blog';
+  const featured = posts[0];
 
   if (!featured) {
     return (
       <main className="app blog-page">
         {header}
         <section className="blog-not-found">
-          <h1>Our Blog</h1>
+          <h1>{copy.title}</h1>
           <p>Add a Markdown file to the posts folder to publish the first article.</p>
         </section>
-        <BlogFooter footer={footer} />
+        <BlogFooter footer={footer} language={language} />
       </main>
     );
   }
@@ -271,7 +290,7 @@ function BlogIndex({ header, footer }) {
       {header}
       <section className="blog-index" aria-labelledby="blog-title">
         <div className="blog-frame">
-          <h1 id="blog-title">Our Blog</h1>
+          <h1 id="blog-title">{copy.title}</h1>
 
           <div className="blog-index__card">
             <article className="blog-featured">
@@ -279,40 +298,42 @@ function BlogIndex({ header, footer }) {
                 <PostDate>{featured.date}</PostDate>
                 <h2>{featured.title}</h2>
                 <p>{featured.excerpt}</p>
-                <a className="blog-button" href={`/en/blog/${featured.slug}`}>Read More</a>
+                <a className="blog-button" href={`${blogRoot}/${featured.slug}`}>{copy.readMore}</a>
               </div>
-              <a className="blog-featured__image" href={`/en/blog/${featured.slug}`} aria-label={`Read ${featured.title}`}>
+              <a className="blog-featured__image" href={`${blogRoot}/${featured.slug}`} aria-label={`${copy.readMore}: ${featured.title}`}>
                 <img src={featured.image} alt={featured.imageAlt} />
               </a>
             </article>
 
             <section className="blog-latest" aria-labelledby="latest-posts-title">
-              <h2 id="latest-posts-title">Latest Posts</h2>
+              <h2 id="latest-posts-title">{copy.latest}</h2>
               <div className="blog-grid">
-                {blogPosts.map((post) => (
+                {posts.map((post) => (
                   <article className="blog-card" key={post.slug}>
-                    <a href={`/en/blog/${post.slug}`} className="blog-card__image">
+                    <a href={`${blogRoot}/${post.slug}`} className="blog-card__image">
                       <img src={post.image} alt={post.imageAlt} loading="lazy" />
                     </a>
-                    <h3><a href={`/en/blog/${post.slug}`}>{post.title}</a></h3>
+                    <h3><a href={`${blogRoot}/${post.slug}`}>{post.title}</a></h3>
                     <PostDate>{post.date}</PostDate>
                     <p>{post.excerpt}</p>
-                    <a className="blog-card__link" href={`/en/blog/${post.slug}`}>Read article →</a>
+                    <a className="blog-card__link" href={`${blogRoot}/${post.slug}`}>{copy.readArticle}</a>
                   </article>
                 ))}
               </div>
             </section>
 
-            <a className="blog-button blog-index__more" href="/en/blog">See More</a>
+            <a className="blog-button blog-index__more" href={blogRoot}>{copy.seeMore}</a>
           </div>
         </div>
       </section>
-      <BlogFooter footer={footer} />
+      <BlogFooter footer={footer} language={language} />
     </main>
   );
 }
 
-function BlogArticle({ header, footer, post }) {
+function BlogArticle({ header, footer, post, language, posts }) {
+  const copy = blogCopy[language];
+  const blogRoot = language === 'fr' ? '/blog' : '/en/blog';
   const [markdown, setMarkdown] = useState(post.content || '');
   const [error, setError] = useState(false);
   const [isNewsletterOpen, setIsNewsletterOpen] = useState(false);
@@ -408,7 +429,7 @@ function BlogArticle({ header, footer, post }) {
     title: match[1].replace(/\*\*/g, '').replace(/\*/g, ''),
     id: headingId(match[1]),
   }));
-  const relatedPosts = blogPosts.filter((item) => item.slug !== post.slug).slice(0, 3);
+  const relatedPosts = posts.filter((item) => item.slug !== post.slug).slice(0, 3);
 
   return (
     <main className="app blog-page">
@@ -416,12 +437,12 @@ function BlogArticle({ header, footer, post }) {
       <header className="blog-post-hero">
         <div className="blog-post-hero__inner">
           <div className="blog-post-hero__copy">
-            <p className="blog-post-hero__category">{post.category || 'Insights'}</p>
+            <p className="blog-post-hero__category">{post.category || copy.insights}</p>
             <h1>{post.title}</h1>
             <p className="blog-post-hero__excerpt">{post.excerpt}</p>
             <div className="blog-post-hero__meta">
-              <p>Written by: <strong>{post.author || 'BOXCOM Africa Team'}</strong></p>
-              <p>Published: {post.date}</p>
+              <p>{copy.writtenBy} <strong>{post.author || 'BOXCOM Africa Team'}</strong></p>
+              <p>{copy.published} {post.date}</p>
             </div>
           </div>
           <div className="blog-post-hero__media">
@@ -434,13 +455,13 @@ function BlogArticle({ header, footer, post }) {
         <article className="blog-article">
           {post.bodyIntro && <p className="blog-article__lead">{post.bodyIntro}</p>}
           {tableOfContents.length > 0 && (
-            <nav className="blog-article__toc" aria-label="Table of contents">
-              <p className="blog-article__toc-title">Table of Contents</p>
+            <nav className="blog-article__toc" aria-label={copy.contents}>
+              <p className="blog-article__toc-title">{copy.contents}</p>
               <ul>
                 {tableOfContents.map((item) => (
                   <li key={item.id}>
                     <a
-                      href={`/en/blog/${post.slug}`}
+                      href={`${blogRoot}/${post.slug}`}
                       onClick={(event) => {
                         event.preventDefault();
                         document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -454,8 +475,8 @@ function BlogArticle({ header, footer, post }) {
             </nav>
           )}
           <div className="blog-article__content">
-            {error && <p>We could not load this article. Please try again.</p>}
-            {!error && !markdown && <p>Loading article…</p>}
+            {error && <p>{copy.loadError}</p>}
+            {!error && !markdown && <p>{copy.loading}</p>}
             {markdown && <MarkdownContent source={markdown} />}
           </div>
         </article>
@@ -464,26 +485,26 @@ function BlogArticle({ header, footer, post }) {
       {relatedPosts.length > 0 && (
         <section className="blog-related" aria-labelledby="related-articles-title">
           <div className="blog-related__inner">
-            <h2 id="related-articles-title">Related Articles</h2>
+            <h2 id="related-articles-title">{copy.related}</h2>
             <div className="blog-related__grid">
               {relatedPosts.map((relatedPost) => (
                 <article className="blog-related__card" key={relatedPost.slug}>
-                  <a href={`/en/blog/${relatedPost.slug}`}>
+                  <a href={`${blogRoot}/${relatedPost.slug}`}>
                     <img src={relatedPost.image} alt={relatedPost.imageAlt} loading="lazy" />
                   </a>
                   <div>
-                    <h3><a href={`/en/blog/${relatedPost.slug}`}>{relatedPost.title}</a></h3>
+                    <h3><a href={`${blogRoot}/${relatedPost.slug}`}>{relatedPost.title}</a></h3>
                     <PostDate>{relatedPost.date}</PostDate>
                   </div>
                 </article>
               ))}
             </div>
-            <a className="blog-button blog-related__more" href="/en/blog">See More</a>
+            <a className="blog-button blog-related__more" href={blogRoot}>{copy.seeMore}</a>
           </div>
         </section>
       )}
 
-      <BlogFooter footer={footer} />
+      <BlogFooter footer={footer} language={language} />
 
       {isNewsletterOpen && (
         <div
@@ -503,27 +524,27 @@ function BlogArticle({ header, footer, post }) {
             <button
               className="blog-newsletter-modal__close"
               type="button"
-              aria-label="Close newsletter signup"
+              aria-label={copy.close}
               onClick={closeNewsletter}
             >
               ×
             </button>
-            <h2 id="blog-newsletter-title">Stay Informed On Everything PR!</h2>
+            <h2 id="blog-newsletter-title">{copy.newsletterTitle}</h2>
             <p id="blog-newsletter-description">
-              Join our newsletter and receive articles, studies and PR tips.<br />
-              We promise to keep your email safe!
+              {copy.newsletterText}<br />
+              {copy.newsletterPromise}
             </p>
             <form className="blog-newsletter-modal__form newsletter-form">
               <span aria-hidden="true">@</span>
               <input
                 type="email"
                 name="newsletterEmail"
-                placeholder="Your email address"
-                aria-label="Your email address"
+                placeholder={copy.emailPlaceholder}
+                aria-label={copy.emailPlaceholder}
                 autoComplete="email"
                 required
               />
-              <button type="submit" aria-label="Subscribe to the newsletter">→</button>
+              <button type="submit" aria-label={copy.subscribe}>→</button>
             </form>
             <p className="newsletter-status" role="status" aria-live="polite" />
           </section>
@@ -533,16 +554,18 @@ function BlogArticle({ header, footer, post }) {
   );
 }
 
-function BlogPage({ header, footer, slug }) {
-  const post = slug ? blogPosts.find((item) => item.slug === slug) : null;
+function BlogPage({ header, footer, slug, language = 'en' }) {
+  const posts = blogPosts.filter((item) => (item.language || 'en') === language);
+  const post = slug ? posts.find((item) => item.slug === slug) : null;
+  const copy = blogCopy[language];
+  const blogRoot = language === 'fr' ? '/blog' : '/en/blog';
 
   useEffect(() => {
     const previousTitle = document.title;
-    const canonicalPath = post ? `/en/blog/${post.slug}` : '/en/blog';
-    const canonicalUrl = `https://www.boxcomafrica.com${canonicalPath}`;
     const alternateDefinitions = [
-      { language: 'en', href: canonicalUrl },
-      { language: 'x-default', href: canonicalUrl },
+      { language: 'en', href: `https://www.boxcomafrica.com/en/blog${post ? `/${post.slug}` : ''}` },
+      { language: 'fr', href: `https://www.boxcomafrica.com/blog${post ? `/${post.slug}` : ''}` },
+      { language: 'x-default', href: `https://www.boxcomafrica.com/blog${post ? `/${post.slug}` : ''}` },
     ];
     const alternateLinks = alternateDefinitions.map(({ language, href }) => {
       let link = document.head.querySelector(`link[rel="alternate"][hreflang="${language}"]`);
@@ -560,7 +583,7 @@ function BlogPage({ header, footer, slug }) {
       return { link, created, previousHref };
     });
 
-    document.title = post ? `${post.title} | BOXCOM Africa` : 'PR Insights and News | BOXCOM Africa';
+    document.title = post ? `${post.title} | BOXCOM Africa` : (language === 'fr' ? 'Actualités et analyses RP | BOXCOM Africa' : 'PR Insights and News | BOXCOM Africa');
     document.documentElement.scrollTop = 0;
     return () => {
       document.title = previousTitle;
@@ -569,24 +592,24 @@ function BlogPage({ header, footer, slug }) {
         else link.setAttribute('href', previousHref);
       });
     };
-  }, [post]);
+  }, [blogRoot, language, post]);
 
   if (slug && !post) {
     return (
       <main className="app blog-page">
         {header}
         <section className="blog-not-found">
-          <h1>Article Not Found</h1>
-          <a className="blog-button" href="/en/blog">Return to Our Blog</a>
+          <h1>{copy.notFound}</h1>
+          <a className="blog-button" href={blogRoot}>{copy.returnToBlog}</a>
         </section>
-        <BlogFooter footer={footer} />
+        <BlogFooter footer={footer} language={language} />
       </main>
     );
   }
 
   return post
-    ? <BlogArticle header={header} footer={footer} post={post} />
-    : <BlogIndex header={header} footer={footer} />;
+    ? <BlogArticle header={header} footer={footer} post={post} language={language} posts={posts} />
+    : <BlogIndex header={header} footer={footer} language={language} posts={posts} />;
 }
 
 export default BlogPage;

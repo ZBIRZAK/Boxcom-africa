@@ -2,12 +2,16 @@
 title: "What AFCON 2025 Taught Brands in Morocco About the 2030 World Cup"
 date: "2026-09-23"
 displayDate: "23 Sep, 2026"
-excerpt: "For a month, Morocco hosted the continent and every brand in the market tried to occupy the same moment. The ones who treated it as a rehearsal learned something they will need when the World Cup arrives."
+excerpt: "For a month, Morocco hosted the continent and every brand in the market tried to occupy the same moment. Most treated it as a campaign. The ones who treated it as a rehearsal learned something they will need when the World Cup arrives."
 image: "/assets/blog/afcon-2030/morocco-football-stadium.webp"
 imageAlt: "Moroccan football supporters filling a stadium during a night match"
+author: "BOXCOM Africa Team"
 category: "Brand Strategy"
 bodyIntro: "For a month, Morocco hosted the continent and every brand in the market tried to occupy the same moment. Most treated it as a campaign. The ones who treated it as a rehearsal learned something they will need when the World Cup arrives."
 featured: false
+language: "en"
+translationKey: "what-afcon-2025-taught-brands-in-morocco-about-the-2030-world-cup"
+slug: "what-afcon-2025-taught-brands-in-morocco-about-the-2030-world-cup"
 ---
 
 :::section layout="text"
@@ -15,7 +19,7 @@ featured: false
 
 Between 21 December 2025 and 18 January 2026, Morocco hosted the Africa Cup of Nations for the first time since 1988. For a month the country was the centre of African football, and every brand operating here understood that something worth being part of was happening.
 
-The commercial numbers tell you how many of them reached the same conclusion. CAF ended the tournament with twenty-three sponsors, up from seventeen in Côte d'Ivoire two years earlier and nine in Cameroon in 2021, with competition revenues rising more than ninety percent. Sponsors arrived from the United States, China, Germany, Japan, Türkiye and the United Kingdom, and the European Union took a sponsorship for the first time.
+The commercial numbers tell you how many of them reached the same conclusion. CAF ended the tournament with twenty-three sponsors, up from seventeen in Cote d'Ivoire two years earlier and nine in Cameroon in 2021, with competition revenues rising more than ninety percent. Sponsors arrived from the United States, China, Germany, Japan, Turkiye and the United Kingdom, and the European Union took a sponsorship for the first time.
 
 That growth is good news for African football. It is a harder problem for the brands involved. When the sponsor roster nearly triples in four years, holding official rights stops being a way to stand out. Everyone at that table is paying for access to the same attention, and the audience is not counting logos.
 
@@ -25,7 +29,7 @@ Which means the interesting question about AFCON 2025 is not who sponsored it. I
 :::section layout="text"
 ## The Best Campaign of the Tournament Was Not a Brand's
 
-The most complete piece of communication around AFCON 2025 came from the national tourism office. ONMT's "Land of Football" is worth studying closely, because it did almost everything a brand campaign at a major moment should do and almost nothing that brands actually did.
+The most complete piece of communication around AFCON 2025 came from the national tourism office. ONMT's “Land of Football” is worth studying closely, because it did almost everything a brand campaign at a major moment should do and almost nothing that brands actually did.
 
 It started early. The partnership with the football federation was formalised in April, eight months before a ball was kicked, which is why the campaign arrived finished rather than assembled in a hurry.
 
@@ -36,6 +40,8 @@ It went where the tournament was not. The official host cities were always going
 And it let other people carry the story. Alongside the film, which featured national team players next to youth athletes, twenty-four international creators documented their own experience of the country. That is a very different instinct from producing a single asset and buying its distribution.
 
 None of this was cheap or fast. All of it was decided months before the moment it was built for, which is the only part that cannot be bought later.
+
+[If your 2030 planning has not started, that eight month runway is the number to remember. Talk to us about what it would take to be ready.](/en/contact?from=blog-afcon)
 :::
 
 :::section layout="text"
@@ -69,13 +75,15 @@ A home tournament is the one moment when local brands hold an advantage that no 
 
 Morocco co-hosts the 2030 World Cup with Spain and Portugal. It is tempting to think of it as AFCON at a larger scale. It is a different kind of event.
 
-The press corps changes completely. AFCON brought international media to Morocco. A World Cup brings thousands of journalists, many of whom have never written about the country and will spend weeks looking for stories that are not football. Those stories will be about Moroccan business, culture, cities and people, and they will be written whether or not any Moroccan brand helps shape them.
+The press corps changes completely. AFCON brought international media to Morocco. A World Cup brings thousands of journalists, many of whom have never written about the country and will spend weeks looking for stories that are not football. Those stories will be about Moroccan business, culture, cities and people, and they will be written whether or not any brand here helps shape them.
 
 The timeline changes. A World Cup does not start when the tournament starts. Coverage builds for years through stadium construction, qualification, logistics and the slow international argument about whether the host is ready. Brands that appear in the final months arrive into a narrative that was settled without them.
 
-And the subject changes. At AFCON, the story was the football. In 2030 the story is partly Morocco itself, presented to an audience that mostly holds assumptions rather than knowledge. For a Moroccan company that is not a media opportunity, it is the single largest reputational window it will get in a generation.
+And the subject changes. At AFCON, the story was the football. In 2030 the story is partly Morocco itself, presented to an audience that mostly holds assumptions rather than knowledge. For a company operating here that is not a media opportunity, it is the single largest reputational window it will get in a generation.
 
 That also raises the cost of a misjudged tone. National pride is involved. A brand that gets the register wrong at a home World Cup will not simply be ignored.
+
+[A global press corps will arrive with questions about your company that nobody has asked yet. Mapping those now is a great deal cheaper than answering them live.](/en/contact?from=blog-afcon)
 :::
 
 :::section layout="text"

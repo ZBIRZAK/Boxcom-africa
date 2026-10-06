@@ -56,7 +56,7 @@ const frenchMenuItems = [
   { label: 'Accueil', href: '/' },
   { label: 'Services', href: '/services' },
   { label: 'Études de cas', href: '/en/projects' },
-  { label: 'Blog', href: '/en/blog' },
+  { label: 'Blog', href: '/blog' },
   { label: 'À propos', href: '/about' },
 ];
 
@@ -450,8 +450,12 @@ function App() {
   const isFrenchPRContentCreationPage = normalizedRoute === '/services/pr-content-creation';
   const isSocialPRPage = normalizedRoute === '/en/services/social-pr';
   const isFrenchSocialPRPage = normalizedRoute === '/services/social-pr';
-  const isBlogPage = normalizedRoute === '/en/blog' || normalizedRoute.startsWith('/en/blog/');
-  const blogSlug = normalizedRoute.startsWith('/en/blog/') ? normalizedRoute.slice('/en/blog/'.length) : '';
+  const isEnglishBlogPage = normalizedRoute === '/en/blog' || normalizedRoute.startsWith('/en/blog/');
+  const isFrenchBlogPage = normalizedRoute === '/blog' || normalizedRoute.startsWith('/blog/');
+  const isBlogPage = isEnglishBlogPage || isFrenchBlogPage;
+  const blogSlug = isEnglishBlogPage
+    ? normalizedRoute.slice('/en/blog/'.length)
+    : normalizedRoute.startsWith('/blog/') ? normalizedRoute.slice('/blog/'.length) : '';
   const isStandalonePage =
     isContactPage ||
     isFrenchContactPage ||
@@ -952,7 +956,7 @@ function App() {
           <a href={isFrench ? '/' : '/en'}>{isFrench ? 'ACCUEIL' : 'HOMEPAGE'}</a>
           <a href={isFrench ? '/services' : '/en/services'}>SERVICES</a>
           <a href="/en/projects">{isFrench ? 'ÉTUDES DE CAS' : 'PROJECTS'}</a>
-          <a href="/en/blog">BLOG</a>
+          <a href={isFrench ? '/blog' : '/en/blog'}>BLOG</a>
           <a href={isFrench ? '/about' : '/en/about'}>{isFrench ? 'À PROPOS' : 'ABOUT US'}</a>
         </div>
 
@@ -1275,11 +1279,13 @@ function App() {
   }
 
   if (isBlogPage) {
+    const blogLanguage = isFrenchBlogPage ? 'fr' : 'en';
     return (
       <BlogPage
-        header={renderHeader()}
-        footer={renderSiteFooter()}
+        header={renderHeader(blogLanguage, blogLanguage === 'fr' ? '/en/blog' : '/blog')}
+        footer={renderSiteFooter(blogLanguage)}
         slug={blogSlug}
+        language={blogLanguage}
       />
     );
   }

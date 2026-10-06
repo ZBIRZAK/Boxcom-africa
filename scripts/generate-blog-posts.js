@@ -43,10 +43,15 @@ const parsePost = (filename) => {
     year: 'numeric',
   }).format(new Date(`${metadata.date}T12:00:00`)).replace(/ /g, ' ');
 
-  fs.writeFileSync(path.join(publicDirectory, `${slug}.md`), frontmatter[2].trimStart());
+  const language = metadata.language || 'en';
+  const localizedPublicDirectory = path.join(publicDirectory, language);
+  fs.mkdirSync(localizedPublicDirectory, { recursive: true });
+  fs.writeFileSync(path.join(localizedPublicDirectory, `${slug}.md`), frontmatter[2].trimStart());
 
   return {
     slug,
+    language,
+    translationKey: metadata.translationKey || slug,
     title: metadata.title,
     date: displayDate,
     sortDate: metadata.date,
@@ -57,7 +62,7 @@ const parsePost = (filename) => {
     category: metadata.category || 'Insights',
     bodyIntro: metadata.bodyIntro || '',
     featured: metadata.featured === true,
-    markdown: `/generated-posts/${slug}.md`,
+    markdown: `/generated-posts/${language}/${slug}.md`,
     content: frontmatter[2].trim(),
   };
 };

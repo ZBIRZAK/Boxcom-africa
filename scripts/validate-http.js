@@ -22,6 +22,8 @@ const pageExpectations = {
   '/en/projects': { lang: 'en', h1: 'Our Projects' },
   '/en/blog': { lang: 'en', h1: 'Our Blog' },
   '/en/blog/what-makes-a-journalist-take-your-call': { lang: 'en', h1: 'What Makes a Journalist Take Your Call?' },
+  '/blog': { lang: 'fr', h1: 'Notre Blog' },
+  '/blog/what-makes-a-journalist-take-your-call': { lang: 'fr', h1: 'Qu’est-ce qui pousse un journaliste à décrocher ?' },
 };
 
 const server = spawn(process.execPath, [path.join(root, 'server', 'index.js')], {
@@ -135,8 +137,8 @@ const ready = new Promise((resolve, reject) => {
     }
 
     const legacyFrenchBlog = await request('/fr/blog/what-makes-a-journalist-take-your-call?source=test');
-    if (legacyFrenchBlog.status !== 308 || legacyFrenchBlog.headers.location !== '/en/blog/what-makes-a-journalist-take-your-call?source=test') {
-      throw new Error('Legacy French blog URLs do not redirect to the existing English articles');
+    if (legacyFrenchBlog.status !== 308 || legacyFrenchBlog.headers.location !== '/blog/what-makes-a-journalist-take-your-call?source=test') {
+      throw new Error('Legacy French blog URLs do not redirect to the canonical French articles');
     }
 
     const attributedContact = await request('/contact?from=crisis');

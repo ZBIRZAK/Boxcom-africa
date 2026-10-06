@@ -34,6 +34,8 @@ In Morocco, a campaign may need to work in French, in Arabic and in Darija, and 
 The same decision reappears at a larger scale across the continent. A press campaign that works in francophone West Africa is not simply the anglophone campaign in French. The press traditions differ, the newsroom expectations differ, and what counts as news differs. A brand moving between Dakar, Accra and Cairo is moving between three media cultures, not three translation jobs.
 
 Sometimes the right answer is several languages at once, aimed at different parts of the same audience. We have run announcements that ran in four languages in a single market, including a television interview in Tamazight, because a meaningful share of the audience the client wanted was not reachable in the other three. No translation brief would have produced that decision. It came from asking who we needed to reach before asking what language to write in.
+
+[Deciding which languages a campaign should live in, and for whom, is where we usually start. Bring us that question early.](/en/contact?from=blog-localisation)
 :::
 
 :::section layout="text"
@@ -56,6 +58,8 @@ The bill for stopping at translation rarely arrives as a single failure. It arri
 Media budget goes out behind a message that does not resonate, which means the money bought impressions rather than interest. Content gets remade mid-flight once somebody senses it is not working, at a cost nobody planned for. Launches take longer to build traction, so the brand spends its first year in a market catching up to where it expected to start.
 
 There is a slower cost as well, and it is the one worth worrying about. Audiences can tell when something was made elsewhere, and journalists can tell immediately. A press release that reads like a translated corporate document from another market signals that the company has not done the work. Once a brand is filed under foreign, every subsequent story starts further back, and that is expensive to undo.
+
+[If your campaign is already built and only the translation is left, there is still time to fix the parts that matter most. Ask us what we would change.](/en/contact?from=blog-localisation)
 :::
 
 :::section layout="text"

@@ -16,8 +16,13 @@ author: "BOXCOM Africa Team"
 category: "Media Relations"
 bodyIntro: "Optional opening paragraph displayed above the table of contents."
 featured: false
+language: "en"
+translationKey: "shared-slug-for-language-pair"
+slug: "article-url-slug"
 ---
 ```
+
+Use `language: "fr"` for French posts. English articles are published under `/en/blog/<slug>` and French articles under `/blog/<slug>`. Give translated pairs the same `translationKey` and `slug`; use a `.fr.md` filename for the French source.
 
 Available section layouts:
 

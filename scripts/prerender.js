@@ -100,7 +100,7 @@ function routeMetadata(route, markup) {
       : `${heading} | BOXCOM Africa`),
     description: explicitMetadata?.description || description,
     language: route === '/en' || route.startsWith('/en/') ? 'en' : 'fr',
-    type: route.startsWith('/en/blog/') ? 'article' : 'website',
+    type: route.startsWith('/en/blog/') || route.startsWith('/blog/') ? 'article' : 'website',
   };
 }
 
@@ -141,7 +141,7 @@ function structuredData(route, metadata, markup) {
         '@id': organizationId,
         name: 'BOXCOM Africa',
         url: siteUrl,
-        logo: `${siteUrl}/logo512.png`,
+        logo: `${siteUrl}/favicon-b.png`,
         email: 'contact@box-com.com',
         telephone: '+212522219933',
         address: {
@@ -182,7 +182,7 @@ function structuredData(route, metadata, markup) {
       mainEntityOfPage: { '@id': `${url}#webpage` },
       author: { '@type': 'Organization', '@id': organizationId, name: 'BOXCOM Africa' },
       publisher: { '@id': organizationId },
-      image: `${siteUrl}/logo512.png`,
+      image: `${siteUrl}/favicon-b.png`,
     });
   }
 
@@ -223,7 +223,7 @@ function applyMetadata(html, route, markup, metadata) {
   const canonicalUrl = `${siteUrl}${route}`;
   const title = escapeAttribute(metadata.title);
   const description = escapeAttribute(metadata.description);
-  const socialImage = `${siteUrl}/logo512.png`;
+  const socialImage = `${siteUrl}/favicon-b.png`;
   const languagePairs = {
     '/services/communication-de-crise': '/en/services/crisis-communication',
     '/en/services/crisis-communication': '/services/communication-de-crise',

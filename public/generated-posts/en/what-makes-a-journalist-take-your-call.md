@@ -20,6 +20,8 @@ It means being useful when there is nothing to promote. A journalist working on 
 It means respecting a no. A journalist who passes on a story and is chased three more times has learned something about the agency contacting them, and it is not good. A journalist who passes and hears nothing more about it has learned something better.
 
 And it means being reachable the way each of them prefers to work. In Morocco, plenty of journalists treat WhatsApp as a normal working channel alongside email and the phone. Insisting on a formal press portal because that is the global process is a small friction, and small frictions decide who gets called back.
+
+[If your media relations only switches on when there is news, that is the gap worth closing first. Ask us where yours currently stands.](/en/contact?from=blog-journalist)
 :::
 
 :::section layout="text"
@@ -46,12 +48,14 @@ So before any announcement goes out, the list gets built around what the journal
 That last criterion is the one a bought media list cannot give you. It only exists if somebody has been keeping track, which is why we maintain our own database of Moroccan journalists rather than renting one. It records beats, outlets, languages and working preferences, and it gets updated continuously, because a database that is eighteen months old is a list of people who have moved on.
 
 The result is a short list instead of a long one. That is the point. Precision is not an efficiency measure here, it is how the relationship survives contact with the campaign calendar.
+
+[Want to know which journalists your next story should actually reach? Ask us about our media network.](/en/contact?from=blog-journalist)
 :::
 
 :::section layout="text"
-## [The Crisis Test](/en/services/crisis-communication)
+## The Crisis Test
 
-The real argument for all of this is not the coverage. It is what happens on the day something goes wrong, when [crisis communication](/en/services/crisis-communication) has to move quickly.
+The real argument for all of this is not the coverage. It is what happens on the day something goes wrong.
 
 A crisis gives a brand hours, not weeks. A story is being written, a journalist is on deadline, and the company has one chance to be part of it rather than the subject of it. Everything depends on relationships that already exist, because there is no time to build any.
 
@@ -60,6 +64,8 @@ The difference is concrete. A journalist who knows the agency calls before publi
 A journalist who has only ever received press releases from that brand does none of this. Not out of hostility. They simply have no reason to extend credit to a company that has never treated them as anything but a distribution point.
 
 This is the part that makes media relations worth funding between campaigns. The relationships are not only producing coverage. They are the thing standing between a bad week and a lasting reputational problem, and they have to be in place long before anyone knows they are needed.
+
+[If a difficult story broke tomorrow, who in the press would take your call? That is worth answering before you need to.](/en/contact?from=blog-journalist)
 :::
 
 :::section layout="text"
@@ -73,7 +79,7 @@ Memories are also longer. A journalist remembers the company that was unreachabl
 
 None of this can be bought at the moment it becomes useful. It is either already there or it is not.
 
-[Thinking about your media relations beyond the next announcement? That is the conversation we prefer to have.](/en/contact?from=blog-journaliste)
+[Thinking about your media relations beyond the next announcement? That is the conversation we prefer to have.](/en/contact?from=blog-journalist)
 
-This is the third of four articles on how communication actually works across African markets. The others cover [why global campaigns underperform when they are translated rather than localized](/en/blog/what-gets-lost-between-translation-and-localization), and [what major brand moments teach about the difference between visibility and relevance](/en/blog/what-afcon-2025-taught-brands-in-morocco-about-the-2030-world-cup).
+This is one of four articles on how communication actually works across African markets. The others cover [why global campaigns underperform when they are translated rather than localized](/en/blog/what-gets-lost-between-translation-and-localization), and [what major brand moments teach about the difference between visibility and relevance](/en/blog/what-afcon-2025-taught-brands-in-morocco-about-the-2030-world-cup).
 :::

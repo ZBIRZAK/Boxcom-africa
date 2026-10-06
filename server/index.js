@@ -425,12 +425,6 @@ function serveBuild(request, response) {
 const server = http.createServer((request, response) => {
   const requestUrl = new URL(request.url, 'http://localhost');
   const pathname = requestUrl.pathname;
-  if (pathname === '/fr/blog' || pathname.startsWith('/fr/blog/')) {
-    const destination = `/en${pathname.slice(3)}`;
-    response.writeHead(308, { Location: `${destination}${requestUrl.search}` });
-    response.end();
-    return;
-  }
   if (pathname === '/fr' || pathname.startsWith('/fr/')) {
     const destination = pathname === '/fr' ? '/' : pathname.slice(3);
     response.writeHead(308, { Location: `${destination}${requestUrl.search}` });
