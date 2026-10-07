@@ -63,7 +63,7 @@ const seriesLinks = {
   },
   fr: {
     'brands-believe-in-africa-most-still-communicate-there-like-tourists': '[l’écart entre traduction et localisation](/blog/what-gets-lost-between-translation-and-localization), sur [la manière dont nous choisissons les journalistes au Maroc et ailleurs en Afrique](/blog/what-makes-a-journalist-take-your-call), et sur [ce que les grands moments de marque nous enseignent en matière de pertinence culturelle](/blog/what-afcon-2025-taught-brands-in-morocco-about-the-2030-world-cup)',
-    'what-makes-a-journalist-take-your-call': '[les raisons pour lesquelles les campagnes globales sous-performent lorsqu’elles sont traduites plutôt que localisées](/blog/what-gets-lost-between-translation-and-localization), et de [ce que les grands moments de marque nous apprennent sur la différence entre visibilité et pertinence](/blog/what-afcon-2025-taught-brands-in-morocco-about-the-2030-world-cup)',
+    'what-makes-a-journalist-take-your-call': '[des raisons pour lesquelles les campagnes globales sous-performent lorsqu’elles sont traduites plutôt que localisées](/blog/what-gets-lost-between-translation-and-localization), et de [ce que les grands moments de marque nous apprennent sur la différence entre visibilité et pertinence](/blog/what-afcon-2025-taught-brands-in-morocco-about-the-2030-world-cup)',
     'what-gets-lost-between-translation-and-localization': '[ce qui pousse un journaliste à décrocher](/blog/what-makes-a-journalist-take-your-call), et de [la différence entre être visible lors d’un grand moment et y être pertinent](/blog/what-afcon-2025-taught-brands-in-morocco-about-the-2030-world-cup)',
     'what-afcon-2025-taught-brands-in-morocco-about-the-2030-world-cup': '[ce qui pousse un journaliste à décrocher](/blog/what-makes-a-journalist-take-your-call), et de [ce qui se perd entre traduire une campagne et la localiser](/blog/what-gets-lost-between-translation-and-localization)',
   },
@@ -104,7 +104,7 @@ articles.forEach((article) => {
         .replace(/ce qui pousse un journaliste à décrocher, et de la différence entre être visible lors d’un grand moment et y être pertinent/i, seriesLinks.fr[article.slug])
         .replace(/les raisons pour lesquelles les campagnes globales sous-performent lorsqu’elles sont traduites plutôt que localisées, et de ce que les grands moments de marque enseignent sur la différence entre visibilité et pertinence/i, seriesLinks.fr[article.slug])
         .replace(/les raisons pour lesquelles les campagnes globales sous-performent lorsqu’elles sont traduites plutôt que localisées, et de ce que les grands moments de marque nous apprennent sur la différence entre visibilité et pertinence/i, seriesLinks.fr[article.slug])
-        .replace(/les raisons pour lesquelles.*différence entre visibilité et pertinence/i, seriesLinks.fr[article.slug])
+        .replace(/des raisons pour lesquelles.*différence entre visibilité et pertinence/i, seriesLinks.fr[article.slug])
         .replace(/\s*\[Liens vers (?:les (?:3 )?)?autres articles\]\s*/, '');
       if (!paragraph.includes('](/')) {
         paragraph += ` ${article.language === 'fr' ? 'À lire également' : 'Also read'} : ${seriesLinks[article.language][article.slug]}.`;

@@ -1368,6 +1368,11 @@
   max-height: 66px;
 }
 
+.clients-grid__item img.is-giz,
+.clients-grid__item--ticker img.is-giz {
+  max-width: 100%;
+}
+
 .clients-grid__item img.is-boost-sm,
 .clients-grid__item--ticker img.is-boost-sm {
   transform: scale(1.2);

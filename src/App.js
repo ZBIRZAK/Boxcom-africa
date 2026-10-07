@@ -143,7 +143,7 @@ const fallbackClientLogos = [
   { label: 'EQDOM', src: `${process.env.PUBLIC_URL}/assets/our-clients-logos/EQDOM%20Logo.webp` },
   { label: 'Garden Expo', src: `${process.env.PUBLIC_URL}/assets/our-clients-logos/GARDEN%20EXPO%20Logo.webp` },
   { label: 'ELM', src: `${process.env.PUBLIC_URL}/assets/our-clients-logos/ELM%20Logo.webp` },
-  { label: 'Tecno', src: `${process.env.PUBLIC_URL}/assets/our-clients-logos/Tecno%20Logo.webp` },
+  { label: 'GIZ', src: `${process.env.PUBLIC_URL}/assets/clients/giz.webp`, className: 'is-giz' },
 ];
 
 const fallbackProjectItems = [
