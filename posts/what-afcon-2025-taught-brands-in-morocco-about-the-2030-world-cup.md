@@ -37,11 +37,11 @@ It was built for several audiences at once. The centrepiece film ran in twelve c
 
 It went where the tournament was not. The official host cities were always going to be busy. ONMT put fan zones in Essaouira, El Jadida, Oujda, Beni Mellal and Laayoune, which is a decision about who gets to participate rather than who gets to watch.
 
-And it let other people carry the story. Alongside the film, which featured national team players next to youth athletes, twenty-four international creators documented their own experience of the country. That is a very different instinct from producing a single asset and buying its distribution.
+And it let other people carry the story. Alongside the film, which featured national team players next to youth athletes, [twenty-four international creators documented their own experience of the country](/en/services/influencer-relations). That is a very different instinct from producing a single asset and buying its distribution.
 
 None of this was cheap or fast. All of it was decided months before the moment it was built for, which is the only part that cannot be bought later.
 
-[If your 2030 planning has not started, that eight month runway is the number to remember. Talk to us about what it would take to be ready.](/en/contact?from=blog-afcon)
+[If your 2030 planning has not started, that eight month runway is the number to remember. Talk to us about what it would take to be ready.](/en/contact?from=blog-afcon-2025-world-cup-2030)
 :::
 
 :::section layout="text"
@@ -75,7 +75,7 @@ A home tournament is the one moment when local brands hold an advantage that no 
 
 Morocco co-hosts the 2030 World Cup with Spain and Portugal. It is tempting to think of it as AFCON at a larger scale. It is a different kind of event.
 
-The press corps changes completely. AFCON brought international media to Morocco. A World Cup brings thousands of journalists, many of whom have never written about the country and will spend weeks looking for stories that are not football. Those stories will be about Moroccan business, culture, cities and people, and they will be written whether or not any brand here helps shape them.
+The press corps changes completely. AFCON brought international media to Morocco. [A World Cup brings thousands of journalists](/en/services/media-relations), many of whom have never written about the country and will spend weeks looking for stories that are not football. Those stories will be about Moroccan business, culture, cities and people, and they will be written whether or not any brand here helps shape them.
 
 The timeline changes. A World Cup does not start when the tournament starts. Coverage builds for years through stadium construction, qualification, logistics and the slow international argument about whether the host is ready. Brands that appear in the final months arrive into a narrative that was settled without them.
 
@@ -83,7 +83,7 @@ And the subject changes. At AFCON, the story was the football. In 2030 the story
 
 That also raises the cost of a misjudged tone. National pride is involved. A brand that gets the register wrong at a home World Cup will not simply be ignored.
 
-[A global press corps will arrive with questions about your company that nobody has asked yet. Mapping those now is a great deal cheaper than answering them live.](/en/contact?from=blog-afcon)
+[A global press corps will arrive with questions about your company that nobody has asked yet. Mapping those now is a great deal cheaper than answering them live.](/en/contact?from=blog-afcon-2025-world-cup-2030)
 :::
 
 :::section layout="text"
@@ -99,7 +99,7 @@ And there is the simple matter of arriving early enough to be believed. A brand 
 
 The rehearsal is over. What is worth asking is not what brands did during AFCON, but what they took from it, and whether they are using the time they still have.
 
-[Thinking about where your brand sits in the next five years of Moroccan sport? That conversation is better had now than in 2029.](/en/contact?from=blog-afcon)
+[Thinking about where your brand sits in the next five years of Moroccan sport? That conversation is better had now than in 2029.](/en/contact?from=blog-afcon-2025-world-cup-2030)
 
 This is one of four articles on how communication works across African markets. The others cover [what makes a journalist take your call](/en/blog/what-makes-a-journalist-take-your-call), and [what gets lost between translating a campaign and localizing it](/en/blog/what-gets-lost-between-translation-and-localization).
 :::

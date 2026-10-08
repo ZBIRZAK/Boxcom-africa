@@ -33,9 +33,9 @@ In Morocco, a campaign may need to work in French, in Arabic and in Darija, and 
 
 The same decision reappears at a larger scale across the continent. A press campaign that works in francophone West Africa is not simply the anglophone campaign in French. The press traditions differ, the newsroom expectations differ, and what counts as news differs. A brand moving between Dakar, Accra and Cairo is moving between three media cultures, not three translation jobs.
 
-Sometimes the right answer is several languages at once, aimed at different parts of the same audience. We have run announcements that ran in four languages in a single market, including a television interview in Tamazight, because a meaningful share of the audience the client wanted was not reachable in the other three. No translation brief would have produced that decision. It came from asking who we needed to reach before asking what language to write in.
+Sometimes the right answer is several languages at once, aimed at different parts of the same audience. We have run [announcements that ran in four languages in a single market](/en/projects/ntt-data), including a television interview in Tamazight, because a meaningful share of the audience the client wanted was not reachable in the other three. No translation brief would have produced that decision. It came from asking who we needed to reach before asking what language to write in.
 
-[Deciding which languages a campaign should live in, and for whom, is where we usually start. Bring us that question early.](/en/contact?from=blog-localisation)
+[Deciding which languages a campaign should live in, and for whom, is where we usually start. Bring us that question early.](/en/contact?from=blog-translation-vs-localization)
 :::
 
 :::section layout="text"
@@ -43,11 +43,11 @@ Sometimes the right answer is several languages at once, aimed at different part
 
 A campaign carries a great deal of meaning that no translator is asked to look at.
 
-Images carry the most of it. A family scene, a kitchen, a street, the clothes people are wearing, the size of the home they are standing in: all of it tells an audience whether this brand is picturing them or picturing somebody else. Photography shot for one market can be technically beautiful and still feel like a postcard from a different country.
+[Images](/en/services/pr-content-creation) carry the most of it. A family scene, a kitchen, a street, the clothes people are wearing, the size of the home they are standing in: all of it tells an audience whether this brand is picturing them or picturing somebody else. Photography shot for one market can be technically beautiful and still feel like a postcard from a different country.
 
-Timing carries meaning too. In Morocco and across much of the region, the calendar has its own gravity. A campaign that ignores Ramadan, or treats it as a seasonal promotion rather than a period with its own rhythm of attention and its own tone, is working against the market rather than with it. The brands that do this well build the moment into the plan from the start instead of translating a campaign into it.
+Timing carries meaning too. In Morocco and across much of the region, the [calendar](/en/services/pr-content-creation) has its own gravity. A campaign that ignores Ramadan, or treats it as a seasonal promotion rather than a period with its own rhythm of attention and its own tone, is working against the market rather than with it. The brands that do this well build the moment into the plan from the start instead of translating a campaign into it.
 
-Then there is where the campaign runs. A media plan built around the channels that work at headquarters can miss where the audience actually is. That includes which outlets people trust, whether radio still carries real weight, and how much of the conversation happens on platforms the global plan does not mention. None of that is visible from a translated brief.
+Then there is where the campaign runs. A media plan built around the [channels](/en/services/pr-content-creation) that work at headquarters can miss where the audience actually is. That includes which outlets people trust, whether radio still carries real weight, and how much of the conversation happens on platforms the global plan does not mention. None of that is visible from a translated brief.
 :::
 
 :::section layout="text"
@@ -59,7 +59,7 @@ Media budget goes out behind a message that does not resonate, which means the m
 
 There is a slower cost as well, and it is the one worth worrying about. Audiences can tell when something was made elsewhere, and journalists can tell immediately. A press release that reads like a translated corporate document from another market signals that the company has not done the work. Once a brand is filed under foreign, every subsequent story starts further back, and that is expensive to undo.
 
-[If your campaign is already built and only the translation is left, there is still time to fix the parts that matter most. Ask us what we would change.](/en/contact?from=blog-localisation)
+[If your campaign is already built and only the translation is left, there is still time to fix the parts that matter most. Ask us what we would change.](/en/contact?from=blog-translation-vs-localization)
 :::
 
 :::section layout="text"
@@ -75,7 +75,7 @@ These questions cost very little to ask in the first week. They cost a great dea
 
 None of this means becoming a different brand in every country. Identity, positioning and values should hold everywhere. What changes is how they are expressed, and a brand that gets that right is not diluting itself. It is being understood.
 
-[Planning a campaign across several African markets? Talk to us before the creative is locked, not after.](/en/contact?from=blog-localisation)
+[Planning a campaign across several African markets? Talk to us before the creative is locked, not after.](/en/contact?from=blog-translation-vs-localization)
 
 This is one of four articles on how communication works across African markets. The others cover [what makes a journalist take your call](/en/blog/what-makes-a-journalist-take-your-call), and [the difference between being visible at a major moment and being relevant to it](/en/blog/what-afcon-2025-taught-brands-in-morocco-about-the-2030-world-cup).
 :::

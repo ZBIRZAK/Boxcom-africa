@@ -23,17 +23,17 @@ Our role is to bridge global brand strategies with local cultural, linguistic an
 :::section layout="text"
 ## What We Do
 
-Day to day, that is mostly unglamorous work. Building the contact list for a specific announcement instead of blasting one. Preparing the spokesperson before the interview rather than after it. Writing the release in the language the outlet actually publishes in. Around that sit the things a campaign needs to hold together: the messaging, the press events, the monitoring that tells you whether any of it landed, and the crisis plan nobody wants to use.
+Day to day, that is mostly unglamorous work. [Building the contact list for a specific announcement](/en/services/media-relations) instead of blasting one. Preparing the spokesperson before the interview rather than after it. Writing the release in the language the outlet actually publishes in. Around that sit the things a campaign needs to hold together: the messaging, the [press events](/en/services/media-events), the [monitoring that tells you whether any of it landed](/en/services/media-monitoring), and [the crisis plan nobody wants to use](/en/services/crisis-communication).
 
 All of it in French, Arabic and English, and in Tamazight where the audience calls for it.
 
-[Not sure which of those your next announcement actually needs? That is usually the first thing we work out with a client.](/en/contact?from=blog-africa)
+[Not sure which of those your next announcement actually needs? That is usually the first thing we work out with a client.](/en/contact?from=blog-brands-believe-in-africa)
 :::
 
 :::section layout="text"
 ## Where We Operate
 
-We are based in Casablanca and work across the continent through a network of partner agencies and media in Egypt, Algeria, Tunisia, Togo, Senegal and Ivory Coast, each covering its own market and neighbouring ones.
+We are based in Casablanca and work across the continent through a [network of partner agencies and media](/en/about) in Egypt, Algeria, Tunisia, Togo, Senegal and Ivory Coast, each covering its own market and neighbouring ones.
 :::
 
 :::section layout="text"
@@ -41,15 +41,15 @@ We are based in Casablanca and work across the continent through a network of pa
 
 The difference rarely shows up in headline campaigns. It shows up in ordinary ones.
 
-When a Saudi digital solutions group exhibited at GITEX Africa in Marrakech, its announcements mattered to three audiences reading in three different languages. Run as one story in one language, it would have reached a fraction of them. Split across Arabic, French and English media, with the spokesperson in front of Moroccan television, the same trade show appearance produced coverage in thirty-nine different outlets.
+When [ELM exhibited at GITEX Africa in Marrakech](/en/projects/elm), its announcements mattered to three audiences reading in three different languages. Run as one story in one language, it would have reached a fraction of them. Split across Arabic, French and English media, with the spokesperson in front of Moroccan television, [the same trade show appearance produced coverage in thirty-nine different outlets](/en/projects/elm).
 
-When an IT services firm needed engineers for its operation in northern Morocco, the obvious move was a recruitment campaign. What worked was an employer brand story: employees explaining why they had stayed in the north instead of leaving for Casablanca or abroad. It ran across national business and technology media and brought in three hundred and fifty applications.
+When [Everis needed engineers for its operation in northern Morocco](/en/projects/everis), the obvious move was a recruitment campaign. What worked was an employer brand story: employees explaining why they had stayed in the north instead of leaving for Casablanca or abroad. It ran across national business and technology media and [brought in three hundred and fifty applications](/en/projects/everis).
 
 When a Tunisian airline opened a Casablanca route, the story was never the route. It was what three weekly flights mean for the families and businesses on either side of it. That framing is the reason it ran in forty outlets in French and Arabic instead of appearing once in a travel section.
 
 None of these were expensive campaigns. What they had in common was a story built for the market rather than translated into it.
 
-[Tell us about the moment you are planning and we will show you how we would build it for each market.](/en/contact?from=blog-africa)
+[Tell us about the moment you are planning and we will show you how we would build it for each market.](/en/contact?from=blog-brands-believe-in-africa)
 :::
 
 :::section layout="text"
@@ -65,5 +65,5 @@ Brands do not need to communicate identically everywhere to remain consistent. T
 
 In the coming weeks we will publish what we have learned about [the gap between translation and localization](/en/blog/what-gets-lost-between-translation-and-localization), [how we select journalists in Moroccan and African markets](/en/blog/what-makes-a-journalist-take-your-call), and [what major sponsorships teach us about cultural relevance](/en/blog/what-afcon-2025-taught-brands-in-morocco-about-the-2030-world-cup).
 
-[Expanding into or across African markets? Tell us where you want to go, and we will show you how to get there.](/en/contact?from=blog-africa)
+[Expanding into or across African markets? Tell us where you want to go, and we will show you how to get there.](/en/contact?from=blog-brands-believe-in-africa)
 :::

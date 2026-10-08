@@ -21,7 +21,7 @@ It means respecting a no. A journalist who passes on a story and is chased three
 
 And it means being reachable the way each of them prefers to work. In Morocco, plenty of journalists treat WhatsApp as a normal working channel alongside email and the phone. Insisting on a formal press portal because that is the global process is a small friction, and small frictions decide who gets called back.
 
-[If your media relations only switches on when there is news, that is the gap worth closing first. Ask us where yours currently stands.](/en/contact?from=blog-journalist)
+[If your media relations only switches on when there is news](/en/services/media-relations), that is the gap worth closing first. [Ask us where yours currently stands.](/en/contact?from=blog-what-makes-a-journalist-take-your-call)
 :::
 
 :::section layout="text"
@@ -29,7 +29,7 @@ And it means being reachable the way each of them prefers to work. In Morocco, p
 
 None of it pays off on the campaign it happens during. That is the hard part to sell internally, and the reason so few brands do it.
 
-What changes is the starting position. Send a story to someone who has never heard of you and you are asking a stranger for a favour, competing with everything else in their inbox that morning. Send the same story to someone who knows your client, has covered them fairly before, and trusts that you would not waste their time, and you are not asking for a favour. You are giving them something they can use.
+What changes is the starting position. Send a story to someone who has never heard of you and you are asking a stranger for a favour, competing with everything else in their inbox that morning. Send the same story to someone who knows your client, has covered them fairly before, and trusts that you would not waste their time, and you are not asking for a favour. You are giving them [something they can use](/en/blog/how-to-build-a-media-story-journalists-can-use).
 
 Over a few years this changes what is possible. The interview gets accepted. The embargo holds. The journalist calls you when they are writing about the sector, before you have thought to pitch. Announcements that would have needed chasing get picked up because the relationship did the work in advance.
 
@@ -49,7 +49,7 @@ That last criterion is the one a bought media list cannot give you. It only exis
 
 The result is a short list instead of a long one. That is the point. Precision is not an efficiency measure here, it is how the relationship survives contact with the campaign calendar.
 
-[Want to know which journalists your next story should actually reach? Ask us about our media network.](/en/contact?from=blog-journalist)
+[Want to know which journalists your next story should actually reach? Ask us about our media network.](/en/contact?from=blog-what-makes-a-journalist-take-your-call)
 :::
 
 :::section layout="text"
@@ -57,7 +57,7 @@ The result is a short list instead of a long one. That is the point. Precision i
 
 The real argument for all of this is not the coverage. It is what happens on the day something goes wrong.
 
-A crisis gives a brand hours, not weeks. A story is being written, a journalist is on deadline, and the company has one chance to be part of it rather than the subject of it. Everything depends on relationships that already exist, because there is no time to build any.
+[A crisis gives a brand hours, not weeks](/en/services/crisis-communication). A story is being written, a journalist is on deadline, and the company has one chance to be part of it rather than the subject of it. Everything depends on relationships that already exist, because there is no time to build any.
 
 The difference is concrete. A journalist who knows the agency calls before publishing to check a fact. They take the statement and use it properly instead of quoting one line out of it. They give the company an hour to respond rather than forty minutes. They are willing to hear that the first version of the story is wrong, because the person telling them has never wasted their time before.
 
@@ -65,7 +65,7 @@ A journalist who has only ever received press releases from that brand does none
 
 This is the part that makes media relations worth funding between campaigns. The relationships are not only producing coverage. They are the thing standing between a bad week and a lasting reputational problem, and they have to be in place long before anyone knows they are needed.
 
-[If a difficult story broke tomorrow, who in the press would take your call? That is worth answering before you need to.](/en/contact?from=blog-journalist)
+[If a difficult story broke tomorrow, who in the press would take your call? That is worth answering before you need to.](/en/contact?from=blog-what-makes-a-journalist-take-your-call)
 :::
 
 :::section layout="text"
@@ -79,7 +79,7 @@ Memories are also longer. A journalist remembers the company that was unreachabl
 
 None of this can be bought at the moment it becomes useful. It is either already there or it is not.
 
-[Thinking about your media relations beyond the next announcement? That is the conversation we prefer to have.](/en/contact?from=blog-journalist)
+[Thinking about your media relations beyond the next announcement? That is the conversation we prefer to have.](/en/contact?from=blog-what-makes-a-journalist-take-your-call)
 
 This is one of four articles on how communication actually works across African markets. The others cover [why global campaigns underperform when they are translated rather than localized](/en/blog/what-gets-lost-between-translation-and-localization), and [what major brand moments teach about the difference between visibility and relevance](/en/blog/what-afcon-2025-taught-brands-in-morocco-about-the-2030-world-cup).
 :::
