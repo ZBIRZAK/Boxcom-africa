@@ -7,7 +7,20 @@ const root = path.resolve(__dirname, '..');
 // the acceptance suite test the wrong process.
 const port = Number(process.env.HTTP_VALIDATION_PORT || 3107);
 const productionDomain = 'https://www.boxcomafrica.com';
-const userAgents = ['Mozilla/5.0', 'Googlebot', 'GPTBot', 'ChatGPT-User', 'ClaudeBot'];
+const userAgents = [
+  'Mozilla/5.0',
+  'Googlebot',
+  'GPTBot',
+  'OAI-SearchBot',
+  'ChatGPT-User',
+  'ClaudeBot',
+  'PerplexityBot',
+  'Google-Extended',
+];
+const legacyProjectSlugs = [
+  'defacto', 'ntt-data', 'modanisa', 'gwm', 'elm', 'mifa',
+  'agriedge', 'dilitrust', 'eqdom', 'everis', 'samsung', 'indrive',
+];
 const pageExpectations = {
   '/': { lang: 'fr', h1: 'Agence RP au Maroc tournée vers l’Afrique' },
   '/en': { lang: 'en', h1: 'PR Agency in Morocco for Africa' },
@@ -139,6 +152,16 @@ const ready = new Promise((resolve, reject) => {
     const legacyFrenchBlog = await request('/fr/blog/what-makes-a-journalist-take-your-call?source=test');
     if (legacyFrenchBlog.status !== 308 || legacyFrenchBlog.headers.location !== '/blog/what-makes-a-journalist-take-your-call?source=test') {
       throw new Error('Legacy French blog URLs do not redirect to the canonical French articles');
+    }
+
+    for (const slug of legacyProjectSlugs) {
+      const legacyProject = await request(`/projects/${slug}?source=test`);
+      if (
+        legacyProject.status !== 301
+        || legacyProject.headers.location !== `/en/projects/${slug}?source=test`
+      ) {
+        throw new Error(`Legacy project /projects/${slug} does not return the expected 301 redirect`);
+      }
     }
 
     const attributedContact = await request('/contact?from=crisis');

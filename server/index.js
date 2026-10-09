@@ -8,6 +8,20 @@ const nodemailer = require('nodemailer');
 const root = path.resolve(__dirname, '..');
 const buildDirectory = path.join(root, 'build');
 const publicRoutes = new Set(require(path.join(root, 'config', 'public-routes.json')));
+const legacyProjectRedirects = new Map([
+  ['defacto', 'defacto'],
+  ['ntt-data', 'ntt-data'],
+  ['modanisa', 'modanisa'],
+  ['gwm', 'gwm'],
+  ['elm', 'elm'],
+  ['mifa', 'mifa'],
+  ['agriedge', 'agriedge'],
+  ['dilitrust', 'dilitrust'],
+  ['eqdom', 'eqdom'],
+  ['everis', 'everis'],
+  ['samsung', 'samsung'],
+  ['indrive', 'indrive'],
+]);
 
 function loadEnvironment(filename) {
   if (!fs.existsSync(filename)) return;
@@ -425,6 +439,15 @@ function serveBuild(request, response) {
 const server = http.createServer((request, response) => {
   const requestUrl = new URL(request.url, 'http://localhost');
   const pathname = requestUrl.pathname;
+  const legacyProjectMatch = pathname.match(/^\/projects\/([^/]+)\/?$/);
+  const legacyProjectSlug = legacyProjectMatch?.[1];
+  if (legacyProjectRedirects.has(legacyProjectSlug)) {
+    response.writeHead(301, {
+      Location: `/en/projects/${legacyProjectRedirects.get(legacyProjectSlug)}${requestUrl.search}`,
+    });
+    response.end();
+    return;
+  }
   if (pathname === '/fr' || pathname.startsWith('/fr/')) {
     const destination = pathname === '/fr' ? '/' : pathname.slice(3);
     response.writeHead(308, { Location: `${destination}${requestUrl.search}` });
