@@ -29,26 +29,26 @@ const values = [
 const faqItems = [
   {
     question: 'What is BOXCOM Africa?',
-    answer: <>BOXCOM Africa is a Press Relations agency in Morocco and the PR arm of BOXCOM, based in Casablanca and focused on media relations, <a className="service-inline-link" href="/en/services/crisis-communication">crisis management</a> and consultancy, PR content, media monitoring, Social PR and influencer relations.</>,
+    answer: <>BOXCOM Africa is a press relations agency based in Casablanca, Morocco, and the PR arm of BOXCOM. It provides media relations, <a className="service-inline-link" href="/en/services/crisis-communication">crisis communication</a>, media events, media monitoring, PR content creation, Social PR and influencer relations in Morocco and across Africa, for clients including Samsung, inDrive, GWM, DeFacto and DHL.</>,
   },
   {
-    question: 'How is BOXCOM Africa connected to BOXCOM?',
+    question: 'What is the difference between BOXCOM and BOXCOM Africa?',
     answer:
-      "BOXCOM Africa is the PR and Press Relations arm of BOXCOM. It draws on the group's communication, marketing and digital background while giving PR and reputation work a focused team.",
+      'BOXCOM is the parent agency, focused on digital: digital strategy, web development, content and video production, social media campaigns and lead generation. BOXCOM Africa is its PR arm, with a dedicated team for media relations, corporate communication, reputation and crisis management, thought leadership and PR campaigns across Morocco and Africa.',
   },
   {
-    question: 'What does BOXCOM Africa value?',
+    question: "What are BOXCOM Africa's values?",
     answer:
-      'The agency values clarity, credibility, context and accountability. Those values shape how we speak to clients, how we work with media and how we adapt stories across markets.',
+      "BOXCOM Africa's four values are clarity, credibility, context and accountability: simple but truthful stories, useful information for journalists, adaptation to each market, and one team responsible from strategy to monitoring.",
   },
   {
-    question: 'Why does BOXCOM Africa work with in-market partners?',
+    question: 'Why does BOXCOM Africa work with local partners in other African markets?',
     answer:
-      'Because regional work needs local judgment. Partners help ensure stories are adapted to the language, culture and media expectations of each market.',
+      'A story sent unchanged from Casablanca can lose force in another market. BOXCOM Africa works with in-market partners so each story lands in the right language, tone and cultural frame, with local media access, while strategy and reporting stay with the core team.',
   },
   {
     question: 'Which languages does BOXCOM Africa work in?',
-    answer: 'BOXCOM Africa works in French, Arabic, English and Portuguese, and in Tamazight where the audience calls for it.',
+    answer: 'BOXCOM Africa works in French, Arabic, English and Portuguese, and in Tamazight where the audience calls for it. Local partners support additional languages in other African markets.',
   },
 ];
 
@@ -209,7 +209,7 @@ function AboutUsPage({ header, footer, content }) {
                       <span className="about-faq__icon internal-faq__icon" aria-hidden="true" />
                     </button>
                   </h3>
-                  <div className="about-faq__answer internal-faq__answer" hidden={!isOpen}>
+                  <div className="about-faq__answer internal-faq__answer" aria-hidden={!isOpen}>
                     <p>{item.answer}</p>
                   </div>
                 </article>

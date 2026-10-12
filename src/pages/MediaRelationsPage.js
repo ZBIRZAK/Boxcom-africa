@@ -112,28 +112,27 @@ const mediaRelationsConfig = {
   },
   faqItems: [
     {
-      question: 'How do you decide which media to approach?',
+      question: 'How does BOXCOM Africa choose which media to pitch?',
       answer:
-        'The choice is based on the story, the audience it needs to reach and the type of editorial interest it can credibly earn. For media relations in Morocco or regional markets, the list is built around relevance, not volume.',
+        "BOXCOM Africa selects media based on the story, the audience it needs to reach and the editorial interest it can credibly earn. Media lists are built for relevance, not volume, across Moroccan outlets such as La MAP, Hespress, L'Économiste, 2M and Al Aoula and pan-African media. For GWM's market entry, BOXCOM Africa brought 44 journalists to the launch press conference, with outreach across five media categories.",
     },
     {
-      question: 'Do you guarantee coverage?',
+      question: 'Does BOXCOM Africa guarantee media coverage?',
       answer:
-        'No, and no credible agency can. What we commit to is an honest read on whether a story is newsworthy, a relevant media approach and clear reporting on what moved and why. If an angle is unlikely to earn coverage, we say so before outreach begins.',
+        'No. No credible PR agency can guarantee editorial coverage. BOXCOM Africa commits to an honest assessment of whether a story is newsworthy, a targeted media approach and clear reporting on what was published and why. If an angle is unlikely to earn coverage, the team says so before outreach begins.',
     },
     {
-      question: 'What does crisis management and consultancy include?',
-      answer:
-        'It can include issue assessment, message preparation, spokesperson guidance, direct media engagement and follow-up when facts need to be clarified or the narrative needs to be steadied.',
+      question: 'What does crisis management at BOXCOM Africa include?',
+      answer: <>Crisis management at BOXCOM Africa includes 24/7 media monitoring, assessment of how an issue is spreading, holding statements and contingency plans, spokesperson media training, direct contact with journalists and follow-up to correct facts or steady the narrative. Full details are on the <a className="service-inline-link" href="/en/services/crisis-communication">Crisis Communication page</a>.</>,
     },
     {
-      question: 'Can you prepare a spokesperson who has never faced the media?',
+      question: 'Does BOXCOM Africa offer media training for first-time spokespeople?',
       answer:
-        'Yes. Preparation covers the main message, likely and difficult questions, supporting facts and the format of the interview itself, so the spokesperson walks in knowing what the journalist needs and where the limits are.',
+        "Yes. BOXCOM Africa provides media training for spokespeople with no media experience. Preparation covers the key message, likely and difficult questions, supporting facts and the interview format. When possible, the team obtains the journalist's questions in advance and drafts the answers with the brand.",
     },
     {
-      question: 'Which languages can BOXCOM Africa work in?',
-      answer: 'We work in French, Arabic, English and Portuguese, and in Tamazight where the audience calls for it.',
+      question: 'Which languages does BOXCOM Africa work in?',
+      answer: 'BOXCOM Africa works in French, Arabic, English and Portuguese, and in Tamazight where the audience calls for it. Local partners support additional languages in other African markets.',
     },
   ],
   contact: {

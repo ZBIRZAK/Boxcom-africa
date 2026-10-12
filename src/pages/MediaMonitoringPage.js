@@ -119,29 +119,30 @@ const mediaMonitoringConfig = {
   },
   faqItems: [
     {
-      question: 'What can BOXCOM Africa monitor?',
+      question: "What does BOXCOM Africa's media monitoring cover?",
       answer:
-        'Media monitoring can cover brands, executives, competitors, target outlets, priority topics, sentiment and emerging issues in Morocco and across the agreed regional markets.',
+        'BOXCOM Africa monitors brands, executives, competitors, target outlets, priority topics, sentiment and emerging issues across press and broadcast media in Morocco and agreed African markets, with 24/7 crisis alerts. For inDrive in Algeria, the team tracked 11 articles in Arabic and French.',
     },
     {
-      question: 'How quickly can BOXCOM Africa respond to a live issue?',
+      question: "How does BOXCOM Africa's 24/7 media monitoring detect a crisis early?",
       answer:
-        'Our media monitoring runs 24 hours a day, 7 days a week, so a live issue can be spotted as soon as it is published. The team then assesses how it is spreading and recommends whether to contain it or respond while the conversation is still moving.',
+        "BOXCOM Africa's media monitoring runs 24 hours a day, 7 days a week, so an issue is detected as soon as it is published. Each alert is read right away to see where the story appeared and which outlets are picking it up, so the response can start while the conversation is still moving.",
     },
     {
-      question: 'How does monitoring support crisis management and consultancy?',
+      question: 'How does media monitoring support crisis management?',
       answer: (
         <>
-          Monitoring shows where the issue is moving. The team then assesses the risk, prepares the response and
-          recommends whether clarification, direct engagement or wider action is needed.{' '}
-          <a href="/en/services/media-relations">Learn more about crisis management and consultancy on the Media Relations page.</a>
+          Media monitoring shows where an issue appears, how fast it spreads and which outlets pick it up. BOXCOM Africa
+          uses that read to assess the risk, prepare the response and recommend whether a correction request, direct
+          journalist engagement or a public statement is needed. Learn more on the{' '}
+          <a href="/en/services/crisis-communication">Crisis Communication page</a>.
         </>
       ),
     },
     {
-      question: 'What does a useful monitoring report show?',
+      question: 'What should a media monitoring report include?',
       answer:
-        'It should explain what changed, why it matters, who is shaping the conversation and what the team should consider doing next.',
+        'A useful media monitoring report explains what changed, why it matters, who is shaping the conversation and what to do next. BOXCOM Africa reports go beyond mention counts to cover source, reach, sentiment and placement quality. For MIFA Group, the report showed that 18 of 22 articles included photographs, most with full-page placement.',
     },
   ],
   contact: {

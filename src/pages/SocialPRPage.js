@@ -120,27 +120,29 @@ const SocialPRPageConfig = {
     {
       question: 'What is Social PR?',
       answer:
-        'Social PR applies PR thinking to social platforms. In Morocco and regional markets, it adapts press stories for online conversation while protecting the facts, tone and reputation behind them.',
+        'Social PR is the practice of carrying press stories into social media while protecting the facts, tone and reputation behind them. At BOXCOM Africa, Social PR in Morocco and African markets covers press-to-social adaptation, amplification, engagement guidance and conversation monitoring, coordinated with media relations.',
     },
     {
-      question: 'How does Social PR connect with media relations?',
+      question: 'How does Social PR work with media relations?',
       answer: (
         <>
-          The press angle, social content, monitoring and response are planned around the same story, so changes in
-          one channel can inform the others.{' '}
+          At BOXCOM Africa, the press angle, social content, monitoring and response are planned around one story. Press
+          coverage feeds social content, and what audiences say online informs the next media move. For ELM at GITEX
+          Africa, the team tracked 43 press and web placements plus 7 social media placements across four countries and
+          three languages.{' '}
           <a className="service-inline-link" href="/en/services/media-relations">Explore Media Relations.</a>
         </>
       ),
     },
     {
-      question: 'Can Social PR help with a live issue?',
+      question: 'Can Social PR help during an online crisis?',
       answer:
-        'Yes. Monitoring and prepared response paths help the team clarify facts or respond while the online conversation is still developing.',
+        'Yes. BOXCOM Africa monitors how a story is understood online and uses prepared response paths to clarify facts or respond while the conversation is still developing, in coordination with its crisis communication team.',
     },
     {
-      question: 'Does Social PR replace social media marketing?',
+      question: 'What is the difference between Social PR and social media marketing?',
       answer:
-        'No. Social media marketing often focuses on campaign performance and conversion. Social PR focuses on reputation, narrative and public conversation.',
+        'Social media marketing focuses on campaign performance and conversions. Social PR focuses on reputation, narrative and public conversation, making sure press stories keep their meaning on social platforms. BOXCOM Africa provides Social PR, while social media campaigns are handled by its parent agency, BOXCOM.',
     },
   ],
   contact: {

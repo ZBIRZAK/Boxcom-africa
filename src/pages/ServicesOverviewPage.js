@@ -75,24 +75,24 @@ const fallbackServices = [
 
 const fallbackFaqItems = [
   {
-    question: 'Which service should I start with?',
+    question: 'Which PR service should a brand start with?',
     answer:
-      'Start with the immediate communication need. BOXCOM Africa can then recommend whether one focused service is enough or whether related work should be connected.',
+      'Start with the most immediate need: an announcement usually calls for media relations, a launch for a media event, a reputation risk for media monitoring or crisis communication. BOXCOM Africa reviews the brief and recommends whether one service is enough or whether several should run together as one PR program.',
   },
   {
-    question: 'Can BOXCOM Africa manage the full PR program?',
+    question: 'Can BOXCOM Africa manage a full PR program?',
     answer:
-      'Yes. As a PR agency in Morocco, BOXCOM Africa can coordinate media relations, content, events, monitoring, Social PR and creator work as one program when the brief requires it.',
+      'Yes. BOXCOM Africa can run a full PR program in Morocco and Africa, coordinating media relations, media events, PR content creation, media monitoring, Social PR and influencer relations under one team. The Samsung Galaxy S26 launch in Morocco combined an immersive launch event, media relations and influencer coverage, producing 246 articles across 131 outlets, including 149 Tier 1 placements.',
   },
   {
-    question: 'Can services be delivered across several markets?',
+    question: 'How does BOXCOM Africa keep a multi-country PR campaign consistent?',
     answer:
-      'Yes. BOXCOM Africa directs regional work from Casablanca and brings in established local partners across African markets when a story needs in-market press access, language adaptation or a sharper reading of local context. The narrative, quality standard and reporting stay with one team throughout, so a multi-market program reads as one story told well in each place, not several stories drifting apart.',
+      'BOXCOM Africa directs regional PR from Casablanca and keeps strategy, quality standards and reporting with one team. Established local partners join when a story needs in-market press access, language adaptation or local context, so the campaign tells one consistent story in each country.',
   },
   {
-    question: 'How are results reviewed?',
+    question: 'How does BOXCOM Africa measure PR results?',
     answer:
-      'Reporting is shaped around the brief and may include share of voice, sentiment, quality of target coverage, narrative accuracy and recommended next steps.',
+      'BOXCOM Africa measures PR results against the brief. Reports can include the number of articles and outlets, Tier 1 placements, share of voice, sentiment, estimated reach, advertising value equivalent (AVE), narrative accuracy and recommended next steps. For example, the EQDOM campaign reported 33 articles and 1.7M estimated reader reach.',
   },
 ];
 
@@ -317,7 +317,7 @@ function ServicesOverviewPage({ header, footer, services = [], content }) {
                       <span className="services-overview-faq__icon internal-faq__icon" aria-hidden="true" />
                     </button>
                   </h3>
-                  <div className="services-overview-faq__answer internal-faq__answer" hidden={!isOpen}>
+                  <div className="services-overview-faq__answer internal-faq__answer" aria-hidden={!isOpen}>
                     <p>{item.highlights ? highlightText(item.answer, item.highlights) : item.answer}</p>
                   </div>
                 </article>

@@ -19,7 +19,7 @@ const userAgents = [
 ];
 const legacyProjectSlugs = [
   'defacto', 'ntt-data', 'modanisa', 'gwm', 'elm', 'mifa',
-  'agriedge', 'dilitrust', 'eqdom', 'everis', 'samsung', 'indrive',
+  'agriedge', 'dilitrust', 'eqdom', 'everis', 'samsung', 'indrive', 'garena',
 ];
 const pageExpectations = {
   '/': { lang: 'fr', h1: 'Agence RP au Maroc tournée vers l’Afrique' },
@@ -33,6 +33,7 @@ const pageExpectations = {
   '/services/communication-de-crise': { lang: 'fr', h1: 'Communication de crise' },
   '/en/services/crisis-communication': { lang: 'en', h1: 'Crisis Communication' },
   '/en/projects': { lang: 'en', h1: 'Our Projects' },
+  '/en/projects/garena': { lang: 'en', h1: 'How BOXCOM Africa Built National Press Visibility for Garena Free Fire in Morocco' },
   '/en/blog': { lang: 'en', h1: 'Our Blog' },
   '/en/blog/what-makes-a-journalist-take-your-call': { lang: 'en', h1: 'What Makes a Journalist Take Your Call?' },
   '/blog': { lang: 'fr', h1: 'Notre Blog' },

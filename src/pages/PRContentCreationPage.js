@@ -123,24 +123,23 @@ const prContentCreationConfig = {
   },
   faqItems: [
     {
-      question: 'What makes PR content different from general marketing content?',
+      question: 'What is the difference between PR content and marketing content?',
       answer:
-        'PR content is written to support media understanding, spokesperson credibility and reputation. For press release writing in Morocco or regional markets, it needs a clear angle, useful facts and a format journalists or stakeholders can work with.',
+        "PR content is written to earn media coverage and credibility, not to sell directly. Press releases, articles and speeches need a clear news angle, verifiable facts and a format journalists can reuse. BOXCOM Africa's press release for AgriEdge's TrialEdge platform was reproduced at over 90% of its original text in all 19 resulting articles.",
     },
     {
-      question: 'Is local adaptation more than translation?',
-      answer:
-        'Yes. It considers language, tone, examples, media expectations and cultural context while keeping the central meaning consistent.',
+      question: 'What is the difference between translation and localization in PR?',
+      answer: <>Translation converts words; localization adapts language, tone, examples, media expectations and cultural references for each market. BOXCOM Africa localizes PR content for Morocco and African markets so the core meaning stays the same but reads as if written for local journalists. Read <a className="service-inline-link" href="/en/blog/what-gets-lost-between-translation-and-localization">What Gets Lost Between Translation and Localization?</a></>,
     },
     {
-      question: 'Can one story be developed into several formats?',
+      question: 'Can BOXCOM Africa turn one story into several PR formats?',
       answer:
-        'Yes. A core narrative can become a press release, article, speech, media kit, event material, web copy, social content or video concept.',
+        'Yes. BOXCOM Africa develops one core narrative into a press release, article, speech, media kit, event material, web copy, social content or video concept, so every format tells the same story.',
     },
     {
-      question: 'Which languages does BOXCOM Africa write in?',
+      question: 'Which languages does BOXCOM Africa write PR content in?',
       answer:
-        'Arabic, French and English. Local partners support additional languages where a market requires them. Whatever the language, the meaning and intent of the story stay consistent.',
+        'BOXCOM Africa writes PR content in French, Arabic and English, and also works in Portuguese and Tamazight where the audience calls for it. Local partners support additional languages in other African markets.',
     },
   ],
   contact: {

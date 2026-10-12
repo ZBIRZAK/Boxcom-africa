@@ -12,6 +12,7 @@ const legacyProjectRedirects = new Map([
   ['defacto', 'defacto'],
   ['ntt-data', 'ntt-data'],
   ['modanisa', 'modanisa'],
+  ['garena', 'garena'],
   ['gwm', 'gwm'],
   ['elm', 'elm'],
   ['mifa', 'mifa'],

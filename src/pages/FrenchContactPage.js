@@ -121,7 +121,7 @@ function FrenchContactPage({ header, footer, portraitSrc, showCrisisNeed = false
                       <span className="contact-page-faq__icon internal-faq__icon" aria-hidden="true" />
                     </button>
                   </h3>
-                  <div className="contact-page-faq__answer internal-faq__answer" hidden={!isOpen}>
+                  <div className="contact-page-faq__answer internal-faq__answer" aria-hidden={!isOpen}>
                     <p>{item.answer}</p>
                   </div>
                 </article>

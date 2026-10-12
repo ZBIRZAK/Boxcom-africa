@@ -9,6 +9,7 @@
     { "source": "/projects/defacto", "destination": "/en/projects/defacto", "statusCode": 301 },
     { "source": "/projects/ntt-data", "destination": "/en/projects/ntt-data", "statusCode": 301 },
     { "source": "/projects/modanisa", "destination": "/en/projects/modanisa", "statusCode": 301 },
+    { "source": "/projects/garena", "destination": "/en/projects/garena", "statusCode": 301 },
     { "source": "/projects/gwm", "destination": "/en/projects/gwm", "statusCode": 301 },
     { "source": "/projects/elm", "destination": "/en/projects/elm", "statusCode": 301 },
     { "source": "/projects/mifa", "destination": "/en/projects/mifa", "statusCode": 301 },

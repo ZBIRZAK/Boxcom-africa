@@ -2238,6 +2238,12 @@
   line-height: 1.72;
 }
 
+/* Keep every FAQ answer in the initial HTML for crawlers; CSS only controls the accordion display. */
+.faq-item:not(.is-open) .faq-item__panel,
+.internal-faq__item:not(.is-open) .internal-faq__answer {
+  display: none;
+}
+
 .contact-section {
   background: #000326;
   padding: 70px 0 80px;

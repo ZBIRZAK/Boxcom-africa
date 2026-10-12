@@ -21,6 +21,7 @@ import ProjectsPage from './pages/ProjectsPage';
 import CaseStudyPage from './pages/CaseStudyPage';
 import NTTDataCaseStudyPage from './pages/NTTDataCaseStudyPage';
 import ModanisaCaseStudyPage from './pages/ModanisaCaseStudyPage';
+import GarenaCaseStudyPage from './pages/GarenaCaseStudyPage';
 import GWMCaseStudyPage from './pages/GWMCaseStudyPage';
 import ELMCaseStudyPage from './pages/ELMCaseStudyPage';
 import MifaCaseStudyPage from './pages/MifaCaseStudyPage';
@@ -217,22 +218,22 @@ const fallbackFaqItems = [
   {
     question: 'Is BOXCOM Africa a PR agency in Morocco?',
     answer:
-      'Yes. BOXCOM Africa is a PR agency in Morocco, based in Casablanca and focused on Press Relations, media relations, crisis management and consultancy, Social PR and influencer relations in Morocco and all across Africa.',
+      'Yes. BOXCOM Africa is a press relations agency based in Casablanca, Morocco, and the PR arm of BOXCOM. It provides media relations, crisis communication, media events, media monitoring, PR content creation, Social PR and influencer relations in Morocco and across Africa, for clients including Samsung, inDrive, GWM, DeFacto and DHL. The agency is located at 3 Rue El Jihani, Quartier Racine, Casablanca.',
   },
   {
     question: 'What makes BOXCOM Africa different from a general PR agency?',
     answer:
-      'We combine media relations with marketing thinking. The team looks at the business objective first, then builds the story, media plan and actions around what the client needs the market to understand or believe.',
+      "BOXCOM Africa starts from the client's business objective, not from a press release. The agency combines media relations with marketing thinking, then builds the story, media list and actions around what the market needs to understand. Senior practitioners stay on each account, and strategy, media relations, content, monitoring, Social PR and influencer relations are run by one team instead of several agencies.",
   },
   {
-    question: 'Can BOXCOM Africa support more than one market?',
+    question: 'Can BOXCOM Africa run PR campaigns in several African markets?',
     answer:
-      'Yes. Work is directed from Casablanca, and on-the-ground partners join when the brief needs local media access, language adaptation or cultural context in African markets.',
+      'Yes. BOXCOM Africa directs multi-market PR from Casablanca and works with established local partners when a campaign needs in-market press access, language adaptation or cultural context. Past work includes a driver campaign in Algeria for inDrive and a GITEX Africa campaign for ELM with coverage in Morocco, Tunisia and pan-African outlets. The agency works in French, Arabic, English and Portuguese, and in Tamazight when needed.',
   },
   {
-    question: 'Can BOXCOM Africa help when a story becomes sensitive?',
+    question: 'Does BOXCOM Africa handle crisis communication?',
     answer:
-      'Yes. Crisis management and consultancy is part of the media relations practice. We monitor the issue, prepare the response and engage the relevant media to clarify facts or correct context.',
+      'Yes. BOXCOM Africa provides crisis communication in Morocco and Africa. The agency monitors media 24/7, assesses how a sensitive story is spreading, prepares holding statements and spokespeople, and contacts journalists directly to correct facts or context. It also takes urgent requests from brands that are not yet clients.',
   },
 ];
 
@@ -277,24 +278,24 @@ const fallbackHomeContent = {
 
 const contactFaqItems = [
   {
-    question: 'Who reviews the brief?',
+    question: 'Who reviews a PR brief sent to BOXCOM Africa?',
     answer:
-      'A senior member of the team reviews the brief and identifies the questions, service or response route that should come next.',
+      'A senior member of the BOXCOM Africa team reviews every brief and identifies the key questions, the right service or the response route to take next.',
   },
   {
-    question: 'What should I include for a live issue?',
+    question: 'What should I include in an urgent crisis brief?',
     answer:
-      'State what happened, where it appeared, what is inaccurate or harmful, who is affected and how urgent the situation is.',
+      "State what happened, where it was published, what is inaccurate or harmful, who is affected and how urgent it is. Write 'urgent' in the first line so BOXCOM Africa prioritizes it, or call +212 5 22 21 99 33.",
   },
   {
-    question: 'What if I am not sure which service I need?',
+    question: 'What if I am not sure which PR service I need?',
     answer:
-      'Send the brief anyway. Describing the situation in plain terms is enough; the team will identify whether it calls for media relations, content, an event, monitoring, Social PR, creators or crisis support, and explain why.',
+      'Send the brief anyway. Describe the situation in plain terms and BOXCOM Africa will recommend whether it needs media relations, PR content, a media event, media monitoring, Social PR, influencer relations or crisis communication, and explain why.',
   },
   {
-    question: 'What happens after I send the brief?',
+    question: 'What happens after I send a brief to BOXCOM Africa?',
     answer:
-      'The team reviews the situation and comes back with the most relevant next step. If you flag the situation as urgent in the first line, it is prioritized.',
+      'BOXCOM Africa reviews the situation and replies with the most relevant next step. Briefs flagged as urgent in the first line are prioritized.',
   },
 ];
 
@@ -425,6 +426,7 @@ function App() {
   const isCaseStudyPage = normalizedRoute === '/en/projects/defacto';
   const isNTTDataCaseStudyPage = normalizedRoute === '/en/projects/ntt-data';
   const isModanisaCaseStudyPage = normalizedRoute === '/en/projects/modanisa';
+  const isGarenaCaseStudyPage = normalizedRoute === '/en/projects/garena';
   const isGWMCaseStudyPage = normalizedRoute === '/en/projects/gwm';
   const isELMCaseStudyPage = normalizedRoute === '/en/projects/elm';
   const isMifaCaseStudyPage = normalizedRoute === '/en/projects/mifa';
@@ -468,6 +470,7 @@ function App() {
     isCaseStudyPage ||
     isNTTDataCaseStudyPage ||
     isModanisaCaseStudyPage ||
+    isGarenaCaseStudyPage ||
     isGWMCaseStudyPage ||
     isELMCaseStudyPage ||
     isMifaCaseStudyPage ||
@@ -1153,6 +1156,15 @@ function App() {
     );
   }
 
+  if (isGarenaCaseStudyPage) {
+    return (
+      <GarenaCaseStudyPage
+        header={renderHeader()}
+        footer={renderSiteFooter()}
+      />
+    );
+  }
+
   if (isGWMCaseStudyPage) {
     return (
       <GWMCaseStudyPage
@@ -1389,7 +1401,7 @@ function App() {
                         <span className="contact-page-faq__icon internal-faq__icon" aria-hidden="true" />
                       </button>
                     </h3>
-                    <div className="contact-page-faq__answer internal-faq__answer" hidden={!isOpen}>
+                    <div className="contact-page-faq__answer internal-faq__answer" aria-hidden={!isOpen}>
                       <p>{item.answer}</p>
                     </div>
                   </article>
@@ -1797,7 +1809,7 @@ function App() {
                       </span>
                     </button>
                   </h3>
-                  {item.answer && <div className="faq-item__panel" hidden={!isOpen}>{item.answer}</div>}
+                  {item.answer && <div className="faq-item__panel" aria-hidden={!isOpen}>{item.answer}</div>}
                 </section>
               );
             })}

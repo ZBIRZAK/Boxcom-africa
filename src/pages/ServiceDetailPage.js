@@ -168,7 +168,7 @@ function ServiceDetailPage({ config, header, footer }) {
                       <span className="influencer-faq__icon internal-faq__icon" aria-hidden="true" />
                     </button>
                   </h3>
-                  <div className="influencer-faq__answer internal-faq__answer" hidden={!isOpen}>
+                  <div className="influencer-faq__answer internal-faq__answer" aria-hidden={!isOpen}>
                     <p>{item.answer}</p>
                   </div>
                 </article>

@@ -150,11 +150,36 @@ const influencerRelationsConfig = {
   },
 };
 
+const englishFaqItems = [
+  {
+    question: 'How does BOXCOM Africa select influencers in Morocco?',
+    answer:
+      'BOXCOM Africa selects influencers by first defining the role the creator must play in the story, then checking audience fit, content style, reputation, language and local context before any outreach. For Samsung, that meant choosing creators and journalists with strong tech and lifestyle audiences.',
+  },
+  {
+    question: 'How does influencer relations fit into a PR program?',
+    answer:
+      "At BOXCOM Africa, the creator brief is built on the same story as press and social activity, while leaving room for the creator's own voice and format. For Modanisa's launch in Morocco, Halima Aden generated 156 name mentions, as many as the brand itself.",
+  },
+  {
+    question: 'Can influencers take part in press events?',
+    answer:
+      'Yes. Creators can bring audience reach or a local perspective to launches, visits and experiences when their role is clear. For DeFacto, BOXCOM Africa organized a press conference with Alp Navruz that generated coverage in 22 Moroccan outlets.',
+  },
+  {
+    question: 'How does BOXCOM Africa measure influencer campaign results?',
+    answer:
+      'BOXCOM Africa measures influencer results against the agreed deliverables, audience response, message quality and whether the creator fulfilled the intended role. For DeFacto, a single Facebook video passed 47,000 views.',
+  },
+];
+
 function InfluencerRelationsPage({ locale = 'fr', ...props }) {
   const mediaEventsHref = locale === 'fr' ? '/services/media-events' : '/en/services/media-events';
   const localizedConfig = {
     ...influencerRelationsConfig,
     locale,
+    faqHeading: locale === 'en' ? 'Frequently Asked Questions' : influencerRelationsConfig.faqHeading,
+    faqItems: locale === 'en' ? englishFaqItems : influencerRelationsConfig.faqItems,
     feature: {
       ...influencerRelationsConfig.feature,
       paragraphs: [

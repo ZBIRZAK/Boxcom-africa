@@ -96,24 +96,24 @@ const mediaEventsConfig = {
   },
   faqItems: [
     {
-      question: 'When is a media event the right format?',
+      question: 'When should a brand organize a press event in Morocco instead of sending a press release?',
       answer:
-        'A media event is useful when journalists need direct access to spokespeople, a demonstration, a location, a briefing or a stronger sense of the story than a release can provide. In Morocco, this can include launches, press conferences, visits and briefings adapted to the local media context.',
+        "A media event is the right format when journalists need direct access to spokespeople, a product demonstration, a location or a briefing that a press release cannot provide. In Morocco, BOXCOM Africa organizes press conferences, product launches, site visits and briefings. GWM's press-conference-led market entry generated 44 articles and 11 executive interviews.",
     },
     {
-      question: 'How far in advance should an event be planned?',
+      question: 'How far in advance should a press event in Morocco be planned?',
       answer:
-        'It depends on the format. A press briefing can come together quickly when the story is ready; launches and multi-market events need more lead time for invitations, materials and spokesperson preparation. Share the preferred date early and we will tell you what is realistic.',
+        'It depends on the format. A press briefing can be organized quickly once the story is ready, while product launches and multi-market events need more lead time for invitations, press kits and spokesperson preparation. Share the preferred date with BOXCOM Africa as early as possible to confirm what is realistic.',
     },
     {
-      question: 'Do you prepare spokespeople for the event?',
+      question: 'Does BOXCOM Africa prepare spokespeople for press events?',
       answer:
-        'Yes. Preparation can cover the main message, likely questions, supporting facts, interviews and the role of each speaker.',
+        'Yes. BOXCOM Africa prepares each speaker before a media event: key messages, likely questions, supporting facts, interview practice and the role of each speaker on the day.',
     },
     {
-      question: 'What happens after the event?',
+      question: 'What happens after a press event?',
       answer:
-        'The team follows up with attending and target media, handles additional requests and reviews the resulting coverage and conversation.',
+        "After the event, BOXCOM Africa follows up with attending and target journalists, handles interview and information requests, and reports on the resulting coverage. For AgriEdge's AquaEdge launch, outreach timed around the SIAM agricultural show generated €26,500 in advertising value equivalent (AVE).",
     },
   ],
   contact: {
