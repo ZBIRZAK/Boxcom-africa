@@ -183,7 +183,7 @@ const projects = [
     useCase: 'Esports Communications',
     href: '/en/projects/garena',
     description:
-      'Most Free Fire announcements originated at regional or global level, with little local relevance on arrival. Garena also needed visibility beyond gaming media, in general, business and economy sections, in both French and Arabic.',
+      'Most Free Fire announcements originated at regional or global level, with little local relevance on arrival.',
     results: [
       { value: '67', label: 'Articles published' },
       { value: '9.7M', label: 'Estimated reach' },
