@@ -82,6 +82,30 @@ function fitDescription(text, maxLength = 160) {
   return `${cut}…`;
 }
 
+const defaultSocialImage = {
+  url: `${siteUrl}/og-image.jpg`,
+  alt: 'BOXCOM Africa, PR agency in Morocco for Africa',
+  width: 1200,
+  height: 630,
+};
+
+// Social preview image: the blog post's image, else the page's header photo
+// (the site names hero photos "*header*"), else the 1200x630 brand image.
+function socialImageFor(markup, post) {
+  if (post?.image) {
+    return { url: new URL(post.image, siteUrl).href, alt: post.imageAlt || post.title };
+  }
+  const header = [...markup.matchAll(/<img\b[^>]*>/gi)]
+    .map((match) => match[0])
+    .find((tag) => /\bsrc="\/assets\/[^"?]*header[^"]*"/i.test(tag));
+  if (header) {
+    const src = header.match(/\bsrc="([^"?]*)/)[1];
+    const alt = header.match(/\balt="([^"]*)"/)?.[1];
+    return { url: new URL(src, siteUrl).href, alt: alt ? decodeHtml(alt) : defaultSocialImage.alt };
+  }
+  return defaultSocialImage;
+}
+
 function escapeAttribute(value) {
   return value
     .replace(/&/g, '&amp;')
@@ -138,6 +162,7 @@ function routeMetadata(route, markup) {
     description: explicitMetadata?.description || description,
     language,
     type: route.startsWith('/en/blog/') || route.startsWith('/blog/') ? 'article' : 'website',
+    image: socialImageFor(markup, post),
   };
 }
 
@@ -223,9 +248,7 @@ function structuredData(route, metadata, markup) {
       author: { '@type': 'Organization', '@id': organizationId, name: post?.author || 'BOXCOM Africa' },
       publisher: { '@id': organizationId },
       ...(post?.sortDate && { datePublished: post.sortDate, dateModified: post.sortDate }),
-      image: post?.image
-        ? { '@type': 'ImageObject', url: new URL(post.image, siteUrl).href, ...(post.imageAlt && { caption: post.imageAlt }) }
-        : `${siteUrl}/favicon-b.png`,
+      image: { '@type': 'ImageObject', url: metadata.image.url, caption: metadata.image.alt },
     });
   }
 
@@ -266,7 +289,14 @@ function applyMetadata(html, route, markup, metadata) {
   const canonicalUrl = `${siteUrl}${route}`;
   const title = escapeAttribute(metadata.title);
   const description = escapeAttribute(metadata.description);
-  const socialImage = `${siteUrl}/favicon-b.png`;
+  const socialImage = escapeAttribute(metadata.image.url);
+  const socialImageAlt = escapeAttribute(metadata.image.alt);
+  const socialImageSize = metadata.image.width
+    ? [
+      `<meta property="og:image:width" content="${metadata.image.width}" />`,
+      `<meta property="og:image:height" content="${metadata.image.height}" />`,
+    ]
+    : [];
   const languagePairs = {
     '/services/communication-de-crise': '/en/services/crisis-communication',
     '/en/services/crisis-communication': '/services/communication-de-crise',
@@ -302,10 +332,13 @@ function applyMetadata(html, route, markup, metadata) {
     `<meta property="og:description" content="${description}" />`,
     `<meta property="og:url" content="${canonicalUrl}" />`,
     `<meta property="og:image" content="${socialImage}" />`,
+    ...socialImageSize,
+    `<meta property="og:image:alt" content="${socialImageAlt}" />`,
     '<meta name="twitter:card" content="summary_large_image" />',
     `<meta name="twitter:title" content="${title}" />`,
     `<meta name="twitter:description" content="${description}" />`,
     `<meta name="twitter:image" content="${socialImage}" />`,
+    `<meta name="twitter:image:alt" content="${socialImageAlt}" />`,
     `<script type="application/ld+json">${structuredData(route, metadata, markup)}</script>`,
   ].join('');
 
