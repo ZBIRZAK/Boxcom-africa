@@ -107,7 +107,7 @@
 }
 
 .about-intro__local-copy {
-  width: min(100%, 430px);
+  width: min(100%, 520px);
   margin-top: 0 !important;
 }
 
@@ -142,7 +142,7 @@
 @media (min-width: 901px) {
   .about-intro__local-region {
     display: grid;
-    grid-template-columns: minmax(0, 430px) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 520px) minmax(0, 1fr);
     column-gap: 40px;
     align-items: start;
   }
@@ -273,6 +273,7 @@
 
 .about-entities__card--pr {
   right: 8%;
+  padding-top: 52px;
 }
 
 .about-entities__card h3 {
@@ -550,6 +551,10 @@
     min-height: 0;
     margin: 0 10px;
     padding: 34px 22px 24px;
+  }
+
+  .about-entities__card--pr {
+    padding-top: 52px;
   }
 
   .about-entities__card h3 {
