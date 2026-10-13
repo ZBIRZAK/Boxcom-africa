@@ -174,7 +174,7 @@ function structuredData(route, metadata, markup) {
     });
   }
 
-  if (route.startsWith('/en/blog/')) {
+  if (route.startsWith('/en/blog/') || route.startsWith('/blog/')) {
     graph.push({
       '@type': 'Article',
       headline: metadata.title.replace(/ \| BOXCOM Africa$/, ''),
