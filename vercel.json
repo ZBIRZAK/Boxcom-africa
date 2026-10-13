@@ -19,8 +19,8 @@
     { "source": "/projects/everis", "destination": "/en/projects/everis", "statusCode": 301 },
     { "source": "/projects/samsung", "destination": "/en/projects/samsung", "statusCode": 301 },
     { "source": "/projects/indrive", "destination": "/en/projects/indrive", "statusCode": 301 },
-    { "source": "/fr/blog", "destination": "/en/blog", "permanent": true },
-    { "source": "/fr/blog/:path*", "destination": "/en/blog/:path*", "permanent": true },
+    { "source": "/blog/how-to-build-a-media-story-journalists-can-use", "destination": "/en/blog/how-to-build-a-media-story-journalists-can-use", "permanent": false },
+    { "source": "/blog/why-media-monitoring-needs-context", "destination": "/en/blog/why-media-monitoring-needs-context", "permanent": false },
     { "source": "/fr", "destination": "/", "permanent": true },
     { "source": "/fr/:path*", "destination": "/:path*", "permanent": true }
   ],
