@@ -973,7 +973,7 @@ function App() {
           </div>
           <div className="newsletter">
             <h3>Newsletter</h3>
-            <p>{isFrench ? 'Recevez nos actualités et promotions par e-mail !' : 'Receive news and promotions by email !'}</p>
+            <p>{isFrench ? 'Recevez nos actualités et promotions par e-mail !' : 'Receive news and promotions by email!'}</p>
             <form className="newsletter__field newsletter-form">
               <span>@</span>
               <input
