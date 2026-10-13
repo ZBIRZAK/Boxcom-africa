@@ -175,14 +175,20 @@ function structuredData(route, metadata, markup) {
   }
 
   if (route.startsWith('/en/blog/') || route.startsWith('/blog/')) {
+    const slug = route.split('/').pop();
+    const post = blogPosts.find((item) => item.slug === slug && item.language === metadata.language);
     graph.push({
       '@type': 'Article',
       headline: metadata.title.replace(/ \| BOXCOM Africa$/, ''),
       description: metadata.description,
+      inLanguage: metadata.language,
       mainEntityOfPage: { '@id': `${url}#webpage` },
-      author: { '@type': 'Organization', '@id': organizationId, name: 'BOXCOM Africa' },
+      author: { '@type': 'Organization', '@id': organizationId, name: post?.author || 'BOXCOM Africa' },
       publisher: { '@id': organizationId },
-      image: `${siteUrl}/favicon-b.png`,
+      ...(post?.sortDate && { datePublished: post.sortDate, dateModified: post.sortDate }),
+      image: post?.image
+        ? { '@type': 'ImageObject', url: new URL(post.image, siteUrl).href, ...(post.imageAlt && { caption: post.imageAlt }) }
+        : `${siteUrl}/favicon-b.png`,
     });
   }
 
