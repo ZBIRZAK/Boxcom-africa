@@ -196,7 +196,7 @@ function structuredData(route, metadata, markup) {
     about: { '@id': organizationId },
   }];
 
-  if (route === '/') {
+  if (route === '/' || route === '/en') {
     graph.push(
       {
         '@type': 'Organization',
@@ -212,6 +212,19 @@ function structuredData(route, metadata, markup) {
           addressLocality: 'Casablanca',
           postalCode: '20250',
           addressCountry: 'MA',
+        },
+        sameAs: ['https://www.linkedin.com/company/boxcom-africa/'],
+        // The footer's LinkedIn / Facebook / Instagram profiles belong to the parent agency.
+        parentOrganization: {
+          '@type': 'Organization',
+          '@id': 'https://www.box-com.com/#organization',
+          name: 'Boxcom',
+          url: 'https://www.box-com.com/',
+          sameAs: [
+            'https://www.linkedin.com/company/box-com/',
+            'https://www.facebook.com/boxcomagency',
+            'https://www.instagram.com/boxcomagency/',
+          ],
         },
       },
       {
