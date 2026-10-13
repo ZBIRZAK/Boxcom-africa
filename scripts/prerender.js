@@ -59,6 +59,29 @@ function decodeHtml(value) {
     .trim();
 }
 
+// Fit text into a meta description without cutting mid-sentence: keep the
+// longest run of whole sentences that fits, otherwise end on a whole word
+// with an ellipsis.
+function fitDescription(text, maxLength = 160) {
+  // decodeHtml turns inline tags into spaces ("qu' <span>agence</span> au Maroc ,")
+  const clean = text
+    .replace(/\s+([,.])/g, '$1')
+    .replace(/(['’])\s+(?=\p{L})/gu, '$1')
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (clean.length <= maxLength) return clean;
+
+  let sentenceEnd = 0;
+  for (const match of clean.matchAll(/[.!?…](?=\s|$)/g)) {
+    if (match.index + 1 > maxLength) break;
+    sentenceEnd = match.index + 1;
+  }
+  if (sentenceEnd >= 70) return clean.slice(0, sentenceEnd);
+
+  const cut = clean.slice(0, maxLength - 1).replace(/\s+\S*$/, '').replace(/[\s,;:–—-]+$/, '');
+  return `${cut}…`;
+}
+
 function escapeAttribute(value) {
   return value
     .replace(/&/g, '&amp;')
@@ -80,7 +103,11 @@ function routeMetadata(route, markup) {
     .filter(Boolean);
   const fallbackDescription = 'BOXCOM Africa is a Casablanca-based PR agency serving brands across Morocco and Africa.';
   const extractedDescription = paragraphs.find((paragraph) => paragraph.length >= 80) || paragraphs[0] || fallbackDescription;
-  const description = (extractedDescription || fallbackDescription).slice(0, 160).replace(/\s+\S*$/, '').trim();
+  const language = route === '/en' || route.startsWith('/en/') ? 'en' : 'fr';
+  const post = /^(?:\/en)?\/blog\//.test(route)
+    ? blogPosts.find((item) => item.slug === route.split('/').pop() && item.language === language)
+    : null;
+  const description = fitDescription(post?.excerpt || extractedDescription || fallbackDescription);
   const isHome = route === '/' || route === '/en';
 
   const explicitMetadata = {
@@ -92,6 +119,16 @@ function routeMetadata(route, markup) {
       title: 'Crisis Communication in Morocco | BOXCOM Africa',
       description: 'BOXCOM Africa, a PR agency in Morocco, monitors, assesses and responds to media crises 24/7, with press relations built before the crisis.',
     },
+    // Listing pages: the first paragraph belongs to the first post / project card.
+    '/blog': {
+      description: 'Le blog de BOXCOM Africa : relations presse, relations médias et communication sur les marchés africains, vus depuis Casablanca.',
+    },
+    '/en/blog': {
+      description: 'The BOXCOM Africa blog: press relations, media relations and communication insights on African markets, from our PR team in Casablanca.',
+    },
+    '/en/projects': {
+      description: 'Selected PR projects by BOXCOM Africa in Morocco and Africa, for brands including Samsung, inDrive, DeFacto, GWM, NTT DATA and Modanisa.',
+    },
   }[route];
 
   return {
@@ -99,7 +136,7 @@ function routeMetadata(route, markup) {
       ? (route === '/' ? 'Agence de relations presse au Maroc | BOXCOM Africa' : 'PR Agency in Morocco for Africa | BOXCOM Africa')
       : `${heading} | BOXCOM Africa`),
     description: explicitMetadata?.description || description,
-    language: route === '/en' || route.startsWith('/en/') ? 'en' : 'fr',
+    language,
     type: route.startsWith('/en/blog/') || route.startsWith('/blog/') ? 'article' : 'website',
   };
 }
