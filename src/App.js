@@ -378,8 +378,8 @@ function App() {
   }, []);
 
   const heroVideoMp4 = `${process.env.PUBLIC_URL}/assets/Videos/hero-video.mp4?v=20260807-hero-3`;
-  const heroPoster = `${process.env.PUBLIC_URL}/assets/Videos/hero-poster.jpg`;
-  const logoSrc = `${process.env.PUBLIC_URL}/assets/logo/logo-original.png`;
+  const heroPoster = `${process.env.PUBLIC_URL}/assets/Videos/hero-poster.webp`;
+  const logoSrc = `${process.env.PUBLIC_URL}/assets/logo/logo-original.webp`;
   const businessThinkingSrc = `${process.env.PUBLIC_URL}/assets/ABOUTUS_CoWorkers-new.webp`;
   const contactPagePortraitSrc = `${process.env.PUBLIC_URL}/assets/imgs/width_1600.webp`;
   const googleReviewsBannerSrc = `${process.env.PUBLIC_URL}/assets/imgs/google%20reviews.webp`;
