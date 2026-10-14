@@ -378,6 +378,8 @@ function App() {
   }, []);
 
   const heroVideoMp4 = `${process.env.PUBLIC_URL}/assets/Videos/hero-video.mp4?v=20260807-hero-3`;
+  const heroVideoMobileMp4 = `${process.env.PUBLIC_URL}/assets/Videos/hero-video-mobile.mp4?v=20261014-mobile-1`;
+  const heroVideoMobileWebm = `${process.env.PUBLIC_URL}/assets/Videos/hero-video-mobile.webm?v=20261014-mobile-1`;
   const heroPoster = `${process.env.PUBLIC_URL}/assets/Videos/hero-poster.webp`;
   const logoSrc = `${process.env.PUBLIC_URL}/assets/logo/logo-original.webp`;
   const businessThinkingSrc = `${process.env.PUBLIC_URL}/assets/ABOUTUS_CoWorkers-new.webp`;
@@ -698,9 +700,44 @@ function App() {
   }, [displayedHomeContent, isFrenchHomePage, normalizedRoute]);
 
   useEffect(() => {
-    if (isStandalonePage || isMobileViewport) {
+    if (isStandalonePage) {
       setShouldLoadHeroVideo(false);
       return undefined;
+    }
+
+    if (isMobileViewport) {
+      const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+      const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+      const shouldAvoidVideo =
+        prefersReducedMotion ||
+        connection?.saveData ||
+        ['slow-2g', '2g'].includes(connection?.effectiveType);
+
+      if (shouldAvoidVideo) {
+        setShouldLoadHeroVideo(false);
+        return undefined;
+      }
+
+      const activationEvents = ['pointerdown', 'keydown', 'touchstart', 'scroll'];
+      const enableMobileVideo = () => {
+        activationEvents.forEach((eventName) => {
+          window.removeEventListener(eventName, enableMobileVideo);
+        });
+        setShouldLoadHeroVideo(true);
+      };
+
+      activationEvents.forEach((eventName) => {
+        window.addEventListener(eventName, enableMobileVideo, { once: true, passive: true });
+      });
+
+      const timeoutId = window.setTimeout(enableMobileVideo, 10000);
+
+      return () => {
+        window.clearTimeout(timeoutId);
+        activationEvents.forEach((eventName) => {
+          window.removeEventListener(eventName, enableMobileVideo);
+        });
+      };
     }
 
     if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
@@ -1466,7 +1503,7 @@ function App() {
                 loading="eager"
                 decoding="async"
               />
-              {shouldLoadHeroVideo && !isMobileViewport && (
+              {shouldLoadHeroVideo && (
                 <video
                   ref={heroVideoRef}
                   className="hero-media__video"
@@ -1474,11 +1511,18 @@ function App() {
                   muted
                   loop
                   playsInline
-                  preload="metadata"
+                  preload={isMobileViewport ? 'none' : 'metadata'}
                   poster={heroPoster}
                   disablePictureInPicture
                 >
-                  <source src={heroVideoMp4} type="video/mp4" />
+                  {isMobileViewport ? (
+                    <>
+                      <source src={heroVideoMobileMp4} type="video/mp4" />
+                      <source src={heroVideoMobileWebm} type="video/webm" />
+                    </>
+                  ) : (
+                    <source src={heroVideoMp4} type="video/mp4" />
+                  )}
                 </video>
               )}
               <div className="hero-media__overlay" />
