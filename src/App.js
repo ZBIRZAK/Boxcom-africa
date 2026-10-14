@@ -1502,12 +1502,12 @@ function App() {
 
             <div className="hero-media" aria-hidden="true">
               <picture>
-                <source media="(max-width: 640px)" srcSet={heroPosterMobile} />
+                <source media="(min-width: 641px)" srcSet={heroPoster} />
                 <img
                   className="hero-media__poster"
-                  src={heroPoster}
-                  width="1600"
-                  height="900"
+                  src={heroPosterMobile}
+                  width="720"
+                  height="1280"
                   alt=""
                   aria-hidden="true"
                   loading="eager"
