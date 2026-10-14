@@ -380,7 +380,7 @@ function App() {
   const heroVideoMp4 = `${process.env.PUBLIC_URL}/assets/Videos/hero-video.mp4?v=20260807-hero-3`;
   const heroPoster = `${process.env.PUBLIC_URL}/assets/Videos/hero-poster.jpg`;
   const logoSrc = `${process.env.PUBLIC_URL}/assets/logo/logo-original.png`;
-  const businessThinkingSrc = `${process.env.PUBLIC_URL}/assets/ABOUTUS_CoWorkers-new.png`;
+  const businessThinkingSrc = `${process.env.PUBLIC_URL}/assets/ABOUTUS_CoWorkers-new.webp`;
   const contactPagePortraitSrc = `${process.env.PUBLIC_URL}/assets/imgs/width_1600.webp`;
   const googleReviewsBannerSrc = `${process.env.PUBLIC_URL}/assets/imgs/google%20reviews.webp`;
   const mediaShapeSrc = `${process.env.PUBLIC_URL}/assets/media/africa-map.svg`;
@@ -1483,7 +1483,16 @@ function App() {
       <section className="insight-section">
         <div className="insight-section__inner">
           <div className="insight-art" aria-hidden="true">
-            <img className="insight-art__image insight-art__image--full" src={businessThinkingSrc} alt="" aria-hidden="true" />
+            <img
+              className="insight-art__image insight-art__image--full"
+              src={businessThinkingSrc}
+              alt=""
+              width="1080"
+              height="1280"
+              loading="lazy"
+              decoding="async"
+              aria-hidden="true"
+            />
           </div>
 
           <div className="insight-copy">
@@ -1543,7 +1552,15 @@ function App() {
                     aria-hidden={!isActive}
                   >
                     <a className="service-card" href={item.href} tabIndex={isActive ? 0 : -1}>
-                      <img className="service-card__image" src={item.image} alt={item.title} />
+                      <img
+                        className="service-card__image"
+                        src={item.image}
+                        alt={item.title}
+                        width="820"
+                        height="410"
+                        loading="lazy"
+                        decoding="async"
+                      />
                       <div className="service-card__overlay" />
                       <div className="service-card__content">
                         <h4>{item.title}</h4>
@@ -1570,6 +1587,8 @@ function App() {
                       className={item.className || ''}
                       src={item.src}
                       alt={index < clientLogos.length ? item.label : ''}
+                      loading="lazy"
+                      decoding="async"
                       aria-hidden={index >= clientLogos.length}
                     />
                   </div>
@@ -1580,7 +1599,13 @@ function App() {
             <div className="clients-grid">
               {visibleClientLogos.map((item) => (
                 <div key={item.label} className="clients-grid__item">
-                  <img className={item.className || ''} src={item.src} alt={item.label} />
+                  <img
+                    className={item.className || ''}
+                    src={item.src}
+                    alt={item.label}
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
               ))}
             </div>
