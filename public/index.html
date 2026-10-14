@@ -2,17 +2,49 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JBM672DR18"></script>
+    <!-- Google tag (gtag.js): queue events immediately, load the library outside the critical render path. -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-JBM672DR18');
+
+      (function () {
+        var loaded = false;
+        var events = ['pointerdown', 'keydown', 'touchstart', 'scroll'];
+
+        function loadGoogleTag() {
+          if (loaded) return;
+          loaded = true;
+
+          events.forEach(function (eventName) {
+            window.removeEventListener(eventName, loadGoogleTag);
+          });
+
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-JBM672DR18';
+          document.head.appendChild(script);
+        }
+
+        events.forEach(function (eventName) {
+          window.addEventListener(eventName, loadGoogleTag, { once: true, passive: true });
+        });
+
+        window.addEventListener('load', function () {
+          window.setTimeout(loadGoogleTag, 10000);
+        }, { once: true });
+      }());
     </script>
     <link rel="icon" type="image/x-icon" href="%PUBLIC_URL%/favicon.ico" />
     <link rel="icon" type="image/png" sizes="512x512" href="%PUBLIC_URL%/favicon-b.png" />
     <link rel="preload" as="image" href="%PUBLIC_URL%/assets/Videos/hero-poster.webp" type="image/webp" fetchpriority="high" />
+    <link rel="preload" as="font" href="%PUBLIC_URL%/assets/fonts/Garet-Font/WOFF2/Garet-Regular.woff2" type="font/woff2" crossorigin />
+    <link rel="preload" as="font" href="%PUBLIC_URL%/assets/fonts/Garet-Font/WOFF2/Garet-Medium.woff2" type="font/woff2" crossorigin />
+    <link rel="preload" as="font" href="%PUBLIC_URL%/assets/fonts/Garet-Font/WOFF2/Garet-Bold.woff2" type="font/woff2" crossorigin />
+    <link rel="preload" as="font" href="%PUBLIC_URL%/assets/fonts/Garet-Font/WOFF2/Garet-Regular-Italic.woff2" type="font/woff2" crossorigin />
+    <link rel="preload" as="font" href="%PUBLIC_URL%/assets/fonts/Garet-Font/WOFF2/Garet-Medium-Italic.woff2" type="font/woff2" crossorigin />
+    <link rel="preload" as="font" href="%PUBLIC_URL%/assets/fonts/Garet-Font/WOFF2/Garet-Bold-Italic.woff2" type="font/woff2" crossorigin />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta

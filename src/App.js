@@ -786,7 +786,14 @@ function App() {
             setOpenNavSubmenu(null);
           }}
         >
-          <img className="brand__image" src={logoSrc} alt="" aria-hidden="true" />
+          <img
+            className="brand__image"
+            src={logoSrc}
+            width="600"
+            height="267"
+            alt=""
+            aria-hidden="true"
+          />
         </a>
 
         <button
