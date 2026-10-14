@@ -381,10 +381,14 @@ function App() {
   const heroVideoMobileMp4 = `${process.env.PUBLIC_URL}/assets/Videos/hero-video-mobile.mp4?v=20261014-mobile-1`;
   const heroVideoMobileWebm = `${process.env.PUBLIC_URL}/assets/Videos/hero-video-mobile.webm?v=20261014-mobile-1`;
   const heroPoster = `${process.env.PUBLIC_URL}/assets/Videos/hero-poster.webp`;
+  const heroPosterMobile = `${process.env.PUBLIC_URL}/assets/Videos/hero-poster-mobile.webp`;
   const logoSrc = `${process.env.PUBLIC_URL}/assets/logo/logo-original.webp`;
+  const logoMobileSrc = `${process.env.PUBLIC_URL}/assets/logo/logo-mobile.webp`;
   const businessThinkingSrc = `${process.env.PUBLIC_URL}/assets/ABOUTUS_CoWorkers-new.webp`;
+  const businessThinkingMobileSrc = `${process.env.PUBLIC_URL}/assets/ABOUTUS_CoWorkers-mobile.webp`;
   const contactPagePortraitSrc = `${process.env.PUBLIC_URL}/assets/imgs/width_1600.webp`;
   const googleReviewsBannerSrc = `${process.env.PUBLIC_URL}/assets/imgs/google%20reviews.webp`;
+  const googleReviewsBannerMobileSrc = `${process.env.PUBLIC_URL}/assets/imgs/google-reviews-mobile.webp`;
   const mediaShapeSrc = `${process.env.PUBLIC_URL}/assets/media/africa-map.svg`;
   const isMobileViewport = viewportWidth <= 640;
   const isMobileClientsCarousel = viewportWidth <= 640;
@@ -823,14 +827,17 @@ function App() {
             setOpenNavSubmenu(null);
           }}
         >
-          <img
-            className="brand__image"
-            src={logoSrc}
-            width="600"
-            height="267"
-            alt=""
-            aria-hidden="true"
-          />
+          <picture>
+            <source media="(max-width: 640px)" srcSet={logoMobileSrc} />
+            <img
+              className="brand__image"
+              src={logoSrc}
+              width="600"
+              height="267"
+              alt=""
+              aria-hidden="true"
+            />
+          </picture>
         </a>
 
         <button
@@ -1494,15 +1501,18 @@ function App() {
             </div>
 
             <div className="hero-media" aria-hidden="true">
-              <img
-                className="hero-media__poster"
-                src={heroPoster}
-                alt=""
-                aria-hidden="true"
-                fetchPriority="high"
-                loading="eager"
-                decoding="async"
-              />
+              <picture>
+                <source media="(max-width: 640px)" srcSet={heroPosterMobile} />
+                <img
+                  className="hero-media__poster"
+                  src={heroPoster}
+                  width="1600"
+                  height="900"
+                  alt=""
+                  aria-hidden="true"
+                  loading="eager"
+                />
+              </picture>
               {shouldLoadHeroVideo && (
                 <video
                   ref={heroVideoRef}
@@ -1512,7 +1522,7 @@ function App() {
                   loop
                   playsInline
                   preload={isMobileViewport ? 'none' : 'metadata'}
-                  poster={heroPoster}
+                  poster={isMobileViewport ? heroPosterMobile : heroPoster}
                   disablePictureInPicture
                 >
                   {isMobileViewport ? (
@@ -1534,16 +1544,19 @@ function App() {
       <section className="insight-section">
         <div className="insight-section__inner">
           <div className="insight-art" aria-hidden="true">
-            <img
-              className="insight-art__image insight-art__image--full"
-              src={businessThinkingSrc}
-              alt=""
-              width="1080"
-              height="1280"
-              loading="lazy"
-              decoding="async"
-              aria-hidden="true"
-            />
+            <picture>
+              <source media="(max-width: 640px)" srcSet={businessThinkingMobileSrc} />
+              <img
+                className="insight-art__image insight-art__image--full"
+                src={businessThinkingSrc}
+                alt=""
+                width="1080"
+                height="1280"
+                loading="lazy"
+                decoding="async"
+                aria-hidden="true"
+              />
+            </picture>
           </div>
 
           <div className="insight-copy">
@@ -1861,7 +1874,18 @@ function App() {
 
           <div className="review-banner">
             <div className="review-banner__rating">
-              <img className="review-banner__image" src={googleReviewsBannerSrc} alt="Google Reviews" />
+              <picture>
+                <source media="(max-width: 640px)" srcSet={googleReviewsBannerMobileSrc} />
+                <img
+                  className="review-banner__image"
+                  src={googleReviewsBannerSrc}
+                  width="981"
+                  height="271"
+                  loading="lazy"
+                  decoding="async"
+                  alt="Google Reviews"
+                />
+              </picture>
             </div>
             <p className="review-banner__message">
               {displayedHomeContent.reviews_message}
