@@ -250,7 +250,15 @@ function HomePage({
 
                 return (
                   <article key={`${project.label}-${offset}`} className={`project-card ${positionClass}`}>
-                    <img className="project-card__image" src={project.image} alt={project.title} />
+                    <img
+                      className="project-card__image"
+                      src={project.image}
+                      alt={project.title}
+                      width="580"
+                      height="920"
+                      loading="lazy"
+                      decoding="async"
+                    />
                     <div className="project-card__overlay" />
                     {offset === 0 && (
                       <div className="project-card__content">

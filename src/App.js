@@ -152,35 +152,35 @@ const fallbackProjectItems = [
     label: 'inDrive',
     title: 'inDrive',
     category: 'Media Relations',
-    image: `${process.env.PUBLIC_URL}/assets/CaseStudy_Approved%20Images/InDrive_CaseStudy.png`,
+    image: `${process.env.PUBLIC_URL}/assets/CaseStudy_Approved%20Images/InDrive_CaseStudy.webp`,
     href: '/en/projects/indrive',
   },
   {
     label: 'Samsung',
     title: 'Samsung',
     category: 'Product Launch',
-    image: `${process.env.PUBLIC_URL}/assets/CaseStudy_Approved%20Images/Samsung_Case_Study.png`,
+    image: `${process.env.PUBLIC_URL}/assets/CaseStudy_Approved%20Images/Samsung_Case_Study.webp`,
     href: '/en/projects/samsung',
   },
   {
     label: 'GWM',
     title: 'GWM',
     category: 'Media Events',
-    image: `${process.env.PUBLIC_URL}/assets/CaseStudy_Approved%20Images/GWM_CaseStudy.png`,
+    image: `${process.env.PUBLIC_URL}/assets/CaseStudy_Approved%20Images/GWM_CaseStudy.webp`,
     href: '/en/projects/gwm',
   },
   {
     label: 'Mifa',
     title: 'MIFA',
     category: 'Exhibition Presence',
-    image: `${process.env.PUBLIC_URL}/assets/CaseStudy_Approved%20Images/Mifa_CaseStudy.png`,
+    image: `${process.env.PUBLIC_URL}/assets/CaseStudy_Approved%20Images/Mifa_CaseStudy.webp`,
     href: '/en/projects/mifa',
   },
   {
     label: 'DeFacto',
     title: 'DeFacto',
     category: 'Celebrity PR',
-    image: `${process.env.PUBLIC_URL}/assets/CaseStudy_Approved%20Images/Defacto_Case%20Study.png`,
+    image: `${process.env.PUBLIC_URL}/assets/CaseStudy_Approved%20Images/Defacto_Case%20Study.webp`,
     href: '/en/projects/defacto',
   },
 ];
@@ -378,7 +378,7 @@ function App() {
   }, []);
 
   const heroVideoMp4 = `${process.env.PUBLIC_URL}/assets/Videos/hero-video.mp4?v=20260807-hero-3`;
-  const heroPoster = `${process.env.PUBLIC_URL}/assets/Videos/hero-poster.jpg?v=20260716-hero-poster-1`;
+  const heroPoster = `${process.env.PUBLIC_URL}/assets/Videos/hero-poster.jpg`;
   const logoSrc = `${process.env.PUBLIC_URL}/assets/logo/logo-original.png`;
   const businessThinkingSrc = `${process.env.PUBLIC_URL}/assets/ABOUTUS_CoWorkers-new.png`;
   const contactPagePortraitSrc = `${process.env.PUBLIC_URL}/assets/imgs/width_1600.webp`;
@@ -1645,7 +1645,16 @@ function App() {
                     aria-label={isCenterProject ? `${isFrenchHomePage ? 'Voir le projet' : 'View project'} ${project.title}` : undefined}
                     onMouseEnter={() => setIsProjectPaused(true)}
                   >
-                    <img className="project-card__image" src={project.image} alt={project.title} draggable="false" />
+                    <img
+                      className="project-card__image"
+                      src={project.image}
+                      alt={project.title}
+                      width="580"
+                      height="920"
+                      loading="lazy"
+                      decoding="async"
+                      draggable="false"
+                    />
                     <div className="project-card__overlay" />
                     <div className="project-card__content">
                       <h3 className={project.title.length > 5 ? 'is-long-title' : ''}>{project.title}</h3>
