@@ -365,16 +365,37 @@ function App() {
   useEffect(() => installNewsletterFormHandler(), []);
   useEffect(() => {
     const controller = new AbortController();
+    const activationEvents = ['pointerdown', 'keydown', 'touchstart', 'scroll'];
+    let started = false;
 
-    fetchMediaProjectMap(controller.signal)
-      .then(setMediaProjectMap)
-      .catch((error) => {
-        if (error.name !== 'AbortError') {
-          console.warn('Using the saved media coverage mapping because the Google Sheet could not be loaded.', error);
-        }
+    const loadMediaProjectMap = () => {
+      if (started) return;
+      started = true;
+      activationEvents.forEach((eventName) => {
+        window.removeEventListener(eventName, loadMediaProjectMap);
       });
 
-    return () => controller.abort();
+      fetchMediaProjectMap(controller.signal)
+        .then(setMediaProjectMap)
+        .catch((error) => {
+          if (error.name !== 'AbortError') {
+            console.warn('Using the saved media coverage mapping because the Google Sheet could not be loaded.', error);
+          }
+        });
+    };
+
+    activationEvents.forEach((eventName) => {
+      window.addEventListener(eventName, loadMediaProjectMap, { once: true, passive: true });
+    });
+    const timeoutId = window.setTimeout(loadMediaProjectMap, 10000);
+
+    return () => {
+      window.clearTimeout(timeoutId);
+      activationEvents.forEach((eventName) => {
+        window.removeEventListener(eventName, loadMediaProjectMap);
+      });
+      controller.abort();
+    };
   }, []);
 
   const heroVideoMp4 = `${process.env.PUBLIC_URL}/assets/Videos/hero-video.mp4?v=20260807-hero-3`;
