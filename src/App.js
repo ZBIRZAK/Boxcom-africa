@@ -698,7 +698,7 @@ function App() {
   }, [displayedHomeContent, isFrenchHomePage, normalizedRoute]);
 
   useEffect(() => {
-    if (isStandalonePage) {
+    if (isStandalonePage || isMobileViewport) {
       setShouldLoadHeroVideo(false);
       return undefined;
     }
@@ -722,7 +722,7 @@ function App() {
     return () => {
       window.clearTimeout(timeoutId);
     };
-  }, [isStandalonePage]);
+  }, [isMobileViewport, isStandalonePage]);
 
   useEffect(() => {
     if (!shouldLoadHeroVideo || isStandalonePage) {
@@ -1459,7 +1459,7 @@ function App() {
                 loading="eager"
                 decoding="async"
               />
-              {shouldLoadHeroVideo && (
+              {shouldLoadHeroVideo && !isMobileViewport && (
                 <video
                   ref={heroVideoRef}
                   className="hero-media__video"
@@ -1467,7 +1467,7 @@ function App() {
                   muted
                   loop
                   playsInline
-                  preload="auto"
+                  preload="metadata"
                   poster={heroPoster}
                   disablePictureInPicture
                 >
