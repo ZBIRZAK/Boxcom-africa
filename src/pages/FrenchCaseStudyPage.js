@@ -40,15 +40,24 @@ function getMetrics(slug, values) {
   return values.map(splitCombinedMetric);
 }
 
-function ContentBlocks({ paragraphs }) {
+const resultHeadingsWithoutColon = new Set([
+  'Couverture médiatique',
+  'Couverture média',
+  'Couverture éditoriale',
+  'Performance de la campagne Eid Royale',
+  'Performance des dirigeants et de l’événement',
+  'Performance exécutive et événementielle',
+  'Portée et qualité éditoriale',
+]);
+
+function ContentBlocks({ paragraphs, headingIndexes = [], resultSection = false }) {
   return paragraphs.map((paragraph, index) => {
-    const nextParagraph = paragraphs[index + 1] || '';
-    const looksLikeHeading = paragraph.endsWith(':')
-      || (paragraph.split(/\s+/).length <= 12 && nextParagraph.split(/\s+/).length > 12);
+    const isHeading = headingIndexes.includes(index)
+      || (resultSection && index > 0 && (paragraph.endsWith(':') || resultHeadingsWithoutColon.has(paragraph)));
 
     return (
       <div className="case-study-copy-point" key={`${index}-${paragraph}`}>
-        {looksLikeHeading ? <h3>{paragraph}</h3> : <p>{paragraph}</p>}
+        {isHeading ? <h3>{paragraph}</h3> : <p>{paragraph}</p>}
       </div>
     );
   });
@@ -96,6 +105,14 @@ function FrenchCaseStudyPage({ slug, header, footer }) {
   const challengeContent = paragraphs.slice(mainChallengeIndex + 1, strategyIndex);
   const strategyContent = paragraphs.slice(strategyIndex + 1, resultsIndex);
   const resultsContent = paragraphs.slice(resultsIndex + 1);
+  const challengeBlocks = challengeContent.slice(1);
+  const strategyBlocks = strategyContent.slice(1);
+  const alternatingHeadingIndexes = challengeBlocks
+    .map((_, index) => index)
+    .filter((index) => index % 2 === 1);
+  const strategyHeadingIndexes = slug === 'garena'
+    ? [1, 8, 10]
+    : strategyBlocks.map((_, index) => index).filter((index) => index % 2 === 1);
 
   useEffect(() => {
     const previousTitle = document.title;
@@ -157,7 +174,7 @@ function FrenchCaseStudyPage({ slug, header, footer }) {
         <article className="case-study-panel case-study-panel--light">
           <p className="case-study-panel__eyebrow">{paragraphs[mainChallengeIndex]}</p>
           <h2>{challengeContent[0]}</h2>
-          <ContentBlocks paragraphs={challengeContent.slice(1)} />
+          <ContentBlocks paragraphs={challengeBlocks} headingIndexes={alternatingHeadingIndexes} />
         </article>
       </section>
 
@@ -165,7 +182,7 @@ function FrenchCaseStudyPage({ slug, header, footer }) {
         <article className="case-study-panel case-study-panel--teal">
           <p className="case-study-panel__eyebrow">{paragraphs[strategyIndex]}</p>
           <h2>{strategyContent[0]}</h2>
-          <ContentBlocks paragraphs={strategyContent.slice(1)} />
+          <ContentBlocks paragraphs={strategyBlocks} headingIndexes={strategyHeadingIndexes} />
         </article>
       </section>
 
@@ -173,7 +190,7 @@ function FrenchCaseStudyPage({ slug, header, footer }) {
         <article className="case-study-panel case-study-panel--light">
           <p className="case-study-panel__eyebrow">{paragraphs[resultsIndex]}</p>
           <h2>{resultsContent[0]}</h2>
-          <ContentBlocks paragraphs={resultsContent.slice(1)} />
+          <ContentBlocks paragraphs={resultsContent.slice(1)} resultSection />
         </article>
       </section>
 
