@@ -357,7 +357,7 @@ function App() {
   useEffect(() => {
     const controller = new AbortController();
     const activationEvents = ['pointerdown', 'keydown', 'touchstart', 'scroll'];
-    let started = false;
+    let started = false; 
 
     const loadMediaProjectMap = () => {
       if (started) return;
