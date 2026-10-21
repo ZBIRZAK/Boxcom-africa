@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './ProjectsPage.css';
 import { mediaCoverageItems } from '../data/mediaCoverage';
+import frenchCaseStudies from '../content/frenchCaseStudies.generated.json';
 
 const asset = (path) => `${process.env.PUBLIC_URL}${path}`;
 
@@ -195,10 +196,99 @@ const filterOptions = (items, key) => [...new Set(items.map((project) => project
 const serviceFilterOptions = (items) =>
   serviceOptions.filter((option) => items.some((project) => project.services.includes(option)));
 
-function ProjectsPage({ header, footer, selectedMediaSlug = '', mediaProjectMap = {} }) {
+const frenchFilterLabels = {
+  Fashion: 'Mode',
+  Technology: 'Technologie',
+  Automobile: 'Automobile',
+  Distribution: 'Distribution',
+  Agriculture: 'Agriculture',
+  'Financial Services': 'Services financiers',
+  Transportation: 'Transport',
+  'Gaming PR': 'Relations presse Gaming',
+  'Media Relations': 'Relations médias',
+  'Media Events': 'Événements médias',
+  'Media Monitoring': 'Veille médiatique',
+  'Social PR': 'Social PR',
+  'PR Content Creation': 'Création de contenu RP',
+  'Influencer Relations': 'Relations influenceurs',
+  'E-Commerce Brand Launch': 'Lancement de marque e-commerce',
+  'Investment Announcement': 'Annonce d’investissement',
+  'Brand Ambassador Launch': 'Lancement d’ambassadeur de marque',
+  'Product Launch': 'Lancement de produit',
+  'Trade Event PR': 'RP événementielles',
+  'International Expansion': 'Expansion internationale',
+  'Platform Launch': 'Lancement de plateforme',
+  'M&A Announcement': 'Annonce M&A',
+  'Digital Finance': 'Finance digitale',
+  'Employer Branding': 'Marque employeur',
+  'Market Entry': 'Entrée sur le marché',
+  'Esports Communications': 'Communication Esport',
+};
+
+const frenchMetricLabels = [
+  'Articles', 'Portée', 'AVE', 'Valeur', 'Vues', 'Médias', 'Journalistes',
+  'Interviews', 'Langues', 'Campagnes', 'Mentions', 'Retombées',
+];
+
+// The Garena .docx contains a dedicated five-line project-card cover before
+// the full case study. Keep that supplied card copy verbatim.
+const garenaFrenchCard = {
+  industry: 'Relations presse Gaming',
+  name: 'Garena Free Fire',
+  description: 'La plupart des annonces de Free Fire provenaient du niveau régional ou international, avec peu de pertinence locale lors de leur arrivée sur le marché marocain.',
+  results: [
+    { value: '67', label: 'articles publiés' },
+    { value: '9,7 M', label: 'de portée estimée' },
+  ],
+};
+
+function splitFrenchMetric(metric) {
+  const splitAt = frenchMetricLabels
+    .map((label) => metric.indexOf(label, 1))
+    .filter((position) => position > 0)
+    .sort((a, b) => a - b)[0];
+  return splitAt
+    ? { value: metric.slice(0, splitAt), label: metric.slice(splitAt) }
+    : { value: metric, label: '' };
+}
+
+function frenchMetrics(slug, paragraphs) {
+  const challengeIndex = paragraphs.findIndex((paragraph) => paragraph.toLocaleLowerCase('fr-FR') === 'le défi');
+  const metrics = paragraphs.slice(4, challengeIndex);
+
+  if (slug === 'everis' || slug === 'modanisa') {
+    const midpoint = metrics.length / 2;
+    return metrics.slice(0, midpoint).map((value, index) => ({ value, label: metrics[midpoint + index] }));
+  }
+  if (slug === 'samsung') {
+    return metrics.filter((_, index) => index % 2 === 0)
+      .map((value, index) => ({ value, label: metrics[(index * 2) + 1] }));
+  }
+  return metrics.map(splitFrenchMetric);
+}
+
+function ProjectsPage({ header, footer, selectedMediaSlug = '', mediaProjectMap = {}, locale = 'en' }) {
+  const isFrench = locale === 'fr';
   const [industry, setIndustry] = useState('');
   const [service, setService] = useState('');
   const [useCase, setUseCase] = useState('');
+  const displayedProjects = isFrench
+    ? projects.map((project) => {
+        const slug = project.href.split('/').pop();
+        const paragraphs = frenchCaseStudies[slug];
+        const frenchProject = {
+          ...project,
+          name: paragraphs[0],
+          industry: paragraphs[1].split('|')[0].trim(),
+          description: paragraphs[3],
+          results: frenchMetrics(slug, paragraphs).slice(0, 2),
+          service: frenchFilterLabels[project.service] || project.service,
+          services: project.services.map((item) => frenchFilterLabels[item] || item),
+          useCase: frenchFilterLabels[project.useCase] || project.useCase,
+        };
+        return slug === 'garena' ? { ...frenchProject, ...garenaFrenchCard } : frenchProject;
+      })
+    : projects;
 
   useEffect(() => {
     const previousTitle = document.title;
@@ -206,7 +296,7 @@ function ProjectsPage({ header, footer, selectedMediaSlug = '', mediaProjectMap 
     const createdMetaDescription = !metaDescription;
     const previousDescription = metaDescription?.getAttribute('content') || '';
 
-    document.title = 'Our Projects | BOXCOM Africa';
+    document.title = isFrench ? 'Nos études de cas | BOXCOM Africa' : 'Our Projects | BOXCOM Africa';
     if (!metaDescription) {
       metaDescription = document.createElement('meta');
       metaDescription.setAttribute('name', 'description');
@@ -214,7 +304,9 @@ function ProjectsPage({ header, footer, selectedMediaSlug = '', mediaProjectMap 
     }
     metaDescription.setAttribute(
       'content',
-      'Explore BOXCOM Africa projects across automotive, technology, distribution, transportation and gaming.'
+      isFrench
+        ? 'Découvrez les études de cas de BOXCOM Africa.'
+        : 'Explore BOXCOM Africa projects across automotive, technology, distribution, transportation and gaming.'
     );
 
     return () => {
@@ -225,11 +317,11 @@ function ProjectsPage({ header, footer, selectedMediaSlug = '', mediaProjectMap 
         metaDescription.setAttribute('content', previousDescription);
       }
     };
-  }, []);
+  }, [isFrench]);
 
   const selectedMedia = mediaCoverageItems.find((item) => item.slug === selectedMediaSlug);
   const mediaProjectSlugs = selectedMedia ? mediaProjectMap[selectedMedia.slug] || [] : null;
-  const mediaFilteredProjects = projects.filter((project) => {
+  const mediaFilteredProjects = displayedProjects.filter((project) => {
     const projectSlug = project.href.split('/').pop();
     return !mediaProjectSlugs || mediaProjectSlugs.includes(projectSlug);
   });
@@ -245,7 +337,7 @@ function ProjectsPage({ header, footer, selectedMediaSlug = '', mediaProjectMap 
     setIndustry('');
     setService('');
     setUseCase('');
-    if (selectedMedia && typeof window !== 'undefined') window.location.assign('/en/projects');
+    if (selectedMedia && typeof window !== 'undefined') window.location.assign(isFrench ? '/projects' : '/en/projects');
   };
 
   return (
@@ -255,13 +347,13 @@ function ProjectsPage({ header, footer, selectedMediaSlug = '', mediaProjectMap 
       <section className="projects-page-hero" aria-labelledby="projects-page-title">
         <img
           src={asset('/assets/Our%20Projects_Approved%20Images/our-projects-header.jpg')}
-          alt="Chess pieces positioned across a map"
+          alt={isFrench ? 'Pièces d’échecs positionnées sur une carte' : 'Chess pieces positioned across a map'}
           fetchPriority="high"
         />
         <div className="projects-page-hero__overlay" />
         <div className="projects-page-hero__content">
-          <p>What We Do</p>
-          <h1 id="projects-page-title">Our <span>Projects</span></h1>
+          <p>{isFrench ? 'Ce que nous faisons' : 'What We Do'}</p>
+          <h1 id="projects-page-title">{isFrench ? 'Nos ' : 'Our '}<span>{isFrench ? 'études de cas' : 'Projects'}</span></h1>
         </div>
       </section>
 
@@ -274,13 +366,13 @@ function ProjectsPage({ header, footer, selectedMediaSlug = '', mediaProjectMap 
               aria-pressed={!hasActiveFilters}
               onClick={resetFilters}
             >
-              All
+              {isFrench ? 'Toutes' : 'All'}
             </button>
 
             <label>
               <span className="sr-only">Filter by industry</span>
               <select value={industry} onChange={(event) => setIndustry(event.target.value)}>
-                <option value="">Industry</option>
+                <option value="">{isFrench ? 'Secteur' : 'Industry'}</option>
                 {filterOptions(mediaFilteredProjects, 'industry').map((option) => <option key={option}>{option}</option>)}
               </select>
             </label>
@@ -289,14 +381,14 @@ function ProjectsPage({ header, footer, selectedMediaSlug = '', mediaProjectMap 
               <span className="sr-only">Filter by service</span>
               <select value={service} onChange={(event) => setService(event.target.value)}>
                 <option value="">Service</option>
-                {serviceFilterOptions(mediaFilteredProjects).map((option) => <option key={option}>{option}</option>)}
+                {(isFrench ? filterOptions(mediaFilteredProjects.flatMap((project) => project.services.map((item) => ({ service: item }))), 'service') : serviceFilterOptions(mediaFilteredProjects)).map((option) => <option key={option}>{option}</option>)}
               </select>
             </label>
 
             <label>
               <span className="sr-only">Filter by use case</span>
               <select value={useCase} onChange={(event) => setUseCase(event.target.value)}>
-                <option value="">Use Case</option>
+                <option value="">{isFrench ? 'Cas d’usage' : 'Use Case'}</option>
                 {filterOptions(mediaFilteredProjects, 'useCase').map((option) => <option key={option}>{option}</option>)}
               </select>
             </label>
@@ -324,7 +416,9 @@ function ProjectsPage({ header, footer, selectedMediaSlug = '', mediaProjectMap 
                     </div>
                   ))}
                 </div>
-                <a href={project.href}>Read Case Study</a>
+                <a href={isFrench ? project.href.replace('/en/projects/', '/projects/') : project.href}>
+                  {isFrench ? 'Lire l’étude de cas' : 'Read Case Study'}
+                </a>
                 {selectedMedia && (
                   <div className="projects-grid__media-logo">
                     <img
@@ -339,17 +433,18 @@ function ProjectsPage({ header, footer, selectedMediaSlug = '', mediaProjectMap 
           </div>
 
           {visibleProjects.length === 0 && (
-            <p className="projects-grid__empty">No projects match these filters. Try another combination.</p>
+            <p className="projects-grid__empty">{isFrench ? 'Aucune étude de cas ne correspond à ces filtres.' : 'No projects match these filters. Try another combination.'}</p>
           )}
         </div>
       </section>
 
       <section className="contact-section projects-page-contact">
         <div className="contact-section__inner">
-          <h2 className="contact-section__title">Talk Through the Brief</h2>
+          <h2 className="contact-section__title">{isFrench ? 'Parlons de votre brief' : 'Talk Through the Brief'}</h2>
           <p className="contact-section__intro">
-            Tell us the story, the market and the timing. A senior member of the team will help identify the
-            questions worth answering first.
+            {isFrench
+              ? "Parlez-nous de l'histoire, du marché et du calendrier. Un membre senior de l'équipe vous aidera à identifier les questions à traiter en priorité."
+              : 'Tell us the story, the market and the timing. A senior member of the team will help identify the questions worth answering first.'}
           </p>
 
           <div className="contact-section__top">
@@ -365,24 +460,24 @@ function ProjectsPage({ header, footer, selectedMediaSlug = '', mediaProjectMap 
             <form className="contact-form" onSubmit={(event) => event.preventDefault()}>
               <div className="contact-form__row">
                 <label>
-                  <span>Your Name *</span>
-                  <input type="text" name="name" placeholder="Your Full Name" autoComplete="name" required />
+                  <span>{isFrench ? 'Votre nom *' : 'Your Name *'}</span>
+                  <input type="text" name="name" placeholder={isFrench ? 'Votre nom complet' : 'Your Full Name'} autoComplete="name" required />
                 </label>
                 <label>
-                  <span>Your Company *</span>
-                  <input type="text" name="company" placeholder="Your Company" autoComplete="organization" required />
+                  <span>{isFrench ? 'Votre entreprise *' : 'Your Company *'}</span>
+                  <input type="text" name="company" placeholder={isFrench ? 'Votre entreprise' : 'Your Company'} autoComplete="organization" required />
                 </label>
               </div>
               <label>
-                <span>Your Email *</span>
-                <input type="email" name="email" placeholder="Your Email" autoComplete="email" required />
+                <span>{isFrench ? 'Votre e-mail *' : 'Your Email *'}</span>
+                <input type="email" name="email" placeholder={isFrench ? 'Votre e-mail' : 'Your Email'} autoComplete="email" required />
               </label>
               <label>
                 <span>Message</span>
-                <textarea placeholder="Type your message here." rows="5" />
+                <textarea placeholder={isFrench ? 'Écrivez votre message ici.' : 'Type your message here.'} rows="5" />
               </label>
               <button type="submit" className="primary-pink-button contact-form__submit">
-                Send Message
+                {isFrench ? 'Envoyer le message' : 'Send Message'}
               </button>
             </form>
           </div>

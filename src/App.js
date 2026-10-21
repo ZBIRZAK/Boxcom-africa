@@ -18,6 +18,7 @@ import { frenchHomeContent, frenchHomeFaqItems, frenchHomeServices, frenchHomeTe
 import AboutUsPage from './pages/AboutUsPage';
 import FrenchAboutUsPage from './pages/FrenchAboutUsPage';
 import ProjectsPage from './pages/ProjectsPage';
+import FrenchCaseStudyPage from './pages/FrenchCaseStudyPage';
 import CaseStudyPage from './pages/CaseStudyPage';
 import NTTDataCaseStudyPage from './pages/NTTDataCaseStudyPage';
 import ModanisaCaseStudyPage from './pages/ModanisaCaseStudyPage';
@@ -56,7 +57,7 @@ const menuItems = [
 const frenchMenuItems = [
   { label: 'Accueil', href: '/' },
   { label: 'Services', href: '/services' },
-  { label: 'Études de cas', href: '/en/projects' },
+  { label: 'Études de cas', href: '/projects' },
   { label: 'Blog', href: '/blog' },
   { label: 'À propos', href: '/about' },
 ];
@@ -303,17 +304,7 @@ const socialItems = [
   {
     label: 'LinkedIn',
     src: `${process.env.PUBLIC_URL}/assets/social/linkedin.png`,
-    href: 'https://www.linkedin.com/company/box-com/',
-  },
-  {
-    label: 'Facebook',
-    src: `${process.env.PUBLIC_URL}/assets/social/facebook.png`,
-    href: 'https://web.facebook.com/boxcomagency',
-  },
-  {
-    label: 'Instagram',
-    src: `${process.env.PUBLIC_URL}/assets/social/instagram.png`,
-    href: 'https://www.instagram.com/boxcomagency/',
+    href: 'https://www.linkedin.com/company/boxcom-africa',
   },
 ];
 
@@ -415,7 +406,7 @@ function App() {
   const isMobileClientsCarousel = viewportWidth <= 640;
   const visibleClientLogos = clientLogos;
   const normalizedRoute = currentRoute || '/';
-  const projectsQuery = normalizedRoute.startsWith('/en/projects?')
+  const projectsQuery = (normalizedRoute.startsWith('/en/projects?') || normalizedRoute.startsWith('/projects?'))
     ? new URLSearchParams(normalizedRoute.slice(normalizedRoute.indexOf('?') + 1))
     : null;
   const selectedMediaSlug = projectsQuery?.get('media') || '';
@@ -427,6 +418,7 @@ function App() {
   const displayedProjectItems = isFrenchHomePage
     ? projectItems.map((item) => ({
         ...item,
+        href: item.href.replace('/en/projects/', '/projects/'),
         category: {
           'Media Relations': 'Relations médias',
           'Product Launch': 'Lancement de produit',
@@ -450,6 +442,14 @@ function App() {
   const isAboutUsPage = normalizedRoute === '/en/about';
   const isFrenchAboutUsPage = normalizedRoute === '/about';
   const isProjectsPage = normalizedRoute === '/en/projects' || normalizedRoute.startsWith('/en/projects?');
+  const isFrenchProjectsPage = normalizedRoute === '/projects' || normalizedRoute.startsWith('/projects?');
+  const frenchCaseStudyMatch = normalizedRoute.match(/^\/projects\/([^/?]+)$/);
+  const frenchCaseStudySlugs = new Set([
+    'defacto', 'ntt-data', 'modanisa', 'garena', 'gwm', 'elm', 'mifa',
+    'agriedge', 'dilitrust', 'eqdom', 'everis', 'samsung', 'indrive',
+  ]);
+  const frenchCaseStudySlug = frenchCaseStudyMatch?.[1] || '';
+  const isFrenchCaseStudyPage = frenchCaseStudySlugs.has(frenchCaseStudySlug);
   const isCaseStudyPage = normalizedRoute === '/en/projects/defacto';
   const isNTTDataCaseStudyPage = normalizedRoute === '/en/projects/ntt-data';
   const isModanisaCaseStudyPage = normalizedRoute === '/en/projects/modanisa';
@@ -508,6 +508,8 @@ function App() {
     isSamsungCaseStudyPage ||
     isInDriveCaseStudyPage ||
     isProjectsPage ||
+    isFrenchProjectsPage ||
+    isFrenchCaseStudyPage ||
     isServicesOverviewPage ||
     isFrenchServicesOverviewPage ||
     isInfluencerRelationsPage ||
@@ -1030,7 +1032,7 @@ function App() {
           <h3>Menu</h3>
           <a href={isFrench ? '/' : '/en'}>{isFrench ? 'ACCUEIL' : 'HOMEPAGE'}</a>
           <a href={isFrench ? '/services' : '/en/services'}>SERVICES</a>
-          <a href="/en/projects">{isFrench ? 'ÉTUDES DE CAS' : 'PROJECTS'}</a>
+          <a href={isFrench ? '/projects' : '/en/projects'}>{isFrench ? 'ÉTUDES DE CAS' : 'PROJECTS'}</a>
           <a href={isFrench ? '/blog' : '/en/blog'}>BLOG</a>
           <a href={isFrench ? '/about' : '/en/about'}>{isFrench ? 'À PROPOS' : 'ABOUT US'}</a>
         </div>
@@ -1193,7 +1195,7 @@ function App() {
   if (isProjectsPage) {
     return (
       <ProjectsPage
-        header={renderHeader()}
+        header={renderHeader('en', '/projects')}
         footer={renderSiteFooter()}
         selectedMediaSlug={selectedMediaSlug}
         mediaProjectMap={mediaProjectMap}
@@ -1201,10 +1203,32 @@ function App() {
     );
   }
 
+  if (isFrenchProjectsPage) {
+    return (
+      <ProjectsPage
+        header={renderHeader('fr', '/en/projects')}
+        footer={renderSiteFooter('fr')}
+        locale="fr"
+        selectedMediaSlug={selectedMediaSlug}
+        mediaProjectMap={mediaProjectMap}
+      />
+    );
+  }
+
+  if (isFrenchCaseStudyPage) {
+    return (
+      <FrenchCaseStudyPage
+        slug={frenchCaseStudySlug}
+        header={renderHeader('fr', `/en/projects/${frenchCaseStudySlug}`)}
+        footer={renderSiteFooter('fr')}
+      />
+    );
+  }
+
   if (isCaseStudyPage) {
     return (
       <CaseStudyPage
-        header={renderHeader()}
+        header={renderHeader('en', '/projects/defacto')}
         footer={renderSiteFooter()}
       />
     );
@@ -1213,7 +1237,7 @@ function App() {
   if (isNTTDataCaseStudyPage) {
     return (
       <NTTDataCaseStudyPage
-        header={renderHeader()}
+        header={renderHeader('en', '/projects/ntt-data')}
         footer={renderSiteFooter()}
       />
     );
@@ -1222,7 +1246,7 @@ function App() {
   if (isModanisaCaseStudyPage) {
     return (
       <ModanisaCaseStudyPage
-        header={renderHeader()}
+        header={renderHeader('en', '/projects/modanisa')}
         footer={renderSiteFooter()}
       />
     );
@@ -1231,7 +1255,7 @@ function App() {
   if (isGarenaCaseStudyPage) {
     return (
       <GarenaCaseStudyPage
-        header={renderHeader()}
+        header={renderHeader('en', '/projects/garena')}
         footer={renderSiteFooter()}
       />
     );
@@ -1240,7 +1264,7 @@ function App() {
   if (isGWMCaseStudyPage) {
     return (
       <GWMCaseStudyPage
-        header={renderHeader()}
+        header={renderHeader('en', '/projects/gwm')}
         footer={renderSiteFooter()}
       />
     );
@@ -1249,7 +1273,7 @@ function App() {
   if (isELMCaseStudyPage) {
     return (
       <ELMCaseStudyPage
-        header={renderHeader()}
+        header={renderHeader('en', '/projects/elm')}
         footer={renderSiteFooter()}
       />
     );
@@ -1258,34 +1282,34 @@ function App() {
   if (isMifaCaseStudyPage) {
     return (
       <MifaCaseStudyPage
-        header={renderHeader()}
+        header={renderHeader('en', '/projects/mifa')}
         footer={renderSiteFooter()}
       />
     );
   }
 
   if (isAgriEdgeCaseStudyPage) {
-    return <AgriEdgeCaseStudyPage header={renderHeader()} footer={renderSiteFooter()} />;
+    return <AgriEdgeCaseStudyPage header={renderHeader('en', '/projects/agriedge')} footer={renderSiteFooter()} />;
   }
 
   if (isDiliTrustCaseStudyPage) {
-    return <DiliTrustCaseStudyPage header={renderHeader()} footer={renderSiteFooter()} />;
+    return <DiliTrustCaseStudyPage header={renderHeader('en', '/projects/dilitrust')} footer={renderSiteFooter()} />;
   }
 
   if (isEQDOMCaseStudyPage) {
-    return <EQDOMCaseStudyPage header={renderHeader()} footer={renderSiteFooter()} />;
+    return <EQDOMCaseStudyPage header={renderHeader('en', '/projects/eqdom')} footer={renderSiteFooter()} />;
   }
 
   if (isEverisCaseStudyPage) {
-    return <EverisCaseStudyPage header={renderHeader()} footer={renderSiteFooter()} />;
+    return <EverisCaseStudyPage header={renderHeader('en', '/projects/everis')} footer={renderSiteFooter()} />;
   }
 
   if (isSamsungCaseStudyPage) {
-    return <SamsungCaseStudyPage header={renderHeader()} footer={renderSiteFooter()} />;
+    return <SamsungCaseStudyPage header={renderHeader('en', '/projects/samsung')} footer={renderSiteFooter()} />;
   }
 
   if (isInDriveCaseStudyPage) {
-    return <InDriveCaseStudyPage header={renderHeader()} footer={renderSiteFooter()} />;
+    return <InDriveCaseStudyPage header={renderHeader('en', '/projects/indrive')} footer={renderSiteFooter()} />;
   }
 
   if (isServicesOverviewPage) {

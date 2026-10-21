@@ -6,17 +6,17 @@ const challengePoints = [
   {
     title: 'Amplifying a Major Investment Announcement',
     text:
-      'NTT DATA needed to ensure national and international media understood the full scale of its commitment — 1,000 new direct jobs and 15 million MAD in investment — within a competitive media environment.',
+      'NTT DATA needed to ensure national and international media understood the full scale of its commitment: 1,000 new direct jobs and 15 million MAD in investment, within a competitive media environment.',
   },
   {
     title: 'Positioning NTT DATA as a Strategic Partner for Morocco',
     text:
-      "Beyond the announcement itself, the campaign had to reinforce NTT DATA's long-term role in Morocco's digital transformation and economic development — building institutional credibility, not just publicity.",
+      "Beyond the announcement itself, the campaign had to reinforce NTT DATA's long-term role in Morocco's digital transformation and economic development through building institutional credibility, not just publicity.",
   },
   {
     title: 'Reaching Multiple, Diverse Media Ecosystems',
     text:
-      'The strategy required simultaneous reach across Moroccan business media, technology publications and international outlets in four languages: Arabic, French, English and Spanish.',
+      'The strategy required simultaneous reach across Moroccan business media, technology publications, and international outlets in four languages: Arabic, French, English, and Spanish.',
   },
 ];
 
@@ -24,17 +24,17 @@ const strategyPoints = [
   {
     title: 'Strategic Press Release Development and Distribution',
     text:
-      "BOXCOM Africa handled press release writing in Morocco for the MoU announcement, leading with NTT DATA's global ranking, the 15 million MAD investment, 1,000 new jobs and its track record recruiting Moroccan graduates since 2016.",
+      "BOXCOM Africa handled press release writing in Morocco for the MoU announcement, leading with NTT DATA's global ranking, the 15 million MAD investment, 1,000 new jobs, and its track record recruiting Moroccan graduates since 2016.",
   },
   {
     title: 'Targeted Multi-Channel Media Outreach',
     text:
-      'Outreach spanned national economic media, technology publications and international and pan-African outlets, distributed in Arabic, French, English and Spanish for maximum reach and public conversation around the announcement.',
+      'Outreach spanned national economic media, technology publications, and international/pan-African outlets. The announcement was distributed in Arabic, French, English, and Spanish for maximum reach and public conversation around the announcement.',
   },
   {
     title: 'Executive Positioning and Thought Leadership',
     text:
-      "BOXCOM Africa secured a high-profile interview with NTT DATA Morocco's Managing Director in La Vie Eco, giving leadership a platform to articulate its strategic vision and commitment to Moroccan talent.",
+      "BOXCOM Africa secured a high-profile interview with NTT DATA Morocco's Managing Director in La Vie Eco, giving leadership a platform to articulate strategic vision and commitment to Moroccan talent.",
   },
 ];
 
@@ -93,16 +93,18 @@ function NTTDataCaseStudyPage({ header, footer }) {
               <h2>Turn a Government MoU Into a Credible, Multi-Market Media Moment</h2>
               <p>
                 NTT DATA needed national and international journalists and editors to grasp the full scale of its
-                commitment within a competitive news cycle while building institutional credibility across four
-                languages.
+                commitment: 1,000 jobs and 15 million MAD in investment, within a competitive news cycle. The campaign
+                also had to build institutional credibility across Moroccan, technology, and international media
+                relations in four languages simultaneously.
               </p>
             </article>
             <article className="case-study-snapshot__work">
               <span>What We Did</span>
               <h2>A Targeted PR Strategy for Institutional Credibility and Reach</h2>
               <p>
-                We led with the announcement&apos;s most newsworthy elements, targeted three distinct media ecosystems
-                and secured an executive interview through careful spokesperson preparation.
+                We led with the announcement&apos;s most newsworthy elements, targeted three distinct media ecosystems in
+                four languages, and secured an executive interview in La Vie Eco through careful spokesperson
+                preparation. Generic corporate messaging was replaced with a strategic growth narrative at every step.
               </p>
             </article>
           </div>
@@ -126,10 +128,10 @@ function NTTDataCaseStudyPage({ header, footer }) {
       <section className="case-study-band case-study-band--strategy">
         <article className="case-study-panel case-study-panel--teal">
           <p className="case-study-panel__eyebrow">The Strategy</p>
-          <h2>A Three-Phase Press Relations Strategy for Progressive Brand Building</h2>
+          <h2>A Targeted PR Strategy for Institutional Credibility and Reach</h2>
           <p>
-            BOXCOM Africa designed a focused PR and media relations campaign structured around three core actions,
-            each amplifying reach, building credibility and ensuring resonance across all target audiences.
+            BOXCOM Africa designed a focused PR and media relations campaign structured around three core actions;
+            each amplifying reach, building credibility, and ensuring resonance across all target audiences.
           </p>
           {strategyPoints.map((point) => (
             <div className="case-study-copy-point" key={point.title}>
@@ -143,23 +145,23 @@ function NTTDataCaseStudyPage({ header, footer }) {
       <section className="case-study-band case-study-band--pattern">
         <article className="case-study-panel case-study-panel--light">
           <p className="case-study-panel__eyebrow">The Results</p>
-          <h2>25+ Articles, Four Languages and Strong Institutional Positioning</h2>
+          <h2>25+ Articles, Four Languages, and Strong Institutional Positioning</h2>
           <p>The campaign delivered strong results across all media channels:</p>
           <div className="case-study-copy-point">
             <h3>Media Coverage</h3>
             <ul>
               <li>25+ media articles published across Moroccan and international outlets.</li>
-              <li>23 Moroccan web outlets, one Moroccan print outlet and one international Senegalese outlet.</li>
-              <li>Coverage published in Arabic, French and English.</li>
+              <li>23 Moroccan web outlets, 1 Moroccan print outlet, and 1 international (Senegalese) outlet.</li>
+              <li>Coverage published in Arabic, French, Spanish and English.</li>
               <li>183,000 MAD in Advertising Value Equivalent and 11,000+ estimated article views.</li>
             </ul>
           </div>
           <div className="case-study-copy-point">
             <h3>Editorial Quality and Positioning</h3>
             <ul>
-              <li>Most articles included photos and extended editorial coverage, with many exceeding 60% of the original press release length.</li>
-              <li>The campaign achieved an average media quality rating of 8 out of 10.</li>
-              <li>An executive interview in La Vie Eco reinforced NTT DATA&apos;s long-term strategic narrative.</li>
+              <li>Majority of articles included photos and extended editorial coverage, many exceeding 60% of the original press release length.</li>
+              <li>Average campaign media quality rating of 8 out of 10.</li>
+              <li>Executive interview in La Vie Eco reinforced NTT DATA&apos;s long-term strategic narrative.</li>
             </ul>
           </div>
         </article>

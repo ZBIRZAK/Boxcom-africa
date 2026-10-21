@@ -6,17 +6,17 @@ const challengePoints = [
   {
     title: 'Building Credibility for an Unknown Brand in a Competitive Market',
     text:
-      'Morocco’s automotive sector is dominated by established European and Asian brands with decades of market presence. Introducing GWM required immediate credibility, not just awareness, among journalists, dealers and consumers unfamiliar with the brand.',
+      'Morocco’s automotive sector is dominated by well-established European and Asian brands with decades of market presence. Introducing GWM required a PR strategy that could generate immediate credibility among journalists and editors, dealers, and consumers unfamiliar with the brand.',
   },
   {
     title: 'Engaging a Specialized Automotive Media Ecosystem',
     text:
-      'Automotive journalists in Morocco have specific expectations around product access, technical information and executive access. Reaching them required dedicated event logistics, press briefings and tailored media kits beyond standard press releases.',
+      'Automotive journalists in Morocco represent a distinct, highly specialized media segment with specific expectations around product access, technical information, and executive access. Reaching them required dedicated media event logistics, press briefings, and tailored media kits beyond standard press releases.',
   },
   {
-    title: 'Communicating a Product Launch and a Strategic Partnership',
+    title: 'Communicating Both a Product Launch and a Strategic Partnership',
     text:
-      'The launch was also the story of Tractafric Motors, a major African distributor staking its credibility on bringing a Chinese SUV brand to Morocco. The campaign needed to carry both stories while keeping risk alerts and crisis support ready if the early narrative shifted.',
+      'The GWM launch was also the story of Tractafric Motors, a major African automotive distributor staking its credibility on bringing a Chinese SUV brand to Morocco. The campaign needed to tell both stories simultaneously, with risk alerts and crisis management and consultancy on standby in case early sentiment or narrative shifts required a fast response.',
   },
 ];
 
@@ -24,12 +24,12 @@ const strategyPoints = [
   {
     title: 'National Press Conference in Casablanca',
     text:
-      'BOXCOM Africa organized a national press conference as the cornerstone of the launch, handling press release writing, curating 44 journalists across automotive, business, economic and national news media, and providing direct access to vehicles, brand materials and executives.',
+      'BOXCOM Africa organized a national press conference in Casablanca as the cornerstone of the launch — handling press release writing in Morocco, curating a list of 44 journalists across automotive, business, economic, and national news media, and providing direct access to vehicles, brand materials, and executives.',
   },
   {
     title: 'Targeted Multi-Sector Media Outreach',
     text:
-      'Outreach spanned five categories: automotive, economic, national news, print and lifestyle and digital media. The campaign reached French, Arabic and English audiences and generated strong post-event coverage across social platforms and online conversations.',
+      "Outreach spanned five categories: automotive (DriveIn, Wandaloo, AutoNews), economic (L'Économiste, Les Eco), national news (LeSiteInfo, H24Info, Media24), print (Le Matin), and lifestyle/digital. We achieved media relations in Morocco across French, Arabic, and English, and generating strong post-event coverage across social platforms and online conversation.",
   },
   {
     title: 'Executive Interviews and Strategic Messaging',
@@ -78,7 +78,7 @@ function GWMCaseStudyPage({ header, footer }) {
           </h1>
           <p className="case-study-summary__intro">
             GWM is one of China&apos;s leading automotive manufacturers, globally recognized for its SUVs, pickup
-            trucks and new energy vehicles under brands including Haval, Ora and Tank, entering Morocco through
+            trucks, and new energy vehicles under brands including Haval, Ora, and Tank — entering Morocco through
             distribution partner Tractafric Motors.
           </p>
 
@@ -94,16 +94,19 @@ function GWMCaseStudyPage({ header, footer }) {
               <span>The Challenge</span>
               <h2>Build Instant Credibility for an Unknown Brand in a Loyalty-Driven Market</h2>
               <p>
-                GWM was competitive on product and price but unknown to journalists, dealers and buyers. The launch
-                also had to carry both GWM&apos;s global positioning and Tractafric&apos;s strategic bet on the brand.
+                Morocco&apos;s automotive sector is dominated by decades-old European and Asian brands with entrenched
+                customer loyalty. GWM was competitive on product and price, but unknown to journalists, dealers, and
+                buyers. The launch also had to carry two stories at once, GWM&apos;s global positioning and Tractafric&apos;s
+                strategic bet on the brand.
               </p>
             </article>
             <article className="case-study-snapshot__work">
               <span>What We Did</span>
               <h2>A Press-Conference-Led Market Entry Strategy for Sector-Wide Credibility</h2>
               <p>
-                We anchored the launch in a national Casablanca press conference, targeted five media categories and
-                secured 11 executive interviews through careful spokesperson preparation.
+                We anchored the launch in a national Casablanca press conference, targeted five distinct media categories
+                simultaneously, and secured 11 executive interviews through careful spokesperson preparation. A generic
+                product launch was replaced with a credible, multi-angle business narrative at every step.
               </p>
             </article>
           </div>
@@ -114,7 +117,7 @@ function GWMCaseStudyPage({ header, footer }) {
         <article className="case-study-panel case-study-panel--light">
           <p className="case-study-panel__eyebrow">The Challenge</p>
           <h2>Build Instant Credibility for an Unknown Brand in a Loyalty-Driven Market</h2>
-          <p>BOXCOM Africa identified three strategic challenges that shaped the PR approach:</p>
+          <p>BOXCOM Africa identified three core strategic challenges that shaped the entire PR approach:</p>
           {challengePoints.map((point) => (
             <div className="case-study-copy-point" key={point.title}>
               <h3>{point.title}</h3>
@@ -130,8 +133,8 @@ function GWMCaseStudyPage({ header, footer }) {
           <h2>A Press-Conference-Led Market Entry Strategy for Sector-Wide Credibility</h2>
           <p>
             BOXCOM Africa designed a PR-driven market entry strategy combining a high-impact press event, precision
-            media outreach and strategic executive visibility, with each pillar addressing a distinct credibility
-            and awareness challenge.
+            media outreach, and strategic executive visibility — each pillar addressing a specific dimension of GWM&apos;s
+            credibility and awareness challenge.
           </p>
           {strategyPoints.map((point) => (
             <div className="case-study-copy-point" key={point.title}>
@@ -150,11 +153,11 @@ function GWMCaseStudyPage({ header, footer }) {
           <div className="case-study-copy-point">
             <h3>Media Coverage</h3>
             <ul>
-              <li>44 articles published across Moroccan automotive, economic, national news and lifestyle media.</li>
-              <li>Coverage appeared in leading publications including Le Matin, L&apos;Économiste, Les Eco, LeBrief, H24Info, Media24 and Wandaloo.</li>
-              <li>The campaign reached French, Arabic and English media.</li>
-              <li>Specialized automotive outlets included DriveIn, Wandaloo and AutoNews.</li>
-              <li>Positive sentiment and a strong online reputation carried through the public conversation.</li>
+              <li>44 articles published across Moroccan media — automotive, economic, national news, and lifestyle platforms.</li>
+              <li>Coverage in leading publications including Le Matin, L&apos;Économiste, Les Eco, LeBrief, H24Info, Media24, and Wandaloo.</li>
+              <li>Multi-language reach across French, Arabic, and English media.</li>
+              <li>Strong presence in specialized automotive outlets — DriveIn, Wandaloo, AutoNews.</li>
+              <li>Positive sentiment and strong online reputation carried through the public conversation following the launch.</li>
             </ul>
           </div>
           <div className="case-study-copy-point">
@@ -162,7 +165,7 @@ function GWMCaseStudyPage({ header, footer }) {
             <ul>
               <li>11 executive interviews reinforced both GWM&apos;s global narrative and Tractafric&apos;s strategic vision.</li>
               <li>44 journalists attended the Casablanca press conference, an exceptional turnout for a new brand launch.</li>
-              <li>Every major Moroccan automotive media outlet was represented, ensuring sector-wide coverage from day one.</li>
+              <li>Every major Moroccan automotive media outlet was represented, ensuring total sector coverage from day one.</li>
             </ul>
           </div>
         </article>

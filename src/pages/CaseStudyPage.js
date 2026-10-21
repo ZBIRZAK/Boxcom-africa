@@ -4,33 +4,28 @@ import './CaseStudyPage.css';
 const challengePoints = [
   {
     title: 'Creating a High-Impact Brand Moment Around a Celebrity Appointment',
-    text: 'A brand ambassador announcement generates impact only when it is properly orchestrated. Without a live media moment - a press event, direct journalist access and real interactions - the story risks being reduced to a press release that few outlets pick up.',
+    text: 'A brand ambassador announcement generates impact only when it is properly orchestrated. Without a live media moment — a press event, direct journalist access, real interactions — the story risks being reduced to a press release that few outlets pick up.',
   },
   {
     title: 'Reaching Fashion, Entertainment, and Lifestyle Media Simultaneously',
-    text: "A campaign built around a Turkish TV celebrity required a media targeting strategy that went beyond traditional news and business outlets. Women's magazines, entertainment platforms and lifestyle media had to be engaged as priority channels, each with their own editorial expectations.",
+    text: "A campaign built around a Turkish TV celebrity required a media targeting strategy that went beyond traditional news and business outlets. Women's magazines, entertainment platforms, and lifestyle media had to be engaged as priority channels — each with their own editorial expectations.",
   },
   {
     title: 'Extending Beyond Traditional PR Into Social and Video Platforms',
-    text: 'Modern celebrity marketing campaigns cannot live on editorial coverage alone. To generate genuine consumer buzz, the campaign had to produce video content and social media moments that audiences could engage with directly, not just read about.',
+    text: 'Modern celebrity marketing campaigns cannot live on editorial coverage alone. To generate genuine consumer buzz, the campaign had to produce video content and social media moments that audiences could engage with directly — not just read about.',
   },
 ];
 
-const strategyPoints = [
-  'Structured media briefings giving journalists direct interview access to Alp Navruz',
-  "Fashion collection showcase linking the ambassador's personality to DeFacto's product offering",
-  'Curated setting optimized for photography, video recording and social content creation',
-  'Managed media schedule ensuring all invited outlets received quality access and exclusive angles',
-];
-
-export function BriefContact({ footer }) {
+export function BriefContact({ footer, locale = 'en' }) {
+  const isFrench = locale === 'fr';
   return (
     <section className="contact-section case-study-contact">
       <div className="contact-section__inner">
-        <h2 className="contact-section__title">Talk Through the Brief</h2>
+        <h2 className="contact-section__title">{isFrench ? 'Parlons de votre brief' : 'Talk Through the Brief'}</h2>
         <p className="contact-section__intro">
-          Tell us the story, the market and the timing. A senior member of the team will help identify the questions
-          worth answering first.
+          {isFrench
+            ? "Parlez-nous de l'histoire, du marché et du calendrier. Un membre senior de l'équipe vous aidera à identifier les questions à traiter en priorité."
+            : 'Tell us the story, the market and the timing. A senior member of the team will help identify the questions worth answering first.'}
         </p>
 
         <div className="contact-section__top">
@@ -46,23 +41,23 @@ export function BriefContact({ footer }) {
           <form className="contact-form" onSubmit={(event) => event.preventDefault()}>
             <div className="contact-form__row">
               <label>
-                <span>Your Name *</span>
-                <input type="text" name="name" placeholder="Your Full Name" autoComplete="name" required />
+                <span>{isFrench ? 'Votre nom *' : 'Your Name *'}</span>
+                <input type="text" name="name" placeholder={isFrench ? 'Votre nom complet' : 'Your Full Name'} autoComplete="name" required />
               </label>
               <label>
-                <span>Your Company *</span>
-                <input type="text" name="company" placeholder="Your Company" autoComplete="organization" required />
+                <span>{isFrench ? 'Votre entreprise *' : 'Your Company *'}</span>
+                <input type="text" name="company" placeholder={isFrench ? 'Votre entreprise' : 'Your Company'} autoComplete="organization" required />
               </label>
             </div>
             <label>
-              <span>Your Email *</span>
-              <input type="email" name="email" placeholder="Your Email" autoComplete="email" required />
+              <span>{isFrench ? 'Votre e-mail *' : 'Your Email *'}</span>
+              <input type="email" name="email" placeholder={isFrench ? 'Votre e-mail' : 'Your Email'} autoComplete="email" required />
             </label>
             <label>
               <span>Message</span>
-              <textarea placeholder="Type your message here." rows="5" />
+              <textarea placeholder={isFrench ? 'Écrivez votre message ici.' : 'Type your message here.'} rows="5" />
             </label>
-            <button type="submit" className="primary-pink-button contact-form__submit">Send Message</button>
+            <button type="submit" className="primary-pink-button contact-form__submit">{isFrench ? 'Envoyer le message' : 'Send Message'}</button>
           </form>
         </div>
 
@@ -126,16 +121,18 @@ function CaseStudyPage({ header, footer }) {
               <span>The Challenge</span>
               <h2>Turning a Celebrity Appointment Into a Media Event</h2>
               <p>
-                DeFacto needed more than a press release: the announcement required live media access, targeted
-                fashion and entertainment outreach, and Social PR capable of turning coverage into genuine buzz.
+                DeFacto needed more than a press release to launch its celebrity ambassador. The announcement required
+                live media access, targeted outreach to fashion and entertainment outlets beyond traditional news, and
+                Social PR, without which the campaign would generate coverage but no real buzz.
               </p>
             </article>
             <article className="case-study-snapshot__work">
               <span>What We Did</span>
-              <h2>Celebrity Event PR, Targeted Media and Social Amplification</h2>
+              <h2>Celebrity Event PR, Targeted Media, and Social Amplification</h2>
               <p>
-                We built an integrated strategy around a Casablanca press conference, exclusive access to Alp Navruz,
-                targeted outreach and a setup designed for photography, video and social content.
+                BOXCOM Africa built a fully integrated PR and event strategy around three pillars, starting with a
+                Casablanca press conference. Journalists received exclusive access to Alp Navruz and DeFacto&apos;s
+                collections, structured briefings, and a curated setup designed for photography, video, and social content.
               </p>
             </article>
           </div>
@@ -162,23 +159,26 @@ function CaseStudyPage({ header, footer }) {
           <h2>Celebrity Event PR, Targeted Media, and Social Amplification</h2>
           <p>
             BOXCOM Africa designed a fully integrated celebrity PR and event strategy built on three interconnected
-            pillars, each designed to maximize media coverage, audience reach and social media impact.
+            pillars — each designed to maximize media coverage, audience reach, and social media impact.
           </p>
           <div className="case-study-copy-point">
-            <h3>Pillar 1 - Celebrity Press Conference in Casablanca</h3>
             <p>
-              BOXCOM Africa organized and managed a dedicated press conference in Casablanca, bringing together
-              journalists and representatives from Morocco&apos;s leading media outlets for direct, exclusive access to
-              Alp Navruz and DeFacto&apos;s latest fashion collections. The event was designed to create the conditions
-              for authentic, story-rich editorial coverage, not just re-publication of press materials.
+              A dedicated Casablanca press conference gave journalists exclusive access to Alp Navruz and
+              DeFacto&apos;s latest collections, generating authentic, story-rich editorial content.
             </p>
           </div>
-          <p>Key elements of the press event included:</p>
-          <ul>{strategyPoints.map((point) => <li key={point}>{point}</li>)}</ul>
-          <p>
-            The actor spoke openly about his connection with Morocco, his vision of contemporary fashion and the
-            collaboration with DeFacto.
-          </p>
+          <div className="case-study-copy-point">
+            <h3>Precision Media Strategy</h3>
+            <p>A precision media strategy then targeted the full spectrum of relevant outlets — national news, women&apos;s lifestyle magazines, entertainment media, and digital portals — securing coverage in LeSiteInfo, Femmes du Maroc, Lalla Fatema, AnfasPress, and Al9anat.</p>
+          </div>
+          <div className="case-study-copy-point">
+            <p>Attending media were equipped to produce video interviews and behind-the-scenes content for social platforms, extending the campaign into:</p>
+            <ul>
+              <li>Exclusive press access generating quotable, authentic editorial coverage.</li>
+              <li>Multi-sector media targeting spanning news, lifestyle, and entertainment outlets.</li>
+              <li>Video and social amplification sustaining engagement well beyond the event itself.</li>
+            </ul>
+          </div>
         </article>
       </section>
 
@@ -190,18 +190,18 @@ function CaseStudyPage({ header, footer }) {
           <div className="case-study-copy-point">
             <h3>Editorial Coverage</h3>
             <ul>
-              <li>22 Moroccan media outlets covered the event, spanning Tier-1 national platforms, regional media and specialized lifestyle publications.</li>
+              <li>22 Moroccan media outlets covered the event — spanning Tier-1 national platforms, regional media, and specialized lifestyle publications.</li>
               <li>4 Tier-1 national media outlets ensured high-credibility, high-reach coverage among Morocco&apos;s broadest news audiences.</li>
               <li>7 women&apos;s lifestyle magazines delivered deep penetration into DeFacto&apos;s core consumer segment.</li>
-              <li>16 total articles published in Arabic and French, achieving genuine bilingual national coverage.</li>
+              <li>16 total articles published in Arabic (12) and French (4) — achieving genuine bilingual national coverage.</li>
             </ul>
           </div>
           <div className="case-study-copy-point">
             <h3>Digital and Social Media Performance</h3>
             <ul>
               <li>Multiple video interviews and event highlights published across YouTube and Facebook.</li>
-              <li>A single Facebook video generated more than 47,000 views, demonstrating exceptional public interest.</li>
-              <li>Additional video content across platforms contributed thousands of extra views and social interactions.</li>
+              <li>A single Facebook video published by a Moroccan media outlet generated over 47,000 views — demonstrating exceptional public interest in the campaign.</li>
+              <li>Additional video content published across platforms contributed thousands of additional views and social interactions.</li>
             </ul>
           </div>
         </article>

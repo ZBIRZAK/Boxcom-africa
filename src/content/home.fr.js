@@ -17,7 +17,7 @@ export const frenchHomeContent = {
   clients_heading: 'Nos clients',
   projects_heading: 'Projets phares',
   projects_button_label: 'Voir plus',
-  projects_button_link: '/en/projects',
+  projects_button_link: '/projects',
   coverage_heading: 'Notre couverture médiatique',
   coverage_description: 'La bonne histoire ne se propage pas parce qu’elle est envoyée au plus grand nombre. Elle se propage parce que l’angle est pertinent, le timing est juste, et le journaliste qui la reçoit y voit un intérêt.',
   testimonials_heading: 'La parole à nos clients',
