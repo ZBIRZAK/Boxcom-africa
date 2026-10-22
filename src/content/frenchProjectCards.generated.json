@@ -1,0 +1,75 @@
+{
+  "agriedge": {
+    "industry": "Agriculture",
+    "name": "AgriEdge",
+    "description": "A context-led campaign that made precision agriculture relevant across Morocco’s business, technology, agriculture and sustainability media."
+  },
+  "defacto": {
+    "industry": "Mode",
+    "name": "DeFacto",
+    "description": "Une campagne nationale de lancement d’un ambassadeur de marque, axée sur un accès privilégié aux médias, une stratégie événementielle et une forte visibilité sur les réseaux sociaux."
+  },
+  "dilitrust": {
+    "industry": "Technologie",
+    "name": "DiliTrust",
+    "description": "Une campagne B2B ciblée, positionnant une acquisition dans le secteur de la LegalTech comme un levier de transformation numérique de la gouvernance au Maroc et en Afrique."
+  },
+  "elm": {
+    "industry": "Technologie",
+    "name": "ELM",
+    "description": "Une campagne trilingue déployée dans plusieurs pays à l’occasion du GITEX Africa, qui a permis de renforcer la crédibilité institutionnelle d’un acteur saoudien majeur des solutions numériques."
+  },
+  "eqdom": {
+    "industry": "Services financiers",
+    "name": "EQDOM",
+    "description": "Une stratégie de relations médias bilingue et multisectorielle, associant le financement automobile, la transformation digitale et le renforcement de la visibilité de la marque à l’échelle nationale."
+  },
+  "everis": {
+    "industry": "Technologie",
+    "name": "Everis",
+    "description": "Une campagne intégrée de relations presse et de marque employeur, conçue pour attirer des talents hautement qualifiés dans le secteur technologique vers Everis à Tétouan."
+  },
+  "garena": {
+    "industry": "Relations presse Gaming",
+    "name": "Garena Free Fire",
+    "description": "La plupart des annonces de Free Fire provenaient du niveau régional ou international, avec peu de pertinence locale lors de leur arrivée sur le marché marocain.",
+    "results": [
+      {
+        "value": "67",
+        "label": "articles publiés"
+      },
+      {
+        "value": "9,7 M",
+        "label": "de portée estimée"
+      }
+    ]
+  },
+  "gwm": {
+    "industry": "Automobile",
+    "name": "GWM",
+    "description": "Une campagne d’entrée sur le marché marocain, articulée autour d’une conférence de presse, qui a permis à Great Wall Motor d’établir rapidement sa crédibilité auprès des médias automobiles nationaux."
+  },
+  "indrive": {
+    "industry": "Transportation",
+    "name": "inDrive Algeria",
+    "description": "A culturally timed driver campaign and spokesperson program that established credibility for a new mobility entrant in Algeria."
+  },
+  "mifa": {
+    "industry": "Distribution",
+    "name": "MIFA",
+    "description": "Une campagne de communication articulée autour d’un salon professionnel, mettant en lumière la stratégie de MIFA Group dans l’aquaculture et son alignement avec les priorités nationales du Maroc en matière d’économie bleue."
+  },
+  "modanisa": {
+    "description": "Un lancement en trois phases au Maroc, visant à développer la notoriété, renforcer le positionnement de la marque et stimuler l’engagement des consommateurs pour une plateforme internationale de mode modeste."
+  },
+  "ntt-data": {
+    "industry": "Technologie",
+    "name": "NTT DATA",
+    "description": "Une campagne de relations médias multi-marchés qui a transformé une annonce d’investissement majeure en une couverture médiatique institutionnelle crédible, déployée en quatre langues."
+  },
+  "samsung": {
+    "industry": "Technologie",
+    "name": "Samsung",
+    "description": "Une campagne de lancement immersive au Maroc, adaptée au contexte du Ramadan et synchronisée avec Galaxy Unpacked, ayant généré une forte couverture médiatique nationale, audiovisuelle et auprès des influenceurs."
+  }
+}

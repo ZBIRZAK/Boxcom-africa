@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './ProjectsPage.css';
 import { mediaCoverageItems } from '../data/mediaCoverage';
 import frenchCaseStudies from '../content/frenchCaseStudies.generated.json';
+import frenchProjectCards from '../content/frenchProjectCards.generated.json';
 
 const asset = (path) => `${process.env.PUBLIC_URL}${path}`;
 
@@ -230,18 +231,6 @@ const frenchMetricLabels = [
   'Interviews', 'Langues', 'Campagnes', 'Mentions', 'Retombées',
 ];
 
-// The Garena .docx contains a dedicated five-line project-card cover before
-// the full case study. Keep that supplied card copy verbatim.
-const garenaFrenchCard = {
-  industry: 'Relations presse Gaming',
-  name: 'Garena Free Fire',
-  description: 'La plupart des annonces de Free Fire provenaient du niveau régional ou international, avec peu de pertinence locale lors de leur arrivée sur le marché marocain.',
-  results: [
-    { value: '67', label: 'articles publiés' },
-    { value: '9,7 M', label: 'de portée estimée' },
-  ],
-};
-
 function splitFrenchMetric(metric) {
   const splitAt = frenchMetricLabels
     .map((label) => metric.indexOf(label, 1))
@@ -276,6 +265,7 @@ function ProjectsPage({ header, footer, selectedMediaSlug = '', mediaProjectMap 
     ? projects.map((project) => {
         const slug = project.href.split('/').pop();
         const paragraphs = frenchCaseStudies[slug];
+        const suppliedCard = frenchProjectCards[slug] || {};
         const frenchProject = {
           ...project,
           name: paragraphs[0],
@@ -286,7 +276,7 @@ function ProjectsPage({ header, footer, selectedMediaSlug = '', mediaProjectMap 
           services: project.services.map((item) => frenchFilterLabels[item] || item),
           useCase: frenchFilterLabels[project.useCase] || project.useCase,
         };
-        return slug === 'garena' ? { ...frenchProject, ...garenaFrenchCard } : frenchProject;
+        return { ...frenchProject, ...suppliedCard };
       })
     : projects;
 
