@@ -90,6 +90,19 @@ const defaultSocialImage = {
   type: 'image/jpeg',
 };
 
+const pageSocialImages = {
+  '/about': 'about-v1.jpg',
+  '/en/about': 'about-v1.jpg',
+  '/services': 'services-v1.jpg',
+  '/en/services': 'services-v1.jpg',
+  '/services/media-monitoring': 'media-monitoring-v1.jpg',
+  '/en/services/media-monitoring': 'media-monitoring-v1.jpg',
+  '/services/influencer-relations': 'influencer-relations-v1.jpg',
+  '/en/services/influencer-relations': 'influencer-relations-v1.jpg',
+  '/services/communication-de-crise': 'crisis-communication-v1.jpg',
+  '/en/services/crisis-communication': 'crisis-communication-v1.jpg',
+};
+
 // Blog previews use dedicated, high-quality 1.91:1 JPEGs so social platforms
 // do not have to crop or heavily recompress the article artwork themselves.
 // Other pages use their header photo, then the 1200x630 brand image.
@@ -145,6 +158,7 @@ function routeMetadata(route, markup) {
     : null;
   const description = fitDescription(post?.excerpt || extractedDescription || fallbackDescription);
   const isHome = route === '/' || route === '/en';
+  const pageSocialImage = pageSocialImages[route];
 
   const explicitMetadata = {
     '/services/communication-de-crise': {
@@ -174,7 +188,15 @@ function routeMetadata(route, markup) {
     description: explicitMetadata?.description || description,
     language,
     type: route.startsWith('/en/blog/') || route.startsWith('/blog/') ? 'article' : 'website',
-    image: socialImageFor(markup, post || featuredBlogPost),
+    image: pageSocialImage
+      ? {
+        url: `${siteUrl}/assets/social/pages/${pageSocialImage}`,
+        alt: heading,
+        width: 1200,
+        height: 627,
+        type: 'image/jpeg',
+      }
+      : socialImageFor(markup, post || featuredBlogPost),
   };
 }
 

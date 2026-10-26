@@ -5,6 +5,18 @@ const root = path.resolve(__dirname, '..');
 const buildDirectory = path.join(root, 'build');
 const routes = require(path.join(root, 'config', 'public-routes.json'));
 const siteUrl = (process.env.SITE_URL || 'https://www.boxcomafrica.com').replace(/\/$/, '');
+const pageSocialImages = {
+  '/about': 'about-v1.jpg',
+  '/en/about': 'about-v1.jpg',
+  '/services': 'services-v1.jpg',
+  '/en/services': 'services-v1.jpg',
+  '/services/media-monitoring': 'media-monitoring-v1.jpg',
+  '/en/services/media-monitoring': 'media-monitoring-v1.jpg',
+  '/services/influencer-relations': 'influencer-relations-v1.jpg',
+  '/en/services/influencer-relations': 'influencer-relations-v1.jpg',
+  '/services/communication-de-crise': 'crisis-communication-v1.jpg',
+  '/en/services/crisis-communication': 'crisis-communication-v1.jpg',
+};
 
 function fail(message) {
   throw new Error(`SEO validation failed: ${message}`);
@@ -67,6 +79,24 @@ routes.forEach((route) => {
       fail(`${route} social metadata does not use its ${route.endsWith('/blog') ? 'featured' : 'article'} image`);
     }
     if (!expectedImageFile || !fs.existsSync(expectedImageFile)) fail(`${route} social image file is missing`);
+    if (!html.includes('<meta property="og:image:type" content="image/jpeg" />')) fail(`${route} social image has no JPEG type`);
+    if (!html.includes('<meta property="og:image:width" content="1200" />')
+      || !html.includes('<meta property="og:image:height" content="627" />')) {
+      fail(`${route} social image has incorrect or missing dimensions`);
+    }
+  }
+
+  if (pageSocialImages[route]) {
+    const expectedSocialImage = `${siteUrl}/assets/social/pages/${pageSocialImages[route]}`;
+    const expectedImageFile = path.join(root, 'public', 'assets', 'social', 'pages', pageSocialImages[route]);
+    const ogImage = html.match(/<meta property="og:image" content="([^"]+)"/i)?.[1];
+    const secureImage = html.match(/<meta property="og:image:secure_url" content="([^"]+)"/i)?.[1];
+    const twitterImage = html.match(/<meta name="twitter:image" content="([^"]+)"/i)?.[1];
+
+    if (ogImage !== expectedSocialImage || secureImage !== expectedSocialImage || twitterImage !== expectedSocialImage) {
+      fail(`${route} does not use its dedicated social image`);
+    }
+    if (!fs.existsSync(expectedImageFile)) fail(`${route} dedicated social image file is missing`);
     if (!html.includes('<meta property="og:image:type" content="image/jpeg" />')) fail(`${route} social image has no JPEG type`);
     if (!html.includes('<meta property="og:image:width" content="1200" />')
       || !html.includes('<meta property="og:image:height" content="627" />')) {
