@@ -53,10 +53,10 @@ routes.forEach((route) => {
       ? featuredSlug
       : route.split('/').pop();
     const expectedSocialImage = socialSlug
-      ? `${siteUrl}/assets/social/blog/${socialSlug}-v2.jpg`
+      ? `${siteUrl}/assets/social/blog/${socialSlug}-v3.jpg`
       : null;
     const expectedImageFile = socialSlug
-      ? path.join(root, 'public', 'assets', 'social', 'blog', `${socialSlug}-v2.jpg`)
+      ? path.join(root, 'public', 'assets', 'social', 'blog', `${socialSlug}-v3.jpg`)
       : null;
 
     if (!ogImage || !twitterImage) fail(`${route} has incomplete social image metadata`);
