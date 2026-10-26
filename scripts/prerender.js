@@ -96,7 +96,7 @@ const defaultSocialImage = {
 function socialImageFor(markup, post) {
   if (post?.image) {
     return {
-      url: `${siteUrl}/assets/social/blog/${post.slug}.jpg`,
+      url: `${siteUrl}/assets/social/blog/${post.slug}-v2.jpg`,
       alt: post.imageAlt || post.title,
       width: 1200,
       height: 627,
