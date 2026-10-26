@@ -6,14 +6,14 @@ const buildDirectory = path.join(root, 'build');
 const routes = require(path.join(root, 'config', 'public-routes.json'));
 const siteUrl = (process.env.SITE_URL || 'https://www.boxcomafrica.com').replace(/\/$/, '');
 const pageSocialImages = {
-  '/about': 'about-v2.jpg',
-  '/en/about': 'about-v2.jpg',
+  '/about': '/og-image.jpg',
+  '/en/about': '/og-image.jpg',
   '/services': 'services-v2.jpg',
-  '/en/services': 'services-v2.jpg',
+  '/en/services': '/og-image.jpg',
   '/services/media-monitoring': 'media-monitoring-v2.jpg',
   '/en/services/media-monitoring': 'media-monitoring-v2.jpg',
   '/services/influencer-relations': 'influencer-relations-v2.jpg',
-  '/en/services/influencer-relations': 'influencer-relations-v2.jpg',
+  '/en/services/influencer-relations': '/og-image.jpg',
   '/services/communication-de-crise': 'crisis-communication-v2.jpg',
   '/en/services/crisis-communication': 'crisis-communication-v2.jpg',
 };
@@ -89,8 +89,14 @@ routes.forEach((route) => {
   }
 
   if (pageSocialImages[route]) {
-    const expectedSocialImage = `${siteUrl}/assets/social/pages/${pageSocialImages[route]}`;
-    const expectedImageFile = path.join(root, 'public', 'assets', 'social', 'pages', pageSocialImages[route]);
+    const socialImagePath = pageSocialImages[route];
+    const expectedHeight = socialImagePath === '/og-image.jpg' ? 630 : 628;
+    const expectedSocialImage = socialImagePath.startsWith('/')
+      ? `${siteUrl}${socialImagePath}`
+      : `${siteUrl}/assets/social/pages/${socialImagePath}`;
+    const expectedImageFile = socialImagePath.startsWith('/')
+      ? path.join(root, 'public', socialImagePath.slice(1))
+      : path.join(root, 'public', 'assets', 'social', 'pages', socialImagePath);
     const ogImage = html.match(/<meta property="og:image" content="([^"]+)"/i)?.[1];
     const imageUrl = html.match(/<meta property="og:image:url" content="([^"]+)"/i)?.[1];
     const secureImage = html.match(/<meta property="og:image:secure_url" content="([^"]+)"/i)?.[1];
@@ -103,7 +109,7 @@ routes.forEach((route) => {
     if (!fs.existsSync(expectedImageFile)) fail(`${route} dedicated social image file is missing`);
     if (!html.includes('<meta property="og:image:type" content="image/jpeg" />')) fail(`${route} social image has no JPEG type`);
     if (!html.includes('<meta property="og:image:width" content="1200" />')
-      || !html.includes('<meta property="og:image:height" content="628" />')) {
+      || !html.includes(`<meta property="og:image:height" content="${expectedHeight}" />`)) {
       fail(`${route} social image has incorrect or missing dimensions`);
     }
   }

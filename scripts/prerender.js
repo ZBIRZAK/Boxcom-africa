@@ -91,14 +91,14 @@ const defaultSocialImage = {
 };
 
 const pageSocialImages = {
-  '/about': 'about-v2.jpg',
-  '/en/about': 'about-v2.jpg',
+  '/about': '/og-image.jpg',
+  '/en/about': '/og-image.jpg',
   '/services': 'services-v2.jpg',
-  '/en/services': 'services-v2.jpg',
+  '/en/services': '/og-image.jpg',
   '/services/media-monitoring': 'media-monitoring-v2.jpg',
   '/en/services/media-monitoring': 'media-monitoring-v2.jpg',
   '/services/influencer-relations': 'influencer-relations-v2.jpg',
-  '/en/services/influencer-relations': 'influencer-relations-v2.jpg',
+  '/en/services/influencer-relations': '/og-image.jpg',
   '/services/communication-de-crise': 'crisis-communication-v2.jpg',
   '/en/services/crisis-communication': 'crisis-communication-v2.jpg',
 };
@@ -190,10 +190,12 @@ function routeMetadata(route, markup) {
     type: route.startsWith('/en/blog/') || route.startsWith('/blog/') ? 'article' : 'website',
     image: pageSocialImage
       ? {
-        url: `${siteUrl}/assets/social/pages/${pageSocialImage}`,
+        url: pageSocialImage.startsWith('/')
+          ? `${siteUrl}${pageSocialImage}`
+          : `${siteUrl}/assets/social/pages/${pageSocialImage}`,
         alt: heading,
         width: 1200,
-        height: 628,
+        height: pageSocialImage === '/og-image.jpg' ? 630 : 628,
         type: 'image/jpeg',
       }
       : socialImageFor(markup, post || featuredBlogPost),
