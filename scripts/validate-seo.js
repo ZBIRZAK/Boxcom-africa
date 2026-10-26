@@ -6,16 +6,16 @@ const buildDirectory = path.join(root, 'build');
 const routes = require(path.join(root, 'config', 'public-routes.json'));
 const siteUrl = (process.env.SITE_URL || 'https://www.boxcomafrica.com').replace(/\/$/, '');
 const pageSocialImages = {
-  '/about': 'about-v1.jpg',
-  '/en/about': 'about-v1.jpg',
-  '/services': 'services-v1.jpg',
-  '/en/services': 'services-v1.jpg',
-  '/services/media-monitoring': 'media-monitoring-v1.jpg',
-  '/en/services/media-monitoring': 'media-monitoring-v1.jpg',
-  '/services/influencer-relations': 'influencer-relations-v1.jpg',
-  '/en/services/influencer-relations': 'influencer-relations-v1.jpg',
-  '/services/communication-de-crise': 'crisis-communication-v1.jpg',
-  '/en/services/crisis-communication': 'crisis-communication-v1.jpg',
+  '/about': 'about-v2.jpg',
+  '/en/about': 'about-v2.jpg',
+  '/services': 'services-v2.jpg',
+  '/en/services': 'services-v2.jpg',
+  '/services/media-monitoring': 'media-monitoring-v2.jpg',
+  '/en/services/media-monitoring': 'media-monitoring-v2.jpg',
+  '/services/influencer-relations': 'influencer-relations-v2.jpg',
+  '/en/services/influencer-relations': 'influencer-relations-v2.jpg',
+  '/services/communication-de-crise': 'crisis-communication-v2.jpg',
+  '/en/services/crisis-communication': 'crisis-communication-v2.jpg',
 };
 
 function fail(message) {
@@ -58,6 +58,7 @@ routes.forEach((route) => {
 
   if (route === '/blog' || route === '/en/blog' || /^(?:\/en)?\/blog\//.test(route)) {
     const ogImage = html.match(/<meta property="og:image" content="([^"]+)"/i)?.[1];
+    const imageUrl = html.match(/<meta property="og:image:url" content="([^"]+)"/i)?.[1];
     const secureImage = html.match(/<meta property="og:image:secure_url" content="([^"]+)"/i)?.[1];
     const twitterImage = html.match(/<meta name="twitter:image" content="([^"]+)"/i)?.[1];
     const featuredSlug = html.match(/class="blog-featured__image" href="[^"]*\/([^/"]+)"/i)?.[1];
@@ -75,7 +76,8 @@ routes.forEach((route) => {
     if (ogImage.includes('favicon-b.png') || twitterImage.includes('favicon-b.png')) {
       fail(`${route} uses the favicon as its social image`);
     }
-    if (!expectedSocialImage || ogImage !== expectedSocialImage || secureImage !== expectedSocialImage || twitterImage !== expectedSocialImage) {
+    if (!expectedSocialImage || ogImage !== expectedSocialImage || imageUrl !== expectedSocialImage
+      || secureImage !== expectedSocialImage || twitterImage !== expectedSocialImage) {
       fail(`${route} social metadata does not use its ${route.endsWith('/blog') ? 'featured' : 'article'} image`);
     }
     if (!expectedImageFile || !fs.existsSync(expectedImageFile)) fail(`${route} social image file is missing`);
@@ -90,16 +92,18 @@ routes.forEach((route) => {
     const expectedSocialImage = `${siteUrl}/assets/social/pages/${pageSocialImages[route]}`;
     const expectedImageFile = path.join(root, 'public', 'assets', 'social', 'pages', pageSocialImages[route]);
     const ogImage = html.match(/<meta property="og:image" content="([^"]+)"/i)?.[1];
+    const imageUrl = html.match(/<meta property="og:image:url" content="([^"]+)"/i)?.[1];
     const secureImage = html.match(/<meta property="og:image:secure_url" content="([^"]+)"/i)?.[1];
     const twitterImage = html.match(/<meta name="twitter:image" content="([^"]+)"/i)?.[1];
 
-    if (ogImage !== expectedSocialImage || secureImage !== expectedSocialImage || twitterImage !== expectedSocialImage) {
+    if (ogImage !== expectedSocialImage || imageUrl !== expectedSocialImage
+      || secureImage !== expectedSocialImage || twitterImage !== expectedSocialImage) {
       fail(`${route} does not use its dedicated social image`);
     }
     if (!fs.existsSync(expectedImageFile)) fail(`${route} dedicated social image file is missing`);
     if (!html.includes('<meta property="og:image:type" content="image/jpeg" />')) fail(`${route} social image has no JPEG type`);
     if (!html.includes('<meta property="og:image:width" content="1200" />')
-      || !html.includes('<meta property="og:image:height" content="627" />')) {
+      || !html.includes('<meta property="og:image:height" content="628" />')) {
       fail(`${route} social image has incorrect or missing dimensions`);
     }
   }

@@ -91,16 +91,16 @@ const defaultSocialImage = {
 };
 
 const pageSocialImages = {
-  '/about': 'about-v1.jpg',
-  '/en/about': 'about-v1.jpg',
-  '/services': 'services-v1.jpg',
-  '/en/services': 'services-v1.jpg',
-  '/services/media-monitoring': 'media-monitoring-v1.jpg',
-  '/en/services/media-monitoring': 'media-monitoring-v1.jpg',
-  '/services/influencer-relations': 'influencer-relations-v1.jpg',
-  '/en/services/influencer-relations': 'influencer-relations-v1.jpg',
-  '/services/communication-de-crise': 'crisis-communication-v1.jpg',
-  '/en/services/crisis-communication': 'crisis-communication-v1.jpg',
+  '/about': 'about-v2.jpg',
+  '/en/about': 'about-v2.jpg',
+  '/services': 'services-v2.jpg',
+  '/en/services': 'services-v2.jpg',
+  '/services/media-monitoring': 'media-monitoring-v2.jpg',
+  '/en/services/media-monitoring': 'media-monitoring-v2.jpg',
+  '/services/influencer-relations': 'influencer-relations-v2.jpg',
+  '/en/services/influencer-relations': 'influencer-relations-v2.jpg',
+  '/services/communication-de-crise': 'crisis-communication-v2.jpg',
+  '/en/services/crisis-communication': 'crisis-communication-v2.jpg',
 };
 
 // Blog previews use dedicated, high-quality 1.91:1 JPEGs so social platforms
@@ -193,7 +193,7 @@ function routeMetadata(route, markup) {
         url: `${siteUrl}/assets/social/pages/${pageSocialImage}`,
         alt: heading,
         width: 1200,
-        height: 627,
+        height: 628,
         type: 'image/jpeg',
       }
       : socialImageFor(markup, post || featuredBlogPost),
@@ -377,6 +377,7 @@ function applyMetadata(html, route, markup, metadata) {
     `<meta property="og:description" content="${description}" />`,
     `<meta property="og:url" content="${canonicalUrl}" />`,
     `<meta property="og:image" content="${socialImage}" />`,
+    `<meta property="og:image:url" content="${socialImage}" />`,
     `<meta property="og:image:secure_url" content="${socialImage}" />`,
     socialImageType,
     ...socialImageSize,
