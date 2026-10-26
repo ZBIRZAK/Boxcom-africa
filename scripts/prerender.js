@@ -131,6 +131,10 @@ function routeMetadata(route, markup) {
   const post = /^(?:\/en)?\/blog\//.test(route)
     ? blogPosts.find((item) => item.slug === route.split('/').pop() && item.language === language)
     : null;
+  const featuredBlogPost = route === '/blog' || route === '/en/blog'
+    ? blogPosts.find((item) => item.language === language && item.featured)
+      || blogPosts.find((item) => item.language === language)
+    : null;
   const description = fitDescription(post?.excerpt || extractedDescription || fallbackDescription);
   const isHome = route === '/' || route === '/en';
 
@@ -162,7 +166,7 @@ function routeMetadata(route, markup) {
     description: explicitMetadata?.description || description,
     language,
     type: route.startsWith('/en/blog/') || route.startsWith('/blog/') ? 'article' : 'website',
-    image: socialImageFor(markup, post),
+    image: socialImageFor(markup, post || featuredBlogPost),
   };
 }
 

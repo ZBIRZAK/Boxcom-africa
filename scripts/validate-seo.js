@@ -44,6 +44,23 @@ routes.forEach((route) => {
   if (!html.includes('property="og:title"') || !html.includes('name="twitter:card"')) fail(`${route} lacks social metadata`);
   if (html.includes('href="#/') || html.includes('undefined/assets/')) fail(`${route} contains an obsolete or invalid URL`);
 
+  if (route === '/blog' || route === '/en/blog' || /^(?:\/en)?\/blog\//.test(route)) {
+    const ogImage = html.match(/<meta property="og:image" content="([^"]+)"/i)?.[1];
+    const twitterImage = html.match(/<meta name="twitter:image" content="([^"]+)"/i)?.[1];
+    const pageImage = route === '/blog' || route === '/en/blog'
+      ? html.match(/class="blog-featured__image"[^>]*>[\s\S]*?<img src="([^"]+)"/i)?.[1]
+      : html.match(/class="blog-post-hero__media"[^>]*>[\s\S]*?<img src="([^"]+)"/i)?.[1];
+    const expectedSocialImage = pageImage ? new URL(pageImage, siteUrl).href : null;
+
+    if (!ogImage || !twitterImage) fail(`${route} has incomplete social image metadata`);
+    if (ogImage.includes('favicon-b.png') || twitterImage.includes('favicon-b.png')) {
+      fail(`${route} uses the favicon as its social image`);
+    }
+    if (!expectedSocialImage || ogImage !== expectedSocialImage || twitterImage !== expectedSocialImage) {
+      fail(`${route} social metadata does not use its ${route.endsWith('/blog') ? 'featured' : 'article'} image`);
+    }
+  }
+
   const structuredData = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
   if (!structuredData) fail(`${route} has no JSON-LD`);
   JSON.parse(structuredData[1]);
