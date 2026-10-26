@@ -93,14 +93,24 @@ const defaultSocialImage = {
 const pageSocialImages = {
   '/about': '/og-image.jpg',
   '/en/about': '/og-image.jpg',
-  '/services': 'services-v2.jpg',
-  '/en/services': 'services-v3.jpg',
-  '/services/media-monitoring': 'media-monitoring-v2.jpg',
-  '/en/services/media-monitoring': 'media-monitoring-v2.jpg',
-  '/services/influencer-relations': 'influencer-relations-v2.jpg',
-  '/en/services/influencer-relations': 'influencer-relations-v3.jpg',
-  '/services/communication-de-crise': 'crisis-communication-v2.jpg',
-  '/en/services/crisis-communication': 'crisis-communication-v2.jpg',
+  '/services': 'services-v4.jpg',
+  '/en/services': 'services-v4.jpg',
+  '/services/media-relations': 'media-relations-v4.jpg',
+  '/en/services/media-relations': 'media-relations-v4.jpg',
+  '/services/media-events': 'media-events-v4.jpg',
+  '/en/services/media-events': 'media-events-v4.jpg',
+  '/services/media-monitoring': 'media-monitoring-v4.jpg',
+  '/en/services/media-monitoring': 'media-monitoring-v4.jpg',
+  '/services/social-pr': 'social-pr-v4.jpg',
+  '/en/services/social-pr': 'social-pr-v4.jpg',
+  '/services/pr-content-creation': 'pr-content-creation-v4.jpg',
+  '/en/services/pr-content-creation': 'pr-content-creation-v4.jpg',
+  '/services/influencer-relations': 'influencer-relations-v4.jpg',
+  '/en/services/influencer-relations': 'influencer-relations-v4.jpg',
+  '/services/communication-de-crise': 'crisis-communication-v4.jpg',
+  '/en/services/crisis-communication': 'crisis-communication-v4.jpg',
+  '/projects': 'projects-v4.jpg',
+  '/en/projects': 'projects-v4.jpg',
 };
 
 // Blog previews use dedicated, high-quality 1.91:1 JPEGs so social platforms
@@ -194,8 +204,14 @@ function routeMetadata(route, markup) {
           ? `${siteUrl}${pageSocialImage}`
           : `${siteUrl}/assets/social/pages/${pageSocialImage}`,
         alt: heading,
-        width: 1200,
-        height: pageSocialImage === '/og-image.jpg' ? 630 : 628,
+        width: pageSocialImage === 'social-pr-v4.jpg'
+          ? 1536
+          : (pageSocialImage === 'pr-content-creation-v4.jpg' ? 2000 : (pageSocialImage.endsWith('-v4.jpg') ? 2200 : 1200)),
+        height: pageSocialImage === '/og-image.jpg'
+          ? 630
+          : (pageSocialImage === 'social-pr-v4.jpg'
+            ? 804
+            : (pageSocialImage === 'pr-content-creation-v4.jpg' ? 1046 : (pageSocialImage.endsWith('-v4.jpg') ? 1150 : 628))),
         type: 'image/jpeg',
       }
       : socialImageFor(markup, post || featuredBlogPost),

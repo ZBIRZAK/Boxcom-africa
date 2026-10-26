@@ -8,14 +8,24 @@ const siteUrl = (process.env.SITE_URL || 'https://www.boxcomafrica.com').replace
 const pageSocialImages = {
   '/about': '/og-image.jpg',
   '/en/about': '/og-image.jpg',
-  '/services': 'services-v2.jpg',
-  '/en/services': 'services-v3.jpg',
-  '/services/media-monitoring': 'media-monitoring-v2.jpg',
-  '/en/services/media-monitoring': 'media-monitoring-v2.jpg',
-  '/services/influencer-relations': 'influencer-relations-v2.jpg',
-  '/en/services/influencer-relations': 'influencer-relations-v3.jpg',
-  '/services/communication-de-crise': 'crisis-communication-v2.jpg',
-  '/en/services/crisis-communication': 'crisis-communication-v2.jpg',
+  '/services': 'services-v4.jpg',
+  '/en/services': 'services-v4.jpg',
+  '/services/media-relations': 'media-relations-v4.jpg',
+  '/en/services/media-relations': 'media-relations-v4.jpg',
+  '/services/media-events': 'media-events-v4.jpg',
+  '/en/services/media-events': 'media-events-v4.jpg',
+  '/services/media-monitoring': 'media-monitoring-v4.jpg',
+  '/en/services/media-monitoring': 'media-monitoring-v4.jpg',
+  '/services/social-pr': 'social-pr-v4.jpg',
+  '/en/services/social-pr': 'social-pr-v4.jpg',
+  '/services/pr-content-creation': 'pr-content-creation-v4.jpg',
+  '/en/services/pr-content-creation': 'pr-content-creation-v4.jpg',
+  '/services/influencer-relations': 'influencer-relations-v4.jpg',
+  '/en/services/influencer-relations': 'influencer-relations-v4.jpg',
+  '/services/communication-de-crise': 'crisis-communication-v4.jpg',
+  '/en/services/crisis-communication': 'crisis-communication-v4.jpg',
+  '/projects': 'projects-v4.jpg',
+  '/en/projects': 'projects-v4.jpg',
 };
 
 function fail(message) {
@@ -90,7 +100,14 @@ routes.forEach((route) => {
 
   if (pageSocialImages[route]) {
     const socialImagePath = pageSocialImages[route];
-    const expectedHeight = socialImagePath === '/og-image.jpg' ? 630 : 628;
+    const expectedWidth = socialImagePath === 'social-pr-v4.jpg'
+      ? 1536
+      : (socialImagePath === 'pr-content-creation-v4.jpg' ? 2000 : (socialImagePath.endsWith('-v4.jpg') ? 2200 : 1200));
+    const expectedHeight = socialImagePath === '/og-image.jpg'
+      ? 630
+      : (socialImagePath === 'social-pr-v4.jpg'
+        ? 804
+        : (socialImagePath === 'pr-content-creation-v4.jpg' ? 1046 : (socialImagePath.endsWith('-v4.jpg') ? 1150 : 628)));
     const expectedSocialImage = socialImagePath.startsWith('/')
       ? `${siteUrl}${socialImagePath}`
       : `${siteUrl}/assets/social/pages/${socialImagePath}`;
@@ -108,7 +125,7 @@ routes.forEach((route) => {
     }
     if (!fs.existsSync(expectedImageFile)) fail(`${route} dedicated social image file is missing`);
     if (!html.includes('<meta property="og:image:type" content="image/jpeg" />')) fail(`${route} social image has no JPEG type`);
-    if (!html.includes('<meta property="og:image:width" content="1200" />')
+    if (!html.includes(`<meta property="og:image:width" content="${expectedWidth}" />`)
       || !html.includes(`<meta property="og:image:height" content="${expectedHeight}" />`)) {
       fail(`${route} social image has incorrect or missing dimensions`);
     }
