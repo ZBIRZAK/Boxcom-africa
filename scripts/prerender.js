@@ -87,13 +87,21 @@ const defaultSocialImage = {
   alt: 'BOXCOM Africa, PR agency in Morocco for Africa',
   width: 1200,
   height: 630,
+  type: 'image/jpeg',
 };
 
-// Social preview image: the blog post's image, else the page's header photo
-// (the site names hero photos "*header*"), else the 1200x630 brand image.
+// Blog previews use dedicated, high-quality 1.91:1 JPEGs so social platforms
+// do not have to crop or heavily recompress the article artwork themselves.
+// Other pages use their header photo, then the 1200x630 brand image.
 function socialImageFor(markup, post) {
   if (post?.image) {
-    return { url: new URL(post.image, siteUrl).href, alt: post.imageAlt || post.title };
+    return {
+      url: `${siteUrl}/assets/social/blog/${post.slug}.jpg`,
+      alt: post.imageAlt || post.title,
+      width: 1200,
+      height: 627,
+      type: 'image/jpeg',
+    };
   }
   const header = [...markup.matchAll(/<img\b[^>]*>/gi)]
     .map((match) => match[0])
@@ -303,6 +311,9 @@ function applyMetadata(html, route, markup, metadata) {
   const description = escapeAttribute(metadata.description);
   const socialImage = escapeAttribute(metadata.image.url);
   const socialImageAlt = escapeAttribute(metadata.image.alt);
+  const socialImageType = metadata.image.type
+    ? `<meta property="og:image:type" content="${escapeAttribute(metadata.image.type)}" />`
+    : '';
   const socialImageSize = metadata.image.width
     ? [
       `<meta property="og:image:width" content="${metadata.image.width}" />`,
@@ -344,6 +355,8 @@ function applyMetadata(html, route, markup, metadata) {
     `<meta property="og:description" content="${description}" />`,
     `<meta property="og:url" content="${canonicalUrl}" />`,
     `<meta property="og:image" content="${socialImage}" />`,
+    `<meta property="og:image:secure_url" content="${socialImage}" />`,
+    socialImageType,
     ...socialImageSize,
     `<meta property="og:image:alt" content="${socialImageAlt}" />`,
     '<meta name="twitter:card" content="summary_large_image" />',

@@ -46,18 +46,31 @@ routes.forEach((route) => {
 
   if (route === '/blog' || route === '/en/blog' || /^(?:\/en)?\/blog\//.test(route)) {
     const ogImage = html.match(/<meta property="og:image" content="([^"]+)"/i)?.[1];
+    const secureImage = html.match(/<meta property="og:image:secure_url" content="([^"]+)"/i)?.[1];
     const twitterImage = html.match(/<meta name="twitter:image" content="([^"]+)"/i)?.[1];
-    const pageImage = route === '/blog' || route === '/en/blog'
-      ? html.match(/class="blog-featured__image"[^>]*>[\s\S]*?<img src="([^"]+)"/i)?.[1]
-      : html.match(/class="blog-post-hero__media"[^>]*>[\s\S]*?<img src="([^"]+)"/i)?.[1];
-    const expectedSocialImage = pageImage ? new URL(pageImage, siteUrl).href : null;
+    const featuredSlug = html.match(/class="blog-featured__image" href="[^"]*\/([^/"]+)"/i)?.[1];
+    const socialSlug = route === '/blog' || route === '/en/blog'
+      ? featuredSlug
+      : route.split('/').pop();
+    const expectedSocialImage = socialSlug
+      ? `${siteUrl}/assets/social/blog/${socialSlug}.jpg`
+      : null;
+    const expectedImageFile = socialSlug
+      ? path.join(root, 'public', 'assets', 'social', 'blog', `${socialSlug}.jpg`)
+      : null;
 
     if (!ogImage || !twitterImage) fail(`${route} has incomplete social image metadata`);
     if (ogImage.includes('favicon-b.png') || twitterImage.includes('favicon-b.png')) {
       fail(`${route} uses the favicon as its social image`);
     }
-    if (!expectedSocialImage || ogImage !== expectedSocialImage || twitterImage !== expectedSocialImage) {
+    if (!expectedSocialImage || ogImage !== expectedSocialImage || secureImage !== expectedSocialImage || twitterImage !== expectedSocialImage) {
       fail(`${route} social metadata does not use its ${route.endsWith('/blog') ? 'featured' : 'article'} image`);
+    }
+    if (!expectedImageFile || !fs.existsSync(expectedImageFile)) fail(`${route} social image file is missing`);
+    if (!html.includes('<meta property="og:image:type" content="image/jpeg" />')) fail(`${route} social image has no JPEG type`);
+    if (!html.includes('<meta property="og:image:width" content="1200" />')
+      || !html.includes('<meta property="og:image:height" content="627" />')) {
+      fail(`${route} social image has incorrect or missing dimensions`);
     }
   }
 
