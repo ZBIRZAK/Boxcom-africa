@@ -94,11 +94,11 @@ const pageSocialImages = {
   '/about': '/og-image.jpg',
   '/en/about': '/og-image.jpg',
   '/services': 'services-v2.jpg',
-  '/en/services': '/og-image.jpg',
+  '/en/services': 'services-v3.jpg',
   '/services/media-monitoring': 'media-monitoring-v2.jpg',
   '/en/services/media-monitoring': 'media-monitoring-v2.jpg',
   '/services/influencer-relations': 'influencer-relations-v2.jpg',
-  '/en/services/influencer-relations': '/og-image.jpg',
+  '/en/services/influencer-relations': 'influencer-relations-v3.jpg',
   '/services/communication-de-crise': 'crisis-communication-v2.jpg',
   '/en/services/crisis-communication': 'crisis-communication-v2.jpg',
 };
