@@ -83,16 +83,16 @@ function fitDescription(text, maxLength = 160) {
 }
 
 const defaultSocialImage = {
-  url: `${siteUrl}/og-image.jpg`,
+  url: `${siteUrl}/assets/social/pages/home-v2.png`,
   alt: 'BOXCOM Africa, PR agency in Morocco for Africa',
-  width: 1200,
-  height: 630,
-  type: 'image/jpeg',
+  width: 2400,
+  height: 1260,
+  type: 'image/png',
 };
 
 const pageSocialImages = {
-  '/about': '/og-image.jpg',
-  '/en/about': '/og-image.jpg',
+  '/about': 'home-v2.png',
+  '/en/about': 'home-v2.png',
   '/services': 'services-v4.jpg',
   '/en/services': 'services-v4.jpg',
   '/services/media-relations': 'media-relations-v4.jpg',
@@ -107,8 +107,8 @@ const pageSocialImages = {
   '/en/services/pr-content-creation': 'pr-content-creation-v4.jpg',
   '/services/influencer-relations': 'influencer-relations-v5.jpg',
   '/en/services/influencer-relations': 'influencer-relations-v5.jpg',
-  '/services/communication-de-crise': 'crisis-communication-v5.jpg',
-  '/en/services/crisis-communication': 'crisis-communication-v5.jpg',
+  '/services/communication-de-crise': 'crisis-communication-v6.png',
+  '/en/services/crisis-communication': 'crisis-communication-v6.png',
   '/projects': 'projects-v4.jpg',
   '/en/projects': 'projects-v4.jpg',
 };
@@ -204,15 +204,17 @@ function routeMetadata(route, markup) {
           ? `${siteUrl}${pageSocialImage}`
           : `${siteUrl}/assets/social/pages/${pageSocialImage}`,
         alt: heading,
-        width: pageSocialImage === 'social-pr-v4.jpg'
-          ? 1536
-          : (pageSocialImage === 'pr-content-creation-v4.jpg' ? 2000 : (/-v[45]\.jpg$/.test(pageSocialImage) ? 2200 : 1200)),
-        height: pageSocialImage === '/og-image.jpg'
-          ? 630
+        width: pageSocialImage === 'home-v2.png'
+          ? 2400
+          : (pageSocialImage === 'social-pr-v4.jpg'
+            ? 1536
+            : (pageSocialImage === 'pr-content-creation-v4.jpg' ? 2000 : 2200)),
+        height: pageSocialImage === 'home-v2.png'
+          ? 1260
           : (pageSocialImage === 'social-pr-v4.jpg'
             ? 804
-            : (pageSocialImage === 'pr-content-creation-v4.jpg' ? 1046 : (/-v[45]\.jpg$/.test(pageSocialImage) ? 1150 : 628))),
-        type: 'image/jpeg',
+            : (pageSocialImage === 'pr-content-creation-v4.jpg' ? 1046 : 1150)),
+        type: pageSocialImage.endsWith('.png') ? 'image/png' : 'image/jpeg',
       }
       : socialImageFor(markup, post || featuredBlogPost),
   };

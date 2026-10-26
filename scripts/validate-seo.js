@@ -6,8 +6,8 @@ const buildDirectory = path.join(root, 'build');
 const routes = require(path.join(root, 'config', 'public-routes.json'));
 const siteUrl = (process.env.SITE_URL || 'https://www.boxcomafrica.com').replace(/\/$/, '');
 const pageSocialImages = {
-  '/about': '/og-image.jpg',
-  '/en/about': '/og-image.jpg',
+  '/about': 'home-v2.png',
+  '/en/about': 'home-v2.png',
   '/services': 'services-v4.jpg',
   '/en/services': 'services-v4.jpg',
   '/services/media-relations': 'media-relations-v4.jpg',
@@ -22,8 +22,8 @@ const pageSocialImages = {
   '/en/services/pr-content-creation': 'pr-content-creation-v4.jpg',
   '/services/influencer-relations': 'influencer-relations-v5.jpg',
   '/en/services/influencer-relations': 'influencer-relations-v5.jpg',
-  '/services/communication-de-crise': 'crisis-communication-v5.jpg',
-  '/en/services/crisis-communication': 'crisis-communication-v5.jpg',
+  '/services/communication-de-crise': 'crisis-communication-v6.png',
+  '/en/services/crisis-communication': 'crisis-communication-v6.png',
   '/projects': 'projects-v4.jpg',
   '/en/projects': 'projects-v4.jpg',
 };
@@ -100,14 +100,17 @@ routes.forEach((route) => {
 
   if (pageSocialImages[route]) {
     const socialImagePath = pageSocialImages[route];
-    const expectedWidth = socialImagePath === 'social-pr-v4.jpg'
-      ? 1536
-      : (socialImagePath === 'pr-content-creation-v4.jpg' ? 2000 : (/-v[45]\.jpg$/.test(socialImagePath) ? 2200 : 1200));
-    const expectedHeight = socialImagePath === '/og-image.jpg'
-      ? 630
+    const expectedWidth = socialImagePath === 'home-v2.png'
+      ? 2400
+      : (socialImagePath === 'social-pr-v4.jpg'
+        ? 1536
+        : (socialImagePath === 'pr-content-creation-v4.jpg' ? 2000 : 2200));
+    const expectedHeight = socialImagePath === 'home-v2.png'
+      ? 1260
       : (socialImagePath === 'social-pr-v4.jpg'
         ? 804
-        : (socialImagePath === 'pr-content-creation-v4.jpg' ? 1046 : (/-v[45]\.jpg$/.test(socialImagePath) ? 1150 : 628)));
+        : (socialImagePath === 'pr-content-creation-v4.jpg' ? 1046 : 1150));
+    const expectedType = socialImagePath.endsWith('.png') ? 'image/png' : 'image/jpeg';
     const expectedSocialImage = socialImagePath.startsWith('/')
       ? `${siteUrl}${socialImagePath}`
       : `${siteUrl}/assets/social/pages/${socialImagePath}`;
@@ -124,7 +127,9 @@ routes.forEach((route) => {
       fail(`${route} does not use its dedicated social image`);
     }
     if (!fs.existsSync(expectedImageFile)) fail(`${route} dedicated social image file is missing`);
-    if (!html.includes('<meta property="og:image:type" content="image/jpeg" />')) fail(`${route} social image has no JPEG type`);
+    if (!html.includes(`<meta property="og:image:type" content="${expectedType}" />`)) {
+      fail(`${route} social image has the wrong image type`);
+    }
     if (!html.includes(`<meta property="og:image:width" content="${expectedWidth}" />`)
       || !html.includes(`<meta property="og:image:height" content="${expectedHeight}" />`)) {
       fail(`${route} social image has incorrect or missing dimensions`);
