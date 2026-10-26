@@ -58,7 +58,7 @@ const mediaMonitoringConfig = {
           </>
         ),
         image: asset(
-          '/assets/Media%20Monitoring_Approved%20Images/Media%20Monitoring_Set%20the%20Watchlist.png'
+          '/assets/Media%20Monitoring_Approved%20Images/Media%20Monitoring_Set%20the%20Watchlist.jpg'
         ),
         imageAlt: 'A radar screen identifying important media signals',
       },

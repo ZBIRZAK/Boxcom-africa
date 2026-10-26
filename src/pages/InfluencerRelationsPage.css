@@ -254,6 +254,10 @@
   background: #ffffff;
 }
 
+.influencer-process > .influencer-page__frame {
+  max-width: 1240px;
+}
+
 .influencer-process h2 {
   color: #ff6714;
   font-size: clamp(2.5rem, 4vw, 4.4rem);
@@ -269,7 +273,7 @@
 
 .influencer-process__item {
   display: grid;
-  grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(28px, 4vw, 58px);
   align-items: center;
   padding: 34px 0;
@@ -291,7 +295,12 @@
 
 .influencer-process__item.is-reversed > div {
   order: 1;
-  text-align: right;
+  text-align: left;
+}
+
+.influencer-process__item > div {
+  direction: ltr;
+  text-align: left;
 }
 
 .influencer-process__item img {
@@ -304,13 +313,14 @@
 
 @media (min-width: 641px) {
   .influencer-process__item {
-    align-items: stretch;
+    align-items: center;
   }
 
   .influencer-process__matched-image {
     position: relative;
     min-width: 0;
     min-height: 0;
+    aspect-ratio: 3 / 2;
     margin: 0;
     overflow: hidden;
     border-radius: 8px;
@@ -382,6 +392,7 @@
   color: #000326;
   font-size: var(--paragraph-size);
   line-height: 1.35;
+  text-align: justify;
 }
 
 .influencer-process__item .service-inline-link {
@@ -660,7 +671,7 @@
   }
 
   .influencer-process__item {
-    grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .influencer-beyond__image {

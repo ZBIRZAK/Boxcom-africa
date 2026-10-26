@@ -29,7 +29,7 @@ const config = {
       {
         title: 'Définir le périmètre de veille',
         description: <>Nous définissons les marques, les personnes, les concurrents, les médias, les sujets et les marchés qui méritent attention, puis nous construisons une approche de veille autour de ce qui compte réellement pour l’entreprise. Pour <a className="service-inline-link" href="/en/projects/indrive"><strong>inDrive Algérie</strong></a>, cela s’est traduit par le <a className="service-inline-link" href="/en/projects/indrive"><strong>suivi de 11 médias dans deux langues</strong></a>. Ce cadrage filtre le bruit et fait ressortir les signaux qui méritent une action, afin que rien d’important ne soit manqué et que rien d’accessoire ne mobilise l’attention.</>,
-        image: asset('/assets/Media%20Monitoring_Approved%20Images/Media%20Monitoring_Set%20the%20Watchlist.png'),
+        image: asset('/assets/Media%20Monitoring_Approved%20Images/Media%20Monitoring_Set%20the%20Watchlist.jpg'),
         imageAlt: 'Un radar identifiant les signaux médiatiques importants',
       },
       {
