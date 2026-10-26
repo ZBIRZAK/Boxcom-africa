@@ -6,6 +6,7 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
+    { "source": "/services/crisis-communication", "destination": "/services/communication-de-crise", "permanent": true },
     { "source": "/blog/how-to-build-a-media-story-journalists-can-use", "destination": "/en/blog/how-to-build-a-media-story-journalists-can-use", "permanent": false },
     { "source": "/blog/why-media-monitoring-needs-context", "destination": "/en/blog/why-media-monitoring-needs-context", "permanent": false },
     { "source": "/fr", "destination": "/", "permanent": true },

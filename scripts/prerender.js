@@ -105,10 +105,10 @@ const pageSocialImages = {
   '/en/services/social-pr': 'social-pr-v4.jpg',
   '/services/pr-content-creation': 'pr-content-creation-v4.jpg',
   '/en/services/pr-content-creation': 'pr-content-creation-v4.jpg',
-  '/services/influencer-relations': 'influencer-relations-v4.jpg',
-  '/en/services/influencer-relations': 'influencer-relations-v4.jpg',
-  '/services/communication-de-crise': 'crisis-communication-v4.jpg',
-  '/en/services/crisis-communication': 'crisis-communication-v4.jpg',
+  '/services/influencer-relations': 'influencer-relations-v5.jpg',
+  '/en/services/influencer-relations': 'influencer-relations-v5.jpg',
+  '/services/communication-de-crise': 'crisis-communication-v5.jpg',
+  '/en/services/crisis-communication': 'crisis-communication-v5.jpg',
   '/projects': 'projects-v4.jpg',
   '/en/projects': 'projects-v4.jpg',
 };
@@ -206,12 +206,12 @@ function routeMetadata(route, markup) {
         alt: heading,
         width: pageSocialImage === 'social-pr-v4.jpg'
           ? 1536
-          : (pageSocialImage === 'pr-content-creation-v4.jpg' ? 2000 : (pageSocialImage.endsWith('-v4.jpg') ? 2200 : 1200)),
+          : (pageSocialImage === 'pr-content-creation-v4.jpg' ? 2000 : (/-v[45]\.jpg$/.test(pageSocialImage) ? 2200 : 1200)),
         height: pageSocialImage === '/og-image.jpg'
           ? 630
           : (pageSocialImage === 'social-pr-v4.jpg'
             ? 804
-            : (pageSocialImage === 'pr-content-creation-v4.jpg' ? 1046 : (pageSocialImage.endsWith('-v4.jpg') ? 1150 : 628))),
+            : (pageSocialImage === 'pr-content-creation-v4.jpg' ? 1046 : (/-v[45]\.jpg$/.test(pageSocialImage) ? 1150 : 628))),
         type: 'image/jpeg',
       }
       : socialImageFor(markup, post || featuredBlogPost),

@@ -20,10 +20,10 @@ const pageSocialImages = {
   '/en/services/social-pr': 'social-pr-v4.jpg',
   '/services/pr-content-creation': 'pr-content-creation-v4.jpg',
   '/en/services/pr-content-creation': 'pr-content-creation-v4.jpg',
-  '/services/influencer-relations': 'influencer-relations-v4.jpg',
-  '/en/services/influencer-relations': 'influencer-relations-v4.jpg',
-  '/services/communication-de-crise': 'crisis-communication-v4.jpg',
-  '/en/services/crisis-communication': 'crisis-communication-v4.jpg',
+  '/services/influencer-relations': 'influencer-relations-v5.jpg',
+  '/en/services/influencer-relations': 'influencer-relations-v5.jpg',
+  '/services/communication-de-crise': 'crisis-communication-v5.jpg',
+  '/en/services/crisis-communication': 'crisis-communication-v5.jpg',
   '/projects': 'projects-v4.jpg',
   '/en/projects': 'projects-v4.jpg',
 };
@@ -102,12 +102,12 @@ routes.forEach((route) => {
     const socialImagePath = pageSocialImages[route];
     const expectedWidth = socialImagePath === 'social-pr-v4.jpg'
       ? 1536
-      : (socialImagePath === 'pr-content-creation-v4.jpg' ? 2000 : (socialImagePath.endsWith('-v4.jpg') ? 2200 : 1200));
+      : (socialImagePath === 'pr-content-creation-v4.jpg' ? 2000 : (/-v[45]\.jpg$/.test(socialImagePath) ? 2200 : 1200));
     const expectedHeight = socialImagePath === '/og-image.jpg'
       ? 630
       : (socialImagePath === 'social-pr-v4.jpg'
         ? 804
-        : (socialImagePath === 'pr-content-creation-v4.jpg' ? 1046 : (socialImagePath.endsWith('-v4.jpg') ? 1150 : 628)));
+        : (socialImagePath === 'pr-content-creation-v4.jpg' ? 1046 : (/-v[45]\.jpg$/.test(socialImagePath) ? 1150 : 628)));
     const expectedSocialImage = socialImagePath.startsWith('/')
       ? `${siteUrl}${socialImagePath}`
       : `${siteUrl}/assets/social/pages/${socialImagePath}`;
