@@ -91,27 +91,38 @@ const defaultSocialImage = {
 };
 
 const pageSocialImages = {
-  '/about': 'home-v2.png',
-  '/en/about': 'home-v2.png',
+  '/contact': 'about-contact-v3.png',
+  '/about': 'about-contact-v3.png',
+  '/en/about': 'about-contact-v3.png',
   '/services': 'services-v4.jpg',
   '/en/services': 'services-v4.jpg',
-  '/services/media-relations': 'media-relations-v4.jpg',
+  '/services/media-relations': 'media-relations-fr-v7.png',
   '/en/services/media-relations': 'media-relations-v4.jpg',
   '/services/media-events': 'media-events-v4.jpg',
-  '/en/services/media-events': 'media-events-v4.jpg',
-  '/services/media-monitoring': 'media-monitoring-v4.jpg',
-  '/en/services/media-monitoring': 'media-monitoring-v4.jpg',
+  '/en/services/media-events': 'media-events-en-v7.png',
+  '/services/media-monitoring': 'media-monitoring-v7.png',
+  '/en/services/media-monitoring': 'media-monitoring-v7.png',
   '/services/social-pr': 'social-pr-v4.jpg',
   '/en/services/social-pr': 'social-pr-v4.jpg',
   '/services/pr-content-creation': 'pr-content-creation-v4.jpg',
-  '/en/services/pr-content-creation': 'pr-content-creation-v4.jpg',
+  '/en/services/pr-content-creation': 'pr-content-creation-en-v7.png',
   '/services/influencer-relations': 'influencer-relations-v5.jpg',
   '/en/services/influencer-relations': 'influencer-relations-v5.jpg',
   '/services/communication-de-crise': 'crisis-communication-v6.png',
   '/en/services/crisis-communication': 'crisis-communication-v6.png',
-  '/projects': 'projects-v4.jpg',
-  '/en/projects': 'projects-v4.jpg',
+  '/projects': 'projects-v7.png',
+  '/en/projects': 'projects-v7.png',
 };
+
+function pageSocialImageSize(filename) {
+  if (filename === 'home-v2.png' || filename === 'about-contact-v3.png') return { width: 2400, height: 1260 };
+  if (filename === 'media-monitoring-v7.png') return { width: 2400, height: 1254 };
+  if (filename === 'social-pr-v4.jpg') return { width: 1536, height: 804 };
+  if (filename === 'pr-content-creation-v4.jpg' || filename === 'pr-content-creation-en-v7.png') {
+    return { width: 2000, height: 1046 };
+  }
+  return { width: 2200, height: 1150 };
+}
 
 // Blog previews use dedicated, high-quality 1.91:1 JPEGs so social platforms
 // do not have to crop or heavily recompress the article artwork themselves.
@@ -169,6 +180,7 @@ function routeMetadata(route, markup) {
   const description = fitDescription(post?.excerpt || extractedDescription || fallbackDescription);
   const isHome = route === '/' || route === '/en';
   const pageSocialImage = pageSocialImages[route];
+  const pageSocialSize = pageSocialImage ? pageSocialImageSize(pageSocialImage) : null;
 
   const explicitMetadata = {
     '/services/communication-de-crise': {
@@ -204,16 +216,8 @@ function routeMetadata(route, markup) {
           ? `${siteUrl}${pageSocialImage}`
           : `${siteUrl}/assets/social/pages/${pageSocialImage}`,
         alt: heading,
-        width: pageSocialImage === 'home-v2.png'
-          ? 2400
-          : (pageSocialImage === 'social-pr-v4.jpg'
-            ? 1536
-            : (pageSocialImage === 'pr-content-creation-v4.jpg' ? 2000 : 2200)),
-        height: pageSocialImage === 'home-v2.png'
-          ? 1260
-          : (pageSocialImage === 'social-pr-v4.jpg'
-            ? 804
-            : (pageSocialImage === 'pr-content-creation-v4.jpg' ? 1046 : 1150)),
+        width: pageSocialSize.width,
+        height: pageSocialSize.height,
         type: pageSocialImage.endsWith('.png') ? 'image/png' : 'image/jpeg',
       }
       : socialImageFor(markup, post || featuredBlogPost),

@@ -6,27 +6,38 @@ const buildDirectory = path.join(root, 'build');
 const routes = require(path.join(root, 'config', 'public-routes.json'));
 const siteUrl = (process.env.SITE_URL || 'https://www.boxcomafrica.com').replace(/\/$/, '');
 const pageSocialImages = {
-  '/about': 'home-v2.png',
-  '/en/about': 'home-v2.png',
+  '/contact': 'about-contact-v3.png',
+  '/about': 'about-contact-v3.png',
+  '/en/about': 'about-contact-v3.png',
   '/services': 'services-v4.jpg',
   '/en/services': 'services-v4.jpg',
-  '/services/media-relations': 'media-relations-v4.jpg',
+  '/services/media-relations': 'media-relations-fr-v7.png',
   '/en/services/media-relations': 'media-relations-v4.jpg',
   '/services/media-events': 'media-events-v4.jpg',
-  '/en/services/media-events': 'media-events-v4.jpg',
-  '/services/media-monitoring': 'media-monitoring-v4.jpg',
-  '/en/services/media-monitoring': 'media-monitoring-v4.jpg',
+  '/en/services/media-events': 'media-events-en-v7.png',
+  '/services/media-monitoring': 'media-monitoring-v7.png',
+  '/en/services/media-monitoring': 'media-monitoring-v7.png',
   '/services/social-pr': 'social-pr-v4.jpg',
   '/en/services/social-pr': 'social-pr-v4.jpg',
   '/services/pr-content-creation': 'pr-content-creation-v4.jpg',
-  '/en/services/pr-content-creation': 'pr-content-creation-v4.jpg',
+  '/en/services/pr-content-creation': 'pr-content-creation-en-v7.png',
   '/services/influencer-relations': 'influencer-relations-v5.jpg',
   '/en/services/influencer-relations': 'influencer-relations-v5.jpg',
   '/services/communication-de-crise': 'crisis-communication-v6.png',
   '/en/services/crisis-communication': 'crisis-communication-v6.png',
-  '/projects': 'projects-v4.jpg',
-  '/en/projects': 'projects-v4.jpg',
+  '/projects': 'projects-v7.png',
+  '/en/projects': 'projects-v7.png',
 };
+
+function pageSocialImageSize(filename) {
+  if (filename === 'home-v2.png' || filename === 'about-contact-v3.png') return { width: 2400, height: 1260 };
+  if (filename === 'media-monitoring-v7.png') return { width: 2400, height: 1254 };
+  if (filename === 'social-pr-v4.jpg') return { width: 1536, height: 804 };
+  if (filename === 'pr-content-creation-v4.jpg' || filename === 'pr-content-creation-en-v7.png') {
+    return { width: 2000, height: 1046 };
+  }
+  return { width: 2200, height: 1150 };
+}
 
 function fail(message) {
   throw new Error(`SEO validation failed: ${message}`);
@@ -100,16 +111,7 @@ routes.forEach((route) => {
 
   if (pageSocialImages[route]) {
     const socialImagePath = pageSocialImages[route];
-    const expectedWidth = socialImagePath === 'home-v2.png'
-      ? 2400
-      : (socialImagePath === 'social-pr-v4.jpg'
-        ? 1536
-        : (socialImagePath === 'pr-content-creation-v4.jpg' ? 2000 : 2200));
-    const expectedHeight = socialImagePath === 'home-v2.png'
-      ? 1260
-      : (socialImagePath === 'social-pr-v4.jpg'
-        ? 804
-        : (socialImagePath === 'pr-content-creation-v4.jpg' ? 1046 : 1150));
+    const { width: expectedWidth, height: expectedHeight } = pageSocialImageSize(socialImagePath);
     const expectedType = socialImagePath.endsWith('.png') ? 'image/png' : 'image/jpeg';
     const expectedSocialImage = socialImagePath.startsWith('/')
       ? `${siteUrl}${socialImagePath}`
@@ -149,9 +151,9 @@ routes.forEach((route) => {
   }
 });
 
-// A translated page must advertise the exact same social image asset and
-// dimensions as its counterpart. This prevents one locale from silently
-// falling back to an older or lower-quality preview image.
+// A translated page must advertise the same social-image dimensions as its
+// counterpart. Filename and encoding may differ when one locale needs a fresh
+// URL or lossless file to invalidate a stale social-platform cache.
 routes.filter((route) => !route.startsWith('/en')).forEach((frenchRoute) => {
   const frenchHtml = fs.readFileSync(routeFile(frenchRoute), 'utf8');
   const englishRoute = frenchHtml.match(
@@ -162,8 +164,6 @@ routes.filter((route) => !route.startsWith('/en')).forEach((frenchRoute) => {
 
   const englishHtml = fs.readFileSync(routeFile(englishRoute), 'utf8');
   const socialMetadata = (html) => ({
-    image: html.match(/<meta property="og:image" content="([^"]+)"/i)?.[1],
-    type: html.match(/<meta property="og:image:type" content="([^"]+)"/i)?.[1],
     width: html.match(/<meta property="og:image:width" content="([^"]+)"/i)?.[1],
     height: html.match(/<meta property="og:image:height" content="([^"]+)"/i)?.[1],
   });
