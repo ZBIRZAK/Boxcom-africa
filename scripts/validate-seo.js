@@ -149,6 +149,30 @@ routes.forEach((route) => {
   }
 });
 
+// A translated page must advertise the exact same social image asset and
+// dimensions as its counterpart. This prevents one locale from silently
+// falling back to an older or lower-quality preview image.
+routes.filter((route) => !route.startsWith('/en')).forEach((frenchRoute) => {
+  const frenchHtml = fs.readFileSync(routeFile(frenchRoute), 'utf8');
+  const englishRoute = frenchHtml.match(
+    new RegExp(`<link rel="alternate" hreflang="en" href="${siteUrl.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}([^"]+)"`, 'i')
+  )?.[1];
+
+  if (!englishRoute || !routes.includes(englishRoute)) return;
+
+  const englishHtml = fs.readFileSync(routeFile(englishRoute), 'utf8');
+  const socialMetadata = (html) => ({
+    image: html.match(/<meta property="og:image" content="([^"]+)"/i)?.[1],
+    type: html.match(/<meta property="og:image:type" content="([^"]+)"/i)?.[1],
+    width: html.match(/<meta property="og:image:width" content="([^"]+)"/i)?.[1],
+    height: html.match(/<meta property="og:image:height" content="([^"]+)"/i)?.[1],
+  });
+
+  if (JSON.stringify(socialMetadata(frenchHtml)) !== JSON.stringify(socialMetadata(englishHtml))) {
+    fail(`${frenchRoute} and ${englishRoute} do not use identical social image metadata`);
+  }
+});
+
 const sitemap = fs.readFileSync(path.join(buildDirectory, 'sitemap.xml'), 'utf8');
 const sitemapUrls = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1]);
 if (sitemapUrls.length !== routes.length) fail('sitemap route count does not match the public route inventory');
